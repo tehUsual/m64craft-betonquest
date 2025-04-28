@@ -1,8 +1,8 @@
 npcs:
-  '184': "toad_bbh"
+  '24': "toad_progress"
 
 conversations:
-  toad_bbh:
+  toad_progress:
     quester: "Toad: Big Boo's Haunt"
     first: welcome
   
@@ -82,8 +82,6 @@ conversations:
         text: "[ ] -=Star=- 6"
         pointer: bye
 
-      ### STAR 7
-
       ### STAR 8 - KOOPA THE QUICK
       s8y:
         condition: "chk_s8_obtained"
@@ -121,5 +119,5 @@ conversations:
         pointer: bye
       s11n:
         condition: "!chk_s11_obtained"
-        text: "[ ] -=Star=- 12"
+        text: "[ ] -=Star=- 11"
         pointer: bye
