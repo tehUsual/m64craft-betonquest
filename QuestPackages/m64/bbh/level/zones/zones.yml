@@ -1,0 +1,3 @@
+events:
+  init_zones:       "init_merrygo"
+  deit_zones:       "deit_merrygo"
