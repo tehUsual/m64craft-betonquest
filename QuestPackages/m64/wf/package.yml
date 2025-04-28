@@ -25,7 +25,7 @@ events:
   # Wipe save
   wipe_level:         "folder wipe_stars"
 
-  ### Play music
+  # Play music
   e_play_music:       "folder core-music.e_play_bob"
   e_stop_music:       "folder core-music.e_stop_music"
 
