@@ -1,0 +1,93 @@
+variables:
+  s9:
+    door_loc:             -344;74;-129;marocraft
+  s10:
+    door_loc:             -395;97;-96;marocraft
+  s11:
+    door_loc:             -451;79;-58;marocraft
+
+
+npcs:
+  '1': "cpttoad_1"
+  '2': "cpttoad_2"
+  '3': "cpttoad_3"
+
+conversations:
+  cpttoad_1:
+    quester: "Captain Toad #1"
+    first: has_star,get_star
+
+    NPC_options:
+      has_star:
+        conditions: "chk_s9_obtained"
+        text: "Wow! I already gave you a star!"
+        #exit
+      get_star:
+        conditions: "!chk_s9_obtained"
+        text: "Ya-hoo! You found me!"
+        event: win_s9
+
+  cpttoad_2:
+    quester: "Captain Toad #2"
+    first: has_star,get_star
+
+    NPC_options:
+      has_star:
+        conditions: "chk_s10_obtained"
+        text: "Wow! I already gave you a star!"
+        #exit
+      get_star:
+        conditions: "!chk_s10_obtained"
+        text: "Ya-hoo! You found me!"
+        event: win_s10
+
+  cpttoad_3:
+    quester: "Captain Toad #3"
+    first: has_star,get_star
+
+    NPC_options:
+      has_star:
+        conditions: "chk_s11_obtained"
+        text: "Wow! I already gave you a star!"
+        #exit
+      get_star:
+        conditions: "!chk_s11_obtained"
+        text: "Ya-hoo! You found me!"
+        event: win_s11
+
+
+events:
+  ### STAR 9 - CAPTAIN TOAD 1
+  # Win
+  win_s9:                 "folder e_notif_s9_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s9_first,tag_add_s9_win,e_door_close_s9,e_stop_music,exit_star"
+  e_notif_s9_win:         "notify &3Lost Toad #1\n&2Cleared! io:title"
+  e_broad_s9_first:       "command broadcast &6%player% &2got a star: [BOB] Lost Toad #1"
+  tag_add_s9_win:         "tag add s9"
+  e_door_close_s9:        "door $s9.door_loc$ off"
+
+
+  ### STAR 10 - CAPTAIN TOAD 2
+  # Win
+  win_s10:                "folder e_notif_s10_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s10_first,tag_add_s10_win,e_door_close_s10,e_stop_music,exit_star"
+  e_notif_s10_win:        "notify &3Lost Toad #2\n&2Cleared! io:title"
+  e_broad_s10_first:      "command broadcast &6%player% &2got a star: [BOB] Lost Toad #2"
+  tag_add_s10_win:        "tag add s10"
+  e_door_close_s10:       "door $s10.door_loc$ off"
+
+  
+  ### STAR 11 - CAPTAIN TOAD 3
+  # Win
+  win_s11:                "folder e_notif_s11_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s11_first,tag_add_s11_win,e_door_close_s11,e_stop_music,exit_star"
+  e_notif_s11_win:        "notify &3Lost Toad #3\n&2Cleared! io:title"
+  e_broad_s11_first:      "command broadcast &6%player% &2got a star: [BOB] Lost Toad #3"
+  tag_add_s11_win:        "tag add s11"
+  e_door_close_s11:       "door $s11.door_loc$ off"
+
+
+conditions:
+  ### STAR 9 - CAPTAIN TOAD 1
+  chk_s9_obtained:        "tag s9"
+  ### STAR 10 - CAPTAIN TOAD 2
+  chk_s10_obtained:       "tag s10"
+  ### STAR 11 - CAPTAIN TOAD 3
+  chk_s11_obtained:       "tag s11"
