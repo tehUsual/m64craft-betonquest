@@ -1,0 +1,3 @@
+events:
+  init_bridges:           "folder init_brg_1"
+  deit_bridges:           "folder deit_brg_1"
