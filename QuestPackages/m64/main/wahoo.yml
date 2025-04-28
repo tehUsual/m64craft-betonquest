@@ -1,0 +1,61 @@
+
+
+events:
+  init_wahoo:                   "folder e_obj_add_wahoo,e_obj_add_wahoo2"
+  reset_wahoo:                  "folder e_obj_del_wahoo,e_obj_del_wahoo_delay,e_obj_del_wahoo2,e_obj_del_wahoo2_delay"
+
+  # Give
+  giveWahoo:                    "folder e_giveWahoo,e_obj_add_wahoo"
+  e_giveWahoo:                  "give i_wahoo:1 condition:!chk_has_wahoo notify"
+  giveWahoo2:                   "folder e_giveWahoo2,e_obj_add_wahoo2"
+  e_giveWahoo2:                 "give i_wahoo2:1 condition:!chk_has_wahoo2 notify"
+  e_obj_add_wahoo:              "objective add o_wahoo"
+  e_obj_add_wahoo2:             "objective add o_wahoo2"
+
+  # Reset
+  e_obj_del_wahoo:              "objective remove o_wahoo"
+  e_obj_del_wahoo2:             "objective remove o_wahoo2"
+
+  # Cooldown
+  fol_wahoo_cooldown_done:      "folder m64-sfx.e_wahoo_ready,e_obj_add_wahoo"
+  e_obj_add_wahoo_delay:        "objective add o_wahoo_cooldown"
+  e_obj_del_wahoo_delay:        "objective remove o_wahoo_cooldown"
+
+  fol_wahoo2_cooldown_done:     "folder m64-sfx.e_wahoo_ready,e_obj_add_wahoo2"
+  e_obj_add_wahoo2_delay:       "objective add o_wahoo2_cooldown"
+  e_obj_del_wahoo2_delay:       "objective remove o_wahoo2_cooldown"
+
+  # Action
+  # Normal
+  exec_wahoo:                   "if chk_wahoo_break fol_do_wahoo else fol_do_wahoo"
+  fol_do_wahoo:                 "folder e_wahoo,e_obj_add_wahoo_delay,m64-sfx.e_wahoo"
+  fol_do_wahoo2:                "folder e_wahoo,e_obj_add_wahoo2_delay,m64-sfx.e_wahoo"
+  e_wahoo:                      "velocity vector:(0;0.5;1.1) direction:relative_y modification:set"
+  # Broken
+  fol_do_broken_wahoo:          "folder e_broken_wahoo,e_obj_add_wahoo_delay,m64-sfx.e_wahoo_broken"
+  e_broken_wahoo:               "velocity vector:(0;0.5;7.1) direction:relative_y modification:set"
+
+
+
+objectives:
+  o_wahoo:                      "action right any condition:chk_can_wahoo event:exec_wahoo"
+  o_wahoo2:                     "action right any condition:chk_can_wahoo2 event:exec_wahoo"
+  o_wahoo_cooldown:             "delay 2 seconds interval:1 events:fol_wahoo_cooldown_done"
+  o_wahoo2_cooldown:            "delay 2 seconds interval:1 events:fol_wahoo2_cooldown_done"
+
+
+conditions:
+  chk_has_wahoo:                "item i_wahoo:1"
+  chk_has_wahoo2:               "item i_wahoo2:1"
+  
+  chk_wahoo_break:              "random 1-20"
+  chk_can_wahoo:                "and chk_holding_wahoo,chk_is_sneaking_wahoo"
+  chk_can_wahoo2:               "and chk_holding_wahoo2,chk_is_sneaking_wahoo"
+  chk_holding_wahoo:            "hand i_wahoo"
+  chk_holding_wahoo2:           "hand i_wahoo2"
+  chk_is_sneaking_wahoo:        "sneak"
+
+
+items:
+  i_wahoo:                      "minecraft:feather name:&6Wahoo lore:Must_be_sneaking_(2_sec_cool);&25%_super_wahoo"
+  i_wahoo2:                     "minecraft:feather name:&6Wahoo_2 lore:Must_be_sneaking_(2_sec_cool)"

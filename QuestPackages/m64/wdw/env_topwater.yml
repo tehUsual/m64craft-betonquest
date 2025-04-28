@@ -1,0 +1,643 @@
+variables:
+  interval:               20      # ticks
+  wt:
+    x1:                   -417
+    z1:                   420
+    x2:                   -495
+    z2:                   343
+
+    y1a:                  107
+    y2a:                  108
+    y2b:                  109
+    y3a:                  110
+    y3b:                  111
+    y3c:                  112
+    y3d:                  113
+    y3e:                  114
+    y3f:                  115
+    y4a:                  116
+    y4b:                  117
+    y4c:                  118
+    y4d:                  119
+    y4e:                  120
+    y4f:                  121
+    y4g:                  122
+    y4h:                  123
+    y5a:                  124
+    y5b:                  125
+    y5c:                  126
+    y5d:                  127
+    y5e:                  128
+    y5f:                  129
+    y5g:                  130
+    y5h:                  131
+
+    layer_1a:             $wt.x1$ $wt.y1a$ $wt.z1$ $wt.x2$ $wt.y1a$ $wt.z2$
+
+    layer_2a:             $wt.x1$ $wt.y2a$ $wt.z1$ $wt.x2$ $wt.y2a$ $wt.z2$
+    layer_2b:             $wt.x1$ $wt.y2b$ $wt.z1$ $wt.x2$ $wt.y2b$ $wt.z2$
+
+    layer_3a:             $wt.x1$ $wt.y3a$ $wt.z1$ $wt.x2$ $wt.y3a$ $wt.z2$
+    layer_3b:             $wt.x1$ $wt.y3b$ $wt.z1$ $wt.x2$ $wt.y3b$ $wt.z2$
+    layer_3c:             $wt.x1$ $wt.y3c$ $wt.z1$ $wt.x2$ $wt.y3c$ $wt.z2$
+    layer_3d:             $wt.x1$ $wt.y3d$ $wt.z1$ $wt.x2$ $wt.y3d$ $wt.z2$
+    layer_3e:             $wt.x1$ $wt.y3e$ $wt.z1$ $wt.x2$ $wt.y3e$ $wt.z2$
+    layer_3f:             $wt.x1$ $wt.y3f$ $wt.z1$ $wt.x2$ $wt.y3f$ $wt.z2$
+
+    layer_4a:             $wt.x1$ $wt.y4a$ $wt.z1$ $wt.x2$ $wt.y4a$ $wt.z2$
+    layer_4b:             $wt.x1$ $wt.y4b$ $wt.z1$ $wt.x2$ $wt.y4b$ $wt.z2$
+    layer_4c:             $wt.x1$ $wt.y4c$ $wt.z1$ $wt.x2$ $wt.y4c$ $wt.z2$
+    layer_4d:             $wt.x1$ $wt.y4d$ $wt.z1$ $wt.x2$ $wt.y4d$ $wt.z2$
+    layer_4e:             $wt.x1$ $wt.y4e$ $wt.z1$ $wt.x2$ $wt.y4e$ $wt.z2$
+    layer_4f:             $wt.x1$ $wt.y4f$ $wt.z1$ $wt.x2$ $wt.y4f$ $wt.z2$
+    layer_4g:             $wt.x1$ $wt.y4g$ $wt.z1$ $wt.x2$ $wt.y4g$ $wt.z2$
+    layer_4h:             $wt.x1$ $wt.y4h$ $wt.z1$ $wt.x2$ $wt.y4h$ $wt.z2$
+
+    layer_5a:             $wt.x1$ $wt.y5a$ $wt.z1$ $wt.x2$ $wt.y5a$ $wt.z2$
+    layer_5b:             $wt.x1$ $wt.y5b$ $wt.z1$ $wt.x2$ $wt.y5b$ $wt.z2$
+    layer_5c:             $wt.x1$ $wt.y5c$ $wt.z1$ $wt.x2$ $wt.y5c$ $wt.z2$
+    layer_5d:             $wt.x1$ $wt.y5d$ $wt.z1$ $wt.x2$ $wt.y5d$ $wt.z2$
+    layer_5e:             $wt.x1$ $wt.y5e$ $wt.z1$ $wt.x2$ $wt.y5e$ $wt.z2$
+    layer_5f:             $wt.x1$ $wt.y5f$ $wt.z1$ $wt.x2$ $wt.y5f$ $wt.z2$
+    layer_5g:             $wt.x1$ $wt.y5g$ $wt.z1$ $wt.x2$ $wt.y5g$ $wt.z2$
+    layer_5h:             $wt.x1$ $wt.y5h$ $wt.z1$ $wt.x2$ $wt.y5h$ $wt.z2$
+
+  # Platforms
+  pmat: minecraft:oak_planks
+  p1a:
+    x1: -468
+    z1: 410
+    x2: -465
+    z2: 413
+  p1b:
+    x1: -429
+    z1: 381
+    x2: -426
+    z2: 378
+  p2a:
+    x1: -468
+    z1: 394
+    x2: -465
+    z2: 391
+  p3a:
+    x1: -468
+    z1: 385
+    x2: -465
+    z2: 374
+  p4a:
+    x1: -468
+    z1: 368
+    x2: -465
+    z2: 365
+  p4b:
+    x1: -468
+    z1: 360
+    x2: -465
+    z2: 351
+  
+  switches:
+    s1:                 -442;107;347;marocraft
+    s2:                 -428;110;406;marocraft
+    s3:                 -454;116;413;marocraft
+    s4:                 -441;124;399;marocraft
+    s5:                 -442;132;344;marocraft
+
+
+
+events:
+  init_env_topwater:    "folder e_init_gp_water,e_init_top_switches"
+  reset_env_topwater:   "folder e_cleanup_top_switches"
+
+  
+  e_init_gp_water:      "if !chk_water_level_1 e_init_top_water else m64-main.e_dummy"
+  e_init_top_water:     "globalpoint wdw_tw 1 action:set"
+
+
+  ### Filling layers
+  e_twf_1a:             "command fillwater marocraft $wt.layer_1a$"   # 107-107
+
+  e_twf_2a:             "command fillwater marocraft $wt.layer_2a$"   # 108-109
+  e_twf_2b:             "command fillwater marocraft $wt.layer_2b$"
+
+  e_twf_3a:             "command fillwater marocraft $wt.layer_3a$"   # 110-115
+  e_twf_3b:             "command fillwater marocraft $wt.layer_3b$"
+  e_twf_3c:             "command fillwater marocraft $wt.layer_3c$"
+  e_twf_3d:             "command fillwater marocraft $wt.layer_3d$"
+  e_twf_3e:             "command fillwater marocraft $wt.layer_3e$"
+  e_twf_3f:             "command fillwater marocraft $wt.layer_3f$"
+
+  e_twf_4a:             "command fillwater marocraft $wt.layer_4a$"   # 116-123
+  e_twf_4b:             "command fillwater marocraft $wt.layer_4b$"
+  e_twf_4c:             "command fillwater marocraft $wt.layer_4c$"
+  e_twf_4d:             "command fillwater marocraft $wt.layer_4d$"
+  e_twf_4e:             "command fillwater marocraft $wt.layer_4e$"
+  e_twf_4f:             "command fillwater marocraft $wt.layer_4f$"
+  e_twf_4g:             "command fillwater marocraft $wt.layer_4g$"
+  e_twf_4h:             "command fillwater marocraft $wt.layer_4h$"
+
+  e_twf_5a:             "command fillwater marocraft $wt.layer_5a$"   # 124-131
+  e_twf_5b:             "command fillwater marocraft $wt.layer_5b$"
+  e_twf_5c:             "command fillwater marocraft $wt.layer_5c$"
+  e_twf_5d:             "command fillwater marocraft $wt.layer_5d$"
+  e_twf_5e:             "command fillwater marocraft $wt.layer_5e$"
+  e_twf_5f:             "command fillwater marocraft $wt.layer_5f$"
+  e_twf_5g:             "command fillwater marocraft $wt.layer_5g$"
+  e_twf_5h:             "command fillwater marocraft $wt.layer_5h$"
+
+  ### Clearing layers
+  e_twc_1a:             "command clearwater marocraft $wt.layer_1a$"  # 107-107
+
+  e_twc_2a:             "command clearwater marocraft $wt.layer_2a$"  # 108-109
+  e_twc_2b:             "command clearwater marocraft $wt.layer_2b$"
+
+  e_twc_3a:             "command clearwater marocraft $wt.layer_3a$"  # 110-115
+  e_twc_3b:             "command clearwater marocraft $wt.layer_3b$"
+  e_twc_3c:             "command clearwater marocraft $wt.layer_3c$"
+  e_twc_3d:             "command clearwater marocraft $wt.layer_3d$"
+  e_twc_3e:             "command clearwater marocraft $wt.layer_3e$"
+  e_twc_3f:             "command clearwater marocraft $wt.layer_3f$"
+
+  e_twc_4a:             "command clearwater marocraft $wt.layer_4a$"  # 116-123
+  e_twc_4b:             "command clearwater marocraft $wt.layer_4b$"
+  e_twc_4c:             "command clearwater marocraft $wt.layer_4c$"
+  e_twc_4d:             "command clearwater marocraft $wt.layer_4d$"
+  e_twc_4e:             "command clearwater marocraft $wt.layer_4e$"
+  e_twc_4f:             "command clearwater marocraft $wt.layer_4f$"
+  e_twc_4g:             "command clearwater marocraft $wt.layer_4g$"
+  e_twc_4h:             "command clearwater marocraft $wt.layer_4h$"
+
+  e_twc_5a:             "command clearwater marocraft $wt.layer_5a$"  # 124-131
+  e_twc_5b:             "command clearwater marocraft $wt.layer_5b$"
+  e_twc_5c:             "command clearwater marocraft $wt.layer_5c$"
+  e_twc_5d:             "command clearwater marocraft $wt.layer_5d$"
+  e_twc_5e:             "command clearwater marocraft $wt.layer_5e$"
+  e_twc_5f:             "command clearwater marocraft $wt.layer_5f$"
+  e_twc_5g:             "command clearwater marocraft $wt.layer_5g$"
+  e_twc_5h:             "command clearwater marocraft $wt.layer_5h$"
+
+  # Top   131, 123, 115, 109, 107, 106
+  ### Water handling
+  # Layer 1
+  e_fill_layer_1:       "folder e_twf_1a"
+  e_clear_layer_1:      "folder e_twc_1a"
+
+  # Layer 2
+  e_fill_layer_2:       "folder e_twf_2a,e_twf_2b period:$interval$ ticks"
+  e_clear_layer_2:      "folder e_twc_2b,e_twc_2a period:$interval$ ticks"
+
+  # Layer 3
+  e_fill_layer_3:       "folder e_twf_3a,e_twf_3b,e_twf_3c,e_twf_3d,e_twf_3e,e_twf_3f period:$interval$ ticks"
+  e_clear_layer_3:      "folder e_twc_3f,e_twc_3e,e_twc_3d,e_twc_3c,e_twc_3b,e_twc_3a period:$interval$ ticks"
+
+  # Layer 4
+  e_fill_layer_4:       "folder e_twf_4a,e_twf_4b,e_twf_4c,e_twf_4d,e_twf_4e,e_twf_4f,e_twf_4g,e_twf_4h period:$interval$ ticks"
+  e_clear_layer_4:      "folder e_twc_4h,e_twc_4g,e_twc_4f,e_twc_4e,e_twc_4d,e_twc_4c,e_twc_4b,e_twc_4a period:$interval$ ticks"
+
+  # Layer 5
+  e_fill_layer_5:       "folder e_twf_5a,e_twf_5b,e_twf_5c,e_twf_5d,e_twf_5e,e_twf_5f,e_twf_5g,e_twf_5h period:$interval$ ticks"
+  e_clear_layer_5:      "folder e_twc_5h,e_twc_5g,e_twc_5f,e_twc_5e,e_twc_5d,e_twc_5c,e_twc_5b,e_twc_5a period:$interval$ ticks"
+
+
+  ### Platforms ###
+  # Platform 1
+  e_pf_1a_1a_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y1a$ $p1a.z1$ $p1a.x2$ $wt.y1a$ $p1a.z2$ $pmat$"
+  e_pf_1a_1a_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y1a$ $p1a.z1$ $p1a.x2$ $wt.y1a$ $p1a.z2$ minecraft:air"
+
+  e_pf_1a_2a_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y2a$ $p1a.z1$ $p1a.x2$ $wt.y2a$ $p1a.z2$ $pmat$"
+  e_pf_1a_2a_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y2a$ $p1a.z1$ $p1a.x2$ $wt.y2a$ $p1a.z2$ minecraft:air"
+  e_pf_1a_2b_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y2b$ $p1a.z1$ $p1a.x2$ $wt.y2b$ $p1a.z2$ $pmat$"
+  e_pf_1a_2b_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y2b$ $p1a.z1$ $p1a.x2$ $wt.y2b$ $p1a.z2$ minecraft:air"
+
+  e_pf_1a_3a_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3a$ $p1a.z1$ $p1a.x2$ $wt.y3a$ $p1a.z2$ $pmat$"
+  e_pf_1a_3a_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3a$ $p1a.z1$ $p1a.x2$ $wt.y3a$ $p1a.z2$ minecraft:air"
+  e_pf_1a_3b_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3b$ $p1a.z1$ $p1a.x2$ $wt.y3b$ $p1a.z2$ $pmat$"
+  e_pf_1a_3b_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3b$ $p1a.z1$ $p1a.x2$ $wt.y3b$ $p1a.z2$ minecraft:air"
+  e_pf_1a_3c_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3c$ $p1a.z1$ $p1a.x2$ $wt.y3c$ $p1a.z2$ $pmat$"
+  e_pf_1a_3c_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3c$ $p1a.z1$ $p1a.x2$ $wt.y3c$ $p1a.z2$ minecraft:air"
+  e_pf_1a_3d_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3d$ $p1a.z1$ $p1a.x2$ $wt.y3d$ $p1a.z2$ $pmat$"
+  e_pf_1a_3d_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3d$ $p1a.z1$ $p1a.x2$ $wt.y3d$ $p1a.z2$ minecraft:air"
+  e_pf_1a_3e_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3e$ $p1a.z1$ $p1a.x2$ $wt.y3e$ $p1a.z2$ $pmat$"
+  e_pf_1a_3e_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3e$ $p1a.z1$ $p1a.x2$ $wt.y3e$ $p1a.z2$ minecraft:air"
+  e_pf_1a_3f_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3f$ $p1a.z1$ $p1a.x2$ $wt.y3f$ $p1a.z2$ $pmat$"
+  e_pf_1a_3f_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y3f$ $p1a.z1$ $p1a.x2$ $wt.y3f$ $p1a.z2$ minecraft:air"
+
+  e_pf_1a_4a_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4a$ $p1a.z1$ $p1a.x2$ $wt.y4a$ $p1a.z2$ $pmat$"
+  e_pf_1a_4a_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4a$ $p1a.z1$ $p1a.x2$ $wt.y4a$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4b_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4b$ $p1a.z1$ $p1a.x2$ $wt.y4b$ $p1a.z2$ $pmat$"
+  e_pf_1a_4b_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4b$ $p1a.z1$ $p1a.x2$ $wt.y4b$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4c_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4c$ $p1a.z1$ $p1a.x2$ $wt.y4c$ $p1a.z2$ $pmat$"
+  e_pf_1a_4c_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4c$ $p1a.z1$ $p1a.x2$ $wt.y4c$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4d_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4d$ $p1a.z1$ $p1a.x2$ $wt.y4d$ $p1a.z2$ $pmat$"
+  e_pf_1a_4d_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4d$ $p1a.z1$ $p1a.x2$ $wt.y4d$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4e_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4e$ $p1a.z1$ $p1a.x2$ $wt.y4e$ $p1a.z2$ $pmat$"
+  e_pf_1a_4e_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4e$ $p1a.z1$ $p1a.x2$ $wt.y4e$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4f_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4f$ $p1a.z1$ $p1a.x2$ $wt.y4f$ $p1a.z2$ $pmat$"
+  e_pf_1a_4f_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4f$ $p1a.z1$ $p1a.x2$ $wt.y4f$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4g_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4g$ $p1a.z1$ $p1a.x2$ $wt.y4g$ $p1a.z2$ $pmat$"
+  e_pf_1a_4g_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4g$ $p1a.z1$ $p1a.x2$ $wt.y4g$ $p1a.z2$ minecraft:air"
+  e_pf_1a_4h_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4h$ $p1a.z1$ $p1a.x2$ $wt.y4h$ $p1a.z2$ $pmat$"
+  e_pf_1a_4h_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y4h$ $p1a.z1$ $p1a.x2$ $wt.y4h$ $p1a.z2$ minecraft:air"
+
+  e_pf_1a_5a_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5a$ $p1a.z1$ $p1a.x2$ $wt.y5a$ $p1a.z2$ $pmat$"
+  e_pf_1a_5a_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5a$ $p1a.z1$ $p1a.x2$ $wt.y5a$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5b_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5b$ $p1a.z1$ $p1a.x2$ $wt.y5b$ $p1a.z2$ $pmat$"
+  e_pf_1a_5b_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5b$ $p1a.z1$ $p1a.x2$ $wt.y5b$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5c_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5c$ $p1a.z1$ $p1a.x2$ $wt.y5c$ $p1a.z2$ $pmat$"
+  e_pf_1a_5c_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5c$ $p1a.z1$ $p1a.x2$ $wt.y5c$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5d_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5d$ $p1a.z1$ $p1a.x2$ $wt.y5d$ $p1a.z2$ $pmat$"
+  e_pf_1a_5d_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5d$ $p1a.z1$ $p1a.x2$ $wt.y5d$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5e_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5e$ $p1a.z1$ $p1a.x2$ $wt.y5e$ $p1a.z2$ $pmat$"
+  e_pf_1a_5e_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5e$ $p1a.z1$ $p1a.x2$ $wt.y5e$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5f_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5f$ $p1a.z1$ $p1a.x2$ $wt.y5f$ $p1a.z2$ $pmat$"
+  e_pf_1a_5f_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5f$ $p1a.z1$ $p1a.x2$ $wt.y5f$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5g_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5g$ $p1a.z1$ $p1a.x2$ $wt.y5g$ $p1a.z2$ $pmat$"
+  e_pf_1a_5g_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5g$ $p1a.z1$ $p1a.x2$ $wt.y5g$ $p1a.z2$ minecraft:air"
+  e_pf_1a_5h_set:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5h$ $p1a.z1$ $p1a.x2$ $wt.y5h$ $p1a.z2$ $pmat$"
+  e_pf_1a_5h_air:       "command execute in minecraft:marocraft run fill $p1a.x1$ $wt.y5h$ $p1a.z1$ $p1a.x2$ $wt.y5h$ $p1a.z2$ minecraft:air"
+
+  # Platform 2
+  e_pf_1b_1a_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y1a$ $p1b.z1$ $p1b.x2$ $wt.y1a$ $p1b.z2$ $pmat$"
+  e_pf_1b_1a_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y1a$ $p1b.z1$ $p1b.x2$ $wt.y1a$ $p1b.z2$ minecraft:air"
+
+  e_pf_1b_2a_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y2a$ $p1b.z1$ $p1b.x2$ $wt.y2a$ $p1b.z2$ $pmat$"
+  e_pf_1b_2a_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y2a$ $p1b.z1$ $p1b.x2$ $wt.y2a$ $p1b.z2$ minecraft:air"
+  e_pf_1b_2b_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y2b$ $p1b.z1$ $p1b.x2$ $wt.y2b$ $p1b.z2$ $pmat$"
+  e_pf_1b_2b_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y2b$ $p1b.z1$ $p1b.x2$ $wt.y2b$ $p1b.z2$ minecraft:air"
+
+  e_pf_1b_3a_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3a$ $p1b.z1$ $p1b.x2$ $wt.y3a$ $p1b.z2$ $pmat$"
+  e_pf_1b_3a_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3a$ $p1b.z1$ $p1b.x2$ $wt.y3a$ $p1b.z2$ minecraft:air"
+  e_pf_1b_3b_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3b$ $p1b.z1$ $p1b.x2$ $wt.y3b$ $p1b.z2$ $pmat$"
+  e_pf_1b_3b_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3b$ $p1b.z1$ $p1b.x2$ $wt.y3b$ $p1b.z2$ minecraft:air"
+  e_pf_1b_3c_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3c$ $p1b.z1$ $p1b.x2$ $wt.y3c$ $p1b.z2$ $pmat$"
+  e_pf_1b_3c_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3c$ $p1b.z1$ $p1b.x2$ $wt.y3c$ $p1b.z2$ minecraft:air"
+  e_pf_1b_3d_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3d$ $p1b.z1$ $p1b.x2$ $wt.y3d$ $p1b.z2$ $pmat$"
+  e_pf_1b_3d_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3d$ $p1b.z1$ $p1b.x2$ $wt.y3d$ $p1b.z2$ minecraft:air"
+  e_pf_1b_3e_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3e$ $p1b.z1$ $p1b.x2$ $wt.y3e$ $p1b.z2$ $pmat$"
+  e_pf_1b_3e_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3e$ $p1b.z1$ $p1b.x2$ $wt.y3e$ $p1b.z2$ minecraft:air"
+  e_pf_1b_3f_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3f$ $p1b.z1$ $p1b.x2$ $wt.y3f$ $p1b.z2$ $pmat$"
+  e_pf_1b_3f_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y3f$ $p1b.z1$ $p1b.x2$ $wt.y3f$ $p1b.z2$ minecraft:air"
+
+  e_pf_1b_4a_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4a$ $p1b.z1$ $p1b.x2$ $wt.y4a$ $p1b.z2$ $pmat$"
+  e_pf_1b_4a_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4a$ $p1b.z1$ $p1b.x2$ $wt.y4a$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4b_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4b$ $p1b.z1$ $p1b.x2$ $wt.y4b$ $p1b.z2$ $pmat$"
+  e_pf_1b_4b_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4b$ $p1b.z1$ $p1b.x2$ $wt.y4b$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4c_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4c$ $p1b.z1$ $p1b.x2$ $wt.y4c$ $p1b.z2$ $pmat$"
+  e_pf_1b_4c_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4c$ $p1b.z1$ $p1b.x2$ $wt.y4c$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4d_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4d$ $p1b.z1$ $p1b.x2$ $wt.y4d$ $p1b.z2$ $pmat$"
+  e_pf_1b_4d_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4d$ $p1b.z1$ $p1b.x2$ $wt.y4d$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4e_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4e$ $p1b.z1$ $p1b.x2$ $wt.y4e$ $p1b.z2$ $pmat$"
+  e_pf_1b_4e_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4e$ $p1b.z1$ $p1b.x2$ $wt.y4e$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4f_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4f$ $p1b.z1$ $p1b.x2$ $wt.y4f$ $p1b.z2$ $pmat$"
+  e_pf_1b_4f_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4f$ $p1b.z1$ $p1b.x2$ $wt.y4f$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4g_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4g$ $p1b.z1$ $p1b.x2$ $wt.y4g$ $p1b.z2$ $pmat$"
+  e_pf_1b_4g_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4g$ $p1b.z1$ $p1b.x2$ $wt.y4g$ $p1b.z2$ minecraft:air"
+  e_pf_1b_4h_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4h$ $p1b.z1$ $p1b.x2$ $wt.y4h$ $p1b.z2$ $pmat$"
+  e_pf_1b_4h_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y4h$ $p1b.z1$ $p1b.x2$ $wt.y4h$ $p1b.z2$ minecraft:air"
+
+  e_pf_1b_5a_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5a$ $p1b.z1$ $p1b.x2$ $wt.y5a$ $p1b.z2$ $pmat$"
+  e_pf_1b_5a_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5a$ $p1b.z1$ $p1b.x2$ $wt.y5a$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5b_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5b$ $p1b.z1$ $p1b.x2$ $wt.y5b$ $p1b.z2$ $pmat$"
+  e_pf_1b_5b_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5b$ $p1b.z1$ $p1b.x2$ $wt.y5b$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5c_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5c$ $p1b.z1$ $p1b.x2$ $wt.y5c$ $p1b.z2$ $pmat$"
+  e_pf_1b_5c_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5c$ $p1b.z1$ $p1b.x2$ $wt.y5c$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5d_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5d$ $p1b.z1$ $p1b.x2$ $wt.y5d$ $p1b.z2$ $pmat$"
+  e_pf_1b_5d_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5d$ $p1b.z1$ $p1b.x2$ $wt.y5d$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5e_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5e$ $p1b.z1$ $p1b.x2$ $wt.y5e$ $p1b.z2$ $pmat$"
+  e_pf_1b_5e_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5e$ $p1b.z1$ $p1b.x2$ $wt.y5e$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5f_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5f$ $p1b.z1$ $p1b.x2$ $wt.y5f$ $p1b.z2$ $pmat$"
+  e_pf_1b_5f_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5f$ $p1b.z1$ $p1b.x2$ $wt.y5f$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5g_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5g$ $p1b.z1$ $p1b.x2$ $wt.y5g$ $p1b.z2$ $pmat$"
+  e_pf_1b_5g_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5g$ $p1b.z1$ $p1b.x2$ $wt.y5g$ $p1b.z2$ minecraft:air"
+  e_pf_1b_5h_set:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5h$ $p1b.z1$ $p1b.x2$ $wt.y5h$ $p1b.z2$ $pmat$"
+  e_pf_1b_5h_air:       "command execute in minecraft:marocraft run fill $p1b.x1$ $wt.y5h$ $p1b.z1$ $p1b.x2$ $wt.y5h$ $p1b.z2$ minecraft:air"
+
+  # Platform 3
+  e_pf_2a_3b_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3b$ $p2a.z1$ $p2a.x2$ $wt.y3b$ $p2a.z2$ $pmat$"
+  e_pf_2a_3b_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3b$ $p2a.z1$ $p2a.x2$ $wt.y3b$ $p2a.z2$ minecraft:air"
+  e_pf_2a_3c_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3c$ $p2a.z1$ $p2a.x2$ $wt.y3c$ $p2a.z2$ $pmat$"
+  e_pf_2a_3c_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3c$ $p2a.z1$ $p2a.x2$ $wt.y3c$ $p2a.z2$ minecraft:air"
+  e_pf_2a_3d_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3d$ $p2a.z1$ $p2a.x2$ $wt.y3d$ $p2a.z2$ $pmat$"
+  e_pf_2a_3d_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3d$ $p2a.z1$ $p2a.x2$ $wt.y3d$ $p2a.z2$ minecraft:air"
+  e_pf_2a_3e_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3e$ $p2a.z1$ $p2a.x2$ $wt.y3e$ $p2a.z2$ $pmat$"
+  e_pf_2a_3e_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3e$ $p2a.z1$ $p2a.x2$ $wt.y3e$ $p2a.z2$ minecraft:air"
+  e_pf_2a_3f_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3f$ $p2a.z1$ $p2a.x2$ $wt.y3f$ $p2a.z2$ $pmat$"
+  e_pf_2a_3f_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y3f$ $p2a.z1$ $p2a.x2$ $wt.y3f$ $p2a.z2$ minecraft:air"
+
+  e_pf_2a_4a_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4a$ $p2a.z1$ $p2a.x2$ $wt.y4a$ $p2a.z2$ $pmat$"
+  e_pf_2a_4a_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4a$ $p2a.z1$ $p2a.x2$ $wt.y4a$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4b_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4b$ $p2a.z1$ $p2a.x2$ $wt.y4b$ $p2a.z2$ $pmat$"
+  e_pf_2a_4b_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4b$ $p2a.z1$ $p2a.x2$ $wt.y4b$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4c_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4c$ $p2a.z1$ $p2a.x2$ $wt.y4c$ $p2a.z2$ $pmat$"
+  e_pf_2a_4c_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4c$ $p2a.z1$ $p2a.x2$ $wt.y4c$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4d_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4d$ $p2a.z1$ $p2a.x2$ $wt.y4d$ $p2a.z2$ $pmat$"
+  e_pf_2a_4d_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4d$ $p2a.z1$ $p2a.x2$ $wt.y4d$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4e_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4e$ $p2a.z1$ $p2a.x2$ $wt.y4e$ $p2a.z2$ $pmat$"
+  e_pf_2a_4e_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4e$ $p2a.z1$ $p2a.x2$ $wt.y4e$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4f_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4f$ $p2a.z1$ $p2a.x2$ $wt.y4f$ $p2a.z2$ $pmat$"
+  e_pf_2a_4f_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4f$ $p2a.z1$ $p2a.x2$ $wt.y4f$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4g_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4g$ $p2a.z1$ $p2a.x2$ $wt.y4g$ $p2a.z2$ $pmat$"
+  e_pf_2a_4g_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4g$ $p2a.z1$ $p2a.x2$ $wt.y4g$ $p2a.z2$ minecraft:air"
+  e_pf_2a_4h_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4h$ $p2a.z1$ $p2a.x2$ $wt.y4h$ $p2a.z2$ $pmat$"
+  e_pf_2a_4h_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y4h$ $p2a.z1$ $p2a.x2$ $wt.y4h$ $p2a.z2$ minecraft:air"
+
+  e_pf_2a_5a_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5a$ $p2a.z1$ $p2a.x2$ $wt.y5a$ $p2a.z2$ $pmat$"
+  e_pf_2a_5a_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5a$ $p2a.z1$ $p2a.x2$ $wt.y5a$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5b_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5b$ $p2a.z1$ $p2a.x2$ $wt.y5b$ $p2a.z2$ $pmat$"
+  e_pf_2a_5b_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5b$ $p2a.z1$ $p2a.x2$ $wt.y5b$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5c_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5c$ $p2a.z1$ $p2a.x2$ $wt.y5c$ $p2a.z2$ $pmat$"
+  e_pf_2a_5c_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5c$ $p2a.z1$ $p2a.x2$ $wt.y5c$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5d_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5d$ $p2a.z1$ $p2a.x2$ $wt.y5d$ $p2a.z2$ $pmat$"
+  e_pf_2a_5d_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5d$ $p2a.z1$ $p2a.x2$ $wt.y5d$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5e_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5e$ $p2a.z1$ $p2a.x2$ $wt.y5e$ $p2a.z2$ $pmat$"
+  e_pf_2a_5e_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5e$ $p2a.z1$ $p2a.x2$ $wt.y5e$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5f_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5f$ $p2a.z1$ $p2a.x2$ $wt.y5f$ $p2a.z2$ $pmat$"
+  e_pf_2a_5f_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5f$ $p2a.z1$ $p2a.x2$ $wt.y5f$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5g_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5g$ $p2a.z1$ $p2a.x2$ $wt.y5g$ $p2a.z2$ $pmat$"
+  e_pf_2a_5g_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5g$ $p2a.z1$ $p2a.x2$ $wt.y5g$ $p2a.z2$ minecraft:air"
+  e_pf_2a_5h_set:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5h$ $p2a.z1$ $p2a.x2$ $wt.y5h$ $p2a.z2$ $pmat$"
+  e_pf_2a_5h_air:       "command execute in minecraft:marocraft run fill $p2a.x1$ $wt.y5h$ $p2a.z1$ $p2a.x2$ $wt.y5h$ $p2a.z2$ minecraft:air"
+
+  # Platform 4
+  e_pf_3a_4c_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4c$ $p3a.z1$ $p3a.x2$ $wt.y4c$ $p3a.z2$ $pmat$"
+  e_pf_3a_4c_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4c$ $p3a.z1$ $p3a.x2$ $wt.y4c$ $p3a.z2$ minecraft:air"
+  e_pf_3a_4d_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4d$ $p3a.z1$ $p3a.x2$ $wt.y4d$ $p3a.z2$ $pmat$"
+  e_pf_3a_4d_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4d$ $p3a.z1$ $p3a.x2$ $wt.y4d$ $p3a.z2$ minecraft:air"
+  e_pf_3a_4e_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4e$ $p3a.z1$ $p3a.x2$ $wt.y4e$ $p3a.z2$ $pmat$"
+  e_pf_3a_4e_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4e$ $p3a.z1$ $p3a.x2$ $wt.y4e$ $p3a.z2$ minecraft:air"
+  e_pf_3a_4f_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4f$ $p3a.z1$ $p3a.x2$ $wt.y4f$ $p3a.z2$ $pmat$"
+  e_pf_3a_4f_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4f$ $p3a.z1$ $p3a.x2$ $wt.y4f$ $p3a.z2$ minecraft:air"
+  e_pf_3a_4g_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4g$ $p3a.z1$ $p3a.x2$ $wt.y4g$ $p3a.z2$ $pmat$"
+  e_pf_3a_4g_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4g$ $p3a.z1$ $p3a.x2$ $wt.y4g$ $p3a.z2$ minecraft:air"
+  e_pf_3a_4h_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4h$ $p3a.z1$ $p3a.x2$ $wt.y4h$ $p3a.z2$ $pmat$"
+  e_pf_3a_4h_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y4h$ $p3a.z1$ $p3a.x2$ $wt.y4h$ $p3a.z2$ minecraft:air"
+
+  e_pf_3a_5a_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5a$ $p3a.z1$ $p3a.x2$ $wt.y5a$ $p3a.z2$ $pmat$"
+  e_pf_3a_5a_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5a$ $p3a.z1$ $p3a.x2$ $wt.y5a$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5b_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5b$ $p3a.z1$ $p3a.x2$ $wt.y5b$ $p3a.z2$ $pmat$"
+  e_pf_3a_5b_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5b$ $p3a.z1$ $p3a.x2$ $wt.y5b$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5c_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5c$ $p3a.z1$ $p3a.x2$ $wt.y5c$ $p3a.z2$ $pmat$"
+  e_pf_3a_5c_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5c$ $p3a.z1$ $p3a.x2$ $wt.y5c$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5d_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5d$ $p3a.z1$ $p3a.x2$ $wt.y5d$ $p3a.z2$ $pmat$"
+  e_pf_3a_5d_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5d$ $p3a.z1$ $p3a.x2$ $wt.y5d$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5e_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5e$ $p3a.z1$ $p3a.x2$ $wt.y5e$ $p3a.z2$ $pmat$"
+  e_pf_3a_5e_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5e$ $p3a.z1$ $p3a.x2$ $wt.y5e$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5f_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5f$ $p3a.z1$ $p3a.x2$ $wt.y5f$ $p3a.z2$ $pmat$"
+  e_pf_3a_5f_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5f$ $p3a.z1$ $p3a.x2$ $wt.y5f$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5g_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5g$ $p3a.z1$ $p3a.x2$ $wt.y5g$ $p3a.z2$ $pmat$"
+  e_pf_3a_5g_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5g$ $p3a.z1$ $p3a.x2$ $wt.y5g$ $p3a.z2$ minecraft:air"
+  e_pf_3a_5h_set:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5h$ $p3a.z1$ $p3a.x2$ $wt.y5h$ $p3a.z2$ $pmat$"
+  e_pf_3a_5h_air:       "command execute in minecraft:marocraft run fill $p3a.x1$ $wt.y5h$ $p3a.z1$ $p3a.x2$ $wt.y5h$ $p3a.z2$ minecraft:air"
+
+  # Platform 5
+  e_pf_4a_5f_set:       "command execute in minecraft:marocraft run fill $p4a.x1$ $wt.y5f$ $p4a.z1$ $p4a.x2$ $wt.y5f$ $p4a.z2$ $pmat$"
+  e_pf_4a_5f_air:       "command execute in minecraft:marocraft run fill $p4a.x1$ $wt.y5f$ $p4a.z1$ $p4a.x2$ $wt.y5f$ $p4a.z2$ minecraft:air"
+  e_pf_4a_5g_set:       "command execute in minecraft:marocraft run fill $p4a.x1$ $wt.y5g$ $p4a.z1$ $p4a.x2$ $wt.y5g$ $p4a.z2$ $pmat$"
+  e_pf_4a_5g_air:       "command execute in minecraft:marocraft run fill $p4a.x1$ $wt.y5g$ $p4a.z1$ $p4a.x2$ $wt.y5g$ $p4a.z2$ minecraft:air"
+  e_pf_4a_5h_set:       "command execute in minecraft:marocraft run fill $p4a.x1$ $wt.y5h$ $p4a.z1$ $p4a.x2$ $wt.y5h$ $p4a.z2$ $pmat$"
+  e_pf_4a_5h_air:       "command execute in minecraft:marocraft run fill $p4a.x1$ $wt.y5h$ $p4a.z1$ $p4a.x2$ $wt.y5h$ $p4a.z2$ minecraft:air"
+
+  # Platform 6
+  e_pf_4b_5f_set:       "command execute in minecraft:marocraft run fill $p4b.x1$ $wt.y5f$ $p4b.z1$ $p4b.x2$ $wt.y5f$ $p4b.z2$ $pmat$"
+  e_pf_4b_5f_air:       "command execute in minecraft:marocraft run fill $p4b.x1$ $wt.y5f$ $p4b.z1$ $p4b.x2$ $wt.y5f$ $p4b.z2$ minecraft:air"
+  e_pf_4b_5g_set:       "command execute in minecraft:marocraft run fill $p4b.x1$ $wt.y5g$ $p4b.z1$ $p4b.x2$ $wt.y5g$ $p4b.z2$ $pmat$"
+  e_pf_4b_5g_air:       "command execute in minecraft:marocraft run fill $p4b.x1$ $wt.y5g$ $p4b.z1$ $p4b.x2$ $wt.y5g$ $p4b.z2$ minecraft:air"
+  e_pf_4b_5h_set:       "command execute in minecraft:marocraft run fill $p4b.x1$ $wt.y5h$ $p4b.z1$ $p4b.x2$ $wt.y5h$ $p4b.z2$ $pmat$"
+  e_pf_4b_5h_air:       "command execute in minecraft:marocraft run fill $p4b.x1$ $wt.y5h$ $p4b.z1$ $p4b.x2$ $wt.y5h$ $p4b.z2$ minecraft:air"
+
+
+  ### Layer - 1 ###
+  # UP
+  e_set_t_up_1:         "folder e_twf_1a"
+  # DOWN
+  e_set_t_dn_1:         "folder e_twc_1a"
+  
+  
+  ### Layer - 2 ###
+  # UP
+  e_set_t_up_2:         "folder e_set_t_up_2a,e_set_t_up_2b period:$interval$ ticks"
+  e_set_t_up_2a:        "folder e_pf_1a_1a_air,e_pf_1b_1a_air,e_twf_2a,e_pf_1a_2a_set,e_pf_1b_2a_set"
+  e_set_t_up_2b:        "folder e_pf_1a_2a_air,e_pf_1b_2a_air,e_twf_2b,e_pf_1a_2b_set,e_pf_1b_2b_set"
+
+  # DOWN
+  e_set_t_dn_2:         "folder e_set_t_dn_2b,e_set_t_dn_2a period:$interval$ ticks"
+  e_set_t_dn_2b:        "folder e_pf_1a_2b_air,e_pf_1b_2b_air,e_twc_2b,e_pf_1a_2a_set,e_pf_1b_2a_set"
+  e_set_t_dn_2a:        "folder e_pf_1a_2a_air,e_pf_1b_2a_air,e_twc_2a,e_pf_1a_1a_set,e_pf_1b_1a_set"
+
+
+  ### Layer - 3 ###
+  # UP
+  e_set_t_up_3:         "folder e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f period:$interval$ ticks"
+  e_set_t_up_3a:        "folder e_pf_1a_2b_air,e_pf_1b_2b_air,e_twf_3a,e_pf_1a_3a_set,e_pf_1b_3a_set"
+  e_set_t_up_3b:        "folder e_pf_1a_3a_air,e_pf_1b_3a_air,e_twf_3b,e_pf_1a_3b_set,e_pf_1b_3b_set"
+  e_set_t_up_3c:        "folder e_pf_1a_3b_air,e_pf_1b_3b_air,e_pf_2a_3b_air,e_twf_3c,e_pf_1a_3c_set,e_pf_1b_3c_set,e_pf_2a_3c_set"
+  e_set_t_up_3d:        "folder e_pf_1a_3c_air,e_pf_1b_3c_air,e_pf_2a_3c_air,e_twf_3d,e_pf_1a_3d_set,e_pf_1b_3d_set,e_pf_2a_3d_set"
+  e_set_t_up_3e:        "folder e_pf_1a_3d_air,e_pf_1b_3d_air,e_pf_2a_3d_air,e_twf_3e,e_pf_1a_3e_set,e_pf_1b_3e_set,e_pf_2a_3e_set"
+  e_set_t_up_3f:        "folder e_pf_1a_3e_air,e_pf_1b_3e_air,e_pf_2a_3e_air,e_twf_3f,e_pf_1a_3f_set,e_pf_1b_3f_set,e_pf_2a_3f_set"
+
+  # DOWN
+  e_set_t_dn_3:         "folder e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a period:$interval$ ticks"
+  e_set_t_dn_3f:        "folder e_pf_1a_3f_air,e_pf_1b_3f_air,e_pf_2a_3f_air,e_twc_3f,e_pf_1a_3e_set,e_pf_1b_3e_set,e_pf_2a_3e_set"
+  e_set_t_dn_3e:        "folder e_pf_1a_3e_air,e_pf_1b_3e_air,e_pf_2a_3e_air,e_twc_3e,e_pf_1a_3d_set,e_pf_1b_3d_set,e_pf_2a_3d_set"
+  e_set_t_dn_3d:        "folder e_pf_1a_3d_air,e_pf_1b_3d_air,e_pf_2a_3d_air,e_twc_3d,e_pf_1a_3c_set,e_pf_1b_3c_set,e_pf_2a_3c_set"
+  e_set_t_dn_3c:        "folder e_pf_1a_3c_air,e_pf_1b_3c_air,e_pf_2a_3c_air,e_twc_3c,e_pf_1a_3b_set,e_pf_1b_3b_set,e_pf_2a_3b_set"
+  e_set_t_dn_3b:        "folder e_pf_1a_3b_air,e_pf_1b_3b_air,e_twc_3b,e_pf_1a_3a_set,e_pf_1b_3a_set"
+  e_set_t_dn_3a:        "folder e_pf_1a_3a_air,e_pf_1b_3a_air,e_twc_3a,e_pf_1a_2b_set,e_pf_1b_2b_set"
+
+
+  ### Layer - 4 ###
+  # UP
+  e_set_t_up_4:         "folder e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h period:$interval$ ticks"
+  e_set_t_up_4a:        "folder e_pf_1a_3f_air,e_pf_1b_3f_air,e_pf_2a_3f_air,e_twf_4a,e_pf_1a_4a_set,e_pf_1b_4a_set,e_pf_2a_4a_set"
+  e_set_t_up_4b:        "folder e_pf_1a_4a_air,e_pf_1b_4a_air,e_pf_2a_4a_air,e_twf_4b,e_pf_1a_4b_set,e_pf_1b_4b_set,e_pf_2a_4b_set"
+  e_set_t_up_4c:        "folder e_pf_1a_4b_air,e_pf_1b_4b_air,e_pf_2a_4b_air,e_twf_4c,e_pf_1a_4c_set,e_pf_1b_4c_set,e_pf_2a_4c_set"
+  e_set_t_up_4d:        "folder e_pf_1a_4c_air,e_pf_1b_4c_air,e_pf_2a_4c_air,e_pf_3a_4c_air,e_twf_4d,e_pf_1a_4d_set,e_pf_1b_4d_set,e_pf_2a_4d_set,e_pf_3a_4d_set"
+  e_set_t_up_4e:        "folder e_pf_1a_4d_air,e_pf_1b_4d_air,e_pf_2a_4d_air,e_pf_3a_4d_air,e_twf_4e,e_pf_1a_4e_set,e_pf_1b_4e_set,e_pf_2a_4e_set,e_pf_3a_4e_set"
+  e_set_t_up_4f:        "folder e_pf_1a_4e_air,e_pf_1b_4e_air,e_pf_2a_4e_air,e_pf_3a_4e_air,e_twf_4f,e_pf_1a_4f_set,e_pf_1b_4f_set,e_pf_2a_4f_set,e_pf_3a_4f_set"
+  e_set_t_up_4g:        "folder e_pf_1a_4f_air,e_pf_1b_4f_air,e_pf_2a_4f_air,e_pf_3a_4f_air,e_twf_4g,e_pf_1a_4g_set,e_pf_1b_4g_set,e_pf_2a_4g_set,e_pf_3a_4g_set"
+  e_set_t_up_4h:        "folder e_pf_1a_4g_air,e_pf_1b_4g_air,e_pf_2a_4g_air,e_pf_3a_4g_air,e_twf_4h,e_pf_1a_4h_set,e_pf_1b_4h_set,e_pf_2a_4h_set,e_pf_3a_4h_set"
+
+  # DOWN
+  e_set_t_dn_4:         "folder e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a period:$interval$ ticks"
+  e_set_t_dn_4h:        "folder e_pf_1a_4h_air,e_pf_1b_4h_air,e_pf_2a_4h_air,e_pf_3a_4h_air,e_twc_4h,e_pf_1a_4g_set,e_pf_1b_4g_set,e_pf_2a_4g_set,e_pf_3a_4g_set"
+  e_set_t_dn_4g:        "folder e_pf_1a_4g_air,e_pf_1b_4g_air,e_pf_2a_4g_air,e_pf_3a_4g_air,e_twc_4g,e_pf_1a_4f_set,e_pf_1b_4f_set,e_pf_2a_4f_set,e_pf_3a_4f_set"
+  e_set_t_dn_4f:        "folder e_pf_1a_4f_air,e_pf_1b_4f_air,e_pf_2a_4f_air,e_pf_3a_4f_air,e_twc_4f,e_pf_1a_4e_set,e_pf_1b_4e_set,e_pf_2a_4e_set,e_pf_3a_4e_set"
+  e_set_t_dn_4e:        "folder e_pf_1a_4e_air,e_pf_1b_4e_air,e_pf_2a_4e_air,e_pf_3a_4e_air,e_twc_4e,e_pf_1a_4d_set,e_pf_1b_4d_set,e_pf_2a_4d_set,e_pf_3a_4d_set"
+  e_set_t_dn_4d:        "folder e_pf_1a_4d_air,e_pf_1b_4d_air,e_pf_2a_4d_air,e_pf_3a_4d_air,e_twc_4d,e_pf_1a_4c_set,e_pf_1b_4c_set,e_pf_2a_4c_set,e_pf_3a_4c_set"
+  e_set_t_dn_4c:        "folder e_pf_1a_4c_air,e_pf_1b_4c_air,e_pf_2a_4c_air,e_twc_4c,e_pf_1a_4b_set,e_pf_1b_4b_set,e_pf_2a_4b_set"
+  e_set_t_dn_4b:        "folder e_pf_1a_4b_air,e_pf_1b_4b_air,e_pf_2a_4b_air,e_twc_4b,e_pf_1a_4a_set,e_pf_1b_4a_set,e_pf_2a_4a_set"
+  e_set_t_dn_4a:        "folder e_pf_1a_4a_air,e_pf_1b_4a_air,e_pf_2a_4a_air,e_twc_4a,e_pf_1a_3f_set,e_pf_1b_3f_set,e_pf_2a_3f_set"
+
+
+  ### Layer - 5 ###
+  # UP
+  e_set_t_up_5:         "folder e_set_t_up_5a,e_set_t_up_5b,e_set_t_up_5c,e_set_t_up_5d,e_set_t_up_5e,e_set_t_up_5f,e_set_t_up_5g,e_set_t_up_5h period:$interval$ ticks"
+  e_set_t_up_5a:        "folder e_pf_1a_4h_air,e_pf_1b_4h_air,e_pf_2a_4h_air,e_pf_3a_4h_air,e_twf_5a,e_pf_1a_5a_set,e_pf_1b_5a_set,e_pf_2a_5a_set,e_pf_3a_5a_set"
+  e_set_t_up_5b:        "folder e_pf_1a_5a_air,e_pf_1b_5a_air,e_pf_2a_5a_air,e_pf_3a_5a_air,e_twf_5b,e_pf_1a_5b_set,e_pf_1b_5b_set,e_pf_2a_5b_set,e_pf_3a_5b_set"
+  e_set_t_up_5c:        "folder e_pf_1a_5b_air,e_pf_1b_5b_air,e_pf_2a_5b_air,e_pf_3a_5b_air,e_twf_5c,e_pf_1a_5c_set,e_pf_1b_5c_set,e_pf_2a_5c_set,e_pf_3a_5c_set"
+  e_set_t_up_5d:        "folder e_pf_1a_5c_air,e_pf_1b_5c_air,e_pf_2a_5c_air,e_pf_3a_5c_air,e_twf_5d,e_pf_1a_5d_set,e_pf_1b_5d_set,e_pf_2a_5d_set,e_pf_3a_5d_set"
+  e_set_t_up_5e:        "folder e_pf_1a_5d_air,e_pf_1b_5d_air,e_pf_2a_5d_air,e_pf_3a_5d_air,e_twf_5e,e_pf_1a_5e_set,e_pf_1b_5e_set,e_pf_2a_5e_set,e_pf_3a_5e_set"
+  e_set_t_up_5f:        "folder e_pf_1a_5e_air,e_pf_1b_5e_air,e_pf_2a_5e_air,e_pf_3a_5e_air,e_twf_5f,e_pf_1a_5f_set,e_pf_1b_5f_set,e_pf_2a_5f_set,e_pf_3a_5f_set"
+  e_set_t_up_5g:        "folder e_pf_1a_5f_air,e_pf_1b_5f_air,e_pf_2a_5f_air,e_pf_3a_5f_air,e_pf_4a_5f_air,e_pf_4b_5f_air,e_twf_5g,e_pf_1a_5g_set,e_pf_1b_5g_set,e_pf_2a_5g_set,e_pf_3a_5g_set,e_pf_4a_5g_set,e_pf_4b_5g_set"
+  e_set_t_up_5h:        "folder e_pf_1a_5g_air,e_pf_1b_5g_air,e_pf_2a_5g_air,e_pf_3a_5g_air,e_pf_4a_5g_air,e_pf_4b_5g_air,e_twf_5h,e_pf_1a_5h_set,e_pf_1b_5h_set,e_pf_2a_5h_set,e_pf_3a_5h_set,e_pf_4a_5h_set,e_pf_4b_5h_set"
+
+  # DOWN
+  e_set_t_dn_5:         "folder e_set_t_dn_5h,e_set_t_dn_5g,e_set_t_dn_5f,e_set_t_dn_5e,e_set_t_dn_5d,e_set_t_dn_5c,e_set_t_dn_5b,e_set_t_dn_5a period:$interval$ ticks"
+  e_set_t_dn_5h:        "folder e_pf_1a_5h_air,e_pf_1b_5h_air,e_pf_2a_5h_air,e_pf_3a_5h_air,e_pf_4a_5h_air,e_pf_4b_5h_air,e_twc_5h,e_pf_1a_5g_set,e_pf_1b_5g_set,e_pf_2a_5g_set,e_pf_3a_5g_set,e_pf_4a_5g_set,e_pf_4b_5g_set"
+  e_set_t_dn_5g:        "folder e_pf_1a_5g_air,e_pf_1b_5g_air,e_pf_2a_5g_air,e_pf_3a_5g_air,e_pf_4a_5g_air,e_pf_4b_5g_air,e_twc_5g,e_pf_1a_5f_set,e_pf_1b_5f_set,e_pf_2a_5f_set,e_pf_3a_5f_set,e_pf_4a_5f_set,e_pf_4b_5f_set"
+  e_set_t_dn_5f:        "folder e_pf_1a_5f_air,e_pf_1b_5f_air,e_pf_2a_5f_air,e_pf_3a_5f_air,e_twc_5f,e_pf_1a_5e_set,e_pf_1b_5e_set,e_pf_2a_5e_set,e_pf_3a_5e_set"
+  e_set_t_dn_5e:        "folder e_pf_1a_5e_air,e_pf_1b_5e_air,e_pf_2a_5e_air,e_pf_3a_5e_air,e_twc_5e,e_pf_1a_5d_set,e_pf_1b_5d_set,e_pf_2a_5d_set,e_pf_3a_5d_set"
+  e_set_t_dn_5d:        "folder e_pf_1a_5d_air,e_pf_1b_5d_air,e_pf_2a_5d_air,e_pf_3a_5d_air,e_twc_5d,e_pf_1a_5c_set,e_pf_1b_5c_set,e_pf_2a_5c_set,e_pf_3a_5c_set"
+  e_set_t_dn_5c:        "folder e_pf_1a_5c_air,e_pf_1b_5c_air,e_pf_2a_5c_air,e_pf_3a_5c_air,e_twc_5c,e_pf_1a_5b_set,e_pf_1b_5b_set,e_pf_2a_5b_set,e_pf_3a_5b_set"
+  e_set_t_dn_5b:        "folder e_pf_1a_5b_air,e_pf_1b_5b_air,e_pf_2a_5b_air,e_pf_3a_5b_air,e_twc_5b,e_pf_1a_5a_set,e_pf_1b_5a_set,e_pf_2a_5a_set,e_pf_3a_5a_set"
+  e_set_t_dn_5a:        "folder e_pf_1a_5a_air,e_pf_1b_5a_air,e_pf_2a_5a_air,e_pf_3a_5a_air,e_twc_5a,e_pf_1a_4h_set,e_pf_1b_4h_set,e_pf_2a_4h_set,e_pf_3a_4h_set"
+
+
+  # Init switches
+  e_init_top_switches:  "folder e_swc_t_add_obj"
+  e_swc_t_add_obj:      "folder e_obj_add_swc_t1,e_obj_add_swc_t2,e_obj_add_swc_t3,e_obj_add_swc_t4,e_obj_add_swc_t5"
+  e_obj_add_swc_t1:     "objective add o_swc_t1"
+  e_obj_add_swc_t2:     "objective add o_swc_t2"
+  e_obj_add_swc_t3:     "objective add o_swc_t3"
+  e_obj_add_swc_t4:     "objective add o_swc_t4"
+  e_obj_add_swc_t5:     "objective add o_swc_t5"
+
+  # Cleanup switches
+  e_cleanup_top_switches: "folder e_swc_t_del_obj"
+  e_swc_t_del_obj:      "folder e_obj_del_swc_t1,e_obj_del_swc_t2,e_obj_del_swc_t3,e_obj_del_swc_t4,e_obj_del_swc_t5"
+  e_obj_del_swc_t1:     "objective remove o_swc_t1"
+  e_obj_del_swc_t2:     "objective remove o_swc_t2"
+  e_obj_del_swc_t3:     "objective remove o_swc_t3"
+  e_obj_del_swc_t4:     "objective remove o_swc_t4"
+  e_obj_del_swc_t5:     "objective remove o_swc_t5"
+
+
+  ### Switches
+  e_gtag_add_tw_lock:   "globaltag add wdw_tw_lock"
+  e_gtag_del_tw_lock:   "globaltag del wdw_tw_lock"
+
+  e_tw_lock_add:        "folder e_gtag_add_tw_lock"
+  e_tw_lock_del:        "folder e_gtag_del_tw_lock"
+
+  # Switch 1
+  e_gpoint_tw_set_1:    "globalpoint wdw_tw 1 action:set"
+  top_switch_1:         "if chk_water_level_5 top_switch_1_is_5 else top_switch_1_if_4"
+  top_switch_1_if_4:    "if chk_water_level_4 top_switch_1_is_4 else top_switch_1_if_3"
+  top_switch_1_if_3:    "if chk_water_level_3 top_switch_1_is_3 else top_switch_1_if_2"
+  top_switch_1_if_2:    "if chk_water_level_2 top_switch_1_is_2 else top_switch_1_if_1"
+  top_switch_1_if_1:    "if chk_water_level_1 top_switch_1_is_1 else m64-main.e_dummy"
+
+  top_switch_1_is_1:    "folder m64-main.e_dummy"
+  top_switch_1_is_2:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_1_is_2 condition:!chk_tw_lock"
+  top_switch_1_is_3:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_1_is_3 condition:!chk_tw_lock"
+  top_switch_1_is_4:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_1_is_4 condition:!chk_tw_lock"
+  top_switch_1_is_5:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_1_is_5 condition:!chk_tw_lock"
+
+  e_tswc_1_is_2:        "folder e_set_t_dn_2b,e_set_t_dn_2a,e_post_tswc_to_1 period:$interval$ ticks"
+  e_tswc_1_is_3:        "folder e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a,e_set_t_dn_2b,e_set_t_dn_2a,e_post_tswc_to_1 period:$interval$ ticks"
+  e_tswc_1_is_4:        "folder e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a,e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a,e_set_t_dn_2b,e_set_t_dn_2a,e_post_tswc_to_1 period:$interval$ ticks"
+  e_tswc_1_is_5:        "folder e_set_t_dn_5h,e_set_t_dn_5g,e_set_t_dn_5f,e_set_t_dn_5e,e_set_t_dn_5d,e_set_t_dn_5c,e_set_t_dn_5b,e_set_t_dn_5a,e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a,e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a,e_set_t_dn_2b,e_set_t_dn_2a,e_post_tswc_to_1 period:$interval$ ticks"
+
+  e_post_tswc_to_1:     "folder e_gpoint_tw_set_1,e_gtag_del_tw_lock"
+
+  # Switch 2
+  e_gpoint_tw_set_2:    "globalpoint wdw_tw 2 action:set"
+  top_switch_2:         "if chk_water_level_5 top_switch_2_is_5 else top_switch_2_if_4"
+  top_switch_2_if_4:    "if chk_water_level_4 top_switch_2_is_4 else top_switch_2_if_3"
+  top_switch_2_if_3:    "if chk_water_level_3 top_switch_2_is_3 else top_switch_2_if_2"
+  top_switch_2_if_2:    "if chk_water_level_2 top_switch_2_is_2 else top_switch_2_if_1"
+  top_switch_2_if_1:    "if chk_water_level_1 top_switch_2_is_1 else m64-main.e_dummy"
+
+  top_switch_2_is_1:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_2_is_1 condition:!chk_tw_lock"
+  top_switch_2_is_2:    "folder m64-main.e_dummy"
+  top_switch_2_is_3:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_2_is_3 condition:!chk_tw_lock"
+  top_switch_2_is_4:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_2_is_4 condition:!chk_tw_lock"
+  top_switch_2_is_5:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_2_is_5 condition:!chk_tw_lock"
+
+  e_tswc_2_is_1:        "folder e_set_t_up_2a,e_set_t_up_2b,e_post_tswc_to_2 period:$interval$ ticks"
+  e_tswc_2_is_3:        "folder e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a,e_post_tswc_to_2 period:$interval$ ticks"
+  e_tswc_2_is_4:        "folder e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a,e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a,e_post_tswc_to_2 period:$interval$ ticks"
+  e_tswc_2_is_5:        "folder e_set_t_dn_5h,e_set_t_dn_5g,e_set_t_dn_5f,e_set_t_dn_5e,e_set_t_dn_5d,e_set_t_dn_5c,e_set_t_dn_5b,e_set_t_dn_5a,e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a,e_set_t_dn_3f,e_set_t_dn_3e,e_set_t_dn_3d,e_set_t_dn_3c,e_set_t_dn_3b,e_set_t_dn_3a,e_post_tswc_to_2 period:$interval$ ticks"
+
+  e_post_tswc_to_2:     "folder e_gpoint_tw_set_2,e_gtag_del_tw_lock"
+
+  # Switch 3
+  e_gpoint_tw_set_3:    "globalpoint wdw_tw 3 action:set"
+  top_switch_3:         "if chk_water_level_5 top_switch_3_is_5 else top_switch_3_if_4"
+  top_switch_3_if_4:    "if chk_water_level_4 top_switch_3_is_4 else top_switch_3_if_3"
+  top_switch_3_if_3:    "if chk_water_level_3 top_switch_3_is_3 else top_switch_3_if_2"
+  top_switch_3_if_2:    "if chk_water_level_2 top_switch_3_is_2 else top_switch_3_if_1"
+  top_switch_3_if_1:    "if chk_water_level_1 top_switch_3_is_1 else m64-main.e_dummy"
+
+  top_switch_3_is_1:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_3_is_1 condition:!chk_tw_lock"
+  top_switch_3_is_2:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_3_is_2 condition:!chk_tw_lock"
+  top_switch_3_is_3:    "folder m64-main.e_dummy"
+  top_switch_3_is_4:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_3_is_4 condition:!chk_tw_lock"
+  top_switch_3_is_5:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_3_is_5 condition:!chk_tw_lock"
+
+  e_tswc_3_is_1:        "folder e_set_t_up_2a,e_set_t_up_2b,e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f,e_post_tswc_to_3 period:$interval$ ticks"
+  e_tswc_3_is_2:        "folder e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f,e_post_tswc_to_3 period:$interval$ ticks"
+  e_tswc_3_is_4:        "folder e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a,e_post_tswc_to_3 period:$interval$ ticks"
+  e_tswc_3_is_5:        "folder e_set_t_dn_5h,e_set_t_dn_5g,e_set_t_dn_5f,e_set_t_dn_5e,e_set_t_dn_5d,e_set_t_dn_5c,e_set_t_dn_5b,e_set_t_dn_5a,e_set_t_dn_4h,e_set_t_dn_4g,e_set_t_dn_4f,e_set_t_dn_4e,e_set_t_dn_4d,e_set_t_dn_4c,e_set_t_dn_4b,e_set_t_dn_4a,e_post_tswc_to_3 period:$interval$ ticks"
+
+  e_post_tswc_to_3:     "folder e_gpoint_tw_set_3,e_gtag_del_tw_lock"
+
+  # Switch 4
+  e_gpoint_tw_set_4:    "globalpoint wdw_tw 4 action:set"
+  top_switch_4:         "if chk_water_level_5 top_switch_4_is_5 else top_switch_4_if_4"
+  top_switch_4_if_4:    "if chk_water_level_4 top_switch_4_is_4 else top_switch_4_if_3"
+  top_switch_4_if_3:    "if chk_water_level_3 top_switch_4_is_3 else top_switch_4_if_2"
+  top_switch_4_if_2:    "if chk_water_level_2 top_switch_4_is_2 else top_switch_4_if_1"
+  top_switch_4_if_1:    "if chk_water_level_1 top_switch_4_is_1 else m64-main.e_dummy"
+
+  top_switch_4_is_1:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_4_is_1 condition:!chk_tw_lock"
+  top_switch_4_is_2:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_4_is_2 condition:!chk_tw_lock"
+  top_switch_4_is_3:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_4_is_3 condition:!chk_tw_lock"
+  top_switch_4_is_4:    "folder m64-main.e_dummy"
+  top_switch_4_is_5:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_4_is_5 condition:!chk_tw_lock"
+
+  e_tswc_4_is_1:        "folder e_set_t_up_2a,e_set_t_up_2b,e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f,e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h,e_post_tswc_to_4 period:$interval$ ticks"
+  e_tswc_4_is_2:        "folder e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f,e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h,e_post_tswc_to_4 period:$interval$ ticks"
+  e_tswc_4_is_3:        "folder e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h,e_post_tswc_to_4 period:$interval$ ticks"
+  e_tswc_4_is_5:        "folder e_set_t_dn_5h,e_set_t_dn_5g,e_set_t_dn_5f,e_set_t_dn_5e,e_set_t_dn_5d,e_set_t_dn_5c,e_set_t_dn_5b,e_set_t_dn_5a,e_post_tswc_to_4 period:$interval$ ticks"
+
+  e_post_tswc_to_4:     "folder e_gpoint_tw_set_4,e_gtag_del_tw_lock"
+
+  # Switch 5
+  e_gpoint_tw_set_5:    "globalpoint wdw_tw 5 action:set"
+  top_switch_5:         "if chk_water_level_5 top_switch_5_is_5 else top_switch_5_if_4"
+  top_switch_5_if_4:    "if chk_water_level_4 top_switch_5_is_4 else top_switch_5_if_3"
+  top_switch_5_if_3:    "if chk_water_level_3 top_switch_5_is_3 else top_switch_5_if_2"
+  top_switch_5_if_2:    "if chk_water_level_2 top_switch_5_is_2 else top_switch_5_if_1"
+  top_switch_5_if_1:    "if chk_water_level_1 top_switch_5_is_1 else m64-main.e_dummy"
+
+  top_switch_5_is_1:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_5_is_1 condition:!chk_tw_lock"
+  top_switch_5_is_2:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_5_is_2 condition:!chk_tw_lock"
+  top_switch_5_is_3:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_5_is_3 condition:!chk_tw_lock"
+  top_switch_5_is_4:    "folder e_tw_lock_add,m64-sfx.e_moneybag,e_tswc_5_is_4 condition:!chk_tw_lock"
+  top_switch_5_is_5:    "folder m64-main.e_dummy"
+
+  e_tswc_5_is_1:        "folder e_set_t_up_2a,e_set_t_up_2b,e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f,e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h,e_set_t_up_5a,e_set_t_up_5b,e_set_t_up_5c,e_set_t_up_5d,e_set_t_up_5e,e_set_t_up_5f,e_set_t_up_5g,e_set_t_up_5h,e_post_tswc_to_5 period:$interval$ ticks"
+  e_tswc_5_is_2:        "folder e_set_t_up_3a,e_set_t_up_3b,e_set_t_up_3c,e_set_t_up_3d,e_set_t_up_3e,e_set_t_up_3f,e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h,e_set_t_up_5a,e_set_t_up_5b,e_set_t_up_5c,e_set_t_up_5d,e_set_t_up_5e,e_set_t_up_5f,e_set_t_up_5g,e_set_t_up_5h,e_post_tswc_to_5 period:$interval$ ticks"
+  e_tswc_5_is_3:        "folder e_set_t_up_4a,e_set_t_up_4b,e_set_t_up_4c,e_set_t_up_4d,e_set_t_up_4e,e_set_t_up_4f,e_set_t_up_4g,e_set_t_up_4h,e_set_t_up_5a,e_set_t_up_5b,e_set_t_up_5c,e_set_t_up_5d,e_set_t_up_5e,e_set_t_up_5f,e_set_t_up_5g,e_set_t_up_5h,e_post_tswc_to_5 period:$interval$ ticks"
+  e_tswc_5_is_4:        "folder e_set_t_up_5a,e_set_t_up_5b,e_set_t_up_5c,e_set_t_up_5d,e_set_t_up_5e,e_set_t_up_5f,e_set_t_up_5g,e_set_t_up_5h,e_post_tswc_to_5 period:$interval$ ticks"
+
+  e_post_tswc_to_5:     "folder e_gpoint_tw_set_5,e_gtag_del_tw_lock"
+
+
+
+conditions:
+  chk_tw_lock:          "globaltag wdw_tw_lock"
+  chk_water_level_1:    "globalpoint wdw_tw 1"
+  chk_water_level_2:    "globalpoint wdw_tw 2"
+  chk_water_level_3:    "globalpoint wdw_tw 3"
+  chk_water_level_4:    "globalpoint wdw_tw 4"
+  chk_water_level_5:    "globalpoint wdw_tw 5"
+
+
+objectives:
+  o_swc_t1:             "action right any loc:$switches.s1$ events:top_switch_1 persistent"
+  o_swc_t2:             "action right any loc:$switches.s2$ events:top_switch_2 persistent"
+  o_swc_t3:             "action right any loc:$switches.s3$ events:top_switch_3 persistent"
+  o_swc_t4:             "action right any loc:$switches.s4$ events:top_switch_4 persistent"
+  o_swc_t5:             "action right any loc:$switches.s5$ events:top_switch_5 persistent"
+

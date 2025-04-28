@@ -1,0 +1,101 @@
+variables:
+  mapid:
+    bob:              10
+    wf:               19
+    ccm:              28
+    jrb:              37
+    lll:              46
+    wdw:              55
+    thi:              64
+    ttm:              73
+
+events:
+
+  ### Maps
+  e_give_map_bob:     "folder e_map_bob_1,e_map_bob_2,e_map_bob_3,e_map_bob_4,e_map_bob_5,e_map_bob_6,e_map_bob_7,e_map_bob_8,e_map_bob_9"
+  e_map_bob_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.bob$}"
+  e_map_bob_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+1%}"
+  e_map_bob_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+2%}"
+  e_map_bob_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+3%}"
+  e_map_bob_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+4%}"
+  e_map_bob_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+5%}"
+  e_map_bob_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+6%}"
+  e_map_bob_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+7%}"
+  e_map_bob_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.bob$+8%}"
+
+  e_give_map_wf:     "folder e_map_wf_1,e_map_wf_2,e_map_wf_3,e_map_wf_4,e_map_wf_5,e_map_wf_6,e_map_wf_7,e_map_wf_8,e_map_wf_9"
+  e_map_wf_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.wf$}"
+  e_map_wf_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+1%}"
+  e_map_wf_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+2%}"
+  e_map_wf_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+3%}"
+  e_map_wf_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+4%}"
+  e_map_wf_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+5%}"
+  e_map_wf_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+6%}"
+  e_map_wf_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+7%}"
+  e_map_wf_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wf$+8%}"
+
+  e_give_map_ccm:     "folder e_map_ccm_1,e_map_ccm_2,e_map_ccm_3,e_map_ccm_4,e_map_ccm_5,e_map_ccm_6,e_map_ccm_7,e_map_ccm_8,e_map_ccm_9"
+  e_map_ccm_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.ccm$}"
+  e_map_ccm_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+1%}"
+  e_map_ccm_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+2%}"
+  e_map_ccm_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+3%}"
+  e_map_ccm_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+4%}"
+  e_map_ccm_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+5%}"
+  e_map_ccm_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+6%}"
+  e_map_ccm_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+7%}"
+  e_map_ccm_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ccm$+8%}"
+
+  e_give_map_jrb:     "folder e_map_jrb_1,e_map_jrb_2,e_map_jrb_3,e_map_jrb_4,e_map_jrb_5,e_map_jrb_6,e_map_jrb_7,e_map_jrb_8,e_map_jrb_9"
+  e_map_jrb_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.jrb$}"
+  e_map_jrb_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+1%}"
+  e_map_jrb_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+2%}"
+  e_map_jrb_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+3%}"
+  e_map_jrb_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+4%}"
+  e_map_jrb_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+5%}"
+  e_map_jrb_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+6%}"
+  e_map_jrb_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+7%}"
+  e_map_jrb_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.jrb$+8%}"
+
+  e_give_map_lll:     "folder e_map_lll_1,e_map_lll_2,e_map_lll_3,e_map_lll_4,e_map_lll_5,e_map_lll_6,e_map_lll_7,e_map_lll_8,e_map_lll_9"
+  e_map_lll_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.lll$}"
+  e_map_lll_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+1%}"
+  e_map_lll_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+2%}"
+  e_map_lll_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+3%}"
+  e_map_lll_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+4%}"
+  e_map_lll_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+5%}"
+  e_map_lll_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+6%}"
+  e_map_lll_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+7%}"
+  e_map_lll_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.lll$+8%}"
+
+  e_give_map_wdw:     "folder e_map_wdw_1,e_map_wdw_2,e_map_wdw_3,e_map_wdw_4,e_map_wdw_5,e_map_wdw_6,e_map_wdw_7,e_map_wdw_8,e_map_wdw_9"
+  e_map_wdw_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.wdw$}"
+  e_map_wdw_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+1%}"
+  e_map_wdw_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+2%}"
+  e_map_wdw_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+3%}"
+  e_map_wdw_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+4%}"
+  e_map_wdw_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+5%}"
+  e_map_wdw_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+6%}"
+  e_map_wdw_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+7%}"
+  e_map_wdw_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.wdw$+8%}"
+
+  e_give_map_thi:     "folder e_map_thi_1,e_map_thi_2,e_map_thi_3,e_map_thi_4,e_map_thi_5,e_map_thi_6,e_map_thi_7,e_map_thi_8,e_map_thi_9"
+  e_map_thi_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.thi$}"
+  e_map_thi_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+1%}"
+  e_map_thi_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+2%}"
+  e_map_thi_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+3%}"
+  e_map_thi_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+4%}"
+  e_map_thi_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+5%}"
+  e_map_thi_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+6%}"
+  e_map_thi_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+7%}"
+  e_map_thi_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.thi$+8%}"
+
+  e_give_map_ttm:     "folder e_map_ttm_1,e_map_ttm_2,e_map_ttm_3,e_map_ttm_4,e_map_ttm_5,e_map_ttm_6,e_map_ttm_7,e_map_ttm_8,e_map_ttm_9"
+  e_map_ttm_1:        "command minecraft:give %player% minecraft:filled_map{map:$mapid.ttm$}"
+  e_map_ttm_2:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+1%}"
+  e_map_ttm_3:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+2%}"
+  e_map_ttm_4:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+3%}"
+  e_map_ttm_5:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+4%}"
+  e_map_ttm_6:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+5%}"
+  e_map_ttm_7:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+6%}"
+  e_map_ttm_8:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+7%}"
+  e_map_ttm_9:        "command minecraft:give %player% minecraft:filled_map{map:%math.calc:$mapid.ttm$+8%}"

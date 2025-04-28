@@ -1,0 +1,212 @@
+variables:
+  # Bridge
+  brg_block:              gray_glazed_terracotta
+  brg_del_delay:          3
+  brg1:
+    a:                    418 47 -470
+    b:                    419 47 -470
+  brg2:
+    a:                    418 47 -469
+    b:                    419 47 -469
+  brg3:
+    a:                    418 47 -468
+    b:                    419 47 -468
+  brg4:
+    a:                    418 47 -467
+    b:                    419 47 -467
+  brg5:
+    a:                    418 47 -466
+    b:                    419 47 -466
+  brg6:
+    a:                    418 47 -465
+    b:                    419 47 -465
+  brg7:
+    a:                    418 47 -464
+    b:                    419 47 -464
+
+  # Invisibility
+  invis_block_1:        368;51;-460;marocraft
+  invis_block_2:        401;59;-441;marocraft
+
+  invis_to_1:           373;50;-459;marocraft;0;12
+  invis_to_2:           373;48;-466;marocraft;180;12
+  invis_to_3:           387;66;-461;marocraft;90;12
+  invis_to_4:           393;66;-463;marocraft;-90;12
+  #bbh_inv_tp_1,bbh_inv_tp_2
+  #bbh_inv_tp_3,bbh_inv_tp_4
+
+events:
+  init_env:             "folder e_init_invis,e_init_bridge"
+  reset_env:            "folder e_cleanup_invis,e_cleanup_bridge"
+
+
+  # Invisibility: Init
+  e_init_invis:         "folder e_obj_add_inv_act_1,e_obj_add_inv_act_2,e_obj_add_inv_tp_all"
+  e_obj_add_inv_act_1:  "objective add o_invis_activate_1"
+  e_obj_add_inv_act_2:  "objective add o_invis_activate_2"
+  e_obj_add_inv_tp_all: "folder e_obj_add_inv_tp_1,e_obj_add_inv_tp_2,e_obj_add_inv_tp_3,e_obj_add_inv_tp_4"
+  e_obj_add_inv_tp_1:   "objective add o_invis_tp_1"
+  e_obj_add_inv_tp_2:   "objective add o_invis_tp_2"
+  e_obj_add_inv_tp_3:   "objective add o_invis_tp_3"
+  e_obj_add_inv_tp_4:   "objective add o_invis_tp_4"
+
+  # Invisibility: Activate
+  e_start_invis:        "folder e_play_music_powerup,e_obj_add_inv_timout,e_tag_add_invis,e_notif_invisible,e_efx_give_invis"
+  e_obj_add_inv_timout: "objective add o_invis_timeout"
+  e_tag_add_invis:      "tag add invisible"
+  e_notif_invisible:    "notify &3Invisibility for 30 sec\n&2You can go through paintings io:title"
+  e_efx_give_invis:     "effect INVISIBILITY 30 1 hidden noicon"
+
+  # Invisibility: Deactivate
+  e_cleanup_invis:      "folder e_reset_invis,e_obj_del_inv_act_1,e_obj_del_inv_act_2,e_obj_del_inv_timout,e_obj_del_inv_tp_all"
+
+  e_stop_invis:         "folder e_play_music,e_reset_invis"
+
+  e_reset_invis:        "folder e_tag_del_invis,e_efx_clear"
+  e_tag_del_invis:      "tag delete invisible"
+  e_efx_clear:          "command effect clear %player%"
+  e_obj_del_inv_timout: "objective remove o_invis_timeout"
+  e_obj_del_inv_act_1:  "objective remove o_invis_activate_1"
+  e_obj_del_inv_act_2:  "objective remove o_invis_activate_2"
+
+  e_obj_del_inv_tp_all: "folder e_obj_del_inv_tp_1,e_obj_del_inv_tp_2,e_obj_del_inv_tp_3,e_obj_del_inv_tp_4"
+  e_obj_del_inv_tp_1:   "objective remove o_invis_tp_1"
+  e_obj_del_inv_tp_2:   "objective remove o_invis_tp_2"
+  e_obj_del_inv_tp_3:   "objective remove o_invis_tp_3"
+  e_obj_del_inv_tp_4:   "objective remove o_invis_tp_4"
+
+  # Invisibility: Tp
+  e_invis_tp_1_to_2:    "teleport $invis_to_2$"
+  e_invis_tp_2_to_1:    "teleport $invis_to_1$"
+  e_invis_tp_3_to_4:    "teleport $invis_to_4$"
+  e_invis_tp_4_to_3:    "teleport $invis_to_3$"
+
+
+
+  # Bridge: Init
+  e_brg_break_sfx:        "command "
+
+  e_init_bridge:          "folder e_obj_add_bridge_s1"
+  e_obj_add_bridge_s1:    "folder e_obj_add_bridge_1,e_obj_add_bridge_2,e_obj_add_bridge_3,e_obj_add_bridge_4,e_obj_add_bridge_5,e_obj_add_bridge_6,e_obj_add_bridge_7"
+  e_obj_add_bridge_1:     "objective add o_brg_1"
+  e_obj_add_bridge_2:     "objective add o_brg_2"
+  e_obj_add_bridge_3:     "objective add o_brg_3"
+  e_obj_add_bridge_4:     "objective add o_brg_4"
+  e_obj_add_bridge_5:     "objective add o_brg_5"
+  e_obj_add_bridge_6:     "objective add o_brg_6"
+  e_obj_add_bridge_7:     "objective add o_brg_7"
+
+  # Bridge #1: Delete
+  e_brg_1_delete:         "folder e_gtag_add_brg_1,e_brg_1_del_blocks"
+  e_gtag_add_brg_1:       "globaltag add bbh_brg_1"
+  e_brg_1_del_blocks:     "folder e_brg_1_block_air,m64-sfx.e_block_break,e_brg_1_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1_block_air:      "command execute in minecraft:marocraft run fill $brg1.a$ $brg1.b$ minecraft:air"
+  e_brg_1_add_blocks:     "folder e_brg_1_block_set,e_gtag_del_brg_1 delay:3"
+  e_brg_1_block_set:      "command execute in minecraft:marocraft run fill $brg1.a$ $brg1.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1:       "globaltag delete bbh_brg_1"
+  # Bridge #2: Delete
+  e_brg_2_delete:         "folder e_gtag_add_brg_2,e_brg_2_del_blocks"
+  e_gtag_add_brg_2:       "globaltag add bbh_brg_2"
+  e_brg_2_del_blocks:     "folder e_brg_2_block_air,m64-sfx.e_block_break,e_brg_2_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_2_block_air:      "command execute in minecraft:marocraft run fill $brg2.a$ $brg2.b$ minecraft:air"
+  e_brg_2_add_blocks:     "folder e_brg_2_block_set,e_gtag_del_brg_2 delay:3"
+  e_brg_2_block_set:      "command execute in minecraft:marocraft run fill $brg2.a$ $brg2.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_2:       "globaltag delete bbh_brg_2"
+  # Bridge #3: Delete
+  e_brg_3_delete:         "folder e_gtag_add_brg_3,e_brg_3_del_blocks"
+  e_gtag_add_brg_3:       "globaltag add bbh_brg_3"
+  e_brg_3_del_blocks:     "folder e_brg_3_block_air,m64-sfx.e_block_break,e_brg_3_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_3_block_air:      "command execute in minecraft:marocraft run fill $brg3.a$ $brg3.b$ minecraft:air"
+  e_brg_3_add_blocks:     "folder e_brg_3_block_set,e_gtag_del_brg_3 delay:3"
+  e_brg_3_block_set:      "command execute in minecraft:marocraft run fill $brg3.a$ $brg3.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_3:       "globaltag delete bbh_brg_3"
+  # Bridge #4: Delete
+  e_brg_4_delete:         "folder e_gtag_add_brg_4,e_brg_4_del_blocks"
+  e_gtag_add_brg_4:       "globaltag add bbh_brg_4"
+  e_brg_4_del_blocks:     "folder e_brg_4_block_air,m64-sfx.e_block_break,e_brg_4_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_4_block_air:      "command execute in minecraft:marocraft run fill $brg4.a$ $brg4.b$ minecraft:air"
+  e_brg_4_add_blocks:     "folder e_brg_4_block_set,e_gtag_del_brg_4 delay:3"
+  e_brg_4_block_set:      "command execute in minecraft:marocraft run fill $brg4.a$ $brg4.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_4:       "globaltag delete bbh_brg_4"
+  # Bridge #5: Delete
+  e_brg_5_delete:         "folder e_gtag_add_brg_5,e_brg_5_del_blocks"
+  e_gtag_add_brg_5:       "globaltag add bbh_brg_5"
+  e_brg_5_del_blocks:     "folder e_brg_5_block_air,m64-sfx.e_block_break,e_brg_5_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_5_block_air:      "command execute in minecraft:marocraft run fill $brg5.a$ $brg5.b$ minecraft:air"
+  e_brg_5_add_blocks:     "folder e_brg_5_block_set,e_gtag_del_brg_5 delay:3"
+  e_brg_5_block_set:      "command execute in minecraft:marocraft run fill $brg5.a$ $brg5.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_5:       "globaltag delete bbh_brg_5"
+  # Bridge #6: Delete
+  e_brg_6_delete:         "folder e_gtag_add_brg_6,e_brg_6_del_blocks"
+  e_gtag_add_brg_6:       "globaltag add bbh_brg_6"
+  e_brg_6_del_blocks:     "folder e_brg_6_block_air,m64-sfx.e_block_break,e_brg_6_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_6_block_air:      "command execute in minecraft:marocraft run fill $brg6.a$ $brg6.b$ minecraft:air"
+  e_brg_6_add_blocks:     "folder e_brg_6_block_set,e_gtag_del_brg_6 delay:3"
+  e_brg_6_block_set:      "command execute in minecraft:marocraft run fill $brg6.a$ $brg6.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_6:       "globaltag delete bbh_brg_6"
+  # Bridge #7: Delete
+  e_brg_7_delete:         "folder e_gtag_add_brg_7,e_brg_7_del_blocks"
+  e_gtag_add_brg_7:       "globaltag add bbh_brg_7"
+  e_brg_7_del_blocks:     "folder e_brg_7_block_air,m64-sfx.e_block_break,e_brg_7_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_7_block_air:      "command execute in minecraft:marocraft run fill $brg7.a$ $brg7.b$ minecraft:air"
+  e_brg_7_add_blocks:     "folder e_brg_7_block_set,e_gtag_del_brg_7 delay:3"
+  e_brg_7_block_set:      "command execute in minecraft:marocraft run fill $brg7.a$ $brg7.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_7:       "globaltag delete bbh_brg_7"
+
+  # Bridge: Restore
+  e_restore_bridge:       "folder e_brg_restore_1"
+  e_brg_restore_1:        "folder e_brg_1_restore,e_brg_2_restore,e_brg_3_restore,e_brg_4_restore,e_brg_5_restore,e_brg_6_restore,e_brg_7_restore"
+  e_brg_1_restore:        "folder e_brg_1_block_set,e_gtag_del_brg_1"
+  e_brg_2_restore:        "folder e_brg_2_block_set,e_gtag_del_brg_2"
+  e_brg_3_restore:        "folder e_brg_3_block_set,e_gtag_del_brg_3"
+  e_brg_4_restore:        "folder e_brg_4_block_set,e_gtag_del_brg_4"
+  e_brg_5_restore:        "folder e_brg_5_block_set,e_gtag_del_brg_5"
+  e_brg_6_restore:        "folder e_brg_6_block_set,e_gtag_del_brg_6"
+  e_brg_7_restore:        "folder e_brg_7_block_set,e_gtag_del_brg_7"
+
+  # Bridge: Cleanup
+  e_cleanup_bridge:       "folder e_obj_del_bridge_s1,e_restore_bridge"
+  e_obj_del_bridge_s1:    "folder e_obj_del_bridge_1,e_obj_del_bridge_2,e_obj_del_bridge_3,e_obj_del_bridge_4,e_obj_del_bridge_5,e_obj_del_bridge_6,e_obj_del_bridge_7"
+  e_obj_del_bridge_1:     "objective remove o_brg_1"
+  e_obj_del_bridge_2:     "objective remove o_brg_2"
+  e_obj_del_bridge_3:     "objective remove o_brg_3"
+  e_obj_del_bridge_4:     "objective remove o_brg_4"
+  e_obj_del_bridge_5:     "objective remove o_brg_5"
+  e_obj_del_bridge_6:     "objective remove o_brg_6"
+  e_obj_del_bridge_7:     "objective remove o_brg_7"
+
+
+conditions:
+  # Invisibility
+  chk_tag_invisible:      "tag invisible"
+
+  # Bridge
+  chk_bridge_1_exist:     "globaltag bbh_brg_1"
+  chk_bridge_2_exist:     "globaltag bbh_brg_2"
+  chk_bridge_3_exist:     "globaltag bbh_brg_3"
+  chk_bridge_4_exist:     "globaltag bbh_brg_4"
+  chk_bridge_5_exist:     "globaltag bbh_brg_5"
+  chk_bridge_6_exist:     "globaltag bbh_brg_6"
+  chk_bridge_7_exist:     "globaltag bbh_brg_7"
+
+
+objectives:
+  # Invisibility
+  o_invis_activate_1:     "action right any loc:$invis_block_1$ conditions:!chk_tag_invisible events:e_start_invis persistent"
+  o_invis_activate_2:     "action right any loc:$invis_block_2$ conditions:!chk_tag_invisible events:e_start_invis persistent"
+  o_invis_timeout:        "delay 30 seconds interval:5 event:e_stop_invis"
+
+  o_invis_tp_1:           "region bbh_inv_tp_1 enter conditions:chk_tag_invisible events:e_invis_tp_1_to_2 persistent"
+  o_invis_tp_2:           "region bbh_inv_tp_2 enter conditions:chk_tag_invisible events:e_invis_tp_2_to_1 persistent"
+  o_invis_tp_3:           "region bbh_inv_tp_3 enter conditions:chk_tag_invisible events:e_invis_tp_3_to_4 persistent"
+  o_invis_tp_4:           "region bbh_inv_tp_4 enter conditions:chk_tag_invisible events:e_invis_tp_4_to_3 persistent"
+
+  # Bridge
+  o_brg_1:                "region bbh_brg_1 enter conditions:!chk_bridge_1_exist events:e_brg_1_delete persistent"
+  o_brg_2:                "region bbh_brg_2 enter conditions:!chk_bridge_2_exist events:e_brg_2_delete persistent"
+  o_brg_3:                "region bbh_brg_3 enter conditions:!chk_bridge_3_exist events:e_brg_3_delete persistent"
+  o_brg_4:                "region bbh_brg_4 enter conditions:!chk_bridge_4_exist events:e_brg_4_delete persistent"
+  o_brg_5:                "region bbh_brg_5 enter conditions:!chk_bridge_5_exist events:e_brg_5_delete persistent"
+  o_brg_6:                "region bbh_brg_6 enter conditions:!chk_bridge_6_exist events:e_brg_6_delete persistent"
+  o_brg_7:                "region bbh_brg_7 enter conditions:!chk_bridge_7_exist events:e_brg_7_delete persistent"
+ 

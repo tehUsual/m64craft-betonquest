@@ -1,0 +1,98 @@
+variables:
+  slide:
+    delay_interval:       2
+
+    gold_medal:           50
+    silver_medal:         55
+    bronze_medal:         65
+    
+
+events:
+  # Load slide
+  init_slide:             "folder init_s1"
+  reset_slide:            "folder cleanup_s1"
+
+  ### SLIDE SPEEDRUN
+  # Init
+  init_s1:                "folder e_obj_add_s1_start"
+  e_obj_add_s1_start:     "objective add o_s1_start"
+  # Start
+  start_s1:               "folder e_notif_s1_start,e_obj_add_s1,e_tag_add_s1_medals"
+  e_notif_s1_start:       "notify &3Slide!&r\n &e$slide.gold_medal$&r/&7$slide.silver_medal$&r/&6$slide.bronze_medal$&r sec! io:title"
+  e_obj_add_s1:           "folder e_obj_add_s1_gold,e_obj_add_s1_silver,e_obj_add_s1_silver,e_obj_add_s1_bronze,e_obj_add_s1_goal"
+  e_obj_add_s1_gold:      "objective add o_s1_gold"
+  e_obj_add_s1_silver:    "objective add o_s1_silver"
+  e_obj_add_s1_bronze:    "objective add o_s1_bronze"
+  e_obj_add_s1_goal:      "objective add o_s1_goal"
+  e_tag_add_s1_medals:    "folder e_tag_add_s1_gold,e_tag_add_s1_silver,e_tag_add_s1_bronze"
+  e_tag_add_s1_gold:      "tag add ss1_gold"
+  e_tag_add_s1_silver:    "tag add ss1_silver"
+  e_tag_add_s1_bronze:    "tag add ss1_bronze"
+
+  # Fail gold:
+  fail_gold:              "folder e_notif_s1_fail_gold,e_tag_del_s1_gold"
+  e_notif_s1_fail_gold:   "notify .\n&3Gold failed io:title"
+
+  # Fail silver
+  fail_silver:            "folder e_notif_s1_fail_silver,e_tag_del_s1_silver"
+  e_notif_s1_fail_silver: "notify .\n&3Silver failed io:title"
+
+  # Fail bronze
+  fail_bronze:            "folder e_notif_s1_fail_bronze,e_tag_del_s1_bronze"
+  e_notif_s1_fail_bronze: "notify .\n&3Bronze failed io:title"
+
+
+  # Win
+  win_s1:                 "folder if_gold"
+
+  # If gold
+  if_gold:                "if chk_s1_gold win_s1_gold else if_silver"
+  win_s1_gold:            "folder e_broad_s1_win_gold,e_broad_s1_sr_gold,cleanup_s1,init_slide,m64-main.e_unlock_ss2"
+  e_broad_s1_win_gold:    "command broadcast [&6%player%&r]: Secret Slide #1: &e[Gold]&r %math.calc:($slide.gold_medal$-objective.o_s1_gold.rawSeconds)~3% sec"
+  e_broad_s1_sr_gold:     "command broadcast [&6%player%&r]: SS1 Speedrun: %math.calc:($slide.gold_medal$-objective.o_s1_gold.rawSeconds)~3% sec"
+
+  # If silver
+  if_silver:              "if chk_s1_silver win_s1_silver else if_bronze"
+  win_s1_silver:          "folder e_broad_s1_win_silver,e_broad_s1_sr_silver,cleanup_s1,init_slide,m64-main.e_unlock_ss2"
+  e_broad_s1_win_silver:  "command broadcast [&6%player%&r]: Secret Slide #1: &7[Silver]&r %math.calc:($slide.silver_medal$-objective.o_s1_silver.rawSeconds)~3% sec"
+  e_broad_s1_sr_silver:   "command broadcast [&6%player%&r]: SS1 Speedrun: %math.calc:($slide.silver_medal$-objective.o_s1_silver.rawSeconds)~3% sec"
+
+  # If bronze
+  if_bronze:              "if chk_s1_bronze win_s1_bronze else win_s1_lost"
+  win_s1_bronze:          "folder e_broad_s1_win_bronze,e_broad_s1_sr_bronze,cleanup_s1,init_slide,m64-main.e_unlock_ss2"
+  e_broad_s1_win_bronze:  "command broadcast [&6%player%&r]: Secret Slide #1: &6[Bronze]&r %math.calc:($slide.bronze_medal$-objective.o_s1_bronze.rawSeconds)~3% sec"
+  e_broad_s1_sr_bronze:   "command broadcast [&6%player%&r]: SS1 Speedrun: %math.calc:($slide.bronze_medal$-objective.o_s1_bronze.rawSeconds)~3% sec"
+
+  # If lost
+  win_s1_lost:            "folder cleanup_s1"
+
+  # Cleanup
+  cleanup_s1:             "folder e_obj_del_s1_start,e_obj_del_s1,e_tag_del_s1_medals"
+  e_obj_del_s1_start:     "objective remove o_s1_start"
+  e_obj_del_s1:           "folder e_obj_del_s1_gold,e_obj_del_s1_silver,e_obj_del_s1_bronze,e_obj_del_s1_goal"
+  e_obj_del_s1_gold:      "objective remove o_s1_gold"
+  e_obj_del_s1_silver:    "objective remove o_s1_silver"
+  e_obj_del_s1_bronze:    "objective remove o_s1_bronze"
+  e_obj_del_s1_goal:      "objective remove o_s1_goal"
+  e_tag_del_s1_medals:    "folder e_tag_del_s1_gold,e_tag_del_s1_silver,e_tag_del_s1_bronze"
+  e_tag_del_s1_gold:      "tag delete ss1_gold"
+  e_tag_del_s1_silver:    "tag delete ss1_silver"
+  e_tag_del_s1_bronze:    "tag delete ss1_bronze"
+
+
+conditions:
+  chk_s1_gold:            "tag ss1_gold"
+  chk_s1_silver:          "tag ss1_silver"
+  chk_s1_bronze:          "tag ss1_bronze"
+
+
+objectives:
+  ### STAR 2 - KOOPA THE QUICK
+  o_s1_start:             "region ss1_start enter events:start_s1"
+
+  o_s1_gold:              "delay $slide.gold_medal$ seconds interval:$slide.delay_interval$ events:fail_gold"
+  o_s1_silver:            "delay $slide.silver_medal$ seconds interval:$slide.delay_interval$ events:fail_silver"
+  o_s1_bronze:            "delay $slide.bronze_medal$ seconds interval:$slide.delay_interval$ events:fail_bronze"
+
+  o_s1_goal:              "region ss1_goal enter events:win_s1"
+  

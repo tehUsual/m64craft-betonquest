@@ -1,0 +1,104 @@
+variables:
+  musiccat:                 music
+
+events:
+  e_stop_music:             "folder e_clear_objs,e_stop_music_if_enabled"
+  e_clear_objs:             "folder e_obj_del_wait_bob,e_obj_del_wait_ssl,e_obj_del_wait_bbh,e_obj_del_wait_ss,e_obj_del_wait_hmc,e_obj_del_wait_jrb,e_obj_del_wait_ccm,e_obj_del_wait_boss,e_obj_del_wait_merrygo,e_obj_del_wait_powerup,e_obj_del_wait_metal"
+  e_stop_music_if_enabled:  "if m64-main.chk_tag_enable_music e_music_stop else m64-main.e_dummy"
+
+  e_force_stop_music:       "folder e_music_stop,e_stop_music"
+  e_music_stop:             "opsudo stopsound %player% music"
+
+  e_play_bob:               "if m64-main.chk_tag_enable_music e_do_play_bob else m64-main.e_dummy"
+  e_play_ssl:               "if m64-main.chk_tag_enable_music e_do_play_ssl else m64-main.e_dummy"
+  e_play_bbh:               "if m64-main.chk_tag_enable_music e_do_play_bbh else m64-main.e_dummy"
+  e_play_hmc:               "if m64-main.chk_tag_enable_music e_do_play_hmc else m64-main.e_dummy"
+  e_play_jrb:               "if m64-main.chk_tag_enable_music e_do_play_jrb else m64-main.e_dummy"
+  e_play_ccm:               "if m64-main.chk_tag_enable_music e_do_play_ccm else m64-main.e_dummy"
+  e_play_merrygo:           "if m64-main.chk_tag_enable_music e_do_play_merrygo else m64-main.e_dummy"
+  e_play_secret_slide:      "if m64-main.chk_tag_enable_music e_do_play_secret_slide else m64-main.e_dummy"
+  e_play_boss:              "if m64-main.chk_tag_enable_music e_do_play_boss else m64-main.e_dummy"
+  e_play_powerup:           "folder e_do_play_powerup"
+  e_play_metal:             "folder e_do_play_metal"
+
+  # Bob-omb battlefield / Whomps fortress
+  e_do_play_bob:            "folder e_stop_music,e_music_bob,e_obj_add_wait_bob"
+  e_obj_add_wait_bob:       "objective add o_wait_bob"
+  e_obj_del_wait_bob:       "objective remove o_wait_bob"
+
+  # Shifting sand land / Lethal lava land
+  e_do_play_ssl:            "folder e_stop_music,e_music_ssl,e_obj_add_wait_ssl"
+  e_obj_add_wait_ssl:       "objective add o_wait_ssl"
+  e_obj_del_wait_ssl:       "objective remove o_wait_ssl"
+
+  # Big boo's haunt
+  e_do_play_bbh:            "folder e_stop_music,e_music_bbh,e_obj_add_wait_bbh"
+  e_obj_add_wait_bbh:       "objective add o_wait_bbh"
+  e_obj_del_wait_bbh:       "objective remove o_wait_bbh"
+
+  # Hazy Mazy Cave / Wet-dry world
+  e_do_play_hmc:            "folder e_stop_music,e_music_hmc,e_obj_add_wait_hmc"
+  e_obj_add_wait_hmc:       "objective add o_wait_hmc"
+  e_obj_del_wait_hmc:       "objective remove o_wait_hmc"
+
+  # Jolly Roger Bay / Dire, Dire Docks
+  e_do_play_jrb:            "folder e_stop_music,e_music_jrb,e_obj_add_wait_jrb"
+  e_obj_add_wait_jrb:       "objective add o_wait_jrb"
+  e_obj_del_wait_jrb:       "objective remove o_wait_jrb"
+
+  # Cool cool mountain / Snowmand's Land
+  e_do_play_ccm:            "folder e_stop_music,e_music_ccm,e_obj_add_wait_ccm"
+  e_obj_add_wait_ccm:       "objective add o_wait_ccm"
+  e_obj_del_wait_ccm:       "objective remove o_wait_ccm"
+
+  # Merry go Round
+  e_do_play_merrygo:        "folder e_stop_music,e_music_merrygo,e_obj_add_wait_merrygo"
+  e_obj_add_wait_merrygo:   "objective add o_wait_merrygo"
+  e_obj_del_wait_merrygo:   "objective remove o_wait_merrygo"
+
+  # Secret slide
+  e_do_play_secret_slide:   "folder e_stop_music,e_music_secretslide,e_obj_add_wait_ss"
+  e_obj_add_wait_ss:        "objective add o_wait_secretslide"
+  e_obj_del_wait_ss:        "objective remove o_wait_secretslide"
+
+  # Boss
+  e_do_play_boss:           "folder e_stop_music,e_music_boss,e_obj_add_wait_boss"
+  e_obj_add_wait_boss:      "objective add o_wait_boss"
+  e_obj_del_wait_boss:      "objective remove o_wait_boss"
+
+  # Powerup
+  e_do_play_powerup:        "folder e_stop_music,e_music_powerup"
+  e_obj_add_wait_powerup:   "objective add o_wait_powerup"
+  e_obj_del_wait_powerup:   "objective remove o_wait_powerup"
+
+  # Metal
+  e_do_play_metal:        "folder e_stop_music,e_music_metal"
+  e_obj_add_wait_metal:   "objective add o_wait_metal"
+  e_obj_del_wait_metal:   "objective remove o_wait_metal"
+
+  # Music
+  e_music_bob:              "opsudo playsound maro:music_bob $musiccat$ %player%"
+  e_music_ssl:              "opsudo playsound maro:music_ssl $musiccat$ %player%"
+  e_music_bbh:              "opsudo playsound maro:music_bbh $musiccat$ %player%"
+  e_music_hmc:              "opsudo playsound maro:music_hmc $musiccat$ %player%"
+  e_music_jrb:              "opsudo playsound maro:music_jrb $musiccat$ %player%"
+  e_music_ccm:              "opsudo playsound maro:music_ccm $musiccat$ %player%"
+  e_music_merrygo:          "opsudo playsound maro:music_merrygoround $musiccat$ %player%"
+  e_music_secretslide:      "opsudo playsound maro:music_secretslide $musiccat$ %player%"
+  e_music_boss:             "opsudo playsound maro:music_boss $musiccat$ %player%"
+  e_music_powerup:          "opsudo playsound maro:music_powerup $musiccat$ %player%"
+  e_music_metal:            "opsudo playsound maro:music_metal $musiccat$ %player%"
+
+
+objectives:
+  o_wait_bob:               "delay 139 seconds interval:5 event:e_play_bob"
+  o_wait_ssl:               "delay 161 seconds interval:5 event:e_play_ssl"
+  o_wait_bbh:               "delay 183 seconds interval:5 event:e_play_bbh"
+  o_wait_hmc:               "delay 222 seconds interval:5 event:e_play_hmc"
+  o_wait_jrb:               "delay 183 seconds interval:5 event:e_play_jrb"
+  o_wait_ccm:               "delay 176 seconds interval:5 event:e_play_ccm"
+  o_wait_merrygo:           "delay 57 seconds interval:5 event:e_play_merrygo"
+  o_wait_secretslide:       "delay 166 seconds interval:5 event:e_play_secret_slide"
+  o_wait_boss:              "delay 78 seconds interval:5 event:e_play_boss"
+  o_wait_powerup:           "delay 30 seconds interval:5 event:e_play_powerup"
+  o_wait_metal:             "delay 30 seconds interval:5 event:e_play_metal"

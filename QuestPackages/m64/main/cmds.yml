@@ -1,0 +1,33 @@
+
+events:
+  init_commands:                "folder init_toggle_music"
+  reset_commands:               "folder cleanup_toggle_music"
+
+
+  ### Toggle music
+  # Init
+  init_toggle_music:            "folder e_obj_add_toggle_music"
+  e_obj_add_toggle_music:       "objective add o_cmd_toggle_music"
+
+  # Execute
+  e_exec_toggle_music:          "folder if_enable_music"
+  if_enable_music:              "if !chk_tag_enable_music e_enable_music else e_disable_music"
+  # Enable
+  e_enable_music:               "folder e_notif_enable_music,e_tag_add_enable_music"
+  e_notif_enable_music:         "notify &7Music &2enabled"
+  e_tag_add_enable_music:       "tag add enable_music"
+  # Disable
+  e_disable_music:              "folder e_notif_disable_music,e_tag_del_enable_music,m64-sfx.e_force_stop_music"
+  e_notif_disable_music:        "notify &7Music &4disabled"
+  e_tag_del_enable_music:       "tag delete enable_music"
+
+  # Cleanup
+  cleanup_toggle_music:         "folder e_obj_del_toggle_music"
+  e_obj_del_toggle_music:       "objective remove o_cmd_toggle_music"
+
+
+conditions:
+  chk_tag_enable_music:         "tag enable_music"
+
+objectives:
+  o_cmd_toggle_music:           "command /tgmusic events:e_exec_toggle_music persistent"

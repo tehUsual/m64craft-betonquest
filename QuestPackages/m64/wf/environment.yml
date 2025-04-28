@@ -1,0 +1,219 @@
+variables:
+  brg_block:              stone_bricks
+  brg_del_delay:          3
+  brg1:
+    a:                    -378 92 -442
+    b:                    -375 92 -442
+  brg2:
+    a:                    -378 92 -441
+    b:                    -375 92 -441
+  brg3:
+    a:                    -378 92 -440
+    b:                    -375 92 -440
+  brg4:
+    a:                    -378 92 -439
+    b:                    -375 92 -439
+  brg5:
+    a:                    -378 92 -438
+    b:                    -375 92 -438
+  brg6:
+    a:                    -378 92 -437
+    b:                    -375 92 -437
+  brg7:
+    a:                    -378 92 -436
+    b:                    -375 92 -436
+  brg8:
+    a:                    -378 92 -435
+    b:                    -375 92 -435
+  brg9:
+    a:                    -378 92 -434
+    b:                    -375 92 -434
+  brg10:
+    a:                    -378 92 -433
+    b:                    -375 92 -433
+  brg11:
+    a:                    -378 92 -432
+    b:                    -375 92 -432
+
+#wf_brg_1
+#wf_brg_2
+#wf_brg_3
+#wf_brg_4
+#wf_brg_5
+#wf_brg_6
+#wf_brg_7
+#wf_brg_8
+#wf_brg_9
+#wf_brg_10
+#wf_brg_11
+
+events:
+  init_env:               "folder e_init_bridge"
+  reset_env:              "folder e_cleanup_bridge"
+
+
+  # Bridge: Init
+  e_init_bridge:          "folder e_obj_add_bridge_s1,e_obj_add_bridge_s2"
+  e_obj_add_bridge_s1:    "folder e_obj_add_bridge_1,e_obj_add_bridge_2,e_obj_add_bridge_3,e_obj_add_bridge_4,e_obj_add_bridge_5,e_obj_add_bridge_6"
+  e_obj_add_bridge_s2:    "folder e_obj_add_bridge_7,e_obj_add_bridge_8,e_obj_add_bridge_9,e_obj_add_bridge_10,e_obj_add_bridge_11"
+  e_obj_add_bridge_1:     "objective add o_brg_1"
+  e_obj_add_bridge_2:     "objective add o_brg_2"
+  e_obj_add_bridge_3:     "objective add o_brg_3"
+  e_obj_add_bridge_4:     "objective add o_brg_4"
+  e_obj_add_bridge_5:     "objective add o_brg_5"
+  e_obj_add_bridge_6:     "objective add o_brg_6"
+  e_obj_add_bridge_7:     "objective add o_brg_7"
+  e_obj_add_bridge_8:     "objective add o_brg_8"
+  e_obj_add_bridge_9:     "objective add o_brg_9"
+  e_obj_add_bridge_10:    "objective add o_brg_10"
+  e_obj_add_bridge_11:    "objective add o_brg_11"
+
+  # Bridge #1: Delete
+  e_brg_1_delete:         "folder e_gtag_add_brg_1,e_brg_1_del_blocks"
+  e_gtag_add_brg_1:       "globaltag add wf_brg_1"
+  e_brg_1_del_blocks:     "folder e_brg_1_block_air,m64-sfx.e_block_break,e_brg_1_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1_block_air:      "command execute in minecraft:marocraft run fill $brg1.a$ $brg1.b$ minecraft:air"
+  e_brg_1_add_blocks:     "folder e_brg_1_block_set,e_gtag_del_brg_1 delay:3"
+  e_brg_1_block_set:      "command execute in minecraft:marocraft run fill $brg1.a$ $brg1.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1:       "globaltag delete wf_brg_1"
+  # Bridge #2: Delete
+  e_brg_2_delete:         "folder e_gtag_add_brg_2,e_brg_2_del_blocks"
+  e_gtag_add_brg_2:       "globaltag add wf_brg_2"
+  e_brg_2_del_blocks:     "folder e_brg_2_block_air,m64-sfx.e_block_break,e_brg_2_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_2_block_air:      "command execute in minecraft:marocraft run fill $brg2.a$ $brg2.b$ minecraft:air"
+  e_brg_2_add_blocks:     "folder e_brg_2_block_set,e_gtag_del_brg_2 delay:3"
+  e_brg_2_block_set:      "command execute in minecraft:marocraft run fill $brg2.a$ $brg2.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_2:       "globaltag delete wf_brg_2"
+  # Bridge #3: Delete
+  e_brg_3_delete:         "folder e_gtag_add_brg_3,e_brg_3_del_blocks"
+  e_gtag_add_brg_3:       "globaltag add wf_brg_3"
+  e_brg_3_del_blocks:     "folder e_brg_3_block_air,m64-sfx.e_block_break,e_brg_3_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_3_block_air:      "command execute in minecraft:marocraft run fill $brg3.a$ $brg3.b$ minecraft:air"
+  e_brg_3_add_blocks:     "folder e_brg_3_block_set,e_gtag_del_brg_3 delay:3"
+  e_brg_3_block_set:      "command execute in minecraft:marocraft run fill $brg3.a$ $brg3.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_3:       "globaltag delete wf_brg_3"
+  # Bridge #4: Delete
+  e_brg_4_delete:         "folder e_gtag_add_brg_4,e_brg_4_del_blocks"
+  e_gtag_add_brg_4:       "globaltag add wf_brg_4"
+  e_brg_4_del_blocks:     "folder e_brg_4_block_air,m64-sfx.e_block_break,e_brg_4_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_4_block_air:      "command execute in minecraft:marocraft run fill $brg4.a$ $brg4.b$ minecraft:air"
+  e_brg_4_add_blocks:     "folder e_brg_4_block_set,e_gtag_del_brg_4 delay:3"
+  e_brg_4_block_set:      "command execute in minecraft:marocraft run fill $brg4.a$ $brg4.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_4:       "globaltag delete wf_brg_4"
+  # Bridge #5: Delete
+  e_brg_5_delete:         "folder e_gtag_add_brg_5,e_brg_5_del_blocks"
+  e_gtag_add_brg_5:       "globaltag add wf_brg_5"
+  e_brg_5_del_blocks:     "folder e_brg_5_block_air,m64-sfx.e_block_break,e_brg_5_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_5_block_air:      "command execute in minecraft:marocraft run fill $brg5.a$ $brg5.b$ minecraft:air"
+  e_brg_5_add_blocks:     "folder e_brg_5_block_set,e_gtag_del_brg_5 delay:3"
+  e_brg_5_block_set:      "command execute in minecraft:marocraft run fill $brg5.a$ $brg5.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_5:       "globaltag delete wf_brg_5"
+  # Bridge #6: Delete
+  e_brg_6_delete:         "folder e_gtag_add_brg_6,e_brg_6_del_blocks"
+  e_gtag_add_brg_6:       "globaltag add wf_brg_6"
+  e_brg_6_del_blocks:     "folder e_brg_6_block_air,m64-sfx.e_block_break,e_brg_6_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_6_block_air:      "command execute in minecraft:marocraft run fill $brg6.a$ $brg6.b$ minecraft:air"
+  e_brg_6_add_blocks:     "folder e_brg_6_block_set,e_gtag_del_brg_6 delay:3"
+  e_brg_6_block_set:      "command execute in minecraft:marocraft run fill $brg6.a$ $brg6.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_6:       "globaltag delete wf_brg_6"
+  # Bridge #7: Delete
+  e_brg_7_delete:         "folder e_gtag_add_brg_7,e_brg_7_del_blocks"
+  e_gtag_add_brg_7:       "globaltag add wf_brg_7"
+  e_brg_7_del_blocks:     "folder e_brg_7_block_air,m64-sfx.e_block_break,e_brg_7_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_7_block_air:      "command execute in minecraft:marocraft run fill $brg7.a$ $brg7.b$ minecraft:air"
+  e_brg_7_add_blocks:     "folder e_brg_7_block_set,e_gtag_del_brg_7 delay:3"
+  e_brg_7_block_set:      "command execute in minecraft:marocraft run fill $brg7.a$ $brg7.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_7:       "globaltag delete wf_brg_7"
+  # Bridge #8: Delete
+  e_brg_8_delete:         "folder e_gtag_add_brg_8,e_brg_8_del_blocks"
+  e_gtag_add_brg_8:       "globaltag add wf_brg_8"
+  e_brg_8_del_blocks:     "folder e_brg_8_block_air,m64-sfx.e_block_break,e_brg_8_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_8_block_air:      "command execute in minecraft:marocraft run fill $brg8.a$ $brg8.b$ minecraft:air"
+  e_brg_8_add_blocks:     "folder e_brg_8_block_set,e_gtag_del_brg_8 delay:3"
+  e_brg_8_block_set:      "command execute in minecraft:marocraft run fill $brg8.a$ $brg8.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_8:       "globaltag delete wf_brg_8"
+  # Bridge #9: Delete
+  e_brg_9_delete:         "folder e_gtag_add_brg_9,e_brg_9_del_blocks"
+  e_gtag_add_brg_9:       "globaltag add wf_brg_9"
+  e_brg_9_del_blocks:     "folder e_brg_9_block_air,m64-sfx.e_block_break,e_brg_9_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_9_block_air:      "command execute in minecraft:marocraft run fill $brg9.a$ $brg9.b$ minecraft:air"
+  e_brg_9_add_blocks:     "folder e_brg_9_block_set,e_gtag_del_brg_9 delay:3"
+  e_brg_9_block_set:      "command execute in minecraft:marocraft run fill $brg9.a$ $brg9.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_9:       "globaltag delete wf_brg_9"
+  # Bridge #10: Delete
+  e_brg_10_delete:        "folder e_gtag_add_brg_10,e_brg_10_del_blocks"
+  e_gtag_add_brg_10:      "globaltag add wf_brg_10"
+  e_brg_10_del_blocks:    "folder e_brg_10_block_air,m64-sfx.e_block_break,e_brg_10_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_10_block_air:     "command execute in minecraft:marocraft run fill $brg10.a$ $brg10.b$ minecraft:air"
+  e_brg_10_add_blocks:    "folder e_brg_10_block_set,e_gtag_del_brg_10 delay:3"
+  e_brg_10_block_set:     "command execute in minecraft:marocraft run fill $brg10.a$ $brg10.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_10:      "globaltag delete wf_brg_10"
+  # Bridge #11: Delete
+  e_brg_11_delete:        "folder e_gtag_add_brg_11,e_brg_11_del_blocks"
+  e_gtag_add_brg_11:      "globaltag add wf_brg_11"
+  e_brg_11_del_blocks:    "folder e_brg_11_block_air,m64-sfx.e_block_break,e_brg_11_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_11_block_air:     "command execute in minecraft:marocraft run fill $brg11.a$ $brg11.b$ minecraft:air"
+  e_brg_11_add_blocks:    "folder e_brg_11_block_set,e_gtag_del_brg_11 delay:3"
+  e_brg_11_block_set:     "command execute in minecraft:marocraft run fill $brg11.a$ $brg11.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_11:      "globaltag delete wf_brg_11"
+
+  # Bridge: Restore
+  e_restore_bridge:       "folder e_brg_restore_1,e_brg_restore_2"
+  e_brg_restore_1:        "folder e_brg_1_restore,e_brg_2_restore,e_brg_3_restore,e_brg_4_restore,e_brg_5_restore,e_brg_6_restore"
+  e_brg_restore_2:        "folder e_brg_7_restore,e_brg_8_restore,e_brg_9_restore,e_brg_10_restore,e_brg_11_restore"
+  e_brg_1_restore:        "folder e_brg_1_block_set,e_gtag_del_brg_1"
+  e_brg_2_restore:        "folder e_brg_2_block_set,e_gtag_del_brg_2"
+  e_brg_3_restore:        "folder e_brg_3_block_set,e_gtag_del_brg_3"
+  e_brg_4_restore:        "folder e_brg_4_block_set,e_gtag_del_brg_4"
+  e_brg_5_restore:        "folder e_brg_5_block_set,e_gtag_del_brg_5"
+  e_brg_6_restore:        "folder e_brg_6_block_set,e_gtag_del_brg_6"
+  e_brg_7_restore:        "folder e_brg_7_block_set,e_gtag_del_brg_7"
+  e_brg_8_restore:        "folder e_brg_8_block_set,e_gtag_del_brg_8"
+  e_brg_9_restore:        "folder e_brg_9_block_set,e_gtag_del_brg_9"
+  e_brg_10_restore:       "folder e_brg_10_block_set,e_gtag_del_brg_10"
+  e_brg_11_restore:       "folder e_brg_11_block_set,e_gtag_del_brg_11"
+
+  # Bridge: Cleanup
+  e_cleanup_bridge:       "folder e_obj_del_bridge_s1,e_obj_del_bridge_s2,e_restore_bridge"
+  e_obj_del_bridge_s1:    "folder e_obj_del_bridge_1,e_obj_del_bridge_2,e_obj_del_bridge_3,e_obj_del_bridge_4,e_obj_del_bridge_5,e_obj_del_bridge_6"
+  e_obj_del_bridge_s2:    "folder e_obj_del_bridge_7,e_obj_del_bridge_8,e_obj_del_bridge_9,e_obj_del_bridge_10,e_obj_del_bridge_11"
+  e_obj_del_bridge_1:     "objective remove o_brg_1"
+  e_obj_del_bridge_2:     "objective remove o_brg_2"
+  e_obj_del_bridge_3:     "objective remove o_brg_3"
+  e_obj_del_bridge_4:     "objective remove o_brg_4"
+  e_obj_del_bridge_5:     "objective remove o_brg_5"
+  e_obj_del_bridge_6:     "objective remove o_brg_6"
+  e_obj_del_bridge_7:     "objective remove o_brg_7"
+  e_obj_del_bridge_8:     "objective remove o_brg_8"
+  e_obj_del_bridge_9:     "objective remove o_brg_9"
+  e_obj_del_bridge_10:    "objective remove o_brg_10"
+  e_obj_del_bridge_11:    "objective remove o_brg_11"
+
+conditions:
+  chk_bridge_1_exist:     "globaltag wf_brg_1"
+  chk_bridge_2_exist:     "globaltag wf_brg_2"
+  chk_bridge_3_exist:     "globaltag wf_brg_3"
+  chk_bridge_4_exist:     "globaltag wf_brg_4"
+  chk_bridge_5_exist:     "globaltag wf_brg_5"
+  chk_bridge_6_exist:     "globaltag wf_brg_6"
+  chk_bridge_7_exist:     "globaltag wf_brg_7"
+  chk_bridge_8_exist:     "globaltag wf_brg_8"
+  chk_bridge_9_exist:     "globaltag wf_brg_9"
+  chk_bridge_10_exist:    "globaltag wf_brg_10"
+  chk_bridge_11_exist:    "globaltag wf_brg_11"
+
+
+
+
+objectives:
+  o_brg_1:                "region wf_brg_1 enter conditions:!chk_bridge_1_exist events:e_brg_1_delete persistent"
+  o_brg_2:                "region wf_brg_2 enter conditions:!chk_bridge_2_exist events:e_brg_2_delete persistent"
+  o_brg_3:                "region wf_brg_3 enter conditions:!chk_bridge_3_exist events:e_brg_3_delete persistent"
+  o_brg_4:                "region wf_brg_4 enter conditions:!chk_bridge_4_exist events:e_brg_4_delete persistent"
+  o_brg_5:                "region wf_brg_5 enter conditions:!chk_bridge_5_exist events:e_brg_5_delete persistent"
+  o_brg_6:                "region wf_brg_6 enter conditions:!chk_bridge_6_exist events:e_brg_6_delete persistent"
+  o_brg_7:                "region wf_brg_7 enter conditions:!chk_bridge_7_exist events:e_brg_7_delete persistent"
+  o_brg_8:                "region wf_brg_8 enter conditions:!chk_bridge_8_exist events:e_brg_8_delete persistent"
+  o_brg_9:                "region wf_brg_9 enter conditions:!chk_bridge_9_exist events:e_brg_9_delete persistent"
+  o_brg_10:               "region wf_brg_10 enter conditions:!chk_bridge_10_exist events:e_brg_10_delete persistent"
+  o_brg_11:               "region wf_brg_11 enter conditions:!chk_bridge_11_exist events:e_brg_11_delete persistent"

@@ -1,0 +1,55 @@
+variables:
+  spawn:              -357.5;69;2.5;marocraft;180;12
+  respawn:            -19.5;46;-431.5;marocraft;90;12
+  exitbtn:            -358;69;2;marocraft
+  warp_1:             -471;106;-68;marocraft;45;12
+  warp_2:             -470;94;-57;marocraft;45;12
+
+events:
+  init_level:         "folder add_level_objs,init_cannons,init_stars,e_tp_spawn,e_play_music"
+  reload_level:       "folder reset_level,m64-main.init_castle"
+  reset_level:        "folder del_level_objs,reset_cannons,reset_stars,e_stop_music"
+  hard_reset:         "folder reset_level,delete_stars"
+  on_death:           "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:            "folder e_tp_respawn,reload_level"
+
+  e_point_add_death:  "point bob_deaths 1 action:add"
+  e_gpoint_add_death: "globalpoint bob_deaths 1 action:add"
+
+  ### Play music
+  e_play_music:       "folder m64-sfx.e_play_bob"
+  e_stop_music:       "folder m64-sfx.e_stop_music"
+
+  ### LEVEL - Add objectives
+  add_level_objs:     "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_warp_1,e_obj_add_warp_2"
+  e_obj_add_respawn:  "objective add o_respawn"
+  e_obj_add_exit:     "objective add o_exitlevel"
+  e_obj_add_warp_1:   "objective add o_warp_1"
+  e_obj_add_warp_2:   "objective add o_warp_2"
+  ### LEVEL - Del objectives
+  del_level_objs:     "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_warp_1,e_obj_del_warp_2"
+  e_obj_del_respawn:  "objective remove o_respawn"
+  e_obj_del_exit:     "objective remove o_exitlevel"
+  e_obj_del_warp_1:   "objective remove o_warp_1"
+  e_obj_del_warp_2:   "objective remove o_warp_2"
+
+
+
+
+  # Teleports
+  e_tp_spawn:         "teleport $spawn$"
+  e_tp_respawn:       "teleport $respawn$"
+  fol_tp_warp_1:      "folder e_tp_warp_1,m64-sfx.e_warp"
+  e_tp_warp_1:        "teleport $warp_2$"
+  fol_tp_warp_2:      "folder e_tp_warp_2,m64-sfx.e_warp"
+  e_tp_warp_2:        "teleport $warp_1$"
+
+  # Actions
+  e_notify_death:     "command broadcast &3%player%&f died in BOB."
+
+
+objectives:
+  o_respawn:          "die cancel respawn:$respawn$ events:on_death"
+  o_exitlevel:        "action right any loc:$exitbtn$ events:on_exit"
+  o_warp_1:           "region bob_warp_1 enter events:fol_tp_warp_2 persistent"
+  o_warp_2:           "region bob_warp_2 enter events:fol_tp_warp_1 persistent"

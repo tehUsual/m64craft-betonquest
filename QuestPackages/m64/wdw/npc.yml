@@ -1,0 +1,123 @@
+npcs:
+  '204': "toad_bob"
+
+conversations:
+  toad_bob:
+    quester: "Toad: Wet-Dry World"
+    first: welcome
+  
+    NPC_options:
+      welcome:
+        text: "I'm your progress tracker for\n&2Wet-Dry World&r!"
+        pointer: progress
+      view_progress:
+        text: "This is what you've got so far! - &2%point.wdw_stars.amount%&r/10"
+        pointer: s1y,s1n,s2y,s2n,s3y,s3n,s4y,s4n,s5y,s5n,s6y,s6n,s7w,s8w,s9y,s9n,s10y,s10n,s11y,s11n
+      bye:
+        text: "Byee!"
+        #exit
+    
+    player_options:
+      progress:
+        text: "Progress"
+        pointer: view_progress
+
+      ### STAR 1 - SHOCKING ARROW LIFTS!
+      s1y:
+        condition: "chk_s1_obtained"
+        text: "[x] Shocking arrow lifts!"
+        pointer: bye
+      s1n:
+        condition: "!chk_s1_obtained"
+        text: "[ ] -=Star=- 1"
+        pointer: bye
+
+      ### STAR 2 - TOP O' THE TOWN    
+      s2y:
+        condition: "chk_s2_obtained"
+        text: "[x] Top o' the town"
+        pointer: bye
+      s2n:
+        condition: "!chk_s2_obtained"
+        text: "[ ] -=Star=- 2"
+        pointer: bye
+
+      ### STAR 3 - SECRETS IN THE SHALLOWS & SKY
+      s3y:
+        condition: "chk_s3_obtained"
+        text: "[x] Secrets in the shallows & sky"
+        pointer: bye
+      s3n:
+        condition: "!chk_s3_obtained"
+        text: "[ ] -=Star=- 3"
+        pointer: bye
+
+      ### STAR 4 - EXPRESS ELEVATORS - HURRY UP!
+      s4y:
+        condition: "chk_s4_obtained"
+        text: "[x] Express elevators - hurry up!"
+        pointer: bye
+      s4n:
+        condition: "!chk_s4_obtained"
+        text: "[ ] -=Star=- 4"
+        pointer: bye
+
+      ### STAR 5 - GO TO TOWN FOR RED COINS
+      s5y:
+        condition: "chk_s5_obtained"
+        text: "[x] Go to town for 12 red coins"
+        pointer: bye
+      s5n:
+        condition: "!chk_s5_obtained"
+        text: "[ ] -=Star=- 5"
+        pointer: bye
+
+      ### STAR 6 - QUICK RACE THROUGH DOWNTOWN
+      s6y:
+        condition: "chk_s6_obtained"
+        text: "[x] Quick race through downtown"
+        pointer: bye
+      s6n:
+        condition: "!chk_s6_obtained"
+        text: "[ ] -=Star=- 6"
+        pointer: bye
+
+      ### STAR 7
+      s7w:
+        text: "N/A"
+        pointer: bye
+
+      ### STAR 8 - 4 SUSPICIOUS LOGS
+      s8w:
+        text: "N/A"
+        pointer: bye
+
+      ### STAR 9 - CAPTAIN TOAD 1
+      s9y:
+        condition: "chk_s9_obtained"
+        text: "[x] Lost Toad #1"
+        pointer: bye
+      s9n:
+        condition: "!chk_s9_obtained"
+        text: "[ ] -=Star=- 9"
+        pointer: bye
+
+      ### STAR 10 - CAPTAIN TOAD 2
+      s10y:
+        condition: "chk_s10_obtained"
+        text: "[x] Lost Toad #2"
+        pointer: bye
+      s10n:
+        condition: "!chk_s10_obtained"
+        text: "[ ] -=Star=- 10"
+        pointer: bye
+
+      ### STAR 11 - CAPTAIN TOAD 3
+      s11y:
+        condition: "chk_s11_obtained"
+        text: "[x] Lost Toad #3"
+        pointer: bye
+      s11n:
+        condition: "!chk_s11_obtained"
+        text: "[ ] -=Star=- 11"
+        pointer: bye

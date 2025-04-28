@@ -1,0 +1,20 @@
+npcs:
+  '207': "maroutil"
+
+conversations:
+  maroutil:
+    quester: "MaroUtil"
+    first: init
+
+    NPC_options:
+      init:
+        text: "Hello!"
+        pointer: p_init,p_cleanup
+    
+    player_options:
+      p_init:
+        text: "Initialize"
+        event: m64-main.init_castle
+      p_cleanup:
+        text: "Deinitialize"
+        event: m64-main.reset_castle

@@ -1,0 +1,125 @@
+npcs:
+  '184': "toad_bbh"
+
+conversations:
+  toad_bbh:
+    quester: "Toad: Big Boo's Haunt"
+    first: welcome
+  
+    NPC_options:
+      welcome:
+        text: "I'm your progress tracker for\n&2Big Boo's Haunt&r!"
+        pointer: progress
+      view_progress:
+        text: "This is what you've got so far! - &2%point.bbh_stars.amount%&r/10"
+        pointer: s1y,s1n,s2y,s2n,s3y,s3n,s4y,s4n,s5y,s5n,s6y,s6n,s8y,s8n,s9y,s9n,s10y,s10n,s11y,s11n
+      bye:
+        text: "Byee!"
+        #exit
+    
+    player_options:
+      progress:
+        text: "Progress"
+        pointer: view_progress
+
+      ### STAR 1 - GO ON A GHOST HUNT
+      s1y:
+        condition: "chk_s1_obtained"
+        text: "[x] Go on a ghost hunt"
+        pointer: bye
+      s1n:
+        condition: "!chk_s1_obtained"
+        text: "[ ] -=Star=- 1"
+        pointer: bye
+
+      ### STAR 2 - RIDE BIG BOO'S MERRY-GO-ROUND
+      s2y:
+        condition: "chk_s2_obtained"
+        text: "[x] Ride big boo's merry-go-round"
+        pointer: bye
+      s2n:
+        condition: "!chk_s2_obtained"
+        text: "[ ] -=Star=- 2"
+        pointer: bye
+
+      ### STAR 3 - SECRET OF THE HAUNTED BOOKS
+      s3y:
+        condition: "chk_s3_obtained"
+        text: "[x] Secret of the haunted books"
+        pointer: bye
+      s3n:
+        condition: "!chk_s3_obtained"
+        text: "[ ] -=Star=- 3"
+        pointer: bye
+
+      ### STAR 4 - FIND THE 12 RED COINS
+      s4y:
+        condition: "chk_s4_obtained"
+        text: "[x] Find the 12 read coins"
+        pointer: bye
+      s4n:
+        condition: "!chk_s4_obtained"
+        text: "[ ] -=Star=- 4"
+        pointer: bye
+
+      ### STAR 5 - BIG BOO'S BALCONY
+      s5y:
+        condition: "chk_s5_obtained"
+        text: "[x] Big boo's balcony"
+        pointer: bye
+      s5n:
+        condition: "!chk_s5_obtained"
+        text: "[ ] -=Star=- 5"
+        pointer: bye
+
+      ### STAR 6 - EYE TO EYE IN THE SECRET ROOM
+      s6y:
+        condition: "chk_s6_obtained"
+        text: "[x] Eye to eye in the secret room"
+        pointer: bye
+      s6n:
+        condition: "!chk_s6_obtained"
+        text: "[ ] -=Star=- 6"
+        pointer: bye
+
+      ### STAR 7
+
+      ### STAR 8 - KOOPA THE QUICK
+      s8y:
+        condition: "chk_s8_obtained"
+        text: "[x] Koopa the quick"
+        pointer: bye
+      s8n:
+        condition: "!chk_s8_obtained"
+        text: "[ ] -=Star=- 8"
+        pointer: bye
+
+      ### STAR 9 - CAPTAIN TOAD 1
+      s9y:
+        condition: "chk_s9_obtained"
+        text: "[x] Dead Lost Toad #1"
+        pointer: bye
+      s9n:
+        condition: "!chk_s9_obtained"
+        text: "[ ] -=Star=- 9"
+        pointer: bye
+
+      ### STAR 10 - CAPTAIN TOAD 2
+      s10y:
+        condition: "chk_s10_obtained"
+        text: "[x] Dead Lost Toad #2"
+        pointer: bye
+      s10n:
+        condition: "!chk_s10_obtained"
+        text: "[ ] -=Star=- 10"
+        pointer: bye
+
+      ### STAR 11 - CAPTAIN TOAD 3
+      s11y:
+        condition: "chk_s11_obtained"
+        text: "[x] Dead Lost Toad #3"
+        pointer: bye
+      s11n:
+        condition: "!chk_s11_obtained"
+        text: "[ ] -=Star=- 12"
+        pointer: bye

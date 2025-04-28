@@ -1,0 +1,49 @@
+events:
+  init_cannons:           "folder init_c1"
+  reset_cannons:          "folder e_take_enderpearl,cleanup_c1"
+
+  e_give_enderpearl:      "give i_enderpearl:1 notify"
+  e_take_enderpearl:      "take i_enderpearl:64"
+  e_ptc_explotion:        "command execute in minecraft:marocraft at %player% run particle minecraft:explosion ~ ~1 ~ 0.5 0 0.5 1 3"
+
+  ### CANNON - 1 - QUICKSAND
+  reset_c1:               "folder cleanup_c1,init_c1"
+  # Init
+  init_c1:                "folder e_obj_add_c1_enter"
+  e_obj_add_c1_enter:     "objective add o_cannon_enter_1"
+  # Enter
+  e_c1_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c1_stay"
+  e_obj_add_c1_stay:      "objective add o_cannon_wait_1"
+  # Waited
+  e_c1_waited:            "if chk_in_cannon_1 e_c1_load else e_obj_add_c1_enter"
+  # Load
+  e_c1_load:              "folder e_give_enderpearl,e_obj_add_c1_shoot,e_obj_add_c1_exit"
+  e_obj_add_c1_shoot:     "objective add o_cannon_shoot_1"
+  e_obj_add_c1_exit:      "objective add o_cannon_exit_1"
+  # Shoot
+  e_c1_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c1_exit:              "folder e_take_enderpearl,reset_c1"
+  # Cleanup
+  cleanup_c1:             "folder e_obj_del_c1_enter,e_obj_del_c1_wait,e_obj_del_c1_shoot,e_obj_del_c1_exit"
+  e_obj_del_c1_enter:     "objective remove o_cannon_enter_1"
+  e_obj_del_c1_wait:      "objective remove o_cannon_wait_1"
+  e_obj_del_c1_shoot:     "objective remove o_cannon_shoot_1"
+  e_obj_del_c1_exit:      "objective remove o_cannon_exit_1"
+
+
+conditions:
+  chk_holding_pearl:      "hand i_enderpearl"
+  chk_in_cannon_1:        "region ssl_cannon_1"
+
+
+objectives:
+  # Cannon - 1
+  o_cannon_enter_1:       "region ssl_cannon_1 enter events:e_c1_enter"
+  o_cannon_wait_1:        "delay 3 seconds interval:1 events:e_c1_waited"
+  o_cannon_shoot_1:       "action right any conditions:chk_in_cannon_1,chk_holding_pearl events:e_c1_shoot"
+  o_cannon_exit_1:        "region ssl_cannon_1 exit events:e_c1_exit"
+
+
+items:
+  i_enderpearl:           "minecraft:ender_pearl name:&6Cannon"

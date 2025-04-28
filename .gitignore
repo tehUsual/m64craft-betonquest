@@ -1,0 +1,10 @@
+/*
+
+!.gitignore
+
+!QuestPackages/
+!QuestPackages/*
+
+!QuestTemplates/
+!QuestTemplates/*
+

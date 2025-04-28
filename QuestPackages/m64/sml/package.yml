@@ -1,0 +1,63 @@
+variables:
+  spawn:              -422.5;31;705.5;marocraft;90;12
+  respawn:            60.5;67;-467.5;marocraft;180;12
+  exitbtn:            -423;31;705;marocraft
+
+# MAPNAME = name of map
+# STARNAME = name of star
+
+events:
+  init_level:           "folder add_level_objs,init_env,init_stars,e_tp_spawn,e_play_music"
+  reload_level:         "folder reset_level,m64-main.init_castle"
+  reset_level:          "folder del_level_objs,reset_env,reset_stars,e_stop_music"
+  on_death:             "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:              "folder e_tp_respawn,reload_level"
+
+  # Points
+  e_point_add_death:    "point sml_deaths 1 action:add"
+  e_gpoint_add_death:   "globalpoint sml_deaths 1 action:add"
+
+
+  ### Play music
+  e_play_music:         "folder m64-sfx.e_play_ccm"
+  e_stop_music:         "folder m64-sfx.e_stop_music"
+
+
+  ### LEVEL - Add objectives
+  add_level_objs:       "folder e_obj_add_respawn,e_obj_add_exit"
+  e_obj_add_respawn:    "objective add o_respawn"
+  e_obj_add_exit:       "objective add o_exitlevel"
+  ### LEVEL - Del objectives
+  del_level_objs:       "folder e_obj_del_respawn,e_obj_del_exit"
+  e_obj_del_respawn:    "objective remove o_respawn"
+  e_obj_del_exit:       "objective remove o_exitlevel"
+
+
+  # Teleports
+  e_tp_spawn:           "teleport $spawn$"
+  e_tp_respawn:         "teleport $respawn$"
+
+  # Actions
+  e_notify_death:       "command broadcast &3%player%&f died in SML."
+
+
+
+objectives:
+  o_respawn:            "die cancel respawn:$respawn$ events:on_death"
+  o_exitlevel:          "action right any loc:$exitbtn$ events:on_exit"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,578 @@
+variables:
+  s1:
+    star_loc:             -874;46;-541;marocraft
+    npc_bb:               161
+  s2:
+    star_loc:             -829;41;-526;marocraft
+    npc_sb_1:             162
+    npc_sb_2:             163
+    npc_sb_3:             164
+  s4:
+    star_loc:             -917;40;-468;marocraft
+    star_loc_xyz:         -917 40 -468
+    rc1:                  -874;42;-408;marocraft
+    rc2:                  -932;37;-403;marocraft
+    rc3:                  -924;35;-459;marocraft
+    rc4:                  -934;38;-464;marocraft
+    rc5:                  -942;38;-538;marocraft
+    rc6:                  -906;38;-492;marocraft
+    rc7:                  -874;39;-487;marocraft
+    rc8:                  -807;37;-501;marocraft
+    rc9:                  -796;38;-456;marocraft
+    rc10:                 -813;42;-533;marocraft
+    rc11:                 -906;36;-440;marocraft
+    rc12:                 -846;36;-497;marocraft
+  s3:
+    star_loc:             -843;41;-391;marocraft
+  s5:
+    star_loc:             -847;81;-654;marocraft
+  s6:
+    star_loc:             -852;77;-626;marocraft
+  s8:
+    total_time:           60
+    total_time_notif:     60
+    delay_interval:       5
+    start_loc:            -914;36;-406;marocraft
+  s10:
+    door_loc:             -809;34;-536;marocraft
+  s11:
+    door_loc:             -900;47;-613;marocraft
+
+
+### STAR 1 - BOIL THE BIG BULLY
+### STAR 2 - BULLY THE BULLIES
+### STAR 3 - RED-HOT LOG ROLLING
+### STAR 4 - 8-COIN PUZZLE WITH 15 PIECES
+### STAR 5 - HOT-FOOT-IT INTO THE VOLCANO
+### STAR 6 - ELEVATOR TOUR IN THE VOLCANO
+### STAR 7
+### STAR 8 - 
+### STAR 9 - CAPTAIN TOAD 1
+### STAR 10 - CAPTAIN TOAD 2
+### STAR 11 - CAPTAIN TOAD 3
+
+
+npcs:
+  '165': "cpttoad_1"
+  '166': "cpttoad_2"
+  '167': "cpttoad_3"
+
+conversations:
+  cpttoad_1:
+    quester: "Captain Toad #1"
+    first: has_star,get_star
+
+    NPC_options:
+      has_star:
+        conditions: "chk_s9_obtained"
+        text: "Wow! I already gave you a star!"
+        #exit
+      get_star:
+        conditions: "!chk_s9_obtained"
+        text: "Ya-hoo! You found me!"
+        event: win_s9
+
+  cpttoad_2:
+    quester: "Captain Toad #2"
+    first: has_star,get_star
+
+    NPC_options:
+      has_star:
+        conditions: "chk_s10_obtained"
+        text: "Wow! I already gave you a star!"
+        #exit
+      get_star:
+        conditions: "!chk_s10_obtained"
+        text: "Ya-hoo! You found me!"
+        event: win_s10
+
+  cpttoad_3:
+    quester: "Captain Toad #3"
+    first: has_star,get_star
+
+    NPC_options:
+      has_star:
+        conditions: "chk_s11_obtained"
+        text: "Wow! I already gave you a star!"
+        #exit
+      get_star:
+        conditions: "!chk_s11_obtained"
+        text: "Ya-hoo! You found me!"
+        event: win_s11
+
+
+
+events:
+  init_stars:             "folder init_s1,init_s2,init_s3,init_s4,init_s5,init_s6,init_s8"
+  reset_stars:            "folder cleanup_s1,cleanup_s2,cleanup_s3,cleanup_s4,cleanup_s5,cleanup_s6,cleanup_s8"
+  delete_stars:           "folder e_del_star_tags,e_s4_del_tags,e_clear_star_counter"
+  
+  e_del_star_tags:        "folder e_del_star_tags_1,e_del_star_tags_2"
+  e_del_star_tags_1:      "run ^tag delete s1 ^tag delete s2 ^tag delete s3 ^tag delete s4 ^tag delete s5 ^tag delete s6"
+  e_del_star_tags_2:      "run ^tag delete s8 ^tag delete s9 ^tag delete s10 ^tag delete s11"
+  e_clear_star_counter:   "point lll_stars 0 action:set"
+
+  exit_star:              "folder on_exit,m64-sfx.e_exit_course,e_add_star_counter delay:4"
+  e_add_star_counter:     "point lll_stars 1 action:add"
+
+
+  ### STAR 1 - BOIL THE BIG BULLY
+  # Init
+  init_s1:                "folder e_obj_add_s1_kbb"
+  e_obj_add_s1_kbb:       "objective add o_s1_kill_bb"
+
+  # Killed big bully
+  e_s1_bb_killed:         "folder e_s1_spawn_star,m64-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star,e_s1_gp_add_star,e_s1_tag_add_spawned,e_s1_pardon_player"
+  e_s1_spawn_star:        "setblock RAW_GOLD_BLOCK $s1.star_loc$"
+  e_s1_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s1_star:      "objective add o_s1_star"
+  e_s1_gp_add_star:       "globalpoint lll_s1 1 action:add"
+  e_s1_tag_add_spawned:   "tag add s1_spawned"
+  e_s1_pardon_player:     "command lp user %player% parent add bb_whitelist"
+
+  # Win
+  win_s1:                 "folder e_notif_s1_win,m64-sfx.e_got_star,if_firstwin_s1,cleanup_s1"
+  e_notif_s1_win:         "notify &3Bully the big bully\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s1:         "if !chk_s1_obtained firstwin_s1 else m64-main.e_dummy"
+  firstwin_s1:            "folder e_broad_s1_first,tag_add_s1_win,e_stop_music,exit_star"
+  e_broad_s1_first:       "command broadcast &6%player% &2got a star: [LLL] Bully the big bully"
+  tag_add_s1_win:         "tag add s1"
+
+  # Cleanup
+  cleanup_s1:             "folder e_obj_del_s1_star,e_obj_del_s1_kbb,if_s1_gotten,if_s1_spawned,e_s1_tag_del_spawned"
+  e_obj_del_s1_star:      "objective remove o_s1_star"
+  e_obj_del_s1_kbb:       "objective remove o_s1_kill_bb"
+
+  if_s1_spawned:          "if chk_s1_spawned e_s1_del_spawned else m64-main.e_dummy"
+  e_s1_del_spawned:       "folder e_s1_gp_sub_star,if_s1_despawn"
+  e_s1_gp_sub_star:       "globalpoint lll_s1 1 action:subtract"
+  if_s1_despawn:          "if !chk_s1_spawn_count e_s1_delete_star else m64-main.e_dummy"
+  e_s1_tag_del_spawned:   "tag delete s1_spawned"
+
+  if_s1_gotten:           "if !chk_s1_obtained e_s1_attack_player else m64-main.e_dummy"
+  e_s1_attack_player:     "command lp user %player% parent remove bb_whitelist"
+
+  e_s1_delete_star:       "folder e_s1_despawn_star,e_s1_reset_star_count"
+  e_s1_despawn_star:      "setblock AIR $s1.star_loc$"
+  e_s1_reset_star_count:  "globalpoint lll_s1 0 action:set"
+
+
+  ### STAR 2 - BULLY THE BULLIES
+  init_s2:                "folder e_obj_add_s2_ksb_1,e_obj_add_s2_ksb_2,e_obj_add_s2_ksb_3"
+  e_obj_add_s2_ksb_1:     "objective add o_s2_kill_sb_1"
+  e_obj_add_s2_ksb_2:     "objective add o_s2_kill_sb_2"
+  e_obj_add_s2_ksb_3:     "objective add o_s2_kill_sb_3"
+
+  # Killed small bully 1
+  e_s2_sb_killed_1:       "folder e_s2_tag_add_sb_1,m64-sfx.e_coin,if_all_bullies_s2"
+  e_s2_tag_add_sb_1:      "tag add s2_sb_1"
+  # Killed small bully 2
+  e_s2_sb_killed_2:       "folder e_s2_tag_add_sb_2,m64-sfx.e_coin,if_all_bullies_s2"
+  e_s2_tag_add_sb_2:      "tag add s2_sb_2"
+  # Killed small bully 3
+  e_s2_sb_killed_3:       "folder e_s2_tag_add_sb_3,m64-sfx.e_coin,if_all_bullies_s2"
+  e_s2_tag_add_sb_3:      "tag add s2_sb_3"
+
+  # Check if all bullies killed
+  if_all_bullies_s2:      "if chk_s2_killed_sb_all e_s2_all_sb_killed else m64-main.e_dummy"
+  # All bullies killed
+  e_s2_all_sb_killed:     "folder e_s2_spawn_star,m64-sfx.e_star_spawn,e_s2_notif_spawn_star,e_obj_add_s2_star,e_s2_gp_add_star,e_s2_tag_add_spawned,e_s2_pardon_player"
+  e_s2_spawn_star:        "setblock RAW_GOLD_BLOCK $s2.star_loc$"
+  e_s2_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s2_star:      "objective add o_s2_star"
+  e_s2_gp_add_star:       "globalpoint lll_s2 1 action:add"
+  e_s2_tag_add_spawned:   "tag add s2_spawned"
+  e_s2_pardon_player:     "command lp user %player% parent add sb_whitelist"
+
+  # Win
+  win_s2:                 "folder e_notif_s2_win,m64-sfx.e_got_star,if_firstwin_s2,cleanup_s2"
+  e_notif_s2_win:         "notify &3Bully the bullies\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s2:         "if !chk_s2_obtained firstwin_s2 else m64-main.e_dummy"
+  firstwin_s2:            "folder e_broad_s2_first,tag_add_s2_win,e_stop_music,exit_star"
+  e_broad_s2_first:       "command broadcast &6%player% &2got a star: [LLL] Bully the bullies"
+  tag_add_s2_win:         "tag add s2"
+
+  # Cleanup
+  cleanup_s2:             "folder e_s2_del_objs,e_s2_del_tags,if_s2_gotten,if_s2_spawned,e_s2_tag_del_spawned"
+  e_s2_del_objs:          "folder e_obj_del_s2_star,e_obj_del_s2_ksb_1,e_obj_del_s2_ksb_2,e_obj_del_s2_ksb_3"
+  e_obj_del_s2_star:      "objective remove o_s2_star"
+  e_obj_del_s2_ksb_1:     "objective remove o_s2_kill_sb_1"
+  e_obj_del_s2_ksb_2:     "objective remove o_s2_kill_sb_2"
+  e_obj_del_s2_ksb_3:     "objective remove o_s2_kill_sb_3"
+  e_s2_del_tags:          "run ^tag delete s2_sb_1 ^tag delete s2_sb_2 ^tag delete s2_sb_3"
+
+  if_s2_spawned:          "if chk_s2_spawned e_s2_del_spawned else m64-main.e_dummy"
+  e_s2_del_spawned:       "folder e_s2_gp_sub_star,if_s2_despawn"
+  e_s2_gp_sub_star:       "globalpoint lll_s2 1 action:subtract"
+  if_s2_despawn:          "if !chk_s2_spawn_count e_s2_delete_star else m64-main.e_dummy"
+  e_s2_tag_del_spawned:   "tag delete s2_spawned"
+
+  if_s2_gotten:           "if !chk_s2_obtained e_s2_attack_player else m64-main.e_dummy"
+  e_s2_attack_player:     "command lp user %player% parent remove sb_whitelist"
+
+  e_s2_delete_star:       "folder e_s2_despawn_star,e_s2_reset_star_count"
+  e_s2_despawn_star:      "setblock AIR $s2.star_loc$"
+  e_s2_reset_star_count:  "globalpoint lll_s2 0 action:set"
+
+
+
+  ### STAR 3 - RED-HOT LOG ROLLING
+  # Init
+  init_s3:                "folder e_obj_add_s3_star"
+  e_obj_add_s3_star:      "objective add o_s3_star"
+
+  # Win
+  win_s3:                 "folder e_notif_s3_win,m64-sfx.e_got_star,cleanup_s3,if_firstwin_s3"
+  e_notif_s3_win:         "notify &3Red-hot log rolling\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s3:         "if !chk_s3_obtained firstwin_s3 else m64-main.e_dummy"
+  firstwin_s3:            "folder e_broad_s3_first,tag_add_s3_win,e_stop_music,exit_star"
+  e_broad_s3_first:       "command broadcast &6%player% &2got a star: [LLL] Red-hot log rolling"
+  tag_add_s3_win:         "tag add s3"
+
+  # Cleanup
+  cleanup_s3:             "folder e_obj_del_s3_star"
+  e_obj_del_s3_star:      "objective remove o_s3_star"
+
+
+### STAR 4 - FIND THE 12 RED COINS
+  # Init
+  init_s4:                "folder e_s4_add_obj_rc"
+  e_s4_add_obj_rc:        "folder e_s4_add_obj_rc_1,e_s4_add_obj_rc_2"
+  e_s4_add_obj_rc_1:      "folder e_obj_add_s4_rc1,e_obj_add_s4_rc2,e_obj_add_s4_rc3,e_obj_add_s4_rc4,e_obj_add_s4_rc5,e_obj_add_s4_rc6"
+  e_s4_add_obj_rc_2:      "folder e_obj_add_s4_rc7,e_obj_add_s4_rc8,e_obj_add_s4_rc9,e_obj_add_s4_rc10,e_obj_add_s4_rc11,e_obj_add_s4_rc12"
+  e_obj_add_s4_rc1:       "objective add o_s4_rc1"
+  e_obj_add_s4_rc2:       "objective add o_s4_rc2"
+  e_obj_add_s4_rc3:       "objective add o_s4_rc3"
+  e_obj_add_s4_rc4:       "objective add o_s4_rc4"
+  e_obj_add_s4_rc5:       "objective add o_s4_rc5"
+  e_obj_add_s4_rc6:       "objective add o_s4_rc6"
+  e_obj_add_s4_rc7:       "objective add o_s4_rc7"
+  e_obj_add_s4_rc8:       "objective add o_s4_rc8"
+  e_obj_add_s4_rc9:       "objective add o_s4_rc9"
+  e_obj_add_s4_rc10:       "objective add o_s4_rc10"
+  e_obj_add_s4_rc11:       "objective add o_s4_rc11"
+  e_obj_add_s4_rc12:       "objective add o_s4_rc12"
+
+  e_s4_rc_add_point:      "point rc_count 1 action:add"
+
+  # Rc1
+  e_s4_got_rc1:           "folder e_s4_add_tag_rc1,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc1,if_all_rc_s4"
+  e_s4_add_tag_rc1:       "tag add rc1"
+  e_s4_notify_rc1:        "notify &3Red coin nr. 1 found! %point.rc_count.amount%/12"
+  # Rc2
+  e_s4_got_rc2:           "folder e_s4_add_tag_rc2,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc2,if_all_rc_s4"
+  e_s4_add_tag_rc2:       "tag add rc2"
+  e_s4_notify_rc2:        "notify &3Red coin nr. 2 found! %point.rc_count.amount%/12"
+  # Rc3
+  e_s4_got_rc3:           "folder e_s4_add_tag_rc3,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc3,if_all_rc_s4"
+  e_s4_add_tag_rc3:       "tag add rc3"
+  e_s4_notify_rc3:        "notify &3Red coin nr. 3 found! %point.rc_count.amount%/12"
+  # Rc4
+  e_s4_got_rc4:           "folder e_s4_add_tag_rc4,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc4,if_all_rc_s4"
+  e_s4_add_tag_rc4:       "tag add rc4"
+  e_s4_notify_rc4:        "notify &3Red coin nr. 4 found! %point.rc_count.amount%/12"
+  # Rc5
+  e_s4_got_rc5:           "folder e_s4_add_tag_rc5,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc5,if_all_rc_s4"
+  e_s4_add_tag_rc5:       "tag add rc5"
+  e_s4_notify_rc5:        "notify &3Red coin nr. 5 found! %point.rc_count.amount%/12"
+  # Rc6
+  e_s4_got_rc6:           "folder e_s4_add_tag_rc6,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc6,if_all_rc_s4"
+  e_s4_add_tag_rc6:       "tag add rc6"
+  e_s4_notify_rc6:        "notify &3Red coin nr. 6 found! %point.rc_count.amount%/12"
+  # Rc7
+  e_s4_got_rc7:           "folder e_s4_add_tag_rc7,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc7,if_all_rc_s4"
+  e_s4_add_tag_rc7:       "tag add rc7"
+  e_s4_notify_rc7:        "notify &3Red coin nr. 7 found! %point.rc_count.amount%/12"
+  # Rc8
+  e_s4_got_rc8:           "folder e_s4_add_tag_rc8,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc8,if_all_rc_s4"
+  e_s4_add_tag_rc8:       "tag add rc8"
+  e_s4_notify_rc8:        "notify &3Red coin nr. 8 found! %point.rc_count.amount%/12"
+  # Rc9
+  e_s4_got_rc9:           "folder e_s4_add_tag_rc9,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc9,if_all_rc_s4"
+  e_s4_add_tag_rc9:       "tag add rc9"
+  e_s4_notify_rc9:        "notify &3Red coin nr. 9 found! %point.rc_count.amount%/12"
+  # Rc10
+  e_s4_got_rc10:          "folder e_s4_add_tag_rc10,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc10,if_all_rc_s4"
+  e_s4_add_tag_rc10:      "tag add rc10"
+  e_s4_notify_rc10:       "notify &3Red coin nr. 10 found! %point.rc_count.amount%/12"
+  # Rc11
+  e_s4_got_rc11:          "folder e_s4_add_tag_rc11,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc11,if_all_rc_s4"
+  e_s4_add_tag_rc11:      "tag add rc11"
+  e_s4_notify_rc11:       "notify &3Red coin nr. 11 found! %point.rc_count.amount%/12"
+  # Rc12
+  e_s4_got_rc12:          "folder e_s4_add_tag_rc12,e_s4_rc_add_point,m64-sfx.e_coin,e_s4_notify_rc12,if_all_rc_s4"
+  e_s4_add_tag_rc12:      "tag add rc12"
+  e_s4_notify_rc12:       "notify &3Red coin nr. 12 found! %point.rc_count.amount%/12"
+
+  # Check win
+  if_all_rc_s4:           "if chk_s4_all_rc e_s4_all_rc_gotten else m64-main.e_dummy"
+
+  e_s4_all_rc_gotten:     "folder e_s4_spawn_star,e_s4_summon_firework,m64-sfx.e_star_spawn,e_s4_notif_spawn_star,e_obj_add_s4_star,e_s4_gp_add_star,e_s4_tag_add_spawned"
+  e_s4_spawn_star:        "setblock RAW_GOLD_BLOCK $s4.star_loc$"
+  e_s4_summon_firework:   "command execute in minecraft:marocraft run summon firework_rocket $s4.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
+  e_s4_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s4_star:      "objective add o_s4_star"
+  e_s4_gp_add_star:       "globalpoint lll_s4 1 action:add"
+  e_s4_tag_add_spawned:   "tag add s4_spawned"
+
+  # Win
+  win_s4:                 "folder e_notif_s4_win,m64-sfx.e_got_star,cleanup_s4,if_firstwin_s4"
+  e_notif_s4_win:         "notify &312 red coins\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s4:         "if !chk_s4_obtained firstwin_s4 else m64-main.e_dummy"
+  firstwin_s4:            "folder e_broad_s4_first,tag_add_s4_win,e_stop_music,exit_star"
+  e_broad_s4_first:       "command broadcast &6%player% &2got a star: [LLL] 12 red coins"
+  tag_add_s4_win:         "tag add s4"
+
+  # Cleanup
+  cleanup_s4:             "folder e_s4_del_obj_rc,e_s4_rc_del_point,e_obj_del_s4_star,e_s4_del_tags,if_s4_spawned,e_s4_tag_del_spawned"
+  e_s4_del_obj_rc:        "folder e_s4_del_obj_rc_1,e_s4_del_obj_rc_2"
+  e_s4_del_obj_rc_1:      "folder e_obj_del_s4_rc1,e_obj_del_s4_rc2,e_obj_del_s4_rc3,e_obj_del_s4_rc4,e_obj_del_s4_rc5,e_obj_del_s4_rc6"
+  e_s4_del_obj_rc_2:      "folder e_obj_del_s4_rc7,e_obj_del_s4_rc8,e_obj_del_s4_rc9,e_obj_del_s4_rc10,e_obj_del_s4_rc11,e_obj_del_s4_rc12"
+  e_obj_del_s4_rc1:       "objective remove o_s4_rc1"
+  e_obj_del_s4_rc2:       "objective remove o_s4_rc2"
+  e_obj_del_s4_rc3:       "objective remove o_s4_rc3"
+  e_obj_del_s4_rc4:       "objective remove o_s4_rc4"
+  e_obj_del_s4_rc5:       "objective remove o_s4_rc5"
+  e_obj_del_s4_rc6:       "objective remove o_s4_rc6"
+  e_obj_del_s4_rc7:       "objective remove o_s4_rc7"
+  e_obj_del_s4_rc8:       "objective remove o_s4_rc8"
+  e_obj_del_s4_rc9:       "objective remove o_s4_rc9"
+  e_obj_del_s4_rc10:      "objective remove o_s4_rc10"
+  e_obj_del_s4_rc11:      "objective remove o_s4_rc11"
+  e_obj_del_s4_rc12:      "objective remove o_s4_rc12"
+  e_s4_rc_del_point:      "point rc_count 0 action:set"
+
+  e_obj_del_s4_star:      "objective remove o_s4_star"
+  e_s4_del_tags:          "folder e_s4_del_tags_1,e_s4_del_tags_2"
+  e_s4_del_tags_1:        "run ^tag delete rc1 ^tag delete rc2 ^tag delete rc3 ^tag delete rc4 ^tag delete rc5 ^tag delete rc6"
+  e_s4_del_tags_2:        "run ^tag delete rc7 ^tag delete rc8  ^tag delete rc9 ^tag delete rc10 ^tag delete rc11 ^tag delete rc12"
+
+  if_s4_spawned:          "if chk_s4_spawned e_s4_del_spawned else m64-main.e_dummy"
+  e_s4_del_spawned:       "folder e_s4_gp_sub_star,if_s4_despawn"
+  e_s4_gp_sub_star:       "globalpoint lll_s4 1 action:subtract"
+
+  if_s4_despawn:          "if !chk_s4_spawn_count e_s4_delete_star else m64-main.e_dummy"
+  e_s4_tag_del_spawned:   "tag delete s4_spawned"
+
+  e_s4_delete_star:       "folder e_s4_despawn_star,e_s4_reset_star_count"
+  e_s4_despawn_star:      "setblock AIR $s4.star_loc$"
+  e_s4_reset_star_count:  "globalpoint lll_s4 0 action:set"
+
+
+### STAR 5 - HOT-FOOT-IT INTO THE VOLCANO
+  # Init
+  init_s5:                "folder e_obj_add_s5_star"
+  e_obj_add_s5_star:      "objective add o_s5_star"
+
+  # Win
+  win_s5:                 "folder e_notif_s5_win,m64-sfx.e_got_star,cleanup_s5,if_firstwin_s5"
+  e_notif_s5_win:         "notify &3Hot-foot-it into the volcano\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s5:         "if !chk_s5_obtained firstwin_s5 else m64-main.e_dummy"
+  firstwin_s5:            "folder e_broad_s5_first,tag_add_s5_win,e_stop_music,exit_star"
+  e_broad_s5_first:       "command broadcast &6%player% &2got a star: [LLL] Hot-foot-it into the volcano"
+  tag_add_s5_win:         "tag add s5"
+
+  # Cleanup
+  cleanup_s5:             "folder e_obj_del_s5_star"
+  e_obj_del_s5_star:      "objective remove o_s5_star"
+
+
+### STAR 6 - ELEVATOR TOUR IN THE VOLCANO
+  # Init
+  init_s6:                "folder e_obj_add_s6_star"
+  e_obj_add_s6_star:      "objective add o_s6_star"
+
+  # Win
+  win_s6:                 "folder e_notif_s6_win,m64-sfx.e_got_star,cleanup_s6,if_firstwin_s6"
+  e_notif_s6_win:         "notify &3Elevator tour in the volcano\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s6:         "if !chk_s6_obtained firstwin_s6 else m64-main.e_dummy"
+  firstwin_s6:            "folder e_broad_s6_first,tag_add_s6_win,e_stop_music,exit_star"
+  e_broad_s6_first:       "command broadcast &6%player% &2got a star: [LLL] Elevator tour in the volcano"
+  tag_add_s6_win:         "tag add s6"
+
+  # Cleanup
+  cleanup_s6:             "folder e_obj_del_s6_star"
+  e_obj_del_s6_star:      "objective remove o_s6_star"
+
+
+### STAR 8 - KOOPA THE QUICK
+  # Init
+  init_s8:                "folder e_obj_add_s8_start"
+  e_obj_add_s8_start:     "objective add o_s8_start"
+  # Start
+  start_s8:               "folder e_notif_s8_start,e_obj_add_s8_speedrun,e_obj_add_s8_goal,e_obj_add_s8_10sec"
+  e_notif_s8_start:       "notify &3Koopa The Quick&r\n $s8.total_time_notif$ sec &3RUN! io:title"
+  e_obj_add_s8_speedrun:  "objective add o_s8_speedrun"
+  e_obj_add_s8_goal:      "objective add o_s8_goal"
+  e_obj_add_s8_10sec:     "objective add o_s8_speedrun_10sec"
+  # Fail
+  fail_s8:                "folder e_notif_s8_fail,reload_s8"
+  e_notif_s8_fail:        "notify &3Koopa The Quick\n&4Failed.. io:title"
+
+  e_s8_10_sec_left:       "folder m64-sfx.e_time_almost_up,e_s8_notify_10sec"
+  e_s8_notify_10sec:      "notify &c10 seconds left!"
+  # Win
+  win_s8:                 "folder e_notif_s8_win,m64-sfx.e_got_star,e_broad_s8_win,cleanup_s8,if_firstwin_s8"
+  e_notif_s8_win:         "notify &3Koopa The Quick\n&2Cleared! io:title"
+  e_broad_s8_win:         "command broadcast [&6%player%&r]: LLL Speedrun: %math.calc:($s8.total_time$-objective.o_s8_speedrun.rawSeconds)~3% sec"
+
+  # First win
+  if_firstwin_s8:         "if !chk_s8_obtained firstwin_s8 else reload_s8"
+  firstwin_s8:            "folder e_broad_s8_first,tag_add_s8_win,e_stop_music,exit_star"
+  e_broad_s8_first:       "command broadcast &6%player% &2got a star: [LLL] Koopa The Quick"
+  tag_add_s8_win:         "tag add s8"
+
+  # Cleanup
+  cleanup_s8:             "folder e_obj_del_s8_start,e_obj_del_s8_speedrun,e_obj_del_s8_goal,e_obj_del_s8_10sec"
+  e_obj_del_s8_start:     "objective remove o_s8_start"
+  e_obj_del_s8_speedrun:  "objective remove o_s8_speedrun"
+  e_obj_del_s8_goal:      "objective remove o_s8_goal"
+  e_obj_del_s8_10sec:     "objective remove o_s8_speedrun_10sec"
+  # Reload
+  reload_s8:              "folder cleanup_s8,init_s8"
+
+
+  ### STAR 9 - CAPTAIN TOAD 1
+  # Win
+  win_s9:                 "folder e_notif_s9_win,m64-sfx.e_toad_yahoo,m64-sfx.e_got_star,e_broad_s9_first,tag_add_s9_win,e_stop_music,exit_star"
+  e_notif_s9_win:         "notify &3Lost Toad #1\n&2Cleared! io:title"
+  e_broad_s9_first:       "command broadcast &6%player% &2got a star: [LLL] Lwwost Toad #1"
+  tag_add_s9_win:         "tag add s9"
+
+
+  ### STAR 10 - CAPTAIN TOAD 2
+  # Win
+  win_s10:                "folder e_notif_s10_win,m64-sfx.e_toad_yahoo,m64-sfx.e_got_star,e_broad_s10_first,tag_add_s10_win,e_door_close_s10,e_stop_music,exit_star"
+  e_notif_s10_win:        "notify &3Lost Toad #2\n&2Cleared! io:title"
+  e_broad_s10_first:      "command broadcast &6%player% &2got a star: [LLL] Lost Toad #2"
+  tag_add_s10_win:        "tag add s10"
+  e_door_close_s10:       "door $s10.door_loc$ off"
+
+  
+  ### STAR 11 - CAPTAIN TOAD 3
+  # Win
+  win_s11:                "folder e_notif_s11_win,m64-sfx.e_toad_yahoo,m64-sfx.e_got_star,e_broad_s11_first,tag_add_s11_win,e_door_close_s11,e_stop_music,exit_star"
+  e_notif_s11_win:        "notify &3Lost Toad #3\n&2Cleared! io:title"
+  e_broad_s11_first:      "command broadcast &6%player% &2got a star: [LLL] Lost Toad #3"
+  tag_add_s11_win:        "tag add s11"
+  e_door_close_s11:       "door $s11.door_loc$ off"
+
+
+
+
+conditions:
+  ### STAR 1 - BOIL THE BIG BULLY
+  chk_s1_obtained:        "tag s1"
+  chk_s1_spawned:         "tag s1_spawned"
+  chk_s1_spawn_count:     "globalpoint lll_s1 1"
+
+  ### STAR 2 - BULLY THE BULLIES
+  chk_s2_obtained:        "tag s2"
+  chk_s2_killed_sb_1:     "tag s2_sb_1"
+  chk_s2_killed_sb_2:     "tag s2_sb_2"
+  chk_s2_killed_sb_3:     "tag s2_sb_3"
+  chk_s2_killed_sb_all:   "and chk_s2_killed_sb_1,chk_s2_killed_sb_2,chk_s2_killed_sb_3"
+  chk_s2_spawned:         "tag s2_spawned"
+  chk_s2_spawn_count:     "globalpoint lll_s2 1"
+
+
+  ### STAR 3 - RED-HOT LOG ROLLING
+  chk_s3_obtained:        "tag s3"
+
+  ### STAR 4 - FIND THE 12 RED COINS
+  chk_s4_obtained:        "tag s4"
+  chk_s4_tag_rc1:         "tag rc1"
+  chk_s4_tag_rc2:         "tag rc2"
+  chk_s4_tag_rc3:         "tag rc3"
+  chk_s4_tag_rc4:         "tag rc4"
+  chk_s4_tag_rc5:         "tag rc5"
+  chk_s4_tag_rc6:         "tag rc6"
+  chk_s4_tag_rc7:         "tag rc7"
+  chk_s4_tag_rc8:         "tag rc8"
+  chk_s4_tag_rc9:         "tag rc9"
+  chk_s4_tag_rc10:        "tag rc10"
+  chk_s4_tag_rc11:        "tag rc11"
+  chk_s4_tag_rc12:        "tag rc12"
+
+  chk_s4_all_rc:          "and chk_s4_all_rc_1,chk_s4_all_rc_2"
+  chk_s4_all_rc_1:        "and chk_s4_tag_rc1,chk_s4_tag_rc2,chk_s4_tag_rc3,chk_s4_tag_rc4,chk_s4_tag_rc5,chk_s4_tag_rc6"
+  chk_s4_all_rc_2:        "and chk_s4_tag_rc7,chk_s4_tag_rc8,chk_s4_tag_rc9,chk_s4_tag_rc10,chk_s4_tag_rc11,chk_s4_tag_rc12"
+
+  chk_s4_spawned:         "tag s4_spawned"
+  chk_s4_spawn_count:     "globalpoint lll_s4 1"
+
+  ### STAR 5 - HOT-FOOT-IT INTO THE VOLCANO
+  chk_s5_obtained:        "tag s5"
+
+  ### STAR 6 - ELEVATOR TOUR IN THE VOLCANO
+  chk_s6_obtained:        "tag s6"
+
+  ### STAR 7
+  ### STAR 8 - KOOPA THE QUICK
+  chk_s8_obtained:        "tag s8"
+
+  ### STAR 9 - CAPTAIN TOAD 1
+  chk_s9_obtained:        "tag s9"
+  ### STAR 10 - CAPTAIN TOAD 2
+  chk_s10_obtained:       "tag s10"
+  ### STAR 11 - CAPTAIN TOAD 3
+  chk_s11_obtained:       "tag s11"
+
+
+objectives:
+  ### STAR 1 - BOIL THE BIG BULLY
+  o_s1_kill_bb:           "npckill $s1.npc_bb$ amount:1 events:e_s1_bb_killed"
+  o_s1_star:              "action right any loc:$s1.star_loc$ events:win_s1"
+
+  ### STAR 2 - BULLY THE BULLIES
+  o_s2_kill_sb_1:         "npckill $s2.npc_sb_1$ amount:1 events:e_s2_sb_killed_1"
+  o_s2_kill_sb_2:         "npckill $s2.npc_sb_2$ amount:1 events:e_s2_sb_killed_2"
+  o_s2_kill_sb_3:         "npckill $s2.npc_sb_3$ amount:1 events:e_s2_sb_killed_3"
+  o_s2_star:              "action right any loc:$s2.star_loc$ events:win_s2"
+
+  ### STAR 3 - RED-HOT LOG ROLLING
+  o_s3_star:              "action right any loc:$s3.star_loc$ events:win_s3"
+
+  ### STAR 4 - FIND THE 12 RED COINS
+  o_s4_star:              "action right any loc:$s4.star_loc$ events:win_s4"
+  o_s4_rc1:               "action right any loc:$s4.rc1$ events:e_s4_got_rc1"
+  o_s4_rc2:               "action right any loc:$s4.rc2$ events:e_s4_got_rc2"
+  o_s4_rc3:               "action right any loc:$s4.rc3$ events:e_s4_got_rc3"
+  o_s4_rc4:               "action right any loc:$s4.rc4$ events:e_s4_got_rc4"
+  o_s4_rc5:               "action right any loc:$s4.rc5$ events:e_s4_got_rc5"
+  o_s4_rc6:               "action right any loc:$s4.rc6$ events:e_s4_got_rc6"
+  o_s4_rc7:               "action right any loc:$s4.rc7$ events:e_s4_got_rc7"
+  o_s4_rc8:               "action right any loc:$s4.rc8$ events:e_s4_got_rc8"
+  o_s4_rc9:               "action right any loc:$s4.rc9$ events:e_s4_got_rc9"
+  o_s4_rc10:              "action right any loc:$s4.rc10$ events:e_s4_got_rc10"
+  o_s4_rc11:              "action right any loc:$s4.rc11$ events:e_s4_got_rc11"
+  o_s4_rc12:              "action right any loc:$s4.rc12$ events:e_s4_got_rc12"
+
+  ### STAR 5 - HOT-FOOT-IT INTO THE VOLCANO
+  o_s5_star:              "action right any loc:$s5.star_loc$ events:win_s5"
+
+  ### STAR 6 - ELEVATOR TOUR IN THE VOLCANO
+  o_s6_star:              "action right any loc:$s6.star_loc$ events:win_s6"
+
+  ### STAR 7
+
+  ### STAR 8 - KOOPA THE QUICK
+  o_s8_start:             "action right any loc:$s8.start_loc$ events:start_s8"
+  o_s8_speedrun:          "delay $s8.total_time$ seconds interval:$s8.delay_interval$ events:fail_s8"
+  o_s8_speedrun_10sec:    "delay %math.calc:$s8.total_time$-10% seconds interval:$s8.delay_interval$ events:e_s8_10_sec_left"
+  o_s8_goal:              "region lll_speedrun enter events:win_s8"
+
+
+

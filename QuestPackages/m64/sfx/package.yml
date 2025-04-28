@@ -1,0 +1,46 @@
+variables:
+  soundcat:               master
+  soundplayer:            players
+  svol:                   10
+
+events:
+  # Mario
+  e_wahoo:                "notify io:sound sound:maro:wahoo soundcategory:$soundplayer$ soundvolume:$svol$"
+  e_wahoo_broken:         "notify io:sound sound:maro:wahoo soundcategory:$soundplayer$ soundvolume:$svol$ soundpitch:1.3"
+  e_wahoo_ready:          "notify io:sound sound:block.amethyst_block.step soundvolume:$svol$"
+
+  e_waha:                 "notify io:sound sound:maro:waha soundcategory:$soundplayer$ soundvolume:$svol$"
+  e_waha_broken:          "notify io:sound sound:maro:waha soundcategory:$soundplayer$ soundvolume:$svol$ soundpitch:1.3"
+  e_waha_ready:           "notify io:sound sound:block.amethyst_block.step soundvolume:$svol$"
+
+  e_died:                 "notify io:sound sound:maro:died soundcategory:$soundcat$ soundvolume:$svol$"
+  e_oof:                  "notify io:sound sound:maro:oof soundcategory:$soundcat$ soundvolume:$svol$"
+  e_fall:                 "notify io:sound sound:maro:fall soundcategory:$soundplayer$ soundvolume:$svol$"
+  e_fire_hurt:            "notify io:sound sound:maro:fire_hurt_short soundcategory:$soundplayer$ soundvolume:$svol$"
+
+  # Course
+  e_warp:                 "notify io:sound sound:maro:warp soundcategory:$soundcat$ soundvolume:$svol$"
+  e_star_spawn:           "notify io:sound sound:maro:star_spawn soundcategory:$soundcat$ soundvolume:$svol$"
+  e_exit_course:          "notify io:sound sound:maro:exit_course soundcategory:$soundcat$ soundvolume:$svol$"
+  e_got_star:             "notify io:sound sound:maro:got_star soundcategory:$soundcat$ soundvolume:$svol$"
+  e_coin:                 "notify io:sound sound:maro:coin soundcategory:$soundcat$ soundvolume:$svol$"
+  e_moneybag:             "notify io:sound sound:maro:moneybag soundcategory:$soundcat$ soundvolume:$svol$"
+  e_switchtimer:          "notify io:sound sound:maro:switchtimer soundcategory:music soundvolume:$svol$"
+  e_found_secret:         "notify io:sound sound:maro:found_secret soundcategory:$soundcat$ soundvolume:$svol$"
+
+  # Object
+  e_cannon_ready:         "notify io:sound sound:maro:cannon_ready soundcategory:$soundcat$ soundvolume:$svol$"
+  e_cannon_shoot:         "notify io:sound sound:maro:cannon_shoot soundcategory:$soundcat$ soundvolume:$svol$"
+  e_block_break:          "notify io:sound sound:block.metal.break soundcategory:$soundcat$ soundvolume:$svol$"
+  e_whomp:                "notify io:sound sound:maro:whomp soundcategory:$soundcat$ soundvolume:$svol$"
+  e_impact:               "notify io:sound sound:maro:impact soundcategory:$soundcat$ soundvolume:$svol$"
+
+  # Misc
+  e_correct:              "notify io:sound sound:maro:correct soundcategory:$soundcat$ soundvolume:$svol$"
+  e_incorrect:            "notify io:sound sound:maro:incorrect soundcategory:$soundcat$ soundvolume:$svol$"
+  e_time_almost_up:       "notify io:sound sound:block.note_block.guitar soundcategory:$soundcat$ soundvolume:$svol$"
+  e_wind:                 "notify io:sound sound:maro:wind soundcategory:music soundvolume:$svol$"
+
+  # NPC
+  e_toad_yahoo:           "notify io:sound sound:maro:toad_yahoo soundcategory:$soundcat$ soundvolume:$svol$"
+

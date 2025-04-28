@@ -1,0 +1,114 @@
+variables:
+  spawn:              -28.5;85;383.5;marocraft;-70;12
+  respawn:            58.5;46;-428.5;marocraft;-90;12
+  exitbtn:            -29;85;383;marocraft
+  tp_toship:          370.5;46;335.5;marocraft;160;30
+  tp_frship:          74.5;35;386.5;marocraft;27;-16
+
+npcs:
+  '205': "dolphin"
+
+conversations:
+  dolphin:
+    quester: "Dolphin"
+    first: want_effect
+
+    NPC_options:
+      want_effect:
+        text: "Do you want me to give you &2Dolphins Grace?&r"
+        pointer: yyes,nno
+      accept_effect:
+        text: "Here you go!"
+        event: e_efx_give_dolphin
+        #exit
+      decline_effect:
+        text: "Good luck!"
+        #exit
+    
+    player_options:
+      yyes:
+        text: "Yes, please"
+        pointer: accept_effect
+      nno:
+        text: "No, thanks"
+        pointer: decline_effect
+
+
+#/summon minecraft:falling_block ~ ~5 ~ {BlockState:{Name:"minecraft:pointed_dripstone",Properties:{vertical_direction:"down"}},Time:1,HurtEntities:1,FallHurtAmount:2,FallHurtMax:20,DropItem:0}
+events:
+  init_level:           "folder add_level_objs,init_cannons,init_stars,init_env_dripstone,init_env_switchblocks,e_init_metal,e_tp_spawn,e_efx_give_wbreath,e_play_music"
+  reload_level:         "folder reset_level,m64-main.init_castle"
+  reset_level:          "folder del_level_objs,reset_cannons,reset_stars,reset_env_dripstone,reset_env_switchblocks,e_efx_clear,e_cleanup_metal,e_stop_music"
+  on_death:             "folder e_notify_death,e_point_add_death,e_gpoint_add_death,reload_level"
+  on_exit:              "folder e_tp_respawn,reload_level"
+
+  # Points
+  e_point_add_death:    "point jrb_deaths 1 action:add"
+  e_gpoint_add_death:   "globalpoint jrb_deaths 1 action:add"
+
+
+  ### Play music
+  e_play_music:         "folder m64-sfx.e_play_jrb"
+  e_stop_music:         "folder m64-sfx.e_stop_music"
+
+
+  ### LEVEL - Add objectives
+  add_level_objs:       "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_tp_to_ship"
+  e_obj_add_respawn:    "objective add o_respawn"
+  e_obj_add_exit:       "objective add o_exitlevel"
+  e_obj_add_tp_to_ship: "objective add o_tp_to_ship"
+  e_obj_add_tp_fr_ship: "objective add o_tp_fr_ship"
+  ### LEVEL - Del objectives
+  del_level_objs:       "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_tp_to_ship,e_obj_del_tp_fr_ship"
+  e_obj_del_respawn:    "objective remove o_respawn"
+  e_obj_del_exit:       "objective remove o_exitlevel"
+  e_obj_del_tp_to_ship: "objective remove o_tp_to_ship"
+  e_obj_del_tp_fr_ship: "objective remove o_tp_fr_ship"
+
+
+  # Teleports
+  e_tp_spawn:           "teleport $spawn$"
+  e_tp_respawn:         "teleport $respawn$"
+
+  e_enter_ship:         "folder e_tp_to_ship,init_s1"
+  e_tp_to_ship:         "teleport $tp_toship$"
+
+  e_leave_ship:         "folder cleanup_s1,e_tp_fr_ship"
+  e_tp_fr_ship:         "teleport $tp_frship$"
+
+  # Actions
+  e_notify_death:       "command broadcast &3%player%&f died in JRB."
+
+  ### Ship
+  e_init_ship:          "folder e_obj_add_tp_fr_ship,e_enter_ship"
+  e_cleanup_ship:       "folder e_obj_add_tp_to_ship,e_leave_ship"
+
+  # Effects
+  e_efx_give_dolphin:   "effect DOLPHINS_GRACE 999999 1 hidden noicon"
+  e_efx_give_wbreath:   "effect WATER_BREATHING 999999 1 hidden noicon"
+  e_efx_clear:          "command effect clear %player%"
+
+
+
+objectives:
+  o_respawn:            "die cancel respawn:$respawn$ events:on_death"
+  o_exitlevel:          "action right any loc:$exitbtn$ events:on_exit"
+
+  o_tp_to_ship:         "region jrb_ship_enter enter events:e_init_ship"
+  o_tp_fr_ship:         "region jrb_ship_exit enter events:e_cleanup_ship"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

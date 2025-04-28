@@ -1,0 +1,306 @@
+
+#c1_loc:                 -402 99 -96
+#e_c1_explo:             "opsudo particle minecraft:explosion $c1_loc$ 0.5 0 0.5 1 3"
+# -449 81 -3
+
+events:
+  init_cannons:           "folder init_c1,init_c2,init_c3,init_c4,init_c5,init_c6,init_c7,init_c8,init_c9"
+  reset_cannons:          "folder e_take_enderpearl,cleanup_c1,cleanup_c2,cleanup_c3,cleanup_c4,cleanup_c5,cleanup_c6,cleanup_c7,cleanup_c8,cleanup_c9"
+
+  e_give_enderpearl:      "give i_enderpearl:1 notify"
+  e_take_enderpearl:      "take i_enderpearl:64"
+  e_ptc_explotion:        "command execute in minecraft:marocraft at %player% run particle minecraft:explosion ~ ~1 ~ 0.5 0 0.5 1 3"
+
+  e_notif_x:              "folder e_notif_1,e_notif_2,e_notif_3"
+  e_notif_1:              "notify %location%->(0;2;0)"
+  e_notif_2:              "notify %location.xyz%"
+  e_notif_3:              "notify %location%"
+
+  ### CANNON - 1 - FLOATING ISLAND
+  reset_c1:               "folder cleanup_c1,init_c1"
+  # Init
+  init_c1:                "folder e_obj_add_c1_enter"
+  e_obj_add_c1_enter:     "objective add o_cannon_enter_1"
+  # Enter
+  e_c1_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c1_stay"
+  e_obj_add_c1_stay:      "objective add o_cannon_wait_1"
+  # Waited
+  e_c1_waited:            "if chk_in_cannon_1 e_c1_load else e_obj_add_c1_enter"
+  # Load
+  e_c1_load:              "folder e_give_enderpearl,e_obj_add_c1_shoot,e_obj_add_c1_exit"
+  e_obj_add_c1_shoot:     "objective add o_cannon_shoot_1"
+  e_obj_add_c1_exit:      "objective add o_cannon_exit_1"
+  # Shoot
+  e_c1_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c1_exit:              "folder e_take_enderpearl,reset_c1"
+  # Cleanup
+  cleanup_c1:             "folder e_obj_del_c1_enter,e_obj_del_c1_wait,e_obj_del_c1_shoot,e_obj_del_c1_exit"
+  e_obj_del_c1_enter:     "objective remove o_cannon_enter_1"
+  e_obj_del_c1_wait:      "objective remove o_cannon_wait_1"
+  e_obj_del_c1_shoot:     "objective remove o_cannon_shoot_1"
+  e_obj_del_c1_exit:      "objective remove o_cannon_exit_1"
+
+  ### CANNON - 2 - SPAWN
+  reset_c2:               "folder cleanup_c2,init_c2"
+  # Init
+  init_c2:                "folder e_obj_add_c2_enter"
+  e_obj_add_c2_enter:     "objective add o_cannon_enter_2"
+  # Enter
+  e_c2_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c2_stay"
+  e_obj_add_c2_stay:      "objective add o_cannon_wait_2"
+  # Waited
+  e_c2_waited:            "if chk_in_cannon_2 e_c2_load else e_obj_add_c2_enter"
+  # Load
+  e_c2_load:              "folder e_give_enderpearl,e_obj_add_c2_shoot,e_obj_add_c2_exit"
+  e_obj_add_c2_shoot:     "objective add o_cannon_shoot_2"
+  e_obj_add_c2_exit:      "objective add o_cannon_exit_2"
+  # Shoot
+  e_c2_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c2_exit:              "folder e_take_enderpearl,reset_c2"
+  # Cleanup
+  cleanup_c2:             "folder e_obj_del_c2_enter,e_obj_del_c2_wait,e_obj_del_c2_shoot,e_obj_del_c2_exit"
+  e_obj_del_c2_enter:     "objective remove o_cannon_enter_2"
+  e_obj_del_c2_wait:      "objective remove o_cannon_wait_2"
+  e_obj_del_c2_shoot:     "objective remove o_cannon_shoot_2"
+  e_obj_del_c2_exit:      "objective remove o_cannon_exit_2"
+
+  ### CANNON - 3 - MOUNTAIN LEDGE
+  reset_c3:               "folder cleanup_c3,init_c3"
+  # Init
+  init_c3:                "folder e_obj_add_c3_enter"
+  e_obj_add_c3_enter:     "objective add o_cannon_enter_3"
+  # Enter
+  e_c3_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c3_stay"
+  e_obj_add_c3_stay:      "objective add o_cannon_wait_3"
+  # Waited
+  e_c3_waited:            "if chk_in_cannon_3 e_c3_load else e_obj_add_c3_enter"
+  # Load
+  e_c3_load:              "folder e_give_enderpearl,e_obj_add_c3_shoot,e_obj_add_c3_exit"
+  e_obj_add_c3_shoot:     "objective add o_cannon_shoot_3"
+  e_obj_add_c3_exit:      "objective add o_cannon_exit_3"
+  # Shoot
+  e_c3_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c3_exit:              "folder e_take_enderpearl,reset_c3"
+  # Cleanup
+  cleanup_c3:             "folder e_obj_del_c3_enter,e_obj_del_c3_wait,e_obj_del_c3_shoot,e_obj_del_c3_exit"
+  e_obj_del_c3_enter:     "objective remove o_cannon_enter_3"
+  e_obj_del_c3_wait:      "objective remove o_cannon_wait_3"
+  e_obj_del_c3_shoot:     "objective remove o_cannon_shoot_3"
+  e_obj_del_c3_exit:      "objective remove o_cannon_exit_3"
+
+  ### CANNON - 4 - BEHIND MOUNTAIN
+  reset_c4:               "folder cleanup_c4,init_c4"
+  # Init
+  init_c4:                "folder e_obj_add_c4_enter"
+  e_obj_add_c4_enter:     "objective add o_cannon_enter_4"
+  # Enter
+  e_c4_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c4_stay"
+  e_obj_add_c4_stay:      "objective add o_cannon_wait_4"
+  # Waited
+  e_c4_waited:            "if chk_in_cannon_4 e_c4_load else e_obj_add_c4_enter"
+  # Load
+  e_c4_load:              "folder e_give_enderpearl,e_obj_add_c4_shoot,e_obj_add_c4_exit"
+  e_obj_add_c4_shoot:     "objective add o_cannon_shoot_4"
+  e_obj_add_c4_exit:      "objective add o_cannon_exit_4"
+  # Shoot
+  e_c4_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c4_exit:              "folder e_take_enderpearl,reset_c4"
+  # Cleanup
+  cleanup_c4:             "folder e_obj_del_c4_enter,e_obj_del_c4_wait,e_obj_del_c4_shoot,e_obj_del_c4_exit"
+  e_obj_del_c4_enter:     "objective remove o_cannon_enter_4"
+  e_obj_del_c4_wait:      "objective remove o_cannon_wait_4"
+  e_obj_del_c4_shoot:     "objective remove o_cannon_shoot_4"
+  e_obj_del_c4_exit:      "objective remove o_cannon_exit_4"
+
+  ### CANNON - 5 - IN FRONT OF BARS
+  reset_c5:               "folder cleanup_c5,init_c5"
+  # Init
+  init_c5:                "folder e_obj_add_c5_enter"
+  e_obj_add_c5_enter:     "objective add o_cannon_enter_5"
+  # Enter
+  e_c5_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c5_stay"
+  e_obj_add_c5_stay:      "objective add o_cannon_wait_5"
+  # Waited
+  e_c5_waited:            "if chk_in_cannon_5 e_c5_load else e_obj_add_c5_enter"
+  # Load
+  e_c5_load:              "folder e_give_enderpearl,e_obj_add_c5_shoot,e_obj_add_c5_exit"
+  e_obj_add_c5_shoot:     "objective add o_cannon_shoot_5"
+  e_obj_add_c5_exit:      "objective add o_cannon_exit_5"
+  # Shoot
+  e_c5_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c5_exit:              "folder e_take_enderpearl,reset_c5"
+  # Cleanup
+  cleanup_c5:             "folder e_obj_del_c5_enter,e_obj_del_c5_wait,e_obj_del_c5_shoot,e_obj_del_c5_exit"
+  e_obj_del_c5_enter:     "objective remove o_cannon_enter_5"
+  e_obj_del_c5_wait:      "objective remove o_cannon_wait_5"
+  e_obj_del_c5_shoot:     "objective remove o_cannon_shoot_5"
+  e_obj_del_c5_exit:      "objective remove o_cannon_exit_5"
+
+  ### CANNON - 6 - UNDER ISLAND
+  reset_c6:               "folder cleanup_c6,init_c6"
+  # Init
+  init_c6:                "folder e_obj_add_c6_enter"
+  e_obj_add_c6_enter:     "objective add o_cannon_enter_6"
+  # Enter
+  e_c6_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c6_stay"
+  e_obj_add_c6_stay:      "objective add o_cannon_wait_6"
+  # Waited
+  e_c6_waited:            "if chk_in_cannon_6 e_c6_load else e_obj_add_c6_enter"
+  # Load
+  e_c6_load:              "folder e_give_enderpearl,e_obj_add_c6_shoot,e_obj_add_c6_exit"
+  e_obj_add_c6_shoot:     "objective add o_cannon_shoot_6"
+  e_obj_add_c6_exit:      "objective add o_cannon_exit_6"
+  # Shoot
+  e_c6_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c6_exit:              "folder e_take_enderpearl,reset_c6"
+  # Cleanup
+  cleanup_c6:             "folder e_obj_del_c6_enter,e_obj_del_c6_wait,e_obj_del_c6_shoot,e_obj_del_c6_exit"
+  e_obj_del_c6_enter:     "objective remove o_cannon_enter_6"
+  e_obj_del_c6_wait:      "objective remove o_cannon_wait_6"
+  e_obj_del_c6_shoot:     "objective remove o_cannon_shoot_6"
+  e_obj_del_c6_exit:      "objective remove o_cannon_exit_6"
+
+  ### CANNON - 7
+  reset_c7:               "folder cleanup_c7,init_c7"
+  # Init
+  init_c7:                "folder e_obj_add_c7_enter"
+  e_obj_add_c7_enter:     "objective add o_cannon_enter_7"
+  # Enter
+  e_c7_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c7_stay"
+  e_obj_add_c7_stay:      "objective add o_cannon_wait_7"
+  # Waited
+  e_c7_waited:            "if chk_in_cannon_7 e_c7_load else e_obj_add_c7_enter"
+  # Load
+  e_c7_load:              "folder e_give_enderpearl,e_obj_add_c7_shoot,e_obj_add_c7_exit"
+  e_obj_add_c7_shoot:     "objective add o_cannon_shoot_7"
+  e_obj_add_c7_exit:      "objective add o_cannon_exit_7"
+  # Shoot
+  e_c7_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c7_exit:              "folder e_take_enderpearl,reset_c7"
+  # Cleanup
+  cleanup_c7:             "folder e_obj_del_c7_enter,e_obj_del_c7_wait,e_obj_del_c7_shoot,e_obj_del_c7_exit"
+  e_obj_del_c7_enter:     "objective remove o_cannon_enter_7"
+  e_obj_del_c7_wait:      "objective remove o_cannon_wait_7"
+  e_obj_del_c7_shoot:     "objective remove o_cannon_shoot_7"
+  e_obj_del_c7_exit:      "objective remove o_cannon_exit_7"
+
+  ### CANNON - 8
+  reset_c8:               "folder cleanup_c8,init_c8"
+  # Init
+  init_c8:                "folder e_obj_add_c8_enter"
+  e_obj_add_c8_enter:     "objective add o_cannon_enter_8"
+  # Enter
+  e_c8_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c8_stay"
+  e_obj_add_c8_stay:      "objective add o_cannon_wait_8"
+  # Waited
+  e_c8_waited:            "if chk_in_cannon_8 e_c8_load else e_obj_add_c8_enter"
+  # Load
+  e_c8_load:              "folder e_give_enderpearl,e_obj_add_c8_shoot,e_obj_add_c8_exit"
+  e_obj_add_c8_shoot:     "objective add o_cannon_shoot_8"
+  e_obj_add_c8_exit:      "objective add o_cannon_exit_8"
+  # Shoot
+  e_c8_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c8_exit:              "folder e_take_enderpearl,reset_c8"
+  # Cleanup
+  cleanup_c8:             "folder e_obj_del_c8_enter,e_obj_del_c8_wait,e_obj_del_c8_shoot,e_obj_del_c8_exit"
+  e_obj_del_c8_enter:     "objective remove o_cannon_enter_8"
+  e_obj_del_c8_wait:      "objective remove o_cannon_wait_8"
+  e_obj_del_c8_shoot:     "objective remove o_cannon_shoot_8"
+  e_obj_del_c8_exit:      "objective remove o_cannon_exit_8"
+
+  ### CANNON - 9
+  reset_c9:               "folder cleanup_c9,init_c9"
+  # Init
+  init_c9:                "folder e_obj_add_c9_enter"
+  e_obj_add_c9_enter:     "objective add o_cannon_enter_9"
+  # Enter
+  e_c9_enter:             "folder m64-sfx.e_cannon_ready,e_obj_add_c9_stay"
+  e_obj_add_c9_stay:      "objective add o_cannon_wait_9"
+  # Waited
+  e_c9_waited:            "if chk_in_cannon_9 e_c9_load else e_obj_add_c9_enter"
+  # Load
+  e_c9_load:              "folder e_give_enderpearl,e_obj_add_c9_shoot,e_obj_add_c9_exit"
+  e_obj_add_c9_shoot:     "objective add o_cannon_shoot_9"
+  e_obj_add_c9_exit:      "objective add o_cannon_exit_9"
+  # Shoot
+  e_c9_shoot:             "folder m64-sfx.e_cannon_shoot,e_ptc_explotion"
+  # Exit
+  e_c9_exit:              "folder e_take_enderpearl,reset_c9"
+  # Cleanup
+  cleanup_c9:             "folder e_obj_del_c9_enter,e_obj_del_c9_wait,e_obj_del_c9_shoot,e_obj_del_c9_exit"
+  e_obj_del_c9_enter:     "objective remove o_cannon_enter_9"
+  e_obj_del_c9_wait:      "objective remove o_cannon_wait_9"
+  e_obj_del_c9_shoot:     "objective remove o_cannon_shoot_9"
+  e_obj_del_c9_exit:      "objective remove o_cannon_exit_9"
+
+
+conditions:
+  chk_holding_pearl:      "hand i_enderpearl"
+  chk_in_cannon_1:        "region bob_cannon_1"
+  chk_in_cannon_2:        "region bob_cannon_2"
+  chk_in_cannon_3:        "region bob_cannon_3"
+  chk_in_cannon_4:        "region bob_cannon_4"
+  chk_in_cannon_5:        "region bob_cannon_5"
+  chk_in_cannon_6:        "region bob_cannon_6"
+  chk_in_cannon_7:        "region bob_cannon_7"
+  chk_in_cannon_8:        "region bob_cannon_8"
+  chk_in_cannon_9:        "region bob_cannon_9"
+
+
+objectives:
+  # Cannon - 1
+  o_cannon_enter_1:       "region bob_cannon_1 enter events:e_c1_enter"
+  o_cannon_wait_1:        "delay 3 seconds interval:1 events:e_c1_waited"
+  o_cannon_shoot_1:       "action right any conditions:chk_in_cannon_1,chk_holding_pearl events:e_c1_shoot"
+  o_cannon_exit_1:        "region bob_cannon_1 exit events:e_c1_exit"
+  # Cannon - 2
+  o_cannon_enter_2:       "region bob_cannon_2 enter events:e_c2_enter"
+  o_cannon_wait_2:        "delay 3 seconds interval:1 events:e_c2_waited"
+  o_cannon_shoot_2:       "action right any conditions:chk_in_cannon_2,chk_holding_pearl events:e_c2_shoot"
+  o_cannon_exit_2:        "region bob_cannon_2 exit events:e_c2_exit"
+  # Cannon - 3
+  o_cannon_enter_3:       "region bob_cannon_3 enter events:e_c3_enter"
+  o_cannon_wait_3:        "delay 3 seconds interval:1 events:e_c3_waited"
+  o_cannon_shoot_3:       "action right any conditions:chk_in_cannon_3,chk_holding_pearl events:e_c3_shoot"
+  o_cannon_exit_3:        "region bob_cannon_3 exit events:e_c3_exit"
+  # Cannon - 4
+  o_cannon_enter_4:       "region bob_cannon_4 enter events:e_c4_enter"
+  o_cannon_wait_4:        "delay 3 seconds interval:1 events:e_c4_waited"
+  o_cannon_shoot_4:       "action right any conditions:chk_in_cannon_4,chk_holding_pearl events:e_c4_shoot"
+  o_cannon_exit_4:        "region bob_cannon_4 exit events:e_c4_exit"
+  # Cannon - 5
+  o_cannon_enter_5:       "region bob_cannon_5 enter events:e_c5_enter"
+  o_cannon_wait_5:        "delay 3 seconds interval:1 events:e_c5_waited"
+  o_cannon_shoot_5:       "action right any conditions:chk_in_cannon_5,chk_holding_pearl events:e_c5_shoot"
+  o_cannon_exit_5:        "region bob_cannon_5 exit events:e_c5_exit"
+  # Cannon - 6
+  o_cannon_enter_6:       "region bob_cannon_6 enter events:e_c6_enter"
+  o_cannon_wait_6:        "delay 3 seconds interval:1 events:e_c6_waited"
+  o_cannon_shoot_6:       "action right any conditions:chk_in_cannon_6,chk_holding_pearl events:e_c6_shoot"
+  o_cannon_exit_6:        "region bob_cannon_6 exit events:e_c6_exit"
+  # Cannon - 7
+  o_cannon_enter_7:       "region bob_cannon_7 enter events:e_c7_enter"
+  o_cannon_wait_7:        "delay 3 seconds interval:1 events:e_c7_waited"
+  o_cannon_shoot_7:       "action right any conditions:chk_in_cannon_7,chk_holding_pearl events:e_c7_shoot"
+  o_cannon_exit_7:        "region bob_cannon_7 exit events:e_c7_exit"
+  # Cannon - 8
+  o_cannon_enter_8:       "region bob_cannon_8 enter events:e_c8_enter"
+  o_cannon_wait_8:        "delay 3 seconds interval:1 events:e_c8_waited"
+  o_cannon_shoot_8:       "action right any conditions:chk_in_cannon_8,chk_holding_pearl events:e_c8_shoot"
+  o_cannon_exit_8:        "region bob_cannon_8 exit events:e_c8_exit"
+  # Cannon - 9
+  o_cannon_enter_9:       "region bob_cannon_9 enter events:e_c9_enter"
+  o_cannon_wait_9:        "delay 3 seconds interval:1 events:e_c9_waited"
+  o_cannon_shoot_9:       "action right any conditions:chk_in_cannon_9,chk_holding_pearl events:e_c9_shoot"
+  o_cannon_exit_9:        "region bob_cannon_9 exit events:e_c9_exit"
+
+items:
+  i_enderpearl:           "minecraft:ender_pearl name:&6Cannon"

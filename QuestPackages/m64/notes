@@ -1,0 +1,9 @@
+# Summon falling dripstone
+/summon minecraft:falling_block ~ ~5 ~ {BlockState:{Name:"minecraft:pointed_dripstone",Properties:{vertical_direction:"down"}},Time:1,HurtEntities:1,FallHurtAmount:2,FallHurtMax:20,DropItem:0}
+
+# Summon fireworks
+command execute in minecraft:marocraft run summon firework_rocket $s3.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}
+
+# Give map with specific ID
+/give @p filled_map{map:#}
+
