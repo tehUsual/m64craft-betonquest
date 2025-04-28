@@ -1,34 +1,41 @@
+# Regions:
+# Level entry:  wf_entry
+# Level:        wf
+# Star 1:       wf_whomp
+# Star 8:       wf_speedrun
+# Cannons:      wf_cannon_1
+# Bridge 1:     wf_brg_1a,wf_brg_1b,wf_brg_1c,wf_brg_1d,wf_brg_1e,wf_brg_1f,wf_brg_1g,wf_brg_1h,wf_brg_1i,wf_brg_1j,wf_brg_1k
+# Killzone:     wf_killzone1
+
+
 variables:
   spawn:              -364.5;68;-400.5;marocraft;270;12
   respawn:            29.5;40;-459.5;marocraft;180;12
-  exitbtn:            -365;68;-401;marocraft
+  exitsign:           -365;68;-401;marocraft
 
 events:
-  init_level:         "folder add_level_objs,init_cannons,init_stars,init_env,e_tp_spawn,e_play_music"
-  reload_level:       "folder reset_level,m64-main.init_castle"
-  reset_level:        "folder del_level_objs,reset_cannons,reset_stars,reset_env,e_stop_music"
-  hard_reset:         "folder reset_level,delete_stars"
-  
-  on_death:           "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
-  on_exit:            "folder e_tp_respawn,reload_level"
+  init_level:         "folder init_spawns,init_cannons,init_bridges,init_kz,init_stars,e_play_music,init_redcoins"
+  deit_level:         "folder deit_spawns,deit_cannons,deit_bridges,deit_kz,deit_stars,e_stop_music"
+  unlo_level:         "folder deit_redcoins,exit_level period:3 ticks"
+  exit_level:         "folder deit_level,e_tp_respawn,core-main.init_castle"
 
-  e_point_add_death:  "point wf_deaths 1 action:add"
-  e_gpoint_add_death: "globalpoint wf_deaths 1 action:add"
+  on_death:           "folder e_notify_death,exit_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:            "folder unlo_level"
+
+  # Wipe save
+  wipe_level:         "folder wipe_stars"
 
   ### Play music
-  e_play_music:       "folder m64-sfx.e_play_bob"
-  e_stop_music:       "folder m64-sfx.e_stop_music"
+  e_play_music:       "folder core-music.e_play_bob"
+  e_stop_music:       "folder core-music.e_stop_music"
 
-
-  ### LEVEL - Add objectives
-  add_level_objs:     "folder e_obj_add_respawn,e_obj_add_exit"
+  ### --- Spawn / Respawn ---------------------------------------
+  init_spawns:        "folder e_obj_add_respawn,e_obj_add_exit,e_tp_spawn"
   e_obj_add_respawn:  "objective add o_respawn"
   e_obj_add_exit:     "objective add o_exitlevel"
-  ### LEVEL - Del objectives
-  del_level_objs:     "folder e_obj_del_respawn,e_obj_del_exit"
+  deit_spawns:        "folder e_obj_del_respawn,e_obj_del_exit"
   e_obj_del_respawn:  "objective remove o_respawn"
   e_obj_del_exit:     "objective remove o_exitlevel"
-
 
   # Teleports
   e_tp_spawn:         "teleport $spawn$"
@@ -36,8 +43,16 @@ events:
 
   # Actions
   e_notify_death:     "command broadcast &3%player%&f died in WF."
+  e_point_add_death:  "point wf_deaths 1 action:add"
+  e_gpoint_add_death: "globalpoint wf_deaths 1 action:add"
+
+  # Fake blocks
+  init_redcoins:      "folder e_init_rcoins delay:1"
+  deit_redcoins:      "folder e_deit_rcoins"
+  e_init_rcoins:      "command showfakeskulls %player% wf_rc_1 wf_rc_2 wf_rc_3 wf_rc_4 wf_rc_5 wf_rc_6 wf_rc_7 wf_rc_8 wf_rc_9 wf_rc_10 wf_rc_11 wf_rc_12"
+  e_deit_rcoins:      "command hidefakeskulls %player% wf_rc_1 wf_rc_2 wf_rc_3 wf_rc_4 wf_rc_5 wf_rc_6 wf_rc_7 wf_rc_8 wf_rc_9 wf_rc_10 wf_rc_11 wf_rc_12"
 
 
 objectives:
   o_respawn:          "die cancel respawn:$respawn$ events:on_death"
-  o_exitlevel:        "action right any loc:$exitbtn$ events:on_exit"
+  o_exitlevel:        "action right any loc:$exitsign$ events:on_exit"
