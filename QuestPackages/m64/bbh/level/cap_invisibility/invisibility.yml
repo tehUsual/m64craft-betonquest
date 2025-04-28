@@ -39,11 +39,12 @@ events:
   e_obj_add_inv_tp_1:     "run ^objective add o_invis_tp_1a ^objective add o_invis_tp_1b"
   e_obj_add_inv_tp_2:     "run ^objective add o_invis_tp_2a ^objective add o_invis_tp_2b"
 
-  
+  # Music
+  e_play_music_invis:     "folder core-music.e_play_powerup"
+
   # --- Main ---
   # Invisibility: Activate
   e_start_invisibility:   "folder e_play_music_invis,e_obj_add_inv_timeout,e_tag_add_invis,e_notif_invisible,e_efx_give_invis,e_init_cinv_tps"
-  e_play_music_invis:     "folder core-music.e_play_powerup"
   e_obj_add_inv_timeout:  "objective add o_invis_timeout"
   e_tag_add_invis:        "tag add cap_invisible"
   e_notif_invisible:      "notify &3Invisibility for $invis_duration$ sec\n&2You can go through paintings io:title"
