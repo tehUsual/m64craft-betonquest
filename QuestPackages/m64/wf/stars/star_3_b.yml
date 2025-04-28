@@ -1,0 +1,32 @@
+variables:
+  s3:
+    star_loc:             -421;81;-460;marocraft
+
+
+events:
+  ### STAR 3 - SHOOT INTO THE WILD BLUE
+  # Init
+  init_s3:                "folder e_obj_add_s3_star"
+  e_obj_add_s3_star:      "objective add o_s3_star"
+
+  # Win
+  win_s3:                 "folder e_notif_s3_win,core-sfx.e_got_star,deit_s3,if_firstwin_s3"
+  e_notif_s3_win:         "notify &3Shoot into the wild blue\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s3:         "if !chk_s3_obtained firstwin_s3 else core-main.e_dummy"
+  firstwin_s3:            "folder e_broad_s3_first,tag_add_s3_win,e_stop_music,exit_star"
+  e_broad_s3_first:       "command broadcast &6%player% &2got a star: [WF] Shoot into the wild blue"
+  tag_add_s3_win:         "tag add s3"
+
+  # Cleanup
+  deit_s3:                "folder e_obj_del_s3_star"
+  e_obj_del_s3_star:      "objective remove o_s3_star"
+
+
+conditions:
+  chk_s3_obtained:        "tag s3"
+
+
+objectives:
+  o_s3_star:              "action right any loc:$s3.star_loc$ events:win_s3"

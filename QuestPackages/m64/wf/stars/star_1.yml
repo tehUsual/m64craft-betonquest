@@ -1,0 +1,55 @@
+variables:
+  s1:
+    star_loc:             -406;107;-448;marocraft
+    star_loc_xyz:         -406 107 -448
+
+
+events:
+  ### STAR 1 - CHIP OFF WHOMP'S BLOCK
+  # Init
+  init_s1:                "folder e_obj_add_s1_jump,e_obj_add_s1_jump_1"
+  e_obj_add_s1_jump:      "objective add o_s1_jump"
+  e_obj_add_s1_jump_1:    "objective add o_s1_jump_1"
+
+  # Jump 1
+  e_s1_whomp_jump_1:      "folder core-sfx.e_whomp"
+
+  # Check win
+  e_s1_whomp_jumped:      "folder e_s1_whomp_jump_1,e_obj_del_s1_jump_1,e_s1_spawn_star"
+
+  # Spawn star
+  e_s1_spawn_star:        "folder e_s1_show_star,e_s1_summon_firework,core-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star"
+  e_s1_show_star:         "command togglefakeblock %player% wf_star_1 show"
+  e_s1_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s1.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
+  e_s1_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s1_star:      "objective add o_s1_star"
+
+  # Win
+  win_s1:                 "folder e_notif_s1_win,core-sfx.e_got_star,deit_s1,if_firstwin_s1"
+  e_notif_s1_win:         "notify &3Chip off whomp's block\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s1:         "if !chk_s1_obtained firstwin_s1 else core-main.e_dummy"
+  firstwin_s1:            "folder e_broad_s1_first,tag_add_s1_win,e_stop_music,exit_star"
+  e_broad_s1_first:       "command broadcast &6%player% &2got a star: [WF] Chip off whomp's block"
+  tag_add_s1_win:         "tag add s1"
+
+  # Cleanup
+  deit_s1:                "folder e_obj_del_s1_star,e_obj_del_s1_jump,e_obj_del_s1_jump_1,e_s1_despawn_star"
+  e_obj_del_s1_star:      "objective remove o_s1_star"
+  e_obj_del_s1_jump:      "objective remove o_s1_jump"
+  e_obj_del_s1_jump_1:    "objective remove o_s1_jump_1"
+
+  e_s1_despawn_star:      "folder e_s1_hide_star"
+  e_s1_hide_star:         "command togglefakeblock %player% wf_star_1 hide"
+
+
+conditions:
+  chk_s1_obtained:        "tag s1"
+  chk_s1_ontop_whomp:     "region wf_whomp"
+
+
+objectives:
+  o_s1_star:              "action right any loc:$s1.star_loc$ events:win_s1"
+  o_s1_jump:              "jump 10 conditions:chk_s1_ontop_whomp events:e_s1_whomp_jumped"
+  o_s1_jump_1:            "jump 1 conditions:chk_s1_ontop_whomp events:e_s1_whomp_jump_1 persistent"
