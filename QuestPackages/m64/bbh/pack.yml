@@ -1,0 +1,44 @@
+variables:
+  spawn:                396.5;46;-400.5;marocraft;180;12
+  respawn:              -6;40;-152;marocraft;-45;12
+  exitsign:             396;46;-401;marocraft
+
+# e_spawn_env
+events:
+  init_level:           "folder init_spawns,init_zones,init_bridge,init_falltp,init_cinv,init_stars,e_play_music,init_intro"
+  deit_level:           "folder deit_spawns,deit_zones,deit_bridge,deit_falltp,deit_cinv,deit_stars,e_stop_music"
+  unlo_level:           "folder exit_level period:3 ticks"
+  exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
+
+  on_death:             "folder e_notify_death,exit_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:              "folder unlo_level"
+
+  # Wipe save
+  wipe_level:           "folder wipe_stars"
+
+  # Play Music
+  e_play_music:         "folder core-music.e_play_bbh"
+  e_stop_music:         "folder core-music.e_stop_music"
+
+
+  ### --- Spawn / Respawn ---------------------------------------
+  init_spawns:          "folder e_obj_add_respawn,e_obj_add_exit,e_tp_spawn"
+  e_obj_add_respawn:    "objective add o_respawn"
+  e_obj_add_exit:       "objective add o_exitlevel"
+  deit_spawns:          "folder e_obj_del_respawn,e_obj_del_exit"
+  e_obj_del_respawn:    "objective remove o_respawn"
+  e_obj_del_exit:       "objective remove o_exitlevel"
+
+  # Teleports
+  e_tp_spawn:           "teleport $spawn$"
+  e_tp_respawn:         "teleport $respawn$"
+
+  # Actions
+  e_notify_death:       "command broadcast &3%player%&f died in BBH."
+  e_point_add_death:    "point bbh_deaths 1 action:add"
+  e_gpoint_add_death:   "globalpoint bbh_deaths 1 action:add"
+
+
+objectives:
+  o_respawn:            "die cancel respawn:$respawn$ events:on_death"
+  o_exitlevel:          "action right any loc:$exitsign$ events:on_exit"
