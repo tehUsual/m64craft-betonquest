@@ -1,0 +1,32 @@
+variables:
+  s6:
+    star_loc:             405;69;-463;marocraft
+
+
+events:
+  ### STAR 6 - EYE TO EYE IN THE SECRET ROOM
+  # Init
+  init_s6:                "folder e_obj_add_s6_star"
+  e_obj_add_s6_star:      "objective add o_s6_star"
+
+  # Win
+  win_s6:                 "folder e_notif_s6_win,core-sfx.e_got_star,deit_s6,if_firstwin_s6"
+  e_notif_s6_win:         "notify &3Eye to eye in the secret room\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s6:         "if !chk_s6_obtained firstwin_s6 else core-main.e_dummy"
+  firstwin_s6:            "folder e_broad_s6_first,tag_add_s6_win,e_stop_music,exit_star"
+  e_broad_s6_first:       "command broadcast &6%player% &2got a star: [BBH] Eye to eye in the secret room"
+  tag_add_s6_win:         "tag add s6"
+
+  # Cleanup
+  deit_s6:                "folder e_obj_del_s6_star"
+  e_obj_del_s6_star:      "objective remove o_s6_star"
+
+
+conditions:
+  chk_s6_obtained:        "tag s6"
+
+
+objectives:
+  o_s6_star:              "action right any loc:$s6.star_loc$ events:win_s6"

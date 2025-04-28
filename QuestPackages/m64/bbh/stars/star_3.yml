@@ -1,0 +1,117 @@
+variables:
+  s3:
+    star_loc:             368;62;-438;marocraft
+    tp_loc:               369.5;57;-456;marocraft;0;12
+    book_1_loc:           369;57;-459;marocraft
+    book_2_loc:           368;58;-459;marocraft
+    book_3_loc:           370;59;-459;marocraft
+    book_4_loc:           368;60;-459;marocraft
+    book_5_loc:           370;61;-459;marocraft
+    book_6_loc:           369;62;-459;marocraft
+
+
+events:
+  ### STAR 3 - SECRET OF THE HAUNTED BOOKS
+  # Init
+  init_s3:                "folder e_s3_setup_book_4"
+  # 4,2,6,3,5,1
+
+
+  e_obj_add_s3_c1:        "objective add o_s3_c1"
+  e_obj_add_s3_c2:        "objective add o_s3_c2"
+  e_obj_add_s3_c3:        "objective add o_s3_c3"
+  e_obj_add_s3_c4:        "objective add o_s3_c4"
+  e_obj_add_s3_c5:        "objective add o_s3_c5"
+  e_obj_add_s3_c6:        "objective add o_s3_c6"
+
+  e_obj_add_s3_w1:        "objective add o_s3_w1"
+  e_obj_add_s3_w2:        "objective add o_s3_w2"
+  e_obj_add_s3_w3:        "objective add o_s3_w3"
+  e_obj_add_s3_w4:        "objective add o_s3_w4"
+  e_obj_add_s3_w5:        "objective add o_s3_w5"
+  e_obj_add_s3_w6:        "objective add o_s3_w6"
+
+  # Setup 4
+  e_s3_setup_book_4:      "folder e_obj_add_s3_c4,e_obj_add_s3_w1,e_obj_add_s3_w2,e_obj_add_s3_w3,e_obj_add_s3_w5,e_obj_add_s3_w6"
+  # Setup 2
+  e_s3_setup_book_2:      "folder e_obj_add_s3_c2,e_obj_add_s3_w1,e_obj_add_s3_w3,e_obj_add_s3_w4,e_obj_add_s3_w5,e_obj_add_s3_w6"
+  # Setup 6
+  e_s3_setup_book_6:      "folder e_obj_add_s3_c6,e_obj_add_s3_w1,e_obj_add_s3_w2,e_obj_add_s3_w3,e_obj_add_s3_w4,e_obj_add_s3_w5"
+  # Setup 3
+  e_s3_setup_book_3:      "folder e_obj_add_s3_c3,e_obj_add_s3_w1,e_obj_add_s3_w2,e_obj_add_s3_w4,e_obj_add_s3_w5,e_obj_add_s3_w6"
+  # Setup 5
+  e_s3_setup_book_5:      "folder e_obj_add_s3_c5,e_obj_add_s3_w1,e_obj_add_s3_w2,e_obj_add_s3_w3,e_obj_add_s3_w4,e_obj_add_s3_w6"
+  # Setup 1
+  e_s3_setup_book_1:      "folder e_obj_add_s3_c1,e_obj_add_s3_w2,e_obj_add_s3_w3,e_obj_add_s3_w4,e_obj_add_s3_w5,e_obj_add_s3_w6"
+
+  # Wrong book
+  e_s3_reset_books:       "folder e_obj_del_s3_bc,e_obj_del_s3_bw"
+  e_s3_book_wrong:        "folder core-sfx.e_incorrect,e_s3_reset_books,init_s3"
+
+  # Correct 4
+  e_s3_book_correct_4:    "folder core-sfx.e_coin,e_s3_reset_books,e_s3_setup_book_2"
+  # Correct 2
+  e_s3_book_correct_2:    "folder core-sfx.e_coin,e_s3_reset_books,e_s3_setup_book_6"
+  # Correct 6
+  e_s3_book_correct_6:    "folder core-sfx.e_coin,e_s3_reset_books,e_s3_setup_book_3"
+  # Correct 3
+  e_s3_book_correct_3:    "folder core-sfx.e_coin,e_s3_reset_books,e_s3_setup_book_5"
+  # Correct 5
+  e_s3_book_correct_5:    "folder core-sfx.e_coin,e_s3_reset_books,e_s3_setup_book_1"
+  # Correct 1
+  e_s3_book_correct_1:    "folder core-sfx.e_coin,e_s3_reset_books,e_s3_book_correct_all"
+
+  # Correct all
+  e_s3_book_correct_all:  "folder e_obj_add_s3_star,core-sfx.e_correct,e_s3_tp_delay"
+  e_s3_tp_delay:          "folder e_s3_tp_bookshelf delay:4"
+  e_s3_tp_bookshelf:      "teleport $s3.tp_loc$"
+  e_obj_add_s3_star:      "objective add o_s3_star"
+
+  # Win
+  win_s3:                 "folder e_notif_s3_win,core-sfx.e_got_star,deit_s3,if_firstwin_s3"
+  e_notif_s3_win:         "notify &3Secret of the haunted books\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s3:         "if !chk_s3_obtained firstwin_s3 else core-main.e_dummy"
+  firstwin_s3:            "folder e_broad_s3_first,tag_add_s3_win,e_stop_music,exit_star"
+  e_broad_s3_first:       "command broadcast &6%player% &2got a star: [BBH] Secret of the haunted books"
+  tag_add_s3_win:         "tag add s3"
+
+
+  # Cleanup
+  deit_s3:                "folder e_obj_del_s3_bc,e_obj_del_s3_bw,e_obj_del_s3_star"
+  e_obj_del_s3_bc:        "folder e_obj_del_s3_c1,e_obj_del_s3_c2,e_obj_del_s3_c3,e_obj_del_s3_c4,e_obj_del_s3_c5,e_obj_del_s3_c6"
+  e_obj_del_s3_bw:        "folder e_obj_del_s3_w1,e_obj_del_s3_w2,e_obj_del_s3_w3,e_obj_del_s3_w4,e_obj_del_s3_w5,e_obj_del_s3_w6"
+  e_obj_del_s3_c1:        "objective remove o_s3_c1"
+  e_obj_del_s3_c2:        "objective remove o_s3_c2"
+  e_obj_del_s3_c3:        "objective remove o_s3_c3"
+  e_obj_del_s3_c4:        "objective remove o_s3_c4"
+  e_obj_del_s3_c5:        "objective remove o_s3_c5"
+  e_obj_del_s3_c6:        "objective remove o_s3_c6"
+  e_obj_del_s3_w1:        "objective remove o_s3_w1"
+  e_obj_del_s3_w2:        "objective remove o_s3_w2"
+  e_obj_del_s3_w3:        "objective remove o_s3_w3"
+  e_obj_del_s3_w4:        "objective remove o_s3_w4"
+  e_obj_del_s3_w5:        "objective remove o_s3_w5"
+  e_obj_del_s3_w6:        "objective remove o_s3_w6"
+  e_obj_del_s3_star:      "objective remove o_s3_star"
+
+
+conditions:
+  chk_s3_obtained:        "tag s3"
+
+
+objectives:
+  o_s3_star:              "action right any loc:$s3.star_loc$ events:win_s3"
+  o_s3_c1:                "action right any loc:$s3.book_1_loc$ events:e_s3_book_correct_1"
+  o_s3_c2:                "action right any loc:$s3.book_2_loc$ events:e_s3_book_correct_2"
+  o_s3_c3:                "action right any loc:$s3.book_3_loc$ events:e_s3_book_correct_3"
+  o_s3_c4:                "action right any loc:$s3.book_4_loc$ events:e_s3_book_correct_4"
+  o_s3_c5:                "action right any loc:$s3.book_5_loc$ events:e_s3_book_correct_5"
+  o_s3_c6:                "action right any loc:$s3.book_6_loc$ events:e_s3_book_correct_6"
+  o_s3_w1:                "action right any loc:$s3.book_1_loc$ events:e_s3_book_wrong"
+  o_s3_w2:                "action right any loc:$s3.book_2_loc$ events:e_s3_book_wrong"
+  o_s3_w3:                "action right any loc:$s3.book_3_loc$ events:e_s3_book_wrong"
+  o_s3_w4:                "action right any loc:$s3.book_4_loc$ events:e_s3_book_wrong"
+  o_s3_w5:                "action right any loc:$s3.book_5_loc$ events:e_s3_book_wrong"
+  o_s3_w6:                "action right any loc:$s3.book_6_loc$ events:e_s3_book_wrong"

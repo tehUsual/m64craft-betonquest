@@ -1,0 +1,27 @@
+### STAR 1 - GO ON A GHOST HUNT
+### STAR 2 - RIDE BIG BOO'S MERRY-GO-ROUND
+### STAR 3 - SECRET OF THE HAUNTED BOOKS
+### STAR 4 - SEEK THE 8 RED COINS
+### STAR 5 - BIG BOO'S BALCONY
+### STAR 6 - EYE TO EYE IN THE SECRET ROOM
+### STAR 7 -
+### STAR 8 - KOOPA THE QUICK
+### STAR 9 - CAPTAIN TOAD 1
+### STAR 10 - CAPTAIN TOAD 2
+### STAR 11 - CAPTAIN TOAD 3
+
+events:
+  # Entry
+  init_stars:             "folder init_s1,init_s2,init_s3,init_s4,init_s5,init_s6,init_s8"
+  deit_stars:             "folder deit_s1,deit_s2,deit_s3,deit_s4,deit_s5,deit_s6,deit_s8"
+
+  # Clear save
+  wipe_stars:             "folder e_del_star_tags,e_s4_del_tags,e_clear_star_counter"
+  e_del_star_tags:        "folder e_del_star_tags_1,e_del_star_tags_2"
+  e_del_star_tags_1:      "run ^tag delete s1 ^tag delete s2 ^tag delete s3 ^tag delete s4 ^tag delete s5 ^tag delete s6"
+  e_del_star_tags_2:      "run ^tag delete s8 ^tag delete s9 ^tag delete s10 ^tag delete s11"
+  e_clear_star_counter:   "point bbh_stars 0 action:set"
+
+  # Win star
+  exit_star:              "folder on_exit,core-sfx.e_exit_course,e_add_star_counter delay:4"
+  e_add_star_counter:     "point bbh_stars 1 action:add"

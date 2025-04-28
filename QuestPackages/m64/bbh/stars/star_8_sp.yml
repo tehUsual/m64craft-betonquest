@@ -1,0 +1,55 @@
+variables:
+  s8:
+    total_time:           50
+    total_time_notif:     50
+    delay_interval:       5
+    start_loc:            389;45;-392;marocraft
+
+
+events:
+  ### STAR 8 - KOOPA THE QUICK
+  # Init
+  init_s8:                "folder e_obj_add_s8_start"
+  e_obj_add_s8_start:     "objective add o_s8_start"
+  # Start
+  start_s8:               "folder e_notif_s8_start,e_obj_add_s8_speedrun,e_obj_add_s8_goal,e_obj_add_s8_10sec"
+  e_notif_s8_start:       "notify &3Koopa The Quick&r\n $s8.total_time_notif$ sec &3RUN! io:title"
+  e_obj_add_s8_speedrun:  "objective add o_s8_speedrun"
+  e_obj_add_s8_goal:      "objective add o_s8_goal"
+  e_obj_add_s8_10sec:     "objective add o_s8_speedrun_10sec"
+  # Fail
+  fail_s8:                "folder e_notif_s8_fail,reload_s8"
+  e_notif_s8_fail:        "notify &3Koopa The Quick\n&4Failed.. io:title"
+
+  e_s8_10_sec_left:       "folder core-sfx.e_time_almost_up,e_s8_notify_10sec"
+  e_s8_notify_10sec:      "notify &c10 seconds left!"
+  # Win
+  win_s8:                 "folder e_notif_s8_win,core-sfx.e_got_star,e_broad_s8_win,deit_s8,if_firstwin_s8"
+  e_notif_s8_win:         "notify &3Koopa The Quick\n&2Cleared! io:title"
+  e_broad_s8_win:         "command broadcast [&6%player%&r]: BBH Speedrun: %math.calc:($s8.total_time$-objective.o_s8_speedrun.rawSeconds)~3% sec"
+
+  # First win
+  if_firstwin_s8:         "if !chk_s8_obtained firstwin_s8 else reload_s8"
+  firstwin_s8:            "folder e_broad_s8_first,tag_add_s8_win,e_stop_music,exit_star"
+  e_broad_s8_first:       "command broadcast &6%player% &2got a star: [BBH] Koopa The Quick"
+  tag_add_s8_win:         "tag add s8"
+
+  # Cleanup
+  deit_s8:                "folder e_obj_del_s8_start,e_obj_del_s8_speedrun,e_obj_del_s8_goal,e_obj_del_s8_10sec"
+  e_obj_del_s8_start:     "objective remove o_s8_start"
+  e_obj_del_s8_speedrun:  "objective remove o_s8_speedrun"
+  e_obj_del_s8_goal:      "objective remove o_s8_goal"
+  e_obj_del_s8_10sec:     "objective remove o_s8_speedrun_10sec"
+  # Reload
+  reload_s8:              "folder deit_s8,init_s8"
+
+
+conditions:
+  chk_s8_obtained:        "tag s8"
+
+
+objectives:
+  o_s8_start:             "action right any loc:$s8.start_loc$ events:start_s8"
+  o_s8_speedrun:          "delay $s8.total_time$ seconds interval:$s8.delay_interval$ events:fail_s8"
+  o_s8_speedrun_10sec:    "delay %math.calc:$s8.total_time$-10% seconds interval:$s8.delay_interval$ events:e_s8_10_sec_left"
+  o_s8_goal:              "region bbh_speedrun enter events:win_s8"
