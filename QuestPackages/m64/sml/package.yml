@@ -8,7 +8,7 @@ variables:
 
 events:
   init_level:           "folder add_level_objs,init_env,init_stars,e_tp_spawn,e_play_music"
-  reload_level:         "folder reset_level,m64-main.init_castle"
+  reload_level:         "folder reset_level,core-main.init_castle"
   reset_level:          "folder del_level_objs,reset_env,reset_stars,e_stop_music"
   on_death:             "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
   on_exit:              "folder e_tp_respawn,reload_level"
@@ -19,8 +19,8 @@ events:
 
 
   ### Play music
-  e_play_music:         "folder m64-sfx.e_play_ccm"
-  e_stop_music:         "folder m64-sfx.e_stop_music"
+  e_play_music:         "folder core-music.e_play_ccm"
+  e_stop_music:         "folder core-music.e_stop_music"
 
 
   ### LEVEL - Add objectives

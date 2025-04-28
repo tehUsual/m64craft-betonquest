@@ -6,7 +6,7 @@ variables:
   tp_frship:          74.5;35;386.5;marocraft;27;-16
 
 npcs:
-  '205': "dolphin"
+  '33': "dolphin"
 
 conversations:
   dolphin:
@@ -37,7 +37,7 @@ conversations:
 #/summon minecraft:falling_block ~ ~5 ~ {BlockState:{Name:"minecraft:pointed_dripstone",Properties:{vertical_direction:"down"}},Time:1,HurtEntities:1,FallHurtAmount:2,FallHurtMax:20,DropItem:0}
 events:
   init_level:           "folder add_level_objs,init_cannons,init_stars,init_env_dripstone,init_env_switchblocks,e_init_metal,e_tp_spawn,e_efx_give_wbreath,e_play_music"
-  reload_level:         "folder reset_level,m64-main.init_castle"
+  reload_level:         "folder reset_level,core-main.init_castle"
   reset_level:          "folder del_level_objs,reset_cannons,reset_stars,reset_env_dripstone,reset_env_switchblocks,e_efx_clear,e_cleanup_metal,e_stop_music"
   on_death:             "folder e_notify_death,e_point_add_death,e_gpoint_add_death,reload_level"
   on_exit:              "folder e_tp_respawn,reload_level"
@@ -48,8 +48,8 @@ events:
 
 
   ### Play music
-  e_play_music:         "folder m64-sfx.e_play_jrb"
-  e_stop_music:         "folder m64-sfx.e_stop_music"
+  e_play_music:         "folder core-music.e_play_jrb"
+  e_stop_music:         "folder core-music.e_stop_music"
 
 
   ### LEVEL - Add objectives

@@ -47,19 +47,19 @@ events:
 
   # If gold
   if_gold:                "if chk_s1_gold win_s1_gold else if_silver"
-  win_s1_gold:            "folder e_broad_s1_win_gold,e_broad_s1_sr_gold,cleanup_s1,init_slide,m64-main.e_unlock_ss2"
+  win_s1_gold:            "folder e_broad_s1_win_gold,e_broad_s1_sr_gold,cleanup_s1,init_slide,core-main.e_unlock_ss2"
   e_broad_s1_win_gold:    "command broadcast [&6%player%&r]: Secret Slide #1: &e[Gold]&r %math.calc:($slide.gold_medal$-objective.o_s1_gold.rawSeconds)~3% sec"
   e_broad_s1_sr_gold:     "command broadcast [&6%player%&r]: SS1 Speedrun: %math.calc:($slide.gold_medal$-objective.o_s1_gold.rawSeconds)~3% sec"
 
   # If silver
   if_silver:              "if chk_s1_silver win_s1_silver else if_bronze"
-  win_s1_silver:          "folder e_broad_s1_win_silver,e_broad_s1_sr_silver,cleanup_s1,init_slide,m64-main.e_unlock_ss2"
+  win_s1_silver:          "folder e_broad_s1_win_silver,e_broad_s1_sr_silver,cleanup_s1,init_slide,core-main.e_unlock_ss2"
   e_broad_s1_win_silver:  "command broadcast [&6%player%&r]: Secret Slide #1: &7[Silver]&r %math.calc:($slide.silver_medal$-objective.o_s1_silver.rawSeconds)~3% sec"
   e_broad_s1_sr_silver:   "command broadcast [&6%player%&r]: SS1 Speedrun: %math.calc:($slide.silver_medal$-objective.o_s1_silver.rawSeconds)~3% sec"
 
   # If bronze
   if_bronze:              "if chk_s1_bronze win_s1_bronze else win_s1_lost"
-  win_s1_bronze:          "folder e_broad_s1_win_bronze,e_broad_s1_sr_bronze,cleanup_s1,init_slide,m64-main.e_unlock_ss2"
+  win_s1_bronze:          "folder e_broad_s1_win_bronze,e_broad_s1_sr_bronze,cleanup_s1,init_slide,core-main.e_unlock_ss2"
   e_broad_s1_win_bronze:  "command broadcast [&6%player%&r]: Secret Slide #1: &6[Bronze]&r %math.calc:($slide.bronze_medal$-objective.o_s1_bronze.rawSeconds)~3% sec"
   e_broad_s1_sr_bronze:   "command broadcast [&6%player%&r]: SS1 Speedrun: %math.calc:($slide.bronze_medal$-objective.o_s1_bronze.rawSeconds)~3% sec"
 

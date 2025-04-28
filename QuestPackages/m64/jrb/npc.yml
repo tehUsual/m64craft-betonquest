@@ -1,5 +1,5 @@
 npcs:
-  '203': "toad_bob"
+  '31': "toad_bob"
 
 conversations:
   toad_bob:

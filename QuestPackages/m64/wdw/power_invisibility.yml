@@ -12,7 +12,7 @@ events:
   e_obj_add_inv_tp_1:     "objective add o_invis_tp_1"
 
   # Invisibility: Activate
-  e_start_invis:          "folder m64-sfx.e_play_powerup,e_obj_add_inv_timout,e_tag_add_invis,e_notif_invisible,e_efx_give_invis"
+  e_start_invis:          "folder core-music.e_play_powerup,e_obj_add_inv_timout,e_tag_add_invis,e_notif_invisible,e_efx_give_invis"
   e_obj_add_inv_timout:   "objective add o_invis_timeout"
   e_tag_add_invis:        "tag add invisible"
   e_notif_invisible:      "notify &3Invisibility for 30 sec\n&2You can go through the cage io:title"

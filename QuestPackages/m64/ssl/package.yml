@@ -8,7 +8,7 @@ variables:
 
 events:
   init_level:         "folder add_level_objs,init_cannons,init_stars,e_tp_spawn,e_play_music"
-  reload_level:       "folder reset_level,m64-main.init_castle"
+  reload_level:       "folder reset_level,core-main.init_castle"
   reset_level:        "folder del_level_objs,reset_cannons,reset_stars,e_stop_music"
   hard_reset:         "folder reset_level,delete_stars"
   on_death:           "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
@@ -20,10 +20,10 @@ events:
   e_gpoint_add_death: "globalpoint ssl_deaths 1 action:add"
 
   ### Play music
-  e_play_music:       "folder m64-sfx.e_play_ssl"
-  e_play_music_pyr:   "folder m64-sfx.e_play_hmc"
-  e_play_music_boss:  "folder m64-sfx.e_play_boss"
-  e_stop_music:       "folder m64-sfx.e_stop_music"
+  e_play_music:       "folder core-music.e_play_ssl"
+  e_play_music_pyr:   "folder core-music.e_play_hmc"
+  e_play_music_boss:  "folder core-music.e_play_boss"
+  e_stop_music:       "folder core-music.e_stop_music"
 
   ### LEVEL - Add objectives
   add_level_objs:     "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_obj_add_tp_pyr,e_add_obj_kz_out"

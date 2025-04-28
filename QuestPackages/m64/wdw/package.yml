@@ -10,7 +10,7 @@ variables:
 
 events:
   init_level:           "folder add_level_objs,init_cannons,init_stars,init_env_topwater,init_env_switchblocks,e_init_invis,e_tp_spawn,e_efx_give_nightvis,e_efx_give_swim,e_play_music"
-  reload_level:         "folder reset_level,m64-main.init_castle"
+  reload_level:         "folder reset_level,core-main.init_castle"
   reset_level:          "folder del_level_objs,reset_cannons,reset_stars,reset_env_topwater,reset_env_switchblocks,e_cleanup_invis,e_efx_clear_nightvis,e_stop_music"
   hard_reset:           "folder reset_level,delete_stars"
 
@@ -24,8 +24,8 @@ events:
 
 
   ### Play music
-  e_play_music:         "folder m64-sfx.e_play_hmc"
-  e_stop_music:         "folder m64-sfx.e_stop_music"
+  e_play_music:         "folder core-music.e_play_hmc"
+  e_stop_music:         "folder core-music.e_stop_music"
 
 
   ### LEVEL - Add objectives

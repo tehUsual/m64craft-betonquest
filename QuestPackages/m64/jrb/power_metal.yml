@@ -9,7 +9,7 @@ events:
   e_obj_add_met_act_1:    "objective add o_metal_activate_1"
 
   # Metal: Activate
-  e_start_metal:          "folder m64-sfx.e_play_powerup,e_obj_add_met_timout,e_tag_add_metal,e_notif_metalized,e_efx_give_resist,e_efx_give_glow,e_metal_bubble_disable"
+  e_start_metal:          "folder core-music.e_play_powerup,e_obj_add_met_timout,e_tag_add_metal,e_notif_metalized,e_efx_give_resist,e_efx_give_glow,e_metal_bubble_disable"
   e_obj_add_met_timout:   "objective add o_metal_timeout"
   e_tag_add_metal:        "tag add metalized"
   e_notif_metalized:      "notify &3Metal Cap (Resistance) for 30 sec\n&2You are heavier io:title"

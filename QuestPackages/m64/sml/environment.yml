@@ -14,7 +14,7 @@ events:
   e_obj_del_bounce_2:   "objective remove o_bounce_2"
 
   # Bounce
-  e_fol_bounce:         "folder e_bounce,m64-sfx.e_impact,e_reload_bounce"
+  e_fol_bounce:         "folder e_bounce,core-sfx.e_impact,e_reload_bounce"
   e_reload_bounce:      "folder init_bounce delay:20 ticks"
   e_bounce:             "velocity vector:(0;1;0) direction:absolute modification:set"
 
@@ -27,7 +27,7 @@ events:
   e_obj_del_freeze_w_1: "objective remove o_freeze_water_1"
 
   # Freeze
-  e_fol_freezew:        "folder e_freeze_dmg,m64-sfx.e_fire_hurt,e_freeze_jump,e_reload_freezew"
+  e_fol_freezew:        "folder e_freeze_dmg,core-sfx.e_fire_hurt,e_freeze_jump,e_reload_freezew"
   e_reload_freezew:     "folder init_freezing_water delay:10 ticks"
   e_freeze_dmg:         "damage 4"
   e_freeze_jump:        "velocity vector:(0;0.7;0) direction:relative_y modification:set"
@@ -74,7 +74,7 @@ events:
   # Wind blow
   e_fol_windyice:       "folder cleanup_wind,e_windblow,e_blow_sfx,e_reload_windice"
   e_reload_windice:     "folder init_wind delay:15 ticks"
-  e_blow_sfx:           "folder m64-sfx.e_wind,m64-sfx.e_fall period:5 ticks"
+  e_blow_sfx:           "folder core-sfx.e_wind,core-sfx.e_fall period:5 ticks"
 
   e_windblow:           "velocity vector:(2;0.4;2) direction:absolute modification:set"
 

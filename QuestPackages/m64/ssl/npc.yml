@@ -1,5 +1,5 @@
 npcs:
-  '183': "toad_ssl"
+  '23': "toad_ssl"
 
 conversations:
   toad_ssl:

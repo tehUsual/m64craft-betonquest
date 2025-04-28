@@ -49,9 +49,9 @@ variables:
 
 
 npcs:
-  '197': "cpttoad_1"
-  '198': "cpttoad_2"
-  '199': "cpttoad_3"
+  '25': "cpttoad_1"
+  '26': "cpttoad_2"
+  '27': "cpttoad_3"
 
 conversations:
   cpttoad_1:
@@ -110,7 +110,7 @@ events:
   e_del_star_tags_2:      "run ^tag delete s8 ^tag delete s9 ^tag delete s10 ^tag delete s11"
   e_clear_star_counter:   "point wdw_stars 0 action:set"
 
-  exit_star:              "folder on_exit,m64-sfx.e_exit_course,e_add_star_counter delay:4"
+  exit_star:              "folder on_exit,core-sfx.e_exit_course,e_add_star_counter delay:4"
   e_add_star_counter:     "point wdw_stars 1 action:add"
 
 
@@ -121,11 +121,11 @@ events:
   e_obj_add_s1_star:      "objective add o_s1_star"
 
   # Win
-  win_s1:                 "folder e_notif_s1_win,m64-sfx.e_got_star,cleanup_s1,if_firstwin_s1"
+  win_s1:                 "folder e_notif_s1_win,core-sfx.e_got_star,cleanup_s1,if_firstwin_s1"
   e_notif_s1_win:         "notify &3Shocking arrow lifts!\n&2Cleared! io:title"
 
   # First win
-  if_firstwin_s1:         "if !chk_s1_obtained firstwin_s1 else m64-main.e_dummy"
+  if_firstwin_s1:         "if !chk_s1_obtained firstwin_s1 else core-main.e_dummy"
   firstwin_s1:            "folder e_broad_s1_first,tag_add_s1_win,e_stop_music,exit_star"
   e_broad_s1_first:       "command broadcast &6%player% &2got a star: [WDW] Shocking arrow lifts!"
   tag_add_s1_win:         "tag add s1"
@@ -153,55 +153,55 @@ events:
   e_s3_sec_add_point:     "point secret_count 1 action:add"
 
   # Secret 1
-  e_s3_got_sec_1:         "folder e_s3_add_tag_sec_1,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_1,if_all_sec_s3"
+  e_s3_got_sec_1:         "folder e_s3_add_tag_sec_1,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_1,if_all_sec_s3"
   e_s3_add_tag_sec_1:     "tag add secret_1"
   e_s3_notify_sec_1:      "notify &3Secret #1 found! %point.secret_count.amount%/8"
   # Secret 2
-  e_s3_got_sec_2:         "folder e_s3_add_tag_sec_2,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_2,if_all_sec_s3"
+  e_s3_got_sec_2:         "folder e_s3_add_tag_sec_2,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_2,if_all_sec_s3"
   e_s3_add_tag_sec_2:     "tag add secret_2"
   e_s3_notify_sec_2:      "notify &3Secret #2 found! %point.secret_count.amount%/8"
   # Secret 3
-  e_s3_got_sec_3:         "folder e_s3_add_tag_sec_3,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_3,if_all_sec_s3"
+  e_s3_got_sec_3:         "folder e_s3_add_tag_sec_3,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_3,if_all_sec_s3"
   e_s3_add_tag_sec_3:     "tag add secret_3"
   e_s3_notify_sec_3:      "notify &3Secret #3 found! %point.secret_count.amount%/8"
   # Secret 4
-  e_s3_got_sec_4:         "folder e_s3_add_tag_sec_4,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_4,if_all_sec_s3"
+  e_s3_got_sec_4:         "folder e_s3_add_tag_sec_4,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_4,if_all_sec_s3"
   e_s3_add_tag_sec_4:     "tag add secret_4"
   e_s3_notify_sec_4:      "notify &3Secret #4 found! %point.secret_count.amount%/8"
   # Secret 5
-  e_s3_got_sec_5:         "folder e_s3_add_tag_sec_5,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_5,if_all_sec_s3"
+  e_s3_got_sec_5:         "folder e_s3_add_tag_sec_5,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_5,if_all_sec_s3"
   e_s3_add_tag_sec_5:     "tag add secret_5"
   e_s3_notify_sec_5:      "notify &3Secret #5 found! %point.secret_count.amount%/8"
   # Secret 6
-  e_s3_got_sec_6:         "folder e_s3_add_tag_sec_6,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_6,if_all_sec_s3"
+  e_s3_got_sec_6:         "folder e_s3_add_tag_sec_6,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_6,if_all_sec_s3"
   e_s3_add_tag_sec_6:     "tag add secret_6"
   e_s3_notify_sec_6:      "notify &3Secret #6 found! %point.secret_count.amount%/8"
   # Secret 7
-  e_s3_got_sec_7:         "folder e_s3_add_tag_sec_7,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_7,if_all_sec_s3"
+  e_s3_got_sec_7:         "folder e_s3_add_tag_sec_7,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_7,if_all_sec_s3"
   e_s3_add_tag_sec_7:     "tag add secret_7"
   e_s3_notify_sec_7:      "notify &3Secret #7 found! %point.secret_count.amount%/8"
   # Secret 8
-  e_s3_got_sec_8:         "folder e_s3_add_tag_sec_8,e_s3_sec_add_point,m64-sfx.e_found_secret,e_s3_notify_sec_8,if_all_sec_s3"
+  e_s3_got_sec_8:         "folder e_s3_add_tag_sec_8,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_8,if_all_sec_s3"
   e_s3_add_tag_sec_8:     "tag add secret_8"
   e_s3_notify_sec_8:      "notify &3Secret #8 found! %point.secret_count.amount%/8"
 
   # Check win
-  if_all_sec_s3:          "if chk_s3_all_sec e_s3_all_sec_gotten else m64-main.e_dummy"
+  if_all_sec_s3:          "if chk_s3_all_sec e_s3_all_sec_gotten else core-main.e_dummy"
 
-  e_s3_all_sec_gotten:    "folder e_s3_spawn_star,e_s3_summon_firework,m64-sfx.e_star_spawn,e_s3_notif_spawn_star,e_obj_add_s3_star,e_s3_gp_add_star,e_s3_tag_add_spawned"
+  e_s3_all_sec_gotten:    "folder e_s3_spawn_star,e_s3_summon_firework,core-sfx.e_star_spawn,e_s3_notif_spawn_star,e_obj_add_s3_star,e_s3_gp_add_star,e_s3_tag_add_spawned"
   e_s3_spawn_star:        "setblock RAW_GOLD_BLOCK $s3.star_loc$"
-  e_s3_summon_firework:   "command execute in minecraft:marocraft run summon firework_rocket $s3.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
+  e_s3_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s3.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
   e_s3_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s3_star:      "objective add o_s3_star"
   e_s3_gp_add_star:       "globalpoint wdw_s3 1 action:add"
   e_s3_tag_add_spawned:   "tag add s3_spawned"
 
   # Win
-  win_s3:                 "folder e_notif_s3_win,m64-sfx.e_got_star,cleanup_s3,if_firstwin_s3"
+  win_s3:                 "folder e_notif_s3_win,core-sfx.e_got_star,cleanup_s3,if_firstwin_s3"
   e_notif_s3_win:         "notify &3Secrets in the shallows & sky\n&2Cleared! io:title"
 
   # First win
-  if_firstwin_s3:         "if !chk_s3_obtained firstwin_s3 else m64-main.e_dummy"
+  if_firstwin_s3:         "if !chk_s3_obtained firstwin_s3 else core-main.e_dummy"
   firstwin_s3:            "folder e_broad_s3_first,tag_add_s3_win,e_stop_music,exit_star"
   e_broad_s3_first:       "command broadcast &6%player% &2got a star: [WDW] Secrets in the shallows & sky"
   tag_add_s3_win:         "tag add s3"
@@ -227,11 +227,11 @@ events:
   e_s3_del_tags_1:        "run ^tag delete secret_1 ^tag delete secret_2 ^tag delete secret_3 ^tag delete secret_4"
   e_s3_del_tags_2:        "run ^tag delete secret_5 ^tag delete secret_6 ^tag delete secret_7 ^tag delete secret_8"
 
-  if_s3_spawned:          "if chk_s3_spawned e_s3_del_spawned else m64-main.e_dummy"
+  if_s3_spawned:          "if chk_s3_spawned e_s3_del_spawned else core-main.e_dummy"
   e_s3_del_spawned:       "folder e_s3_gp_sub_star,if_s3_despawn"
   e_s3_gp_sub_star:       "globalpoint wdw_s3 1 action:subtract"
 
-  if_s3_despawn:          "if !chk_s3_spawn_count e_s3_delete_star else m64-main.e_dummy"
+  if_s3_despawn:          "if !chk_s3_spawn_count e_s3_delete_star else core-main.e_dummy"
   e_s3_tag_del_spawned:   "tag delete s3_spawned"
 
   e_s3_delete_star:       "folder e_s3_despawn_star,e_s3_reset_star_count"
@@ -245,11 +245,11 @@ events:
   e_obj_add_s2_star:      "objective add o_s2_star"
 
   # Win
-  win_s2:                 "folder e_notif_s2_win,m64-sfx.e_got_star,cleanup_s2,if_firstwin_s2"
+  win_s2:                 "folder e_notif_s2_win,core-sfx.e_got_star,cleanup_s2,if_firstwin_s2"
   e_notif_s2_win:         "notify &3Top o' the town\n&2Cleared! io:title"
 
   # First win
-  if_firstwin_s2:         "if !chk_s2_obtained firstwin_s2 else m64-main.e_dummy"
+  if_firstwin_s2:         "if !chk_s2_obtained firstwin_s2 else core-main.e_dummy"
   firstwin_s2:            "folder e_broad_s2_first,tag_add_s2_win,e_stop_music,exit_star"
   e_broad_s2_first:       "command broadcast &6%player% &2got a star: [WDW] Top o' the town"
   tag_add_s2_win:         "tag add s2"
@@ -265,11 +265,11 @@ events:
   e_obj_add_s4_star:      "objective add o_s4_star"
 
   # Win
-  win_s4:                 "folder e_notif_s4_win,m64-sfx.e_got_star,cleanup_s4,if_firstwin_s4"
+  win_s4:                 "folder e_notif_s4_win,core-sfx.e_got_star,cleanup_s4,if_firstwin_s4"
   e_notif_s4_win:         "notify &3Express elevators - hurry up!\n&2Cleared! io:title"
 
   # First win
-  if_firstwin_s4:         "if !chk_s4_obtained firstwin_s4 else m64-main.e_dummy"
+  if_firstwin_s4:         "if !chk_s4_obtained firstwin_s4 else core-main.e_dummy"
   firstwin_s4:            "folder e_broad_s4_first,tag_add_s4_win,e_stop_music,exit_star"
   e_broad_s4_first:       "command broadcast &6%player% &2got a star: [WDW] Express elevators - hurry up!"
   tag_add_s4_win:         "tag add s4"
@@ -300,71 +300,71 @@ events:
   e_s5_rc_add_point:      "point rc_count 1 action:add"
 
   # Rc1
-  e_s5_got_rc1:           "folder e_s5_add_tag_rc1,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc1,if_all_rc_s5"
+  e_s5_got_rc1:           "folder e_s5_add_tag_rc1,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc1,if_all_rc_s5"
   e_s5_add_tag_rc1:       "tag add rc1"
   e_s5_notify_rc1:        "notify &3Red coin #1 found! %point.rc_count.amount%/12"
   # Rc2
-  e_s5_got_rc2:           "folder e_s5_add_tag_rc2,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc2,if_all_rc_s5"
+  e_s5_got_rc2:           "folder e_s5_add_tag_rc2,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc2,if_all_rc_s5"
   e_s5_add_tag_rc2:       "tag add rc2"
   e_s5_notify_rc2:        "notify &3Red coin #2 found! %point.rc_count.amount%/12"
   # Rc3
-  e_s5_got_rc3:           "folder e_s5_add_tag_rc3,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc3,if_all_rc_s5"
+  e_s5_got_rc3:           "folder e_s5_add_tag_rc3,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc3,if_all_rc_s5"
   e_s5_add_tag_rc3:       "tag add rc3"
   e_s5_notify_rc3:        "notify &3Red coin #3 found! %point.rc_count.amount%/12"
   # Rc4
-  e_s5_got_rc4:           "folder e_s5_add_tag_rc4,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc4,if_all_rc_s5"
+  e_s5_got_rc4:           "folder e_s5_add_tag_rc4,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc4,if_all_rc_s5"
   e_s5_add_tag_rc4:       "tag add rc4"
   e_s5_notify_rc4:        "notify &3Red coin #4 found! %point.rc_count.amount%/12"
   # Rc5
-  e_s5_got_rc5:           "folder e_s5_add_tag_rc5,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc5,if_all_rc_s5"
+  e_s5_got_rc5:           "folder e_s5_add_tag_rc5,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc5,if_all_rc_s5"
   e_s5_add_tag_rc5:       "tag add rc5"
   e_s5_notify_rc5:        "notify &3Red coin #5 found! %point.rc_count.amount%/12"
   # Rc6
-  e_s5_got_rc6:           "folder e_s5_add_tag_rc6,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc6,if_all_rc_s5"
+  e_s5_got_rc6:           "folder e_s5_add_tag_rc6,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc6,if_all_rc_s5"
   e_s5_add_tag_rc6:       "tag add rc6"
   e_s5_notify_rc6:        "notify &3Red coin #6 found! %point.rc_count.amount%/12"
   # Rc7
-  e_s5_got_rc7:           "folder e_s5_add_tag_rc7,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc7,if_all_rc_s5"
+  e_s5_got_rc7:           "folder e_s5_add_tag_rc7,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc7,if_all_rc_s5"
   e_s5_add_tag_rc7:       "tag add rc7"
   e_s5_notify_rc7:        "notify &3Red coin #7 found! %point.rc_count.amount%/12"
   # Rc8
-  e_s5_got_rc8:           "folder e_s5_add_tag_rc8,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc8,if_all_rc_s5"
+  e_s5_got_rc8:           "folder e_s5_add_tag_rc8,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc8,if_all_rc_s5"
   e_s5_add_tag_rc8:       "tag add rc8"
   e_s5_notify_rc8:        "notify &3Red coin #8 found! %point.rc_count.amount%/12"
   # Rc9
-  e_s5_got_rc9:           "folder e_s5_add_tag_rc9,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc9,if_all_rc_s5"
+  e_s5_got_rc9:           "folder e_s5_add_tag_rc9,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc9,if_all_rc_s5"
   e_s5_add_tag_rc9:       "tag add rc9"
   e_s5_notify_rc9:        "notify &3Red coin #9 found! %point.rc_count.amount%/12"
   # Rc10
-  e_s5_got_rc10:          "folder e_s5_add_tag_rc10,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc10,if_all_rc_s5"
+  e_s5_got_rc10:          "folder e_s5_add_tag_rc10,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc10,if_all_rc_s5"
   e_s5_add_tag_rc10:      "tag add rc10"
   e_s5_notify_rc10:       "notify &3Red coin #10 found! %point.rc_count.amount%/12"
   # Rc11
-  e_s5_got_rc11:          "folder e_s5_add_tag_rc11,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc11,if_all_rc_s5"
+  e_s5_got_rc11:          "folder e_s5_add_tag_rc11,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc11,if_all_rc_s5"
   e_s5_add_tag_rc11:      "tag add rc11"
   e_s5_notify_rc11:       "notify &3Red coin #11 found! %point.rc_count.amount%/12"
   # Rc12
-  e_s5_got_rc12:          "folder e_s5_add_tag_rc12,e_s5_rc_add_point,m64-sfx.e_coin,e_s5_notify_rc12,if_all_rc_s5"
+  e_s5_got_rc12:          "folder e_s5_add_tag_rc12,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc12,if_all_rc_s5"
   e_s5_add_tag_rc12:      "tag add rc12"
   e_s5_notify_rc12:       "notify &3Red coin #12 found! %point.rc_count.amount%/12"
 
   # Check win
-  if_all_rc_s5:           "if chk_s5_all_rc e_s5_all_rc_gotten else m64-main.e_dummy"
+  if_all_rc_s5:           "if chk_s5_all_rc e_s5_all_rc_gotten else core-main.e_dummy"
 
-  e_s5_all_rc_gotten:     "folder e_s5_spawn_star,e_s5_summon_firework,m64-sfx.e_star_spawn,e_s5_notif_spawn_star,e_obj_add_s5_star,e_s5_gp_add_star,e_s5_tag_add_spawned"
+  e_s5_all_rc_gotten:     "folder e_s5_spawn_star,e_s5_summon_firework,core-sfx.e_star_spawn,e_s5_notif_spawn_star,e_obj_add_s5_star,e_s5_gp_add_star,e_s5_tag_add_spawned"
   e_s5_spawn_star:        "setblock RAW_GOLD_BLOCK $s5.star_loc$"
-  e_s5_summon_firework:   "command execute in minecraft:marocraft run summon firework_rocket $s5.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;15602026]},{Colors:[I;11753532]},{Colors:[I;5312372]}]}}}}"
+  e_s5_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s5.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;15602026]},{Colors:[I;11753532]},{Colors:[I;5312372]}]}}}}"
   e_s5_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s5_star:      "objective add o_s5_star"
   e_s5_gp_add_star:       "globalpoint wdw_s5 1 action:add"
   e_s5_tag_add_spawned:   "tag add s5_spawned"
 
   # Win
-  win_s5:                 "folder e_notif_s5_win,m64-sfx.e_got_star,cleanup_s5,if_firstwin_s5"
+  win_s5:                 "folder e_notif_s5_win,core-sfx.e_got_star,cleanup_s5,if_firstwin_s5"
   e_notif_s5_win:         "notify &3Go to town for 12 red coins\n&2Cleared! io:title"
 
   # First win
-  if_firstwin_s5:         "if !chk_s5_obtained firstwin_s5 else m64-main.e_dummy"
+  if_firstwin_s5:         "if !chk_s5_obtained firstwin_s5 else core-main.e_dummy"
   firstwin_s5:            "folder e_broad_s5_first,tag_add_s5_win,e_stop_music,exit_star"
   e_broad_s5_first:       "command broadcast &6%player% &2got a star: [WDW] Go to town for 12 red coins"
   tag_add_s5_win:         "tag add s5"
@@ -393,11 +393,11 @@ events:
   e_s5_del_tags_1:        "run ^tag delete rc1 ^tag delete rc2 ^tag delete rc3 ^tag delete rc4 ^tag delete rc5 ^tag delete rc6"
   e_s5_del_tags_2:        "run ^tag delete rc7 ^tag delete rc8  ^tag delete rc9 ^tag delete rc10 ^tag delete rc11 ^tag delete rc12"
 
-  if_s5_spawned:          "if chk_s5_spawned e_s5_del_spawned else m64-main.e_dummy"
+  if_s5_spawned:          "if chk_s5_spawned e_s5_del_spawned else core-main.e_dummy"
   e_s5_del_spawned:       "folder e_s5_gp_sub_star,if_s5_despawn"
   e_s5_gp_sub_star:       "globalpoint wdw_s5 1 action:subtract"
 
-  if_s5_despawn:          "if !chk_s5_spawn_count e_s5_delete_star else m64-main.e_dummy"
+  if_s5_despawn:          "if !chk_s5_spawn_count e_s5_delete_star else core-main.e_dummy"
   e_s5_tag_del_spawned:   "tag delete s5_spawned"
 
   e_s5_delete_star:       "folder e_s5_despawn_star,e_s5_reset_star_count"
@@ -412,11 +412,11 @@ events:
   e_obj_add_s6_star:      "objective add o_s6_star"
 
   # Win
-  win_s6:                 "folder e_notif_s6_win,m64-sfx.e_got_star,cleanup_s6,if_firstwin_s6"
+  win_s6:                 "folder e_notif_s6_win,core-sfx.e_got_star,cleanup_s6,if_firstwin_s6"
   e_notif_s6_win:         "notify &3Shocking arrow lifts!\n&2Cleared! io:title"
 
   # First win
-  if_firstwin_s6:         "if !chk_s6_obtained firstwin_s6 else m64-main.e_dummy"
+  if_firstwin_s6:         "if !chk_s6_obtained firstwin_s6 else core-main.e_dummy"
   firstwin_s6:            "folder e_broad_s6_first,tag_add_s6_win,e_stop_music,exit_star"
   e_broad_s6_first:       "command broadcast &6%player% &2got a star: [WDW] Shocking arrow lifts!"
   tag_add_s6_win:         "tag add s6"
@@ -429,7 +429,7 @@ events:
 
   ### STAR 9 - CAPTAIN TOAD 1
   # Win
-  win_s9:                 "folder e_notif_s9_win,m64-sfx.e_toad_yahoo,m64-sfx.e_got_star,e_broad_s9_first,tag_add_s9_win,e_stop_music,exit_star"
+  win_s9:                 "folder e_notif_s9_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s9_first,tag_add_s9_win,e_stop_music,exit_star"
   e_notif_s9_win:         "notify &3Lost Toad #1\n&2Cleared! io:title"
   e_broad_s9_first:       "command broadcast &6%player% &2got a star: [WDW] Lost Toad #1"
   tag_add_s9_win:         "tag add s9"
@@ -437,7 +437,7 @@ events:
 
   ### STAR 10 - CAPTAIN TOAD 2
   # Win
-  win_s10:                "folder e_notif_s10_win,m64-sfx.e_toad_yahoo,m64-sfx.e_got_star,e_broad_s10_first,tag_add_s10_win,e_stop_music,exit_star"
+  win_s10:                "folder e_notif_s10_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s10_first,tag_add_s10_win,e_stop_music,exit_star"
   e_notif_s10_win:        "notify &3Lost Toad #2\n&2Cleared! io:title"
   e_broad_s10_first:      "command broadcast &6%player% &2got a star: [WDW] Lost Toad #2"
   tag_add_s10_win:        "tag add s10"
@@ -445,7 +445,7 @@ events:
   
   ### STAR 11 - CAPTAIN TOAD 3
   # Win
-  win_s11:                "folder e_notif_s11_win,m64-sfx.e_toad_yahoo,m64-sfx.e_got_star,e_broad_s11_first,tag_add_s11_win,e_stop_music,exit_star"
+  win_s11:                "folder e_notif_s11_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s11_first,tag_add_s11_win,e_stop_music,exit_star"
   e_notif_s11_win:        "notify &3Lost Toad #3\n&2Cleared! io:title"
   e_broad_s11_first:      "command broadcast &6%player% &2got a star: [WDW] Lost Toad #3"
   tag_add_s11_win:        "tag add s11"

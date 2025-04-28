@@ -63,41 +63,41 @@ events:
   e_obj_del_swc_1:          "objective remove o_swc_1_enter"
 
   # Cleanup if this player leaves
-  e_if_swc_1_cancel:        "if chk_swc_1_local_pressed e_swc_1_cancel else m64-main.e_dummy"
+  e_if_swc_1_cancel:        "if chk_swc_1_local_pressed e_swc_1_cancel else core-main.e_dummy"
   e_swc_1_cancel:           "folder e_swc_1_unpressed"
 
 
   ### Switch 1
   # Press
-  e_swc_1_pressed:          "folder e_swc_1_tag_add,e_swc_1_gtag_add,e_obj_add_swc_1_delay,m64-sfx.e_switchtimer,e_swc_1_del,e_swc_1_pf_add"
+  e_swc_1_pressed:          "folder e_swc_1_tag_add,e_swc_1_gtag_add,e_obj_add_swc_1_delay,core-sfx.e_switchtimer,e_swc_1_del,e_swc_1_pf_add"
   e_swc_1_tag_add:          "tag add jbr_swc_1_pressed"
   e_swc_1_gtag_add:         "globaltag add jbr_swc_1_pressed"
-  e_swc_1_del:              "command execute in minecraft:marocraft run fill $swc1.swc.x1$ $swc1.swc.y$ $swc1.swc.z1$ $swc1.swc.x2$ $swc1.swc.y$ $swc1.swc.z2$ minecraft:air"
+  e_swc_1_del:              "command execute in minecraft:overworld run fill $swc1.swc.x1$ $swc1.swc.y$ $swc1.swc.z1$ $swc1.swc.x2$ $swc1.swc.y$ $swc1.swc.z2$ minecraft:air"
   e_obj_add_swc_1_delay:    "objective add o_swc_1_delay"
 
   # Unpress
   e_swc_1_unpressed:        "folder e_swc_1_tag_del,e_swc_1_gtag_del,e_obj_del_swc_1_delay,e_obj_add_swc_1,e_swc_1_add,e_swc_1_pf_del"
   e_swc_1_tag_del:          "tag delete jbr_swc_1_pressed"
   e_swc_1_gtag_del:         "globaltag delete jbr_swc_1_pressed"
-  e_swc_1_add:              "command execute in minecraft:marocraft run fill $swc1.swc.x1$ $swc1.swc.y$ $swc1.swc.z1$ $swc1.swc.x2$ $swc1.swc.y$ $swc1.swc.z2$ minecraft:crimson_slab"
+  e_swc_1_add:              "command execute in minecraft:overworld run fill $swc1.swc.x1$ $swc1.swc.y$ $swc1.swc.z1$ $swc1.swc.x2$ $swc1.swc.y$ $swc1.swc.z2$ minecraft:crimson_slab"
   e_obj_del_swc_1_delay:    "objective remove o_swc_1_delay"
 
   # Platforms add
   e_swc_1_pf_add:           "folder e_swc_1_pf1_add,e_swc_1_pf2_add,e_swc_1_pf3_add,e_swc_1_pf4_add,e_swc_1_pf5_add,e_swc_1_pf6_add"
-  e_swc_1_pf1_add:          "command execute in minecraft:marocraft run fill $swc1.pf1.x1$ $swc1.pf1.y$ $swc1.pf1.z1$ $swc1.pf1.x2$ $swc1.pf1.y$ $swc1.pf1.z2$ minecraft:stripped_oak_wood"
-  e_swc_1_pf2_add:          "command execute in minecraft:marocraft run fill $swc1.pf2.x1$ $swc1.pf2.y$ $swc1.pf2.z1$ $swc1.pf2.x2$ $swc1.pf2.y$ $swc1.pf2.z2$ minecraft:stripped_oak_wood"
-  e_swc_1_pf3_add:          "command execute in minecraft:marocraft run fill $swc1.pf3.x1$ $swc1.pf3.y$ $swc1.pf3.z1$ $swc1.pf3.x2$ $swc1.pf3.y$ $swc1.pf3.z2$ minecraft:stripped_oak_wood"
-  e_swc_1_pf4_add:          "command execute in minecraft:marocraft run fill $swc1.pf4.x1$ $swc1.pf4.y$ $swc1.pf4.z1$ $swc1.pf4.x2$ $swc1.pf4.y$ $swc1.pf4.z2$ minecraft:stripped_oak_wood"
-  e_swc_1_pf5_add:          "command execute in minecraft:marocraft run fill $swc1.pf5.x1$ $swc1.pf5.y$ $swc1.pf5.z1$ $swc1.pf5.x2$ $swc1.pf5.y$ $swc1.pf5.z2$ minecraft:stripped_oak_wood"
-  e_swc_1_pf6_add:          "command execute in minecraft:marocraft run fill $swc1.pf6.x1$ $swc1.pf6.y$ $swc1.pf6.z1$ $swc1.pf6.x2$ $swc1.pf6.y$ $swc1.pf6.z2$ minecraft:stripped_oak_wood"
+  e_swc_1_pf1_add:          "command execute in minecraft:overworld run fill $swc1.pf1.x1$ $swc1.pf1.y$ $swc1.pf1.z1$ $swc1.pf1.x2$ $swc1.pf1.y$ $swc1.pf1.z2$ minecraft:stripped_oak_wood"
+  e_swc_1_pf2_add:          "command execute in minecraft:overworld run fill $swc1.pf2.x1$ $swc1.pf2.y$ $swc1.pf2.z1$ $swc1.pf2.x2$ $swc1.pf2.y$ $swc1.pf2.z2$ minecraft:stripped_oak_wood"
+  e_swc_1_pf3_add:          "command execute in minecraft:overworld run fill $swc1.pf3.x1$ $swc1.pf3.y$ $swc1.pf3.z1$ $swc1.pf3.x2$ $swc1.pf3.y$ $swc1.pf3.z2$ minecraft:stripped_oak_wood"
+  e_swc_1_pf4_add:          "command execute in minecraft:overworld run fill $swc1.pf4.x1$ $swc1.pf4.y$ $swc1.pf4.z1$ $swc1.pf4.x2$ $swc1.pf4.y$ $swc1.pf4.z2$ minecraft:stripped_oak_wood"
+  e_swc_1_pf5_add:          "command execute in minecraft:overworld run fill $swc1.pf5.x1$ $swc1.pf5.y$ $swc1.pf5.z1$ $swc1.pf5.x2$ $swc1.pf5.y$ $swc1.pf5.z2$ minecraft:stripped_oak_wood"
+  e_swc_1_pf6_add:          "command execute in minecraft:overworld run fill $swc1.pf6.x1$ $swc1.pf6.y$ $swc1.pf6.z1$ $swc1.pf6.x2$ $swc1.pf6.y$ $swc1.pf6.z2$ minecraft:stripped_oak_wood"
   # Platforms del
   e_swc_1_pf_del:           "folder e_swc_1_pf1_del,e_swc_1_pf2_del,e_swc_1_pf3_del,e_swc_1_pf4_del,e_swc_1_pf5_del,e_swc_1_pf6_del"
-  e_swc_1_pf1_del:          "command execute in minecraft:marocraft run fill $swc1.pf1.x1$ $swc1.pf1.y$ $swc1.pf1.z1$ $swc1.pf1.x2$ $swc1.pf1.y$ $swc1.pf1.z2$ minecraft:air"
-  e_swc_1_pf2_del:          "command execute in minecraft:marocraft run fill $swc1.pf2.x1$ $swc1.pf2.y$ $swc1.pf2.z1$ $swc1.pf2.x2$ $swc1.pf2.y$ $swc1.pf2.z2$ minecraft:air"
-  e_swc_1_pf3_del:          "command execute in minecraft:marocraft run fill $swc1.pf3.x1$ $swc1.pf3.y$ $swc1.pf3.z1$ $swc1.pf3.x2$ $swc1.pf3.y$ $swc1.pf3.z2$ minecraft:air"
-  e_swc_1_pf4_del:          "command execute in minecraft:marocraft run fill $swc1.pf4.x1$ $swc1.pf4.y$ $swc1.pf4.z1$ $swc1.pf4.x2$ $swc1.pf4.y$ $swc1.pf4.z2$ minecraft:air"
-  e_swc_1_pf5_del:          "command execute in minecraft:marocraft run fill $swc1.pf5.x1$ $swc1.pf5.y$ $swc1.pf5.z1$ $swc1.pf5.x2$ $swc1.pf5.y$ $swc1.pf5.z2$ minecraft:air"
-  e_swc_1_pf6_del:          "command execute in minecraft:marocraft run fill $swc1.pf6.x1$ $swc1.pf6.y$ $swc1.pf6.z1$ $swc1.pf6.x2$ $swc1.pf6.y$ $swc1.pf6.z2$ minecraft:air"
+  e_swc_1_pf1_del:          "command execute in minecraft:overworld run fill $swc1.pf1.x1$ $swc1.pf1.y$ $swc1.pf1.z1$ $swc1.pf1.x2$ $swc1.pf1.y$ $swc1.pf1.z2$ minecraft:air"
+  e_swc_1_pf2_del:          "command execute in minecraft:overworld run fill $swc1.pf2.x1$ $swc1.pf2.y$ $swc1.pf2.z1$ $swc1.pf2.x2$ $swc1.pf2.y$ $swc1.pf2.z2$ minecraft:air"
+  e_swc_1_pf3_del:          "command execute in minecraft:overworld run fill $swc1.pf3.x1$ $swc1.pf3.y$ $swc1.pf3.z1$ $swc1.pf3.x2$ $swc1.pf3.y$ $swc1.pf3.z2$ minecraft:air"
+  e_swc_1_pf4_del:          "command execute in minecraft:overworld run fill $swc1.pf4.x1$ $swc1.pf4.y$ $swc1.pf4.z1$ $swc1.pf4.x2$ $swc1.pf4.y$ $swc1.pf4.z2$ minecraft:air"
+  e_swc_1_pf5_del:          "command execute in minecraft:overworld run fill $swc1.pf5.x1$ $swc1.pf5.y$ $swc1.pf5.z1$ $swc1.pf5.x2$ $swc1.pf5.y$ $swc1.pf5.z2$ minecraft:air"
+  e_swc_1_pf6_del:          "command execute in minecraft:overworld run fill $swc1.pf6.x1$ $swc1.pf6.y$ $swc1.pf6.z1$ $swc1.pf6.x2$ $swc1.pf6.y$ $swc1.pf6.z2$ minecraft:air"
 
 
 conditions:
