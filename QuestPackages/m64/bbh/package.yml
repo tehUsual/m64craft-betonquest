@@ -3,7 +3,7 @@ variables:
   respawn:              -6;40;-152;marocraft;-45;12
   exitsign:             396;46;-401;marocraft
 
-# e_spawn_env
+
 events:
   init_level:           "folder init_spawns,init_zones,init_bridge,init_falltp,init_cinv,init_stars,e_play_music,init_intro"
   deit_level:           "folder deit_spawns,deit_zones,deit_bridge,deit_falltp,deit_cinv,deit_stars,e_stop_music"
