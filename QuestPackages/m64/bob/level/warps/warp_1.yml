@@ -1,0 +1,27 @@
+variables:
+  warp_1a:            -471;106;-68;marocraft;45;12
+  warp_1b:            -470;94;-57;marocraft;45;12
+
+
+events:
+  # Telport warps
+  fol_tp_warp_1a:     "folder e_tp_warp_1a,core-sfx.e_warp"
+  e_tp_warp_1a:       "teleport $warp_1b$"
+
+  fol_tp_warp_1b:     "folder e_tp_warp_1b,core-sfx.e_warp"
+  e_tp_warp_1b:       "teleport $warp_1a$"
+
+  # Add warp objectives
+  init_warp_1:        "folder e_obj_add_warp_1a,e_obj_add_warp_1b"
+  e_obj_add_warp_1a:  "objective add o_warp_1a"
+  e_obj_add_warp_1b:  "objective add o_warp_1b"
+
+  # Remove warp objectives
+  deit_warp_1:        "folder e_obj_del_warp_1a,e_obj_del_warp_1b"
+  e_obj_del_warp_1a:  "objective remove o_warp_1a"
+  e_obj_del_warp_1b:  "objective remove o_warp_1b"
+
+
+objectives:
+  o_warp_1a:          "region bob_warp_1 enter events:fol_tp_warp_1b persistent"
+  o_warp_1b:          "region bob_warp_2 enter events:fol_tp_warp_1a persistent"

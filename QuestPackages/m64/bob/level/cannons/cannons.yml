@@ -1,0 +1,30 @@
+# Cannon 1 - bob_cannon_1 - FLOATING ISLAND
+# Cannon 2 - bob_cannon_2 - SPAWN
+# Cannon 3 - bob_cannon_3 - MOUNTAIN LEDGE
+# Cannon 4 - bob_cannon_4 - BEHIND MOUNTAIN
+# Cannon 5 - bob_cannon_5 - IN FRONT OF BARS
+# Cannon 6 - bob_cannon_6 - UNDER ISLAND
+# Cannon 7 - bob_cannon_7 - 
+# Cannon 8 - bob_cannon_8 - 
+# Cannon 9 - bob_cannon_9 - 
+
+
+events:
+  init_cannons:           "folder init_c1,init_c2,init_c3,init_c4,init_c5,init_c6,init_c7,init_c8,init_c9"
+  deit_cannons:           "folder deit_c1,deit_c2,deit_c3,deit_c4,deit_c5,deit_c6,deit_c7,deit_c8,deit_c9,e_take_cannonpearl"
+
+  e_give_cannonpearl:     "give i_cannonpearl:1 notify"
+  e_take_cannonpearl:     "take i_cannonpearl:64"
+  e_ptc_explosion:        "command execute in minecraft:overworld at %player% run particle minecraft:explosion ~ ~1 ~ 0.5 0 0.5 1 3"
+
+  # sound effects
+  e_sfx_c_ready:          "folder core-sfx.e_cannon_ready"
+  e_sfx_c_shoot:          "folder core-sfx.e_cannon_shoot"
+
+
+conditions:
+  chk_holding_pearl:      "hand i_cannonpearl"
+
+
+items:
+  i_cannonpearl:          "minecraft:ender_pearl name:&6Cannon"

@@ -1,0 +1,7 @@
+# Warp 1
+#   a - bob_warp_1 - Lower mountain hole
+#   b - bob_warp_2 - Upper mountain hole
+
+events:
+  init_warps:         "folder init_warp_1"
+  deit_warps:         "folder deit_warp_1"
