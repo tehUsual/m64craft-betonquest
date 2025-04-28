@@ -1,0 +1,63 @@
+#events:
+  # Sounds
+  ### Add Sounds
+  #fol_add_sounds:       "folder e_obj_add_sound_wz,e_obj_add_creepy_snd"
+  # Waltz
+  #e_obj_add_sound_wz:   "objective add o_sound_waltz"
+  #e_obj_add_wait_wz:    "objective add o_wait_sound_waltz"
+  #fol_sound_walts:      "folder e_sound_walts,e_obj_add_wait_wz"
+  #e_sound_walts:        "command playsound minecraft:music_disc.mellohi music %player% $music_waltz$"
+  # Creepy sounds
+  #e_obj_add_creepy_snd: "objective add o_wait_creepy"
+  #e_obj_del_creepy_snd: "objective remove o_wait_creepy"
+  #e_play_creepy_1:      "if chk_creepy_1 e_sound_creepy_1 else e_play_creepy_2"
+  #e_play_creepy_2:      "if chk_creepy_2 e_sound_creepy_2 else e_play_creepy_3"
+  #e_play_creepy_3:      "if chk_creepy_3 e_sound_creepy_3 else e_sound_creepy_4"
+  #e_sound_creepy_1:     "command playsound minecraft:entity.ghast.death music %player% %location.xyz% 50 0.5"
+  #e_sound_creepy_2:     "command playsound minecraft:entity.allay.death music %player% %location.xyz% 50 0.5"
+  #e_sound_creepy_3:     "command playsound minecraft:entity.zombie_horse.death music %player% %location.xyz% 50 0.5"
+  #e_sound_creepy_4:     "command playsound minecraft:entity.piglin.angry music %player% %location.xyz% 50 0.5"
+
+  ### Del Sounds
+  #fol_del_sounds:       "folder e_obj_del_sound_wz,e_obj_del_wait_wz,e_obj_del_creepy_snd"
+  # Waltz
+  #e_obj_del_sound_wz:   "objective remove o_sound_waltz"
+  #e_obj_del_wait_wz:    "objective remove o_wait_sound_waltz"
+  
+
+  ### Add effects
+  #e_add_effects:        "folder e_fol_darkness,e_fol_invis"
+  # Blindness
+  #e_fol_darkness:       "folder effect_darkness,start_darkness"
+  #start_darkness:       "objective add o_wait_darkness"
+  #effect_darkness:      "effect DARKNESS 10 1 hidden noicon"
+  # Invisibility
+  #e_fol_invis:          "folder start_invis"
+  #start_invis:          "objective add o_wait_invis"
+  #effect_invis:         "effect INVISIBILITY 10 1 hidden noicon"
+  
+  ### Del effects
+  #e_del_effects:        "folder e_fol_del_darkness,e_fol_del_invis"
+  # Blindness
+  #e_fol_del_darkness:   "folder end_darkness,uneffect_darkness"
+  #end_darkness:         "objective remove o_wait_darkness"
+  #uneffect_darkness:    "command effect clear %player%"
+  # Invisibility
+  #e_fol_del_invis:      "folder end_invis,uneffect_invis"
+  #end_invis:            "objective remove o_wait_invis"
+  #uneffect_invis:       "command effect clear %player%"
+
+
+#objectives:
+  #o_sound_waltz:        "region bbh_waltz2 enter events:fol_sound_walts"
+  #o_wait_sound_waltz:   "delay 96 seconds interval:100 events:e_obj_add_sound_wz"
+
+  #o_wait_darkness:      "delay %randomnumber.whole.30~120% seconds interval:100 events:e_fol_darkness"
+  #o_wait_invis:         "delay %randomnumber.whole.30~120% seconds interval:100 events:e_fol_invis"
+
+  #o_wait_creepy:        "delay %randomnumber.whole.100~200% seconds interval:100 events:e_play_creepy_1 persistent"
+
+#conditions:
+  #chk_creepy_1:         "random 1-4"
+  #chk_creepy_2:         "random 1-3"
+  #chk_creepy_3:         "random 1-2"
