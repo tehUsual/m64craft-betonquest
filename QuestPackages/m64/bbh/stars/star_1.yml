@@ -12,18 +12,13 @@ variables:
 events:
   ### STAR 1 - GO ON A GHOST HUNT
   # Init
-  init_s1:                "folder e_s1_add_obj_boo"
-  e_s1_add_obj_boo:       "folder e_s1_add_obj_b1,e_s1_add_obj_b2,e_s1_add_obj_b3,e_s1_add_obj_b4,e_s1_add_obj_b5"
-  e_s1_add_obj_b1:        "objective add o_s1_boo_1"
-  e_s1_add_obj_b2:        "objective add o_s1_boo_2"
-  e_s1_add_obj_b3:        "objective add o_s1_boo_3"
-  e_s1_add_obj_b4:        "objective add o_s1_boo_4"
-  e_s1_add_obj_b5:        "objective add o_s1_boo_5"
+  init_s1:                "folder e_s1_add_obj_boos"
+  e_s1_add_obj_boos:      "run ^objective add o_s1_boo_1 ^objective add o_s1_boo_2 ^objective add o_s1_boo_3 ^objective add o_s1_boo_4 ^objective add o_s1_boo_5"
 
-  e_s1_sfx_boo_die:       "notify io:sound sound:entity.allay.death soundvolume:10"
-
+  
   # Killed boo
   e_s1_killed_boo:        "folder e_s1_sfx_boo_die,e_s1_point_bk_add,if_killed_all_s1"
+  e_s1_sfx_boo_die:       "notify io:sound sound:entity.allay.death soundvolume:10"
   e_s1_point_bk_add:      "point bbh_s1_bk 1 action:add"
 
   # If all killed
@@ -47,13 +42,8 @@ events:
   tag_add_s1_win:         "tag add s1"
 
   # Cleanup
-  deit_s1:                "folder e_s1_del_obj_boo,e_obj_del_s1_star,e_s1_del_point_bk,if_s1_spawned,e_s1_tag_del_spawned"
-  e_s1_del_obj_boo:       "folder e_s1_del_obj_b1,e_s1_del_obj_b2,e_s1_del_obj_b3,e_s1_del_obj_b4,e_s1_del_obj_b5"
-  e_s1_del_obj_b1:        "objective remove o_s1_boo_1"
-  e_s1_del_obj_b2:        "objective remove o_s1_boo_2"
-  e_s1_del_obj_b3:        "objective remove o_s1_boo_3"
-  e_s1_del_obj_b4:        "objective remove o_s1_boo_4"
-  e_s1_del_obj_b5:        "objective remove o_s1_boo_5"
+  deit_s1:                "folder e_s1_del_obj_boos,e_obj_del_s1_star,e_s1_del_point_bk,if_s1_spawned,e_s1_tag_del_spawned"
+  e_s1_del_obj_boos:      "run ^objective remove o_s1_boo_1 ^objective remove o_s1_boo_2 ^objective remove o_s1_boo_3 ^objective remove o_s1_boo_4 ^objective remove o_s1_boo_5"
   
   e_obj_del_s1_star:      "objective remove o_s1_star"
   e_s1_del_point_bk:      "point bbh_s1_bk 0 action:set"
