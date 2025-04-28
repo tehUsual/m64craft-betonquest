@@ -8,7 +8,7 @@ variables:
 
 events:
   init_level:           "folder add_level_objs,init_stars,init_env,e_tp_spawn,e_spawn_env,e_play_music"
-  reload_level:         "folder reset_level,m64-main.init_castle"
+  reload_level:         "folder reset_level,core-main.init_castle"
   reset_level:          "folder del_level_objs,reset_stars,reset_env,e_stop_music"
   hard_reset:           "folder reset_level,delete_stars"
   on_death:             "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
@@ -18,10 +18,10 @@ events:
   e_gpoint_add_death:   "globalpoint bbh_deaths 1 action:add"
 
   ### Play music
-  e_play_music:         "folder m64-sfx.e_play_bbh"
-  e_play_music_car:     "folder m64-sfx.e_play_merrygo"
-  e_play_music_powerup: "folder m64-sfx.e_play_powerup"
-  e_stop_music:         "folder m64-sfx.e_stop_music"
+  e_play_music:         "folder core-music.e_play_bbh"
+  e_play_music_car:     "folder core-music.e_play_merrygo"
+  e_play_music_powerup: "folder core-music.e_play_powerup"
+  e_stop_music:         "folder core-music.e_stop_music"
 
 
   ### LEVEL - Add objectives
@@ -43,9 +43,9 @@ events:
 
   # When spawning
   e_spawn_env:          "folder e_spawn_thunder_1,e_spawn_thunder_2,e_spawn_thunder_3,e_give_darkness period:1 delay:2"
-  e_spawn_thunder_1:    "command execute in minecraft:marocraft run summon lightning_bolt $thunder_1$"
-  e_spawn_thunder_2:    "command execute in minecraft:marocraft run summon lightning_bolt $thunder_2$"
-  e_spawn_thunder_3:    "command execute in minecraft:marocraft at %player% run summon lightning_bolt ~ ~ ~-3"
+  e_spawn_thunder_1:    "command execute in minecraft:overworld run summon lightning_bolt $thunder_1$"
+  e_spawn_thunder_2:    "command execute in minecraft:overworld run summon lightning_bolt $thunder_2$"
+  e_spawn_thunder_3:    "command execute in minecraft:overworld at %player% run summon lightning_bolt ~ ~ ~-3"
   e_give_darkness:      "effect DARKNESS 5 1 hidden noicon"
 
   # Teleports
