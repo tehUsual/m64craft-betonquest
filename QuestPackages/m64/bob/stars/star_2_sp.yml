@@ -1,0 +1,55 @@
+variables:
+  s2:
+    total_time:           61
+    total_time_notif:     60
+    delay_interval:       5
+    start_loc:            -366;67;-20;marocraft
+
+
+### STAR 2 - KOOPA THE QUICK
+events:
+  # Init
+  init_s2:                "folder e_obj_add_s2_start"
+  e_obj_add_s2_start:     "objective add o_s2_start"
+  # Start
+  start_s2:               "folder e_notif_s2_start,e_obj_add_s2_speedrun,e_obj_add_s2_goal,e_obj_add_s2_10sec"
+  e_notif_s2_start:       "notify &3Koopa The Quick&r\n $s2.total_time_notif$ sec &3RUN! io:title"
+  e_obj_add_s2_speedrun:  "objective add o_s2_speedrun"
+  e_obj_add_s2_goal:      "objective add o_s2_goal"
+  e_obj_add_s2_10sec:     "objective add o_s2_speedrun_10sec"
+  # Fail
+  fail_s2:                "folder e_notif_s2_fail,reload_s2"
+  e_notif_s2_fail:        "notify &3Koopa The Quick\n&4Failed.. io:title"
+
+  e_s2_10_sec_left:       "folder core-sfx.e_time_almost_up,e_s2_notify_10sec"
+  e_s2_notify_10sec:      "notify &c10 seconds left!"
+  # Win
+  win_s2:                 "folder e_notif_s2_win,core-sfx.e_got_star,e_broad_s2_win,deit_s2,if_firstwin_s2"
+  e_notif_s2_win:         "notify &3Koopa The Quick\n&2Cleared! io:title"
+  e_broad_s2_win:         "command broadcast [&6%player%&r]: BOB Speedrun: %math.calc:($s2.total_time$-objective.o_s2_speedrun.rawSeconds)~3% sec"
+
+  # First win
+  if_firstwin_s2:         "if !chk_s2_obtained firstwin_s2 else reload_s2"
+  firstwin_s2:            "folder e_broad_s2_first,tag_add_s2_win,e_stop_music,exit_star"
+  e_broad_s2_first:       "command broadcast &6%player% &2got a star: [BOB] Koopa The Quick"
+  tag_add_s2_win:         "tag add s2"
+
+  # Cleanup
+  deit_s2:                "folder e_obj_del_s2_start,e_obj_del_s2_speedrun,e_obj_del_s2_goal,e_obj_del_s2_10sec"
+  e_obj_del_s2_start:     "objective remove o_s2_start"
+  e_obj_del_s2_speedrun:  "objective remove o_s2_speedrun"
+  e_obj_del_s2_goal:      "objective remove o_s2_goal"
+  e_obj_del_s2_10sec:     "objective remove o_s2_speedrun_10sec"
+  # Reload
+  reload_s2:              "folder deit_s2,init_s2"
+
+
+conditions:
+  chk_s2_obtained:        "tag s2"
+
+
+objectives:
+  o_s2_start:             "action right any loc:$s2.start_loc$ events:start_s2"
+  o_s2_speedrun:          "delay $s2.total_time$ seconds interval:$s2.delay_interval$ events:fail_s2"
+  o_s2_speedrun_10sec:    "delay %math.calc:$s2.total_time$-10% seconds interval:$s2.delay_interval$ events:e_s2_10_sec_left"
+  o_s2_goal:              "region bob_speedrun enter events:win_s2"
