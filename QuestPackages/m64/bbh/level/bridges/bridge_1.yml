@@ -2,31 +2,31 @@ variables:
   brg_block:              gray_glazed_terracotta
   brg_del_delay:          3
   brg1a:
-    region:               
+    region:               bbh_brg_1a
     a:                    418 47 -470
     b:                    419 47 -470
   brg2b:
-    region:               
+    region:               bbh_brg_1b
     a:                    418 47 -469
     b:                    419 47 -469
   brg3c:
-    region:               
+    region:               bbh_brg_1c
     a:                    418 47 -468
     b:                    419 47 -468
   brg4d:
-    region:               
+    region:               bbh_brg_1d
     a:                    418 47 -467
     b:                    419 47 -467
   brg5e:
-    region:               
+    region:               bbh_brg_1e
     a:                    418 47 -466
     b:                    419 47 -466
   brg6f:
-    region:               
+    region:               bbh_brg_1f
     a:                    418 47 -465
     b:                    419 47 -465
   brg7g:
-    region:               
+    region:               bbh_brg_1g
     a:                    418 47 -464
     b:                    419 47 -464
 
@@ -145,10 +145,10 @@ conditions:
 
 
 objectives:
-  o_brg_1a:               "region bbh_brg_1a enter conditions:!chk_brg_1a_exist events:e_brg_1a_delete persistent"
-  o_brg_1b:               "region bbh_brg_1b enter conditions:!chk_brg_1b_exist events:e_brg_1b_delete persistent"
-  o_brg_1c:               "region bbh_brg_1c enter conditions:!chk_brg_1c_exist events:e_brg_1c_delete persistent"
-  o_brg_1d:               "region bbh_brg_1d enter conditions:!chk_brg_1d_exist events:e_brg_1d_delete persistent"
-  o_brg_1e:               "region bbh_brg_1e enter conditions:!chk_brg_1e_exist events:e_brg_1e_delete persistent"
-  o_brg_1f:               "region bbh_brg_1f enter conditions:!chk_brg_1f_exist events:e_brg_1f_delete persistent"
-  o_brg_1g:               "region bbh_brg_1g enter conditions:!chk_brg_1g_exist events:e_brg_1g_delete persistent"
+  o_brg_1a:               "region $brg1a.region$ enter conditions:!chk_brg_1a_exist events:e_brg_1a_delete persistent"
+  o_brg_1b:               "region $brg1b.region$ enter conditions:!chk_brg_1b_exist events:e_brg_1b_delete persistent"
+  o_brg_1c:               "region $brg1c.region$ enter conditions:!chk_brg_1c_exist events:e_brg_1c_delete persistent"
+  o_brg_1d:               "region $brg1d.region$ enter conditions:!chk_brg_1d_exist events:e_brg_1d_delete persistent"
+  o_brg_1e:               "region $brg1e.region$ enter conditions:!chk_brg_1e_exist events:e_brg_1e_delete persistent"
+  o_brg_1f:               "region $brg1f.region$ enter conditions:!chk_brg_1f_exist events:e_brg_1f_delete persistent"
+  o_brg_1g:               "region $brg1g.region$ enter conditions:!chk_brg_1g_exist events:e_brg_1g_delete persistent"
