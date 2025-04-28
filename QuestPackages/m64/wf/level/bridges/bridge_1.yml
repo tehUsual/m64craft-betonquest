@@ -1,0 +1,228 @@
+variables:
+  brg_block:              stone_bricks
+  brg_del_delay:          3
+  brg1a:
+    region:               wf_brg_1a
+    a:                    -378 92 -442
+    b:                    -375 92 -442
+  brg1b:
+    region:               wf_brg_1b
+    a:                    -378 92 -441
+    b:                    -375 92 -441
+  brg1c:
+    region:               wf_brg_1c
+    a:                    -378 92 -440
+    b:                    -375 92 -440
+  brg1d:
+    region:               wf_brg_1d
+    a:                    -378 92 -439
+    b:                    -375 92 -439
+  brg1e:
+    region:               wf_brg_1e
+    a:                    -378 92 -438
+    b:                    -375 92 -438
+  brg1f:
+    region:               wf_brg_1f
+    a:                    -378 92 -437
+    b:                    -375 92 -437
+  brg1g:
+    region:               wf_brg_1g
+    a:                    -378 92 -436
+    b:                    -375 92 -436
+  brg1h:
+    region:               wf_brg_1h
+    a:                    -378 92 -435
+    b:                    -375 92 -435
+  brg1i:
+    region:               wf_brg_1i
+    a:                    -378 92 -434
+    b:                    -375 92 -434
+  brg1j:
+    region:               wf_brg_1j
+    a:                    -378 92 -433
+    b:                    -375 92 -433
+  brg1k:
+    region:               wf_brg_1k
+    a:                    -378 92 -432
+    b:                    -375 92 -432
+
+
+events:
+  init_brg_1:             "folder e_init_brg_1"
+  deit_brg_1:             "folder e_deit_brg_1"
+
+  # Bridge: Init
+  e_init_brg_1:           "folder e_obj_add_brg_1_g1,e_obj_add_brg_1_g2"
+  e_obj_add_brg_1_g1:     "folder e_obj_add_brg_1a,e_obj_add_brg_1b,e_obj_add_brg_1c,e_obj_add_brg_1d,e_obj_add_brg_1e,e_obj_add_brg_1f"
+  e_obj_add_brg_1_g2:     "folder e_obj_add_brg_1g,e_obj_add_brg_1h,e_obj_add_brg_1i,e_obj_add_brg_1j,e_obj_add_brg_1k"
+  e_obj_add_brg_1a:       "objective add o_brg_1a"
+  e_obj_add_brg_1b:       "objective add o_brg_1b"
+  e_obj_add_brg_1c:       "objective add o_brg_1c"
+  e_obj_add_brg_1d:       "objective add o_brg_1d"
+  e_obj_add_brg_1e:       "objective add o_brg_1e"
+  e_obj_add_brg_1f:       "objective add o_brg_1f"
+  e_obj_add_brg_1g:       "objective add o_brg_1g"
+  e_obj_add_brg_1h:       "objective add o_brg_1h"
+  e_obj_add_brg_1i:       "objective add o_brg_1i"
+  e_obj_add_brg_1j:       "objective add o_brg_1j"
+  e_obj_add_brg_1k:       "objective add o_brg_1k"
+
+  # Bridge: Restore
+  e_restore_brg_1:        "folder e_restore_brg_1_g1,e_restore_brg_1_g2"
+  e_restore_brg_1_g1:     "folder e_restore_brg_1a,e_restore_brg_1b,e_restore_brg_1c,e_restore_brg_1d,e_restore_brg_1e,e_restore_brg_1f"
+  e_restore_brg_1_g2:     "folder e_restore_brg_1g,e_restore_brg_1h,e_restore_brg_1i,e_restore_brg_1j,e_restore_brg_1k"
+  e_restore_brg_1a:       "folder e_brg_1a_block_set,e_gtag_del_brg_1a"
+  e_restore_brg_1b:       "folder e_brg_1b_block_set,e_gtag_del_brg_1b"
+  e_restore_brg_1c:       "folder e_brg_1c_block_set,e_gtag_del_brg_1c"
+  e_restore_brg_1d:       "folder e_brg_1d_block_set,e_gtag_del_brg_1d"
+  e_restore_brg_1e:       "folder e_brg_1e_block_set,e_gtag_del_brg_1e"
+  e_restore_brg_1f:       "folder e_brg_1f_block_set,e_gtag_del_brg_1f"
+  e_restore_brg_1g:       "folder e_brg_1g_block_set,e_gtag_del_brg_1g"
+  e_restore_brg_1h:       "folder e_brg_1h_block_set,e_gtag_del_brg_1h"
+  e_restore_brg_1i:       "folder e_brg_1i_block_set,e_gtag_del_brg_1i"
+  e_restore_brg_1j:       "folder e_brg_1j_block_set,e_gtag_del_brg_1j"
+  e_restore_brg_1k:       "folder e_brg_1k_block_set,e_gtag_del_brg_1k"
+
+  # Bridge: Cleanup
+  e_deit_brg_1:           "folder e_obj_del_brg_1_g1,e_obj_del_brg_1_g2,e_restore_brg_1"
+  e_obj_del_brg_1_g1:     "folder e_obj_del_brg_1a,e_obj_del_brg_1b,e_obj_del_brg_1c,e_obj_del_brg_1d,e_obj_del_brg_1e,e_obj_del_brg_1f"
+  e_obj_del_brg_1_g2:     "folder e_obj_del_brg_1g,e_obj_del_brg_1h,e_obj_del_brg_1i,e_obj_del_brg_1j,e_obj_del_brg_1k"
+  e_obj_del_brg_1a:       "objective remove o_brg_1a"
+  e_obj_del_brg_1b:       "objective remove o_brg_1b"
+  e_obj_del_brg_1c:       "objective remove o_brg_1c"
+  e_obj_del_brg_1d:       "objective remove o_brg_1d"
+  e_obj_del_brg_1e:       "objective remove o_brg_1e"
+  e_obj_del_brg_1f:       "objective remove o_brg_1f"
+  e_obj_del_brg_1g:       "objective remove o_brg_1g"
+  e_obj_del_brg_1h:       "objective remove o_brg_1h"
+  e_obj_del_brg_1i:       "objective remove o_brg_1i"
+  e_obj_del_brg_1j:       "objective remove o_brg_1j"
+  e_obj_del_brg_1k:       "objective remove o_brg_1k"
+
+
+  # Bridge #1a: Delete, wait, restore
+  e_brg_1a_delete:        "folder e_gtag_add_brg_1a,e_brg_1a_del_blocks"
+  e_gtag_add_brg_1a:      "globaltag add $brg1a.region$" 
+  e_brg_1a_del_blocks:    "folder e_brg_1a_block_air,core-sfx.e_block_break,e_brg_1a_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1a_block_air:     "command execute in minecraft:overworld run fill $brg1a.a$ $brg1a.b$ minecraft:air"
+  e_brg_1a_add_blocks:    "folder e_brg_1a_block_set,e_gtag_del_brg_1a delay:3"
+  e_brg_1a_block_set:     "command execute in minecraft:overworld run fill $brg1a.a$ $brg1a.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1a:      "globaltag delete $brg1a.region$"
+
+  # Bridge #1b:  Delete, wait, restore
+  e_brg_1b_delete:        "folder e_gtag_add_brg_1b,e_brg_1b_del_blocks"
+  e_gtag_add_brg_1b:      "globaltag add $brg1b.region$"
+  e_brg_1b_del_blocks:    "folder e_brg_1b_block_air,core-sfx.e_block_break,e_brg_1b_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1b_block_air:     "command execute in minecraft:overworld run fill $brg1b.a$ $brg1b.b$ minecraft:air"
+  e_brg_1b_add_blocks:    "folder e_brg_1b_block_set,e_gtag_del_brg_1b delay:3"
+  e_brg_1b_block_set:     "command execute in minecraft:overworld run fill $brg1b.a$ $brg1b.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1b:      "globaltag delete $brg1b.region$"
+
+  # Bridge #1c:  Delete, wait, restore
+  e_brg_1c_delete:        "folder e_gtag_add_brg_1c,e_brg_1c_del_blocks"
+  e_gtag_add_brg_1c:      "globaltag add $brg1c.region$"
+  e_brg_1c_del_blocks:    "folder e_brg_1c_block_air,core-sfx.e_block_break,e_brg_1c_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1c_block_air:     "command execute in minecraft:overworld run fill $brg1c.a$ $brg1c.b$ minecraft:air"
+  e_brg_1c_add_blocks:    "folder e_brg_1c_block_set,e_gtag_del_brg_1c delay:3"
+  e_brg_1c_block_set:     "command execute in minecraft:overworld run fill $brg1c.a$ $brg1c.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1c:      "globaltag delete $brg1c.region$"
+
+  # Bridge #1d:  Delete, wait, restore
+  e_brg_1d_delete:        "folder e_gtag_add_brg_1d,e_brg_1d_del_blocks"
+  e_gtag_add_brg_1d:      "globaltag add $brg1d.region$"
+  e_brg_1d_del_blocks:    "folder e_brg_1d_block_air,core-sfx.e_block_break,e_brg_1d_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1d_block_air:     "command execute in minecraft:overworld run fill $brg1d.a$ $brg1d.b$ minecraft:air"
+  e_brg_1d_add_blocks:    "folder e_brg_1d_block_set,e_gtag_del_brg_1d delay:3"
+  e_brg_1d_block_set:     "command execute in minecraft:overworld run fill $brg1d.a$ $brg1d.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1d:      "globaltag delete $brg1d.region$"
+
+  # Bridge #1e:  Delete, wait, restore
+  e_brg_1e_delete:        "folder e_gtag_add_brg_1e,e_brg_1e_del_blocks"
+  e_gtag_add_brg_1e:      "globaltag add $brg1e.region$"
+  e_brg_1e_del_blocks:    "folder e_brg_1e_block_air,core-sfx.e_block_break,e_brg_1e_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1e_block_air:     "command execute in minecraft:overworld run fill $brg1e.a$ $brg1e.b$ minecraft:air"
+  e_brg_1e_add_blocks:    "folder e_brg_1e_block_set,e_gtag_del_brg_1e delay:3"
+  e_brg_1e_block_set:     "command execute in minecraft:overworld run fill $brg1e.a$ $brg1e.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1e:      "globaltag delete $brg1e.region$"
+
+  # Bridge #1f:  Delete, wait, restore
+  e_brg_1f_delete:        "folder e_gtag_add_brg_1f,e_brg_1f_del_blocks"
+  e_gtag_add_brg_1f:      "globaltag add $brg1f.region$"
+  e_brg_1f_del_blocks:    "folder e_brg_1f_block_air,core-sfx.e_block_break,e_brg_1f_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1f_block_air:     "command execute in minecraft:overworld run fill $brg1f.a$ $brg1f.b$ minecraft:air"
+  e_brg_1f_add_blocks:    "folder e_brg_1f_block_set,e_gtag_del_brg_1f delay:3"
+  e_brg_1f_block_set:     "command execute in minecraft:overworld run fill $brg1f.a$ $brg1f.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1f:      "globaltag delete $brg1f.region$"
+
+  # Bridge #1g:  Delete, wait, restore
+  e_brg_1g_delete:        "folder e_gtag_add_brg_1g,e_brg_1g_del_blocks"
+  e_gtag_add_brg_1g:      "globaltag add $brg1g.region$"
+  e_brg_1g_del_blocks:    "folder e_brg_1g_block_air,core-sfx.e_block_break,e_brg_1g_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1g_block_air:     "command execute in minecraft:overworld run fill $brg1g.a$ $brg1g.b$ minecraft:air"
+  e_brg_1g_add_blocks:    "folder e_brg_1g_block_set,e_gtag_del_brg_1g delay:3"
+  e_brg_1g_block_set:     "command execute in minecraft:overworld run fill $brg1g.a$ $brg1g.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1g:      "globaltag delete $brg1g.region$"
+
+  # Bridge #1h:  Delete, wait, restore
+  e_brg_1h_delete:        "folder e_gtag_add_brg_1h,e_brg_1h_del_blocks"
+  e_gtag_add_brg_1h:      "globaltag add $brg1h.region$"
+  e_brg_1h_del_blocks:    "folder e_brg_1h_block_air,core-sfx.e_block_break,e_brg_1h_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1h_block_air:     "command execute in minecraft:overworld run fill $brg1h.a$ $brg1h.b$ minecraft:air"
+  e_brg_1h_add_blocks:    "folder e_brg_1h_block_set,e_gtag_del_brg_1h delay:3"
+  e_brg_1h_block_set:     "command execute in minecraft:overworld run fill $brg1h.a$ $brg1h.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1h:      "globaltag delete $brg1h.region$"
+
+  # Bridge #1i:  Delete, wait, restore
+  e_brg_1i_delete:        "folder e_gtag_add_brg_1i,e_brg_1i_del_blocks"
+  e_gtag_add_brg_1i:      "globaltag add $brg1i.region$"
+  e_brg_1i_del_blocks:    "folder e_brg_1i_block_air,core-sfx.e_block_break,e_brg_1i_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1i_block_air:     "command execute in minecraft:overworld run fill $brg1i.a$ $brg1i.b$ minecraft:air"
+  e_brg_1i_add_blocks:    "folder e_brg_1i_block_set,e_gtag_del_brg_1i delay:3"
+  e_brg_1i_block_set:     "command execute in minecraft:overworld run fill $brg1i.a$ $brg1i.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1i:      "globaltag delete $brg1i.region$"
+
+  # Bridge #1j:  Delete, wait, restore
+  e_brg_1j_delete:        "folder e_gtag_add_brg_1j,e_brg_1j_del_blocks"
+  e_gtag_add_brg_1j:      "globaltag add $brg1j.region$"
+  e_brg_1j_del_blocks:    "folder e_brg_1j_block_air,core-sfx.e_block_break,e_brg_1j_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1j_block_air:     "command execute in minecraft:overworld run fill $brg1j.a$ $brg1j.b$ minecraft:air"
+  e_brg_1j_add_blocks:    "folder e_brg_1j_block_set,e_gtag_del_brg_1j delay:3"
+  e_brg_1j_block_set:     "command execute in minecraft:overworld run fill $brg1j.a$ $brg1j.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1j:      "globaltag delete $brg1j.region$"
+
+  # Bridge #1k:  Delete, wait, restore
+  e_brg_1k_delete:        "folder e_gtag_add_brg_1k,e_brg_1k_del_blocks"
+  e_gtag_add_brg_1k:      "globaltag add $brg1k.region$"
+  e_brg_1k_del_blocks:    "folder e_brg_1k_block_air,core-sfx.e_block_break,e_brg_1k_add_blocks delay:$brg_del_delay$ ticks"
+  e_brg_1k_block_air:     "command execute in minecraft:overworld run fill $brg1k.a$ $brg1k.b$ minecraft:air"
+  e_brg_1k_add_blocks:    "folder e_brg_1k_block_set,e_gtag_del_brg_1k delay:3"
+  e_brg_1k_block_set:     "command execute in minecraft:overworld run fill $brg1k.a$ $brg1k.b$ minecraft:$brg_block$"
+  e_gtag_del_brg_1k:      "globaltag delete $brg1k.region$"
+
+
+conditions:
+  chk_brg_1a_exist:       "globaltag wf_brg_1a"
+  chk_brg_1b_exist:       "globaltag wf_brg_1b"
+  chk_brg_1c_exist:       "globaltag wf_brg_1c"
+  chk_brg_1d_exist:       "globaltag wf_brg_1d"
+  chk_brg_1e_exist:       "globaltag wf_brg_1e"
+  chk_brg_1f_exist:       "globaltag wf_brg_1f"
+  chk_brg_1g_exist:       "globaltag wf_brg_1g"
+  chk_brg_1h_exist:       "globaltag wf_brg_1h"
+  chk_brg_1i_exist:       "globaltag wf_brg_1i"
+  chk_brg_1j_exist:       "globaltag wf_brg_1j"
+  chk_brg_1k_exist:       "globaltag wf_brg_1k"
+
+
+objectives:
+  o_brg_1a:               "region $brg1a.region$ enter conditions:!chk_brg_1a_exist events:e_brg_1a_delete persistent"
+  o_brg_1b:               "region $brg1b.region$ enter conditions:!chk_brg_1b_exist events:e_brg_1b_delete persistent"
+  o_brg_1c:               "region $brg1c.region$ enter conditions:!chk_brg_1c_exist events:e_brg_1c_delete persistent"
+  o_brg_1d:               "region $brg1d.region$ enter conditions:!chk_brg_1d_exist events:e_brg_1d_delete persistent"
+  o_brg_1e:               "region $brg1e.region$ enter conditions:!chk_brg_1e_exist events:e_brg_1e_delete persistent"
+  o_brg_1f:               "region $brg1f.region$ enter conditions:!chk_brg_1f_exist events:e_brg_1f_delete persistent"
+  o_brg_1g:               "region $brg1g.region$ enter conditions:!chk_brg_1g_exist events:e_brg_1g_delete persistent"
+  o_brg_1h:               "region $brg1h.region$ enter conditions:!chk_brg_1h_exist events:e_brg_1h_delete persistent"
+  o_brg_1i:               "region $brg1i.region$ enter conditions:!chk_brg_1i_exist events:e_brg_1i_delete persistent"
+  o_brg_1j:               "region $brg1j.region$ enter conditions:!chk_brg_1j_exist events:e_brg_1j_delete persistent"
+  o_brg_1k:               "region $brg1k.region$ enter conditions:!chk_brg_1k_exist events:e_brg_1k_delete persistent"

@@ -1,0 +1,18 @@
+events:
+  init_kz:            "folder e_obj_add_kz"
+  deit_kz:            "folder e_obj_del_kz"
+
+  # Init killzones
+  e_obj_add_kz:       "folder e_obj_add_kz_1"
+  e_obj_add_kz_1:     "objective add o_killzone_1"
+  # Deit killzones
+  e_obj_del_kz:       "folder e_obj_del_kz_1"
+  e_obj_del_kz_1:     "objective remove o_killzone_1"
+
+
+  e_kz_kill:          "folder e_kz_dmg"
+  e_kz_dmg:           "damage 200"
+
+
+objectives:
+  o_killzone_1:       "region wf_killzone1 enter events:e_kz_kill"
