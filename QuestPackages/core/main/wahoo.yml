@@ -17,22 +17,22 @@ events:
   e_obj_del_wahoo2:             "objective remove o_wahoo2"
 
   # Cooldown
-  fol_wahoo_cooldown_done:      "folder m64-sfx.e_wahoo_ready,e_obj_add_wahoo"
+  fol_wahoo_cooldown_done:      "folder core-sfx.e_wahoo_ready,e_obj_add_wahoo"
   e_obj_add_wahoo_delay:        "objective add o_wahoo_cooldown"
   e_obj_del_wahoo_delay:        "objective remove o_wahoo_cooldown"
 
-  fol_wahoo2_cooldown_done:     "folder m64-sfx.e_wahoo_ready,e_obj_add_wahoo2"
+  fol_wahoo2_cooldown_done:     "folder core-sfx.e_wahoo_ready,e_obj_add_wahoo2"
   e_obj_add_wahoo2_delay:       "objective add o_wahoo2_cooldown"
   e_obj_del_wahoo2_delay:       "objective remove o_wahoo2_cooldown"
 
   # Action
   # Normal
   exec_wahoo:                   "if chk_wahoo_break fol_do_wahoo else fol_do_wahoo"
-  fol_do_wahoo:                 "folder e_wahoo,e_obj_add_wahoo_delay,m64-sfx.e_wahoo"
-  fol_do_wahoo2:                "folder e_wahoo,e_obj_add_wahoo2_delay,m64-sfx.e_wahoo"
+  fol_do_wahoo:                 "folder e_wahoo,e_obj_add_wahoo_delay,core-sfx.e_wahoo"
+  fol_do_wahoo2:                "folder e_wahoo,e_obj_add_wahoo2_delay,core-sfx.e_wahoo"
   e_wahoo:                      "velocity vector:(0;0.5;1.1) direction:relative_y modification:set"
   # Broken
-  fol_do_broken_wahoo:          "folder e_broken_wahoo,e_obj_add_wahoo_delay,m64-sfx.e_wahoo_broken"
+  fol_do_broken_wahoo:          "folder e_broken_wahoo,e_obj_add_wahoo_delay,core-sfx.e_wahoo_broken"
   e_broken_wahoo:               "velocity vector:(0;0.5;7.1) direction:relative_y modification:set"
 
 

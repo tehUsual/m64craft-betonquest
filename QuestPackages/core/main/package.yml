@@ -71,12 +71,12 @@ events:
   enter_marocraft_tutorial:     "folder init_castle,e_load_tests,tp_tutorial"
   enter_marocraft:              "folder init_castle,tp_castle"
 
-  reset_ALL:                    "folder reset_castle,m64-bob.delete_stars,m64-wf.delete_stars,m64-bbh.delete_stars,m64-lll.delete_stars,m64-ssl.delete_stars,m64-wdw.delete_stars,m64-sslide.reset_level,m64-sslide2.reset_level2,m64-jrb.delete_stars"
+  reset_ALL:                    "folder reset_castle,m64-bob.wipe_level,m64-wf.wipe_level,m64-bbh.delete_stars,m64-lll.delete_stars,m64-ssl.delete_stars,m64-wdw.delete_stars,m64-sslide.reset_level,m64-sslide2.reset_level2,m64-jrb.delete_stars"
   on_exit:                      "folder reset_castle,e_tp_overworld"
   #set_default_texture_pack:     "folder restoreTexturePack delay:2"
 
   init_castle:                  "folder add_level_entries,add_teleports,e_obj_add_exit_dim,init_abilities,init_commands"
-  reset_castle:                 "folder del_level_entries,del_teleports,e_obj_del_exit_dim,e_reset_tests,reset_abilities,reset_commands,m64-sfx.e_stop_music,e_tag_del_unlock_ss2"
+  reset_castle:                 "folder del_level_entries,del_teleports,e_obj_del_exit_dim,e_reset_tests,reset_abilities,reset_commands,core-music.e_stop_music,e_tag_del_unlock_ss2"
   tp_castle:                    "command warp marocastle %player%"
   tp_tutorial:                  "command warp maroentry %player%"
 
@@ -178,17 +178,17 @@ events:
   e_tb_1:                       "folder e_tb_1_notify"
   e_tb_1_notify:                "notify &2Hey, it works!"
   # test star 1
-  e_ts_1:                       "folder e_ts_1_notify,m64-sfx.e_got_star"
+  e_ts_1:                       "folder e_ts_1_notify,core-sfx.e_got_star"
   e_ts_1_notify:                "notify &3Test star\n&2Cleared! io:title"
   # test red coin 1
-  e_trc_1:                      "folder e_trc_1_notify,m64-sfx.e_coin"
+  e_trc_1:                      "folder e_trc_1_notify,core-sfx.e_coin"
   e_trc_1_notify:               "notify &3Red coin found!"
   # get wahoo
   e_tb_2:                       "folder giveWahoo"
   # get waha
   e_tb_3:                       "folder giveWaha"
   # test btn end
-  e_tb_end:                     "folder e_notif_end_tut,m64-sfx.e_star_spawn,e_tb_end2"
+  e_tb_end:                     "folder e_notif_end_tut,core-sfx.e_star_spawn,e_tb_end2"
   e_notif_end_tut:              "notify &3Welcome to SM(aske) 64\n<3 io:title"
   e_tb_end2:                    "folder e_tb_end_kp,e_tag_add_did_tutorial,e_reset_tests delay:3"
   e_tag_add_did_tutorial:       "tag add did_tutorial"

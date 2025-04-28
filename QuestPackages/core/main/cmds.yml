@@ -17,7 +17,7 @@ events:
   e_notif_enable_music:         "notify &7Music &2enabled"
   e_tag_add_enable_music:       "tag add enable_music"
   # Disable
-  e_disable_music:              "folder e_notif_disable_music,e_tag_del_enable_music,m64-sfx.e_force_stop_music"
+  e_disable_music:              "folder e_notif_disable_music,e_tag_del_enable_music,core-music.e_force_stop_music"
   e_notif_disable_music:        "notify &7Music &4disabled"
   e_tag_del_enable_music:       "tag delete enable_music"
 

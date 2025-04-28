@@ -1,5 +1,5 @@
 npcs:
-  '207': "maroutil"
+  '34': "maroutil"
 
 conversations:
   maroutil:
@@ -14,7 +14,7 @@ conversations:
     player_options:
       p_init:
         text: "Initialize"
-        event: m64-main.init_castle
+        event: core-main.init_castle
       p_cleanup:
         text: "Deinitialize"
-        event: m64-main.reset_castle
+        event: core-main.reset_castle
