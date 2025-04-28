@@ -1,0 +1,14 @@
+variables:
+  intro:
+    thunder_1:          408 60 -438
+    thunder_2:          378 66 -433
+
+
+events:
+  init_intro:           "folder e_spawn_thunder_1,e_spawn_thunder_2,e_spawn_thunder_3,e_give_darkness period:1 delay:2"
+
+
+  e_intro_thunder_1:    "command execute in minecraft:overworld run summon lightning_bolt $intro.thunder_1$"
+  e_intro_thunder_2:    "command execute in minecraft:overworld run summon lightning_bolt $intro.thunder_2$"
+  e_intro_thunder_3:    "command execute in minecraft:overworld at %player% run summon lightning_bolt ~ ~ ~-3"
+  e_give_darkness:      "effect DARKNESS 5 1 hidden noicon"
