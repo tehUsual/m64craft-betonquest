@@ -57,7 +57,7 @@ events:
   # Invisibility: Cleanup
   e_deit_invisibility:    "folder e_obj_del_inv_timeout,e_tag_del_invis,e_efx_clear_invis,e_deit_cinv_tps"
   e_obj_del_inv_timeout:  "objective remove o_invis_timeout"
-  e_tag_del_invis:        "tag delete invisible"
+  e_tag_del_invis:        "tag delete cap_invisible"
   e_efx_clear_invis:      "deleffect INVISIBILITY"
 
   # Invisibility: Teleport
