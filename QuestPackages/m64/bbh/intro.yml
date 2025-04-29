@@ -5,7 +5,7 @@ variables:
 
 
 events:
-  init_intro:           "folder e_spawn_thunder_1,e_spawn_thunder_2,e_spawn_thunder_3,e_give_darkness period:1 delay:2"
+  init_intro:           "folder e_intro_thunder_1,e_intro_thunder_2,e_intro_thunder_3,e_give_darkness period:1 delay:2"
 
 
   e_intro_thunder_1:    "command execute in minecraft:overworld run summon lightning_bolt $intro.thunder_1$"

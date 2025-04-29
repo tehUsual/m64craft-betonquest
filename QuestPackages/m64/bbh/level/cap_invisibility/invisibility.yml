@@ -91,8 +91,8 @@ objectives:
   o_invis_timeout:        "delay $invis_block_1$ seconds interval:5 event:e_stop_invis"
 
   # Blocks
-  o_invis_activate_1:     "action right any loc:$invis_block_1$ conditions:!chk_tag_invisible events:e_start_invis persistent"
-  o_invis_activate_2:     "action right any loc:$invis_block_2$ conditions:!chk_tag_invisible events:e_start_invis persistent"
+  o_invis_activate_1:     "action right any loc:$invis_block_1$ conditions:!chk_tag_invisible events:e_start_invisibility persistent"
+  o_invis_activate_2:     "action right any loc:$invis_block_2$ conditions:!chk_tag_invisible events:e_start_invisibility persistent"
   # Teleports
   o_invis_tp_1a:          "region $inv_tp_1a.region$ enter conditions:chk_tag_invisible events:e_invis_tp_1a_to_1b persistent"
   o_invis_tp_1b:          "region $inv_tp_1b.region$ enter conditions:chk_tag_invisible events:e_invis_tp_1b_to_1a persistent"

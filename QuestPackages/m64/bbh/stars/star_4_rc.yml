@@ -163,6 +163,9 @@ conditions:
   chk_s4_all_rc_1:        "and chk_s4_tag_rc1,chk_s4_tag_rc2,chk_s4_tag_rc3,chk_s4_tag_rc4,chk_s4_tag_rc5,chk_s4_tag_rc6"
   chk_s4_all_rc_2:        "and chk_s4_tag_rc7,chk_s4_tag_rc8,chk_s4_tag_rc9,chk_s4_tag_rc10,chk_s4_tag_rc11,chk_s4_tag_rc12"
 
+  chk_s4_spawned:         "tag s4_spawned"
+  chk_s4_spawn_count:     "globalpoint wf_s4 1"
+
 
 objectives:
   o_s4_star:              "action right any loc:$s4.star_loc$ events:win_s4"
