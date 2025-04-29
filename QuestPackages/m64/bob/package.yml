@@ -13,9 +13,9 @@ variables:
   exitsign:           -358;69;2;marocraft
 
 events:
-  init_level:         "folder init_spawns,init_warps,init_cannons,init_stars,e_play_music,init_redcoins"
+  init_level:         "folder init_spawns,init_warps,init_cannons,init_stars,e_play_music,init_fakes"
   deit_level:         "folder deit_spawns,deit_warps,deit_cannons,deit_stars,e_stop_music"
-  unlo_level:         "folder deit_redcoins,exit_level period:3 ticks"
+  unlo_level:         "folder deit_fakes,exit_level period:3 ticks"
   exit_level:         "folder deit_level,e_tp_respawn,core-main.init_castle"
 
   on_death:           "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
@@ -46,10 +46,10 @@ events:
   e_gpoint_add_death: "globalpoint bob_deaths 1 action:add"
 
   # Fake blocks
-  init_redcoins:      "folder e_init_rcoins delay:1"
-  deit_redcoins:      "folder e_deit_rcoins"
-  e_init_rcoins:      "command showfakeskulls %player% bob_rc_1 bob_rc_2 bob_rc_3 bob_rc_4 bob_rc_5 bob_rc_6 bob_rc_7 bob_rc_8 bob_rc_9 bob_rc_10 bob_rc_11 bob_rc_12"
-  e_deit_rcoins:      "command hidefakeskulls %player% bob_rc_1 bob_rc_2 bob_rc_3 bob_rc_4 bob_rc_5 bob_rc_6 bob_rc_7 bob_rc_8 bob_rc_9 bob_rc_10 bob_rc_11 bob_rc_12"
+  init_fakes:         "folder init_redcoins delay:1"
+  deit_fakes:         "folder deit_redcoins"
+  init_redcoins:      "command showfakeskulls %player% bob_rc_1 bob_rc_2 bob_rc_3 bob_rc_4 bob_rc_5 bob_rc_6 bob_rc_7 bob_rc_8 bob_rc_9 bob_rc_10 bob_rc_11 bob_rc_12"
+  deit_redcoins:      "command hidefakeskulls %player% bob_rc_1 bob_rc_2 bob_rc_3 bob_rc_4 bob_rc_5 bob_rc_6 bob_rc_7 bob_rc_8 bob_rc_9 bob_rc_10 bob_rc_11 bob_rc_12"
 
 
 objectives:
