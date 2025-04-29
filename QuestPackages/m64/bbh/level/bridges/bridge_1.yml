@@ -5,27 +5,27 @@ variables:
     region:               bbh_brg_1a
     a:                    418 47 -470
     b:                    419 47 -470
-  brg2b:
+  brg1b:
     region:               bbh_brg_1b
     a:                    418 47 -469
     b:                    419 47 -469
-  brg3c:
+  brg1c:
     region:               bbh_brg_1c
     a:                    418 47 -468
     b:                    419 47 -468
-  brg4d:
+  brg1d:
     region:               bbh_brg_1d
     a:                    418 47 -467
     b:                    419 47 -467
-  brg5e:
+  brg1e:
     region:               bbh_brg_1e
     a:                    418 47 -466
     b:                    419 47 -466
-  brg6f:
+  brg1f:
     region:               bbh_brg_1f
     a:                    418 47 -465
     b:                    419 47 -465
-  brg7g:
+  brg1g:
     region:               bbh_brg_1g
     a:                    418 47 -464
     b:                    419 47 -464
