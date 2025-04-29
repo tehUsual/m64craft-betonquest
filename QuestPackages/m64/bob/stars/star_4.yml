@@ -36,6 +36,8 @@ events:
   e_obj_add_s4_rc11:      "objective add o_s4_rc11"
   e_obj_add_s4_rc12:      "objective add o_s4_rc12"
 
+  e_s4_rc_add_point:      "point rc_count 1 action:add"
+
   #e_s4_add_obj_rc:        "folder e_s4_add_obj_rc_g1,e_s4_add_obj_rc_g2"
   #e_s4_add_obj_rc_g1:     "run ^objective add o_s4_rc1 ^objective add o_s4_rc2 ^objective add o_s4_rc3 ^objective add o_s4_rc4"
   #e_s4_add_obj_rc_g2:     "run ^objective add o_s4_rc5 ^objective add o_s4_rc6 ^objective add o_s4_rc7 ^objective add o_s4_rc8"
@@ -53,8 +55,6 @@ events:
   e_hide_rc_10:           "command togglefakeskull %player% bob_rc_10 hide"
   e_hide_rc_11:           "command togglefakeskull %player% bob_rc_11 hide"
   e_hide_rc_12:           "command togglefakeskull %player% bob_rc_12 hide"
-
-  e_s4_rc_add_point:      "point rc_count 1 action:add"
 
   # Rc1
   e_s4_got_rc1:           "folder e_s4_add_tag_rc1,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_1,e_s4_notify_rc1,if_all_rc_s4"

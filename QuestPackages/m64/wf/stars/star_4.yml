@@ -36,6 +36,8 @@ events:
   e_obj_add_s4_rc11:      "objective add o_s4_rc11"
   e_obj_add_s4_rc12:      "objective add o_s4_rc12"
 
+  e_s4_rc_add_point:      "point rc_count 1 action:add"
+
   # Red Coins
   e_hide_rc_1:            "command togglefakeskull %player% wf_rc_1 hide"
   e_hide_rc_2:            "command togglefakeskull %player% wf_rc_2 hide"
@@ -49,8 +51,6 @@ events:
   e_hide_rc_10:           "command togglefakeskull %player% wf_rc_10 hide"
   e_hide_rc_11:           "command togglefakeskull %player% wf_rc_11 hide"
   e_hide_rc_12:           "command togglefakeskull %player% wf_rc_12 hide"
-
-  e_s4_rc_add_point:      "point rc_count 1 action:add"
 
   # Rc1
   e_s4_got_rc1:           "folder e_s4_add_tag_rc1,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_1,e_s4_notify_rc1,if_all_rc_s4"
