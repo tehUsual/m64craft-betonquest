@@ -2,11 +2,11 @@ variables:
   s1:
     star_loc:             400;51;-453;marocraft
     star_loc_xyz:         400 51 -453
-    boo_1_loc:            416;50;-435;marocraft
-    boo_2_loc:            417;50;-457;marocraft
-    boo_3_loc:            378;50;-468;marocraft
-    boo_4_loc:            377;52;-460;marocraft
-    boo_5_loc:            386;52;-467;marocraft
+    boo_1_loc:            416;50;-435;marocraft		# 1st floor, south left room
+    boo_2_loc:            417;50;-457;marocraft		# falling bridge
+    boo_3_loc:            378;50;-468;marocraft		# fake room
+    boo_4_loc:            377;52;-460;marocraft		# library
+    boo_5_loc:            386;52;-467;marocraft		# 1st floor, north, under grating
 
 
 events:
@@ -21,15 +21,15 @@ events:
   e_s1_sfx_boo_die:       "notify io:sound sound:entity.allay.death soundvolume:10"
   e_s1_point_bk_add:      "point bbh_s1_bk 1 action:add"
 
-  # If all killed
-  if_killed_all_s1:       "if chk_s1_killed_all e_s1_all_killed else core-main.e_dummy"
-  e_s1_all_killed:        "folder e_s1_spawn_star,e_s1_summon_firework,core-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star,e_s1_gp_add_star,e_s1_tag_add_spawned"
-  e_s1_spawn_star:        "setblock RAW_GOLD_BLOCK $s1.star_loc$"
+  # Check win
+  if_killed_all_s1:       "if chk_s1_killed_all e_s1_spawn_star else core-main.e_dummy"
+
+  # Spawn star
+  e_s1_spawn_star:        "folder e_s1_show_star,e_s1_summon_firework,core-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star"
+  e_s1_show_star:         "command togglefakeblock %player% bbh_star_1 show"
   e_s1_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s1.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
   e_s1_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s1_star:      "objective add o_s1_star"
-  e_s1_gp_add_star:       "globalpoint bbh_s1 1 action:add"
-  e_s1_tag_add_spawned:   "tag add s1_spawned"
 
   # Win
   win_s1:                 "folder e_notif_s1_win,core-sfx.e_got_star,deit_s1,if_firstwin_s1"
@@ -42,30 +42,18 @@ events:
   tag_add_s1_win:         "tag add s1"
 
   # Cleanup
-  deit_s1:                "folder e_s1_del_obj_boos,e_obj_del_s1_star,e_s1_del_point_bk,if_s1_spawned,e_s1_tag_del_spawned"
+  deit_s1:                "folder e_s1_del_obj_boos,e_obj_del_s1_star,e_s1_del_point_bk"
   e_s1_del_obj_boos:      "run ^objective remove o_s1_boo_1 ^objective remove o_s1_boo_2 ^objective remove o_s1_boo_3 ^objective remove o_s1_boo_4 ^objective remove o_s1_boo_5"
-  
   e_obj_del_s1_star:      "objective remove o_s1_star"
   e_s1_del_point_bk:      "point bbh_s1_bk 0 action:set"
 
-  if_s1_spawned:          "if chk_s1_spawned e_s1_del_spawned else core-main.e_dummy"
-  e_s1_del_spawned:       "folder e_s1_gp_sub_star,if_s1_despawn"
-  e_s1_gp_sub_star:       "globalpoint bbh_s1 1 action:subtract"
-
-  if_s1_despawn:          "if !chk_s1_spawn_count e_s1_delete_star else core-main.e_dummy"
-  e_s1_tag_del_spawned:   "tag delete s1_spawned"
-
-  e_s1_delete_star:       "folder e_s1_despawn_star,e_s1_reset_star_count"
-  e_s1_despawn_star:      "setblock AIR $s1.star_loc$"
-  e_s1_reset_star_count:  "globalpoint bbh_s1 0 action:set"
+  e_s1_despawn_star:      "folder e_s1_hide_star"
+  e_s1_hide_star:         "command togglefakeblock %player% bbh_star_1 hide"
 
 
 conditions:
   chk_s1_obtained:        "tag s1"
   chk_s1_killed_all:      "point bbh_s1_bk 5"
-
-  chk_s1_spawned:         "tag s1_spawned"
-  chk_s1_spawn_count:     "globalpoint bbh_s1 1"
 
 
 objectives:
