@@ -2,18 +2,18 @@ variables:
   s4:
     star_loc:             388;60;-443;marocraft
     star_loc_xyz:         388 60 -443
-    rc1:                  375;48;-434;marocraft
-    rc2:                  374;54;-450;marocraft
-    rc3:                  384;54;-459;marocraft
-    rc4:                  418;48;-436;marocraft
-    rc5:                  417;57;-464;marocraft
-    rc6:                  419;57;-472;marocraft
-    rc7:                  395;57;-474;marocraft
-    rc8:                  414;57;-437;marocraft
-    rc9:                  421;48;-472;marocraft
-    rc10:                 379;60;-439;marocraft
-    rc11:                 417;65;-453;marocraft
-    rc12:                 390;54;-462;marocraft
+    rc1:                  375;48;-434;marocraft		# evil piano
+    rc2:                  374;54;-450;marocraft		# top of bookshelf, south
+    rc3:                  384;54;-459;marocraft		# top of bookshelf, north
+    rc4:                  418;48;-436;marocraft		# 1st floor left south room
+    rc5:                  417;57;-464;marocraft		# coffin south
+    rc6:                  419;57;-472;marocraft		# coffin north
+    rc7:                  395;57;-474;marocraft		# 2nd floor north, grating
+    rc8:                  414;57;-437;marocraft		# 2nd floor, trapdoor
+    rc9:                  421;48;-472;marocraft		# falling bridge
+    rc10:                 379;60;-439;marocraft		# 2nd floor, left south room
+    rc11:                 417;65;-453;marocraft		# attic entry inside
+    rc12:                 390;54;-462;marocraft		# 1st floor north, under grating
 
 
 events:
