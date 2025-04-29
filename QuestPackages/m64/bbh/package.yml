@@ -7,7 +7,7 @@ variables:
 events:
   init_level:           "folder init_spawns,init_zones,init_bridges,init_falltp,init_cinv,init_stars,e_play_music,init_intro,init_fakes"
   deit_level:           "folder deit_spawns,deit_zones,deit_bridges,deit_falltp,deit_cinv,deit_stars,e_stop_music"
-  unlo_level:           "folder deit_fakes,exit_level period:3 ticks"
+  unlo_level:           "folder deit_fakes,exit_level period:5 ticks"
   exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
 
   on_death:             "folder e_notify_death,exit_level,e_point_add_death,e_gpoint_add_death"
