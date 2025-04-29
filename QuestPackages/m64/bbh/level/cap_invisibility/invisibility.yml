@@ -88,7 +88,7 @@ conditions:
 
 objectives:
   # Deactivate
-  o_invis_timeout:        "delay $invis_block_1$ seconds interval:5 event:e_stop_invis"
+  o_invis_timeout:        "delay $invis_duration$ seconds interval:5 event:e_stop_invisibility"
 
   # Blocks
   o_invis_activate_1:     "action right any loc:$invis_block_1$ conditions:!chk_tag_invisible events:e_start_invisibility persistent"
