@@ -147,6 +147,9 @@ events:
   e_s4_del_tags_1:        "run ^tag delete rc1 ^tag delete rc2 ^tag delete rc3 ^tag delete rc4 ^tag delete rc5 ^tag delete rc6"
   e_s4_del_tags_2:        "run ^tag delete rc7 ^tag delete rc8  ^tag delete rc9 ^tag delete rc10 ^tag delete rc11 ^tag delete rc12"
 
+  e_s4_despawn_star:      "folder e_s4_hide_star"
+  e_s4_hide_star:         "command togglefakeblock %player% bob_star_4 hide"
+
 
 conditions:
   chk_s4_obtained:        "tag s4"
