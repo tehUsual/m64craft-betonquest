@@ -36,67 +36,81 @@ events:
   e_obj_add_s4_rc11:      "objective add o_s4_rc11"
   e_obj_add_s4_rc12:      "objective add o_s4_rc12"
 
+  # Red Coins
+  e_hide_rc_1:            "command togglefakeskull %player% bob_rc_1 hide"
+  e_hide_rc_2:            "command togglefakeskull %player% bob_rc_2 hide"
+  e_hide_rc_3:            "command togglefakeskull %player% bob_rc_3 hide"
+  e_hide_rc_4:            "command togglefakeskull %player% bob_rc_4 hide"
+  e_hide_rc_5:            "command togglefakeskull %player% bob_rc_5 hide"
+  e_hide_rc_6:            "command togglefakeskull %player% bob_rc_6 hide"
+  e_hide_rc_7:            "command togglefakeskull %player% bob_rc_7 hide"
+  e_hide_rc_8:            "command togglefakeskull %player% bob_rc_8 hide"
+  e_hide_rc_9:            "command togglefakeskull %player% bob_rc_9 hide"
+  e_hide_rc_10:           "command togglefakeskull %player% bob_rc_10 hide"
+  e_hide_rc_11:           "command togglefakeskull %player% bob_rc_11 hide"
+  e_hide_rc_12:           "command togglefakeskull %player% bob_rc_12 hide"
+
   e_s4_rc_add_point:      "point rc_count 1 action:add"
 
   # Rc1
-  e_s4_got_rc1:           "folder e_s4_add_tag_rc1,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc1,if_all_rc_s4"
+  e_s4_got_rc1:           "folder e_s4_add_tag_rc1,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_1,e_s4_notify_rc1,if_all_rc_s4"
   e_s4_add_tag_rc1:       "tag add rc1"
   e_s4_notify_rc1:        "notify &3Red coin #1 found! %point.rc_count.amount%/12"
   # Rc2
-  e_s4_got_rc2:           "folder e_s4_add_tag_rc2,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc2,if_all_rc_s4"
+  e_s4_got_rc2:           "folder e_s4_add_tag_rc2,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_2,e_s4_notify_rc2,if_all_rc_s4"
   e_s4_add_tag_rc2:       "tag add rc2"
   e_s4_notify_rc2:        "notify &3Red coin #2 found! %point.rc_count.amount%/12"
   # Rc3
-  e_s4_got_rc3:           "folder e_s4_add_tag_rc3,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc3,if_all_rc_s4"
+  e_s4_got_rc3:           "folder e_s4_add_tag_rc3,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_3,e_s4_notify_rc3,if_all_rc_s4"
   e_s4_add_tag_rc3:       "tag add rc3"
   e_s4_notify_rc3:        "notify &3Red coin #3 found! %point.rc_count.amount%/12"
   # Rc4
-  e_s4_got_rc4:           "folder e_s4_add_tag_rc4,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc4,if_all_rc_s4"
+  e_s4_got_rc4:           "folder e_s4_add_tag_rc4,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_4,e_s4_notify_rc4,if_all_rc_s4"
   e_s4_add_tag_rc4:       "tag add rc4"
   e_s4_notify_rc4:        "notify &3Red coin #4 found! %point.rc_count.amount%/12"
   # Rc5
-  e_s4_got_rc5:           "folder e_s4_add_tag_rc5,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc5,if_all_rc_s4"
+  e_s4_got_rc5:           "folder e_s4_add_tag_rc5,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_5,e_s4_notify_rc5,if_all_rc_s4"
   e_s4_add_tag_rc5:       "tag add rc5"
   e_s4_notify_rc5:        "notify &3Red coin #5 found! %point.rc_count.amount%/12"
   # Rc6
-  e_s4_got_rc6:           "folder e_s4_add_tag_rc6,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc6,if_all_rc_s4"
+  e_s4_got_rc6:           "folder e_s4_add_tag_rc6,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_6,e_s4_notify_rc6,if_all_rc_s4"
   e_s4_add_tag_rc6:       "tag add rc6"
   e_s4_notify_rc6:        "notify &3Red coin #6 found! %point.rc_count.amount%/12"
   # Rc7
-  e_s4_got_rc7:           "folder e_s4_add_tag_rc7,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc7,if_all_rc_s4"
+  e_s4_got_rc7:           "folder e_s4_add_tag_rc7,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_7,e_s4_notify_rc7,if_all_rc_s4"
   e_s4_add_tag_rc7:       "tag add rc7"
   e_s4_notify_rc7:        "notify &3Red coin #7 found! %point.rc_count.amount%/12"
   # Rc8
-  e_s4_got_rc8:           "folder e_s4_add_tag_rc8,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc8,if_all_rc_s4"
+  e_s4_got_rc8:           "folder e_s4_add_tag_rc8,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_8,e_s4_notify_rc8,if_all_rc_s4"
   e_s4_add_tag_rc8:       "tag add rc8"
   e_s4_notify_rc8:        "notify &3Red coin #8 found! %point.rc_count.amount%/12"
   # Rc9
-  e_s4_got_rc9:           "folder e_s4_add_tag_rc9,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc9,if_all_rc_s4"
+  e_s4_got_rc9:           "folder e_s4_add_tag_rc9,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_9,e_s4_notify_rc9,if_all_rc_s4"
   e_s4_add_tag_rc9:       "tag add rc9"
   e_s4_notify_rc9:        "notify &3Red coin #9 found! %point.rc_count.amount%/12"
   # Rc10
-  e_s4_got_rc10:          "folder e_s4_add_tag_rc10,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc10,if_all_rc_s4"
+  e_s4_got_rc10:          "folder e_s4_add_tag_rc10,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_10,e_s4_notify_rc10,if_all_rc_s4"
   e_s4_add_tag_rc10:      "tag add rc10"
   e_s4_notify_rc10:       "notify &3Red coin #10 found! %point.rc_count.amount%/12"
   # Rc11
-  e_s4_got_rc11:          "folder e_s4_add_tag_rc11,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc11,if_all_rc_s4"
+  e_s4_got_rc11:          "folder e_s4_add_tag_rc11,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_11,e_s4_notify_rc11,if_all_rc_s4"
   e_s4_add_tag_rc11:      "tag add rc11"
   e_s4_notify_rc11:       "notify &3Red coin #11 found! %point.rc_count.amount%/12"
   # Rc12
-  e_s4_got_rc12:          "folder e_s4_add_tag_rc12,e_s4_rc_add_point,core-sfx.e_coin,e_s4_notify_rc12,if_all_rc_s4"
+  e_s4_got_rc12:          "folder e_s4_add_tag_rc12,e_s4_rc_add_point,core-sfx.e_coin,e_hide_rc_12,e_s4_notify_rc12,if_all_rc_s4"
   e_s4_add_tag_rc12:      "tag add rc12"
   e_s4_notify_rc12:       "notify &3Red coin #12 found! %point.rc_count.amount%/12"
 
   # Check win
   if_all_rc_s4:           "if chk_s4_all_rc e_s4_all_rc_gotten else core-main.e_dummy"
+  e_s4_all_rc_gotten:     "folder e_s4_spawn_star"
 
-  e_s4_all_rc_gotten:     "folder e_s4_spawn_star,e_s4_summon_firework,core-sfx.e_star_spawn,e_s4_notif_spawn_star,e_obj_add_s4_star,e_s4_gp_add_star,e_s4_tag_add_spawned"
-  e_s4_spawn_star:        "setblock RAW_GOLD_BLOCK $s4.star_loc$"
+  # Spawn star
+  e_s4_spawn_star:        "folder e_s4_show_star,e_s4_spawn_star,e_s4_summon_firework,core-sfx.e_star_spawn,e_s4_notif_spawn_star,e_obj_add_s4_star"
+  e_s4_show_star:         "command togglefakeblock %player% bbh_star_4 show"
   e_s4_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s4.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
   e_s4_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s4_star:      "objective add o_s4_star"
-  e_s4_gp_add_star:       "globalpoint bbh_s4 1 action:add"
-  e_s4_tag_add_spawned:   "tag add s4_spawned"
 
   # Win
   win_s4:                 "folder e_notif_s4_win,core-sfx.e_got_star,deit_s4,if_firstwin_s4"
@@ -109,7 +123,8 @@ events:
   tag_add_s4_win:         "tag add s4"
 
   # Cleanup
-  deit_s4:                "folder e_s4_del_obj_rc,e_s4_rc_del_point,e_obj_del_s4_star,e_s4_del_tags,if_s4_spawned,e_s4_tag_del_spawned"
+  deit_s4:                "folder e_s4_del_obj_rc,e_s4_rc_del_point,e_obj_del_s4_star,e_s4_del_tags,e_s4_despawn_star"
+
   e_s4_del_obj_rc:        "folder e_s4_del_obj_rc_1,e_s4_del_obj_rc_2"
   e_s4_del_obj_rc_1:      "folder e_obj_del_s4_rc1,e_obj_del_s4_rc2,e_obj_del_s4_rc3,e_obj_del_s4_rc4,e_obj_del_s4_rc5,e_obj_del_s4_rc6"
   e_s4_del_obj_rc_2:      "folder e_obj_del_s4_rc7,e_obj_del_s4_rc8,e_obj_del_s4_rc9,e_obj_del_s4_rc10,e_obj_del_s4_rc11,e_obj_del_s4_rc12"
@@ -132,16 +147,8 @@ events:
   e_s4_del_tags_1:        "run ^tag delete rc1 ^tag delete rc2 ^tag delete rc3 ^tag delete rc4 ^tag delete rc5 ^tag delete rc6"
   e_s4_del_tags_2:        "run ^tag delete rc7 ^tag delete rc8  ^tag delete rc9 ^tag delete rc10 ^tag delete rc11 ^tag delete rc12"
 
-  if_s4_spawned:          "if chk_s4_spawned e_s4_del_spawned else core-main.e_dummy"
-  e_s4_del_spawned:       "folder e_s4_gp_sub_star,if_s4_despawn"
-  e_s4_gp_sub_star:       "globalpoint bbh_s4 1 action:subtract"
-
-  if_s4_despawn:          "if !chk_s4_spawn_count e_s4_delete_star else core-main.e_dummy"
-  e_s4_tag_del_spawned:   "tag delete s4_spawned"
-
-  e_s4_delete_star:       "folder e_s4_despawn_star,e_s4_reset_star_count"
-  e_s4_despawn_star:      "setblock AIR $s4.star_loc$"
-  e_s4_reset_star_count:  "globalpoint bbh_s4 0 action:set"
+  e_s4_despawn_star:      "folder e_s4_hide_star"
+  e_s4_hide_star:         "command togglefakeblock %player% bbh_star_4 hide"
 
 
 conditions:
@@ -162,9 +169,6 @@ conditions:
   chk_s4_all_rc:          "and chk_s4_all_rc_1,chk_s4_all_rc_2"
   chk_s4_all_rc_1:        "and chk_s4_tag_rc1,chk_s4_tag_rc2,chk_s4_tag_rc3,chk_s4_tag_rc4,chk_s4_tag_rc5,chk_s4_tag_rc6"
   chk_s4_all_rc_2:        "and chk_s4_tag_rc7,chk_s4_tag_rc8,chk_s4_tag_rc9,chk_s4_tag_rc10,chk_s4_tag_rc11,chk_s4_tag_rc12"
-
-  chk_s4_spawned:         "tag s4_spawned"
-  chk_s4_spawn_count:     "globalpoint wf_s4 1"
 
 
 objectives:
