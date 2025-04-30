@@ -2,9 +2,10 @@ variables:
   musiccat:                 music
 
 events:
-  e_stop_music:             "folder e_clear_objs,e_stop_music_if_enabled"
+  e_stop_music:             "folder e_clear_objs,e_stop_music_cmd"
   e_clear_objs:             "folder e_obj_del_wait_bob,e_obj_del_wait_ssl,e_obj_del_wait_bbh,e_obj_del_wait_ss,e_obj_del_wait_hmc,e_obj_del_wait_jrb,e_obj_del_wait_ccm,e_obj_del_wait_boss,e_obj_del_wait_merrygo,e_obj_del_wait_powerup,e_obj_del_wait_metal"
-  e_stop_music_if_enabled:  "if core-main.chk_tag_enable_music e_music_stop else core-main.e_dummy"
+  #e_stop_music_if_enabled:  "if core-main.chk_tag_enable_music e_music_stop else core-main.e_dummy"
+  e_stop_music_cmd:         "folder e_music_stop"
 
   e_force_stop_music:       "folder e_music_stop,e_stop_music"
   e_music_stop:             "opsudo stopsound %player% music"

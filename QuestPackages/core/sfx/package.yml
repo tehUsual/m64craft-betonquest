@@ -20,6 +20,7 @@ events:
 
   # Mobs
   e_boo_die:              "notify io:sound sound:maro:boo_die soundcategory:$soundplayer$ soundvolume:$svol$"
+  e_boo_laugh:            "notify io:sound sound:maro:boo_laugh soundcategory:$soundplayer$ soundvolume:$svol$"
 
   # Course
   e_warp:                 "notify io:sound sound:maro:warp soundcategory:$soundcat$ soundvolume:$svol$"
