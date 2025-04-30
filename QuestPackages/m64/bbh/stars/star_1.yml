@@ -15,11 +15,24 @@ events:
   init_s1:                "folder e_s1_add_obj_boos"
   e_s1_add_obj_boos:      "run ^objective add o_s1_boo_1 ^objective add o_s1_boo_2 ^objective add o_s1_boo_3 ^objective add o_s1_boo_4 ^objective add o_s1_boo_5"
 
+  # Fake boos
+  e_s1_hide_boo_1:       "command togglefakeskull %player% bbh_boo_s1_1 hide"
+  e_s1_hide_boo_2:       "command togglefakeskull %player% bbh_boo_s1_2 hide"
+  e_s1_hide_boo_3:       "command togglefakeskull %player% bbh_boo_s1_3 hide"
+  e_s1_hide_boo_4:       "command togglefakeskull %player% bbh_boo_s1_4 hide"
+  e_s1_hide_boo_5:       "command togglefakeskull %player% bbh_boo_s1_5 hide"
   
   # Killed boo
   e_s1_killed_boo:        "folder e_s1_sfx_boo_die,e_s1_point_bk_add,if_killed_all_s1"
   e_s1_sfx_boo_die:       "notify io:sound sound:entity.allay.death soundvolume:10"
   e_s1_point_bk_add:      "point bbh_s1_bk 1 action:add"
+
+  # Killed boo individual
+  e_s1_got_boo_1:         "folder e_s1_hide_boo_1,e_s1_killed_boo"
+  e_s1_got_boo_2:         "folder e_s1_hide_boo_2,e_s1_killed_boo"
+  e_s1_got_boo_3:         "folder e_s1_hide_boo_3,e_s1_killed_boo"
+  e_s1_got_boo_4:         "folder e_s1_hide_boo_4,e_s1_killed_boo"
+  e_s1_got_boo_5:         "folder e_s1_hide_boo_5,e_s1_killed_boo"
 
   # Check win
   if_killed_all_s1:       "if chk_s1_killed_all e_s1_spawn_star else core-main.e_dummy"
@@ -58,8 +71,8 @@ conditions:
 
 objectives:
   o_s1_star:              "action right any loc:$s1.star_loc$ events:win_s1"
-  o_s1_boo_1:             "action right any loc:$s1.boo_1_loc$ events:e_s1_killed_boo"
-  o_s1_boo_2:             "action right any loc:$s1.boo_2_loc$ events:e_s1_killed_boo"
-  o_s1_boo_3:             "action right any loc:$s1.boo_3_loc$ events:e_s1_killed_boo"
-  o_s1_boo_4:             "action right any loc:$s1.boo_4_loc$ events:e_s1_killed_boo"
-  o_s1_boo_5:             "action right any loc:$s1.boo_5_loc$ events:e_s1_killed_boo"
+  o_s1_boo_1:             "action right any loc:$s1.boo_1_loc$ events:e_s1_got_boo_1"
+  o_s1_boo_2:             "action right any loc:$s1.boo_2_loc$ events:e_s1_got_boo_2"
+  o_s1_boo_3:             "action right any loc:$s1.boo_3_loc$ events:e_s1_got_boo_3"
+  o_s1_boo_4:             "action right any loc:$s1.boo_4_loc$ events:e_s1_got_boo_4"
+  o_s1_boo_5:             "action right any loc:$s1.boo_5_loc$ events:e_s1_got_boo_5"
