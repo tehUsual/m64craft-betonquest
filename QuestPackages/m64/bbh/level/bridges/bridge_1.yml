@@ -5,6 +5,7 @@ variables:
     region:               bbh_brg_1a
     a:                    418 47 -470
     b:                    419 47 -470
+    loc:                  418;47;-470;marocraft
   brg1b:
     region:               bbh_brg_1b
     a:                    418 47 -469
@@ -29,6 +30,7 @@ variables:
     region:               bbh_brg_1g
     a:                    418 47 -464
     b:                    419 47 -464
+  varloc:                 419;47;-464;marocraft
 
 
 events:
@@ -48,6 +50,7 @@ events:
   e_obj_add_brg_7g:       "objective add o_brg_1g"
 
   # Bridge: Restore
+  if_restore_brg_1:       "if !chk_brg_1a_block e_restore_brg_1 else core-main.e_dummy"
   e_restore_brg_1:        "folder e_restore_brg_1_g1"
   e_restore_brg_1_g1:     "folder e_restore_brg_1a,e_restore_brg_1b,e_restore_brg_1c,e_restore_brg_1d,e_restore_brg_1e,e_restore_brg_1f,e_restore_brg_1g"
   e_restore_brg_1a:       "folder e_brg_1a_block_set,e_gtag_del_brg_1a"
@@ -59,7 +62,7 @@ events:
   e_restore_brg_1g:       "folder e_brg_1g_block_set,e_gtag_del_brg_1g"
 
   # Bridge: Cleanup
-  e_deit_brg_1:           "folder e_obj_del_brg_1_g1,e_restore_brg_1"
+  e_deit_brg_1:           "folder e_obj_del_brg_1_g1,if_restore_brg_1"
   e_obj_del_brg_1_g1:     "folder e_obj_del_brg_1a,e_obj_del_brg_1b,e_obj_del_brg_1c,e_obj_del_brg_1d,e_obj_del_brg_1e,e_obj_del_brg_1f,e_obj_del_brg_1g"
   e_obj_del_brg_1a:       "objective remove o_brg_1a"
   e_obj_del_brg_1b:       "objective remove o_brg_1b"
@@ -133,7 +136,6 @@ events:
   e_brg_1g_block_set:     "command execute in minecraft:overworld run fill $brg1g.a$ $brg1g.b$ minecraft:$brg_block$"
   e_gtag_del_brg_1g:      "globaltag delete $brg1g.region$"
 
-
 conditions:
   chk_brg_1a_exist:       "globaltag bbh_brg_1a"
   chk_brg_1b_exist:       "globaltag bbh_brg_1b"
@@ -142,6 +144,8 @@ conditions:
   chk_brg_1e_exist:       "globaltag bbh_brg_1e"
   chk_brg_1f_exist:       "globaltag bbh_brg_1f"
   chk_brg_1g_exist:       "globaltag bbh_brg_1g"
+
+  chk_brg_1a_block:       "testforblock $brg1a.loc$ $brg_block$"
 
 
 objectives:

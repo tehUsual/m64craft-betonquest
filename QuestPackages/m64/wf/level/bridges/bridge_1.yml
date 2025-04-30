@@ -5,6 +5,7 @@ variables:
     region:               wf_brg_1a
     a:                    -378 92 -442
     b:                    -375 92 -442
+    loc:                  -378;92;-442;marocraft
   brg1b:
     region:               wf_brg_1b
     a:                    -378 92 -441
@@ -68,6 +69,7 @@ events:
   e_obj_add_brg_1k:       "objective add o_brg_1k"
 
   # Bridge: Restore
+  if_restore_brg_1:       "if !chk_brg_1a_block e_restore_brg_1 else core-main.e_dummy"
   e_restore_brg_1:        "folder e_restore_brg_1_g1,e_restore_brg_1_g2"
   e_restore_brg_1_g1:     "folder e_restore_brg_1a,e_restore_brg_1b,e_restore_brg_1c,e_restore_brg_1d,e_restore_brg_1e,e_restore_brg_1f"
   e_restore_brg_1_g2:     "folder e_restore_brg_1g,e_restore_brg_1h,e_restore_brg_1i,e_restore_brg_1j,e_restore_brg_1k"
@@ -212,6 +214,8 @@ conditions:
   chk_brg_1i_exist:       "globaltag wf_brg_1i"
   chk_brg_1j_exist:       "globaltag wf_brg_1j"
   chk_brg_1k_exist:       "globaltag wf_brg_1k"
+
+  chk_brg_1a_block:       "testforblock $brg1a.loc$ $brg_block$"
 
 
 objectives:
