@@ -5,9 +5,9 @@ variables:
 
 
 events:
-  init_level:           "folder init_spawns,init_zones,init_bridges,init_falltp,init_cinv,init_stars,e_play_music,init_intro,init_fakes"
+  init_level:           "folder init_spawns,init_zones,init_bridges,init_falltp,init_cinv,init_stars,e_play_music,init_fakes" # init_intro
   deit_level:           "folder deit_spawns,deit_zones,deit_bridges,deit_falltp,deit_cinv,deit_stars,e_stop_music"
-  unlo_level:           "folder deit_fakes,exit_level period:5 ticks"
+  unlo_level:           "folder deit_fakes,exit_level period:20 ticks"
   exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
 
   on_death:             "folder e_notify_death,exit_level,e_point_add_death,e_gpoint_add_death"
@@ -38,13 +38,40 @@ events:
   e_point_add_death:    "point bbh_deaths 1 action:add"
   e_gpoint_add_death:   "globalpoint bbh_deaths 1 action:add"
 
-  # Fake blocks
-  init_fakes:           "folder init_redcoins,init_s1_boos delay:1"
-  deit_fakes:           "folder deit_redcoins,deit_s1_boos period:2 ticks"
+  ## Fake blocks
+  init_fakes:           "folder init_redcoins,init_s1_boos,init_stairs,init_s2_boos delay:1"
+  # fake red coins
   init_redcoins:        "command showfakeskulls %player% bbh_rc_1 bbh_rc_2 bbh_rc_3 bbh_rc_4 bbh_rc_5 bbh_rc_6 bbh_rc_7 bbh_rc_8 bbh_rc_9 bbh_rc_10 bbh_rc_11 bbh_rc_12"
-  deit_redcoins:        "command hidefakeskulls %player% bbh_rc_1 bbh_rc_2 bbh_rc_3 bbh_rc_4 bbh_rc_5 bbh_rc_6 bbh_rc_7 bbh_rc_8 bbh_rc_9 bbh_rc_10 bbh_rc_11 bbh_rc_12"
+  # fake s1 boos
   init_s1_boos:         "command showfakeskulls %player% bbh_boo_s1_1 bbh_boo_s1_2 bbh_boo_s1_3 bbh_boo_s1_4 bbh_boo_s1_5"
+  # fake s2 boos
+  init_s2_boos:         "folder init_s2_boos_c1,init_s2_boos_c2,init_s2_boos_c3 period:1"
+  init_s2_boos_c1:      "command showfakeskulls %player% bbh_boo_s2_1 bbh_boo_s2_2 bbh_boo_s2_3 bbh_boo_s2_4 bbh_boo_s2_5 bbh_boo_s2_6 bbh_boo_s2_7 bbh_boo_s2_8 bbh_boo_s2_9"
+  init_s2_boos_c2:      "command showfakeskulls %player% bbh_boo_s2_10 bbh_boo_s2_11 bbh_boo_s2_12 bbh_boo_s2_13 bbh_boo_s2_14 bbh_boo_s2_15 bbh_boo_s2_16 bbh_boo_s2_17"
+  init_s2_boos_c3:      "command showfakeskulls %player% bbh_boo_s2_18 bbh_boo_s2_19 bbh_boo_s2_20 bbh_boo_s2_21 bbh_boo_s2_22 bbh_boo_s2_23 bbh_boo_s2_24 bbh_boo_s2_25"
+
+
+  # fake stairs
+  init_stairs:          "if chk_s1_obtained e_init_stairs else core-main.e_dummy"
+  e_init_stairs:        "folder init_stairs_left,init_stairs_right period:1 ticks"
+  init_stairs_left:     "command showfakeblocks %player% bbh_stair_1l bbh_stair_2l bbh_stair_3l bbh_stair_4l bbh_stair_5l bbh_stair_6l bbh_stair_7l bbh_stair_8l"
+  init_stairs_right:    "command showfakeblocks %player% bbh_stair_1r bbh_stair_2r bbh_stair_3r bbh_stair_4r bbh_stair_5r bbh_stair_6r bbh_stair_7r bbh_stair_8r"
+
+  deit_fakes:           "folder deit_redcoins,deit_s1_boos,deit_stairs_left,deit_stairs_right,deit_s2_boos_c1,deit_s2_boos_c2,deit_s2_boos_c3 period:2 ticks"
+  deit_redcoins:        "command hidefakeskulls %player% bbh_rc_1 bbh_rc_2 bbh_rc_3 bbh_rc_4 bbh_rc_5 bbh_rc_6 bbh_rc_7 bbh_rc_8 bbh_rc_9 bbh_rc_10 bbh_rc_11 bbh_rc_12"
   deit_s1_boos:         "command hidefakeskulls %player% bbh_boo_s1_1 bbh_boo_s1_2 bbh_boo_s1_3 bbh_boo_s1_4 bbh_boo_s1_5"
+  deit_stairs_left:     "command hidefakeblocks %player% bbh_stair_1l bbh_stair_2l bbh_stair_3l bbh_stair_4l bbh_stair_5l bbh_stair_6l bbh_stair_7l bbh_stair_8l"
+  deit_stairs_right:    "command hidefakeblocks %player% bbh_stair_1r bbh_stair_2r bbh_stair_3r bbh_stair_4r bbh_stair_5r bbh_stair_6r bbh_stair_7r bbh_stair_8r"
+  deit_s2_boos_c1:      "command hidefakeskulls %player% bbh_boo_s2_1 bbh_boo_s2_2 bbh_boo_s2_3 bbh_boo_s2_4 bbh_boo_s2_5 bbh_boo_s2_6 bbh_boo_s2_7 bbh_boo_s2_8 bbh_boo_s2_9"
+  deit_s2_boos_c2:      "command hidefakeskulls %player% bbh_boo_s2_10 bbh_boo_s2_11 bbh_boo_s2_12 bbh_boo_s2_13 bbh_boo_s2_14 bbh_boo_s2_15 bbh_boo_s2_16 bbh_boo_s2_17"
+  deit_s2_boos_c3:      "command hidefakeskulls %player% bbh_boo_s2_18 bbh_boo_s2_19 bbh_boo_s2_20 bbh_boo_s2_21 bbh_boo_s2_22 bbh_boo_s2_23 bbh_boo_s2_24 bbh_boo_s2_25"
+  #deit_fake_blocks:     "command hideallfakeblocks %player%"
+  #deit_fake_skulls:     "command hideallfakeskulls %player%"
+
+  
+
+
+  e_notifdebug_bbh:     "notify sending"
 
 objectives:
   o_respawn:            "die cancel respawn:$respawn$ events:on_death"

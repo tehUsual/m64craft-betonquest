@@ -1,7 +1,7 @@
 variables:
   s1:
-    star_loc:             400;51;-453;marocraft
-    star_loc_xyz:         400 51 -453
+    star_loc:             399;60;-458;marocraft
+    star_loc_xyz:         399 60 -458
     boo_1_loc:            416;50;-435;marocraft		# 1st floor, south left room
     boo_2_loc:            417;50;-457;marocraft		# falling bridge
     boo_3_loc:            378;50;-468;marocraft		# fake room
@@ -23,8 +23,7 @@ events:
   e_s1_hide_boo_5:       "command togglefakeskull %player% bbh_boo_s1_5 hide"
   
   # Killed boo
-  e_s1_killed_boo:        "folder e_s1_sfx_boo_die,e_s1_point_bk_add,if_killed_all_s1"
-  e_s1_sfx_boo_die:       "notify io:sound sound:entity.allay.death soundvolume:10"
+  e_s1_killed_boo:        "folder core-sfx.e_boo_die,e_s1_point_bk_add,if_killed_all_s1"
   e_s1_point_bk_add:      "point bbh_s1_bk 1 action:add"
 
   # Killed boo individual
@@ -38,11 +37,21 @@ events:
   if_killed_all_s1:       "if chk_s1_killed_all e_s1_spawn_star else core-main.e_dummy"
 
   # Spawn star
-  e_s1_spawn_star:        "folder e_s1_show_star,e_s1_summon_firework,core-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star"
+  e_s1_spawn_star:        "folder e_s1_show_star,e_s1_spawn_stairs,e_s1_summon_firework,core-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star"
   e_s1_show_star:         "command togglefakeblock %player% bbh_star_1 show"
   e_s1_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s1.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
   e_s1_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s1_star:      "objective add o_s1_star"
+
+  e_s1_spawn_stairs:      "folder e_s1_spwst_1,e_s1_spwst_2,e_s1_spwst_3,e_s1_spwst_4,e_s1_spwst_5,e_s1_spwst_6,e_s1_spwst_7,e_s1_spwst_8 period:2 seconds"
+  e_s1_spwst_1:           "command showfakeblocks %player% bbh_stair_1l bbh_stair_1r"
+  e_s1_spwst_2:           "command showfakeblocks %player% bbh_stair_2l bbh_stair_2r"
+  e_s1_spwst_3:           "command showfakeblocks %player% bbh_stair_3l bbh_stair_3r"
+  e_s1_spwst_4:           "command showfakeblocks %player% bbh_stair_4l bbh_stair_4r"
+  e_s1_spwst_5:           "command showfakeblocks %player% bbh_stair_5l bbh_stair_5r"
+  e_s1_spwst_6:           "command showfakeblocks %player% bbh_stair_6l bbh_stair_6r"
+  e_s1_spwst_7:           "command showfakeblocks %player% bbh_stair_7l bbh_stair_7r"
+  e_s1_spwst_8:           "command showfakeblocks %player% bbh_stair_8l bbh_stair_8r"
 
   # Win
   win_s1:                 "folder e_notif_s1_win,core-sfx.e_got_star,deit_s1,if_firstwin_s1"

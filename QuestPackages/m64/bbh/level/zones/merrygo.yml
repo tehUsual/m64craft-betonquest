@@ -22,7 +22,7 @@ events:
   # Enter merrygoround
   on_merrygo_enter:         "folder e_play_music_merrygo,e_obj_add_merryo_exit"
   # Exit merrygoround
-  on_merrygo_leave:         "folder e_stop_music,e_play_music,e_obj_add_merrygo_enter"
+  on_merrygo_leave:         "folder e_play_music,e_obj_add_merrygo_enter"
 
 
 objectives:

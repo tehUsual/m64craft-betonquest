@@ -17,7 +17,7 @@ events:
 
 
   # On fall
-  on_falltp:            "folder e_tp_fall_water"
+  on_falltp:            "folder e_tp_fall_water,core-sfx.e_boo_laugh"
   e_tp_fall_water:      "teleport $fall_warp$"
 
 

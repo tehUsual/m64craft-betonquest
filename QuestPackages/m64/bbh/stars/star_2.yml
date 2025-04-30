@@ -3,28 +3,28 @@ variables:
     star_loc:             374;26;-457;marocraft
     star_loc_xyz:         374 26 -457
     boo_1_loc:            387;27;-447;marocraft
-    boo_2_loc:            384;27;-449;marocraft
-    boo_3_loc:            385;28;-450;marocraft
-    boo_4_loc:            387;28;-451;marocraft
-    boo_5_loc:            389;24;-451;marocraft
-    boo_6_loc:            385;25;-452;marocraft
-    boo_7_loc:            386;26;-454;marocraft
-    boo_8_loc:            390;27;-454;marocraft
-    boo_9_loc:            390;28;-456;marocraft
+    boo_2_loc:            385;25;-452;marocraft
+    boo_3_loc:            382;28;-457;marocraft
+    boo_4_loc:            381;26;-457;marocraft
+    boo_5_loc:            377;27;-462;marocraft
+    boo_6_loc:            383;23;-459;marocraft
+    boo_7_loc:            387;25;-460;marocraft
+    boo_8_loc:            389;24;-465;marocraft
+    boo_9_loc:            385;28;-468;marocraft
     boo_10_loc:           388;28;-458;marocraft
-    boo_11_loc:           382;28;-457;marocraft
-    boo_12_loc:           381;26;-457;marocraft
-    boo_13_loc:           378;25;-453;marocraft
-    boo_14_loc:           377;27;-462;marocraft
-    boo_15_loc:           382;24;-463;marocraft
-    boo_16_loc:           383;23;-459;marocraft
+    boo_11_loc:           389;24;-451;marocraft
+    boo_12_loc:           386;26;-454;marocraft
+    boo_13_loc:           390;27;-454;marocraft
+    boo_14_loc:           387;28;-451;marocraft
+    boo_15_loc:           394;28;-463;marocraft
+    boo_16_loc:           390;28;-456;marocraft
     boo_17_loc:           385;24;-459;marocraft
-    boo_18_loc:           387;25;-460;marocraft
-    boo_19_loc:           386;27;-463;marocraft
-    boo_20_loc:           385;28;-468;marocraft
-    boo_21_loc:           390;27;-466;marocraft
-    boo_22_loc:           389;24;-465;marocraft
-    boo_23_loc:           394;28;-463;marocraft
+    boo_18_loc:           384;27;-449;marocraft
+    boo_19_loc:           385;28;-450;marocraft
+    boo_20_loc:           378;25;-453;marocraft
+    boo_21_loc:           382;24;-463;marocraft
+    boo_22_loc:           390;27;-466;marocraft
+    boo_23_loc:           386;27;-463;marocraft
     boo_24_loc:           396;24;-462;marocraft
     boo_25_loc:           395;25;-457;marocraft
 
@@ -40,24 +40,75 @@ events:
   e_s2_add_obj_boo_g4:    "run ^objective add o_s2_boo_16 ^objective add o_s2_boo_17 ^objective add o_s2_boo_18 ^objective add o_s2_boo_19 ^objective add o_s2_boo_20"
   e_s2_add_obj_boo_g5:    "run ^objective add o_s2_boo_21 ^objective add o_s2_boo_22 ^objective add o_s2_boo_23 ^objective add o_s2_boo_24 ^objective add o_s2_boo_25"
 
+  e_s2_hide_boo_1:        "command togglefakeskull %player% bbh_boo_s2_1 hide"
+  e_s2_hide_boo_2:        "command togglefakeskull %player% bbh_boo_s2_2 hide"
+  e_s2_hide_boo_3:        "command togglefakeskull %player% bbh_boo_s2_3 hide"
+  e_s2_hide_boo_4:        "command togglefakeskull %player% bbh_boo_s2_4 hide"
+  e_s2_hide_boo_5:        "command togglefakeskull %player% bbh_boo_s2_5 hide"
+  e_s2_hide_boo_6:        "command togglefakeskull %player% bbh_boo_s2_6 hide"
+  e_s2_hide_boo_7:        "command togglefakeskull %player% bbh_boo_s2_7 hide"
+  e_s2_hide_boo_8:        "command togglefakeskull %player% bbh_boo_s2_8 hide"
+  e_s2_hide_boo_9:        "command togglefakeskull %player% bbh_boo_s2_9 hide"
+  e_s2_hide_boo_10:       "command togglefakeskull %player% bbh_boo_s2_10 hide"
+  e_s2_hide_boo_11:       "command togglefakeskull %player% bbh_boo_s2_11 hide"
+  e_s2_hide_boo_12:       "command togglefakeskull %player% bbh_boo_s2_12 hide"
+  e_s2_hide_boo_13:       "command togglefakeskull %player% bbh_boo_s2_13 hide"
+  e_s2_hide_boo_14:       "command togglefakeskull %player% bbh_boo_s2_14 hide"
+  e_s2_hide_boo_15:       "command togglefakeskull %player% bbh_boo_s2_15 hide"
+  e_s2_hide_boo_16:       "command togglefakeskull %player% bbh_boo_s2_16 hide"
+  e_s2_hide_boo_17:       "command togglefakeskull %player% bbh_boo_s2_17 hide"
+  e_s2_hide_boo_18:       "command togglefakeskull %player% bbh_boo_s2_18 hide"
+  e_s2_hide_boo_19:       "command togglefakeskull %player% bbh_boo_s2_19 hide"
+  e_s2_hide_boo_20:       "command togglefakeskull %player% bbh_boo_s2_20 hide"
+  e_s2_hide_boo_21:       "command togglefakeskull %player% bbh_boo_s2_21 hide"
+  e_s2_hide_boo_22:       "command togglefakeskull %player% bbh_boo_s2_22 hide"
+  e_s2_hide_boo_23:       "command togglefakeskull %player% bbh_boo_s2_23 hide"
+  e_s2_hide_boo_24:       "command togglefakeskull %player% bbh_boo_s2_24 hide"
+  e_s2_hide_boo_25:       "command togglefakeskull %player% bbh_boo_s2_25 hide"
 
-  e_s2_sfx_boo_laugh:     "notify io:sound sound:entity.allay.ambient_with_item soundvolume:10"
-  e_s2_sfx_boo_die:       "notify io:sound sound:entity.allay.death soundvolume:10"
+  # Killed boo individual
+  e_s2_got_boo_1:         "folder e_s2_hide_boo_1,e_s2_killed_boo"
+  e_s2_got_boo_2:         "folder e_s2_hide_boo_2,e_s2_killed_boo"
+  e_s2_got_boo_3:         "folder e_s2_hide_boo_3,e_s2_killed_boo"
+  e_s2_got_boo_4:         "folder e_s2_hide_boo_4,e_s2_killed_boo"
+  e_s2_got_boo_5:         "folder e_s2_hide_boo_5,e_s2_killed_boo"
+  e_s2_got_boo_6:         "folder e_s2_hide_boo_6,e_s2_killed_boo"
+  e_s2_got_boo_7:         "folder e_s2_hide_boo_7,e_s2_killed_boo"
+  e_s2_got_boo_8:         "folder e_s2_hide_boo_8,e_s2_killed_boo"
+  e_s2_got_boo_9:         "folder e_s2_hide_boo_9,e_s2_killed_boo"
+  e_s2_got_boo_10:        "folder e_s2_hide_boo_10,e_s2_killed_boo"
+  e_s2_got_boo_11:        "folder e_s2_hide_boo_11,e_s2_killed_boo"
+  e_s2_got_boo_12:        "folder e_s2_hide_boo_12,e_s2_killed_boo"
+  e_s2_got_boo_13:        "folder e_s2_hide_boo_13,e_s2_killed_boo"
+  e_s2_got_boo_14:        "folder e_s2_hide_boo_14,e_s2_killed_boo"
+  e_s2_got_boo_15:        "folder e_s2_hide_boo_15,e_s2_killed_boo"
+  e_s2_got_boo_16:        "folder e_s2_hide_boo_16,e_s2_killed_boo"
+  e_s2_got_boo_17:        "folder e_s2_hide_boo_17,e_s2_killed_boo"
+  e_s2_got_boo_18:        "folder e_s2_hide_boo_18,e_s2_killed_boo"
+  e_s2_got_boo_19:        "folder e_s2_hide_boo_19,e_s2_killed_boo"
+  e_s2_got_boo_20:        "folder e_s2_hide_boo_20,e_s2_killed_boo"
+  e_s2_got_boo_21:        "folder e_s2_hide_boo_21,e_s2_killed_boo"
+  e_s2_got_boo_22:        "folder e_s2_hide_boo_22,e_s2_killed_boo"
+  e_s2_got_boo_23:        "folder e_s2_hide_boo_23,e_s2_killed_boo"
+  e_s2_got_boo_24:        "folder e_s2_hide_boo_24,e_s2_killed_boo"
+  e_s2_got_boo_25:        "folder e_s2_hide_boo_25,e_s2_killed_boo"
+
 
   # Killed boo
-  e_s2_killed_boo:        "folder e_s2_sfx_boo_die,e_s2_point_bk_add,e_s2_notify_bk,if_killed_all_s2"
+  e_s2_killed_boo:        "folder core-sfx.e_boo_die,e_s2_point_bk_add,e_s2_notify_bk,if_killed_all_s2"
   e_s2_point_bk_add:      "point bbh_s2_bk 1 action:add"
-  e_s2_notify_bk:         "notify &3Red coin #1 found! %point.bbh_s2_bk.amount%/25"
+  e_s2_notify_bk:         "notify &3God boo! %point.bbh_s2_bk.amount%/25"
 
-  # If all killed
+  # Check win
   if_killed_all_s2:       "if chk_s2_killed_all e_s2_all_killed else core-main.e_dummy"
-  e_s2_all_killed:        "folder e_s2_spawn_star,e_s2_summon_firework,core-sfx.e_star_spawn,e_s2_notif_spawn_star,e_obj_add_s2_star,e_s2_gp_add_star,e_s2_tag_add_spawned"
-  e_s2_spawn_star:        "setblock RAW_GOLD_BLOCK $s2.star_loc$"
+  e_s2_all_killed:        "folder e_s2_spawn_star"
+  
+  # Spawn star
+  e_s2_spawn_star:        "folder e_s2_show_star,e_s2_summon_firework,core-sfx.e_star_spawn,e_s2_notif_spawn_star,e_obj_add_s2_star"
+  e_s2_show_star:         "command togglefakeblock %player% bbh_star_2 show"
   e_s2_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s2.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
   e_s2_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s2_star:      "objective add o_s2_star"
-  e_s2_gp_add_star:       "globalpoint bbh_s2 1 action:add"
-  e_s2_tag_add_spawned:   "tag add s2_spawned"
 
   # Win
   win_s2:                 "folder e_notif_s2_win,core-sfx.e_got_star,deit_s2,if_firstwin_s2"
@@ -68,11 +119,10 @@ events:
   firstwin_s2:            "folder e_broad_s2_first,tag_add_s2_win,e_stop_music,exit_star"
   e_broad_s2_first:       "command broadcast &6%player% &2got a star: [BBH] Ride big boo's merry-go-round"
   tag_add_s2_win:         "tag add s2"
-
-
   
   # Cleanup
-  deit_s2:                "folder e_s2_del_obj_boos,e_obj_del_s2_star,e_s2_del_point_bk,if_s2_spawned,e_s2_tag_del_spawned"
+  deit_s2:                "folder e_s2_del_obj_boos,e_obj_del_s2_star,e_s2_del_point_bk,e_s2_despawn_star"
+
   e_s2_del_obj_boos:      "folder e_s2_del_obj_boo_g1,e_s2_del_obj_boo_g2,e_s2_del_obj_boo_g3,e_s2_del_obj_boo_g4,e_s2_del_obj_boo_g5"
   e_s2_del_obj_boo_g1:    "run ^objective remove o_s2_boo_1 ^objective remove o_s2_boo_2 ^objective remove o_s2_boo_3 ^objective remove o_s2_boo_4 ^objective remove o_s2_boo_5"
   e_s2_del_obj_boo_g2:    "run ^objective remove o_s2_boo_6 ^objective remove o_s2_boo_7 ^objective remove o_s2_boo_8 ^objective remove o_s2_boo_9 ^objective remove o_s2_boo_10"
@@ -83,17 +133,8 @@ events:
   e_obj_del_s2_star:      "objective remove o_s2_star"
   e_s2_del_point_bk:      "point bbh_s2_bk 0 action:set"
 
-
-  if_s2_spawned:          "if chk_s2_spawned e_s2_del_spawned else core-main.e_dummy"
-  e_s2_del_spawned:       "folder e_s2_gp_sub_star,if_s2_despawn"
-  e_s2_gp_sub_star:       "globalpoint bbh_s2 1 action:subtract"
-
-  if_s2_despawn:          "if !chk_s2_spawn_count e_s2_delete_star else core-main.e_dummy"
-  e_s2_tag_del_spawned:   "tag delete s2_spawned"
-
-  e_s2_delete_star:       "folder e_s2_despawn_star,e_s2_reset_star_count"
-  e_s2_despawn_star:      "setblock AIR $s2.star_loc$"
-  e_s2_reset_star_count:  "globalpoint bbh_s2 0 action:set"
+  e_s2_despawn_star:      "folder e_s2_hide_star"
+  e_s2_hide_star:         "command togglefakeblock %player% bbh_star_2 hide"
 
 
 conditions:
@@ -107,28 +148,28 @@ conditions:
 objectives:
   o_s2_star:              "action right any loc:$s2.star_loc$ events:win_s2"
 
-  o_s2_boo_1:             "action right any loc:$s2.boo_1_loc$ events:e_s2_killed_boo"
-  o_s2_boo_2:             "action right any loc:$s2.boo_2_loc$ events:e_s2_killed_boo"
-  o_s2_boo_3:             "action right any loc:$s2.boo_3_loc$ events:e_s2_killed_boo"
-  o_s2_boo_4:             "action right any loc:$s2.boo_4_loc$ events:e_s2_killed_boo"
-  o_s2_boo_5:             "action right any loc:$s2.boo_5_loc$ events:e_s2_killed_boo"
-  o_s2_boo_6:             "action right any loc:$s2.boo_6_loc$ events:e_s2_killed_boo"
-  o_s2_boo_7:             "action right any loc:$s2.boo_7_loc$ events:e_s2_killed_boo"
-  o_s2_boo_8:             "action right any loc:$s2.boo_8_loc$ events:e_s2_killed_boo"
-  o_s2_boo_9:             "action right any loc:$s2.boo_9_loc$ events:e_s2_killed_boo"
-  o_s2_boo_10:            "action right any loc:$s2.boo_10_loc$ events:e_s2_killed_boo"
-  o_s2_boo_11:            "action right any loc:$s2.boo_11_loc$ events:e_s2_killed_boo"
-  o_s2_boo_12:            "action right any loc:$s2.boo_12_loc$ events:e_s2_killed_boo"
-  o_s2_boo_13:            "action right any loc:$s2.boo_13_loc$ events:e_s2_killed_boo"
-  o_s2_boo_14:            "action right any loc:$s2.boo_14_loc$ events:e_s2_killed_boo"
-  o_s2_boo_15:            "action right any loc:$s2.boo_15_loc$ events:e_s2_killed_boo"
-  o_s2_boo_16:            "action right any loc:$s2.boo_16_loc$ events:e_s2_killed_boo"
-  o_s2_boo_17:            "action right any loc:$s2.boo_17_loc$ events:e_s2_killed_boo"
-  o_s2_boo_18:            "action right any loc:$s2.boo_18_loc$ events:e_s2_killed_boo"
-  o_s2_boo_19:            "action right any loc:$s2.boo_19_loc$ events:e_s2_killed_boo"
-  o_s2_boo_20:            "action right any loc:$s2.boo_20_loc$ events:e_s2_killed_boo"
-  o_s2_boo_21:            "action right any loc:$s2.boo_21_loc$ events:e_s2_killed_boo"
-  o_s2_boo_22:            "action right any loc:$s2.boo_22_loc$ events:e_s2_killed_boo"
-  o_s2_boo_23:            "action right any loc:$s2.boo_23_loc$ events:e_s2_killed_boo"
-  o_s2_boo_24:            "action right any loc:$s2.boo_24_loc$ events:e_s2_killed_boo"
-  o_s2_boo_25:            "action right any loc:$s2.boo_25_loc$ events:e_s2_killed_boo"
+  o_s2_boo_1:             "action right any loc:$s2.boo_1_loc$ events:e_s2_got_boo_1"
+  o_s2_boo_2:             "action right any loc:$s2.boo_2_loc$ events:e_s2_got_boo_2"
+  o_s2_boo_3:             "action right any loc:$s2.boo_3_loc$ events:e_s2_got_boo_3"
+  o_s2_boo_4:             "action right any loc:$s2.boo_4_loc$ events:e_s2_got_boo_4"
+  o_s2_boo_5:             "action right any loc:$s2.boo_5_loc$ events:e_s2_got_boo_5"
+  o_s2_boo_6:             "action right any loc:$s2.boo_6_loc$ events:e_s2_got_boo_6"
+  o_s2_boo_7:             "action right any loc:$s2.boo_7_loc$ events:e_s2_got_boo_7"
+  o_s2_boo_8:             "action right any loc:$s2.boo_8_loc$ events:e_s2_got_boo_8"
+  o_s2_boo_9:             "action right any loc:$s2.boo_9_loc$ events:e_s2_got_boo_9"
+  o_s2_boo_10:            "action right any loc:$s2.boo_10_loc$ events:e_s2_got_boo_10"
+  o_s2_boo_11:            "action right any loc:$s2.boo_11_loc$ events:e_s2_got_boo_11"
+  o_s2_boo_12:            "action right any loc:$s2.boo_12_loc$ events:e_s2_got_boo_12"
+  o_s2_boo_13:            "action right any loc:$s2.boo_13_loc$ events:e_s2_got_boo_13"
+  o_s2_boo_14:            "action right any loc:$s2.boo_14_loc$ events:e_s2_got_boo_14"
+  o_s2_boo_15:            "action right any loc:$s2.boo_15_loc$ events:e_s2_got_boo_15"
+  o_s2_boo_16:            "action right any loc:$s2.boo_16_loc$ events:e_s2_got_boo_16"
+  o_s2_boo_17:            "action right any loc:$s2.boo_17_loc$ events:e_s2_got_boo_17"
+  o_s2_boo_18:            "action right any loc:$s2.boo_18_loc$ events:e_s2_got_boo_18"
+  o_s2_boo_19:            "action right any loc:$s2.boo_19_loc$ events:e_s2_got_boo_19"
+  o_s2_boo_20:            "action right any loc:$s2.boo_20_loc$ events:e_s2_got_boo_20"
+  o_s2_boo_21:            "action right any loc:$s2.boo_21_loc$ events:e_s2_got_boo_21"
+  o_s2_boo_22:            "action right any loc:$s2.boo_22_loc$ events:e_s2_got_boo_22"
+  o_s2_boo_23:            "action right any loc:$s2.boo_23_loc$ events:e_s2_got_boo_23"
+  o_s2_boo_24:            "action right any loc:$s2.boo_24_loc$ events:e_s2_got_boo_24"
+  o_s2_boo_25:            "action right any loc:$s2.boo_25_loc$ events:e_s2_got_boo_25"
