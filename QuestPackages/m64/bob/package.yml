@@ -26,6 +26,7 @@ events:
 
   # Play music
   e_play_music:       "folder core-music.e_play_bob"
+  e_play_speedrun:    "folder core-music.e_play_secret_slide"
   e_stop_music:       "folder core-music.e_stop_music"
 
   ### --- Spawn / Respawn ---------------------------------------

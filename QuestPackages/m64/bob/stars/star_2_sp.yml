@@ -1,7 +1,8 @@
 variables:
   s2:
-    total_time:           61
-    total_time_notif:     60
+    total_time:           61  # seconds
+    total_time_ticks:     1220
+    total_time_notif:     60  # seconds
     delay_interval:       5
     start_loc:            -366;67;-20;marocraft
 
@@ -12,7 +13,7 @@ events:
   init_s2:                "folder e_obj_add_s2_start"
   e_obj_add_s2_start:     "objective add o_s2_start"
   # Start
-  start_s2:               "folder e_notif_s2_start,e_obj_add_s2_speedrun,e_obj_add_s2_goal,e_obj_add_s2_10sec"
+  start_s2:               "folder e_notif_s2_start,e_obj_add_s2_speedrun,e_obj_add_s2_goal,e_obj_add_s2_10sec,e_s2_timeleft_loop,e_play_speedrun"
   e_notif_s2_start:       "notify &3Koopa The Quick&r\n $s2.total_time_notif$ sec &3RUN! io:title"
   e_obj_add_s2_speedrun:  "objective add o_s2_speedrun"
   e_obj_add_s2_goal:      "objective add o_s2_goal"
@@ -41,11 +42,23 @@ events:
   e_obj_del_s2_goal:      "objective remove o_s2_goal"
   e_obj_del_s2_10sec:     "objective remove o_s2_speedrun_10sec"
   # Reload
-  reload_s2:              "folder deit_s2,init_s2"
+  reload_s2:              "folder deit_s2,e_play_music,init_s2"
+
+
+  # Bossbar
+  e_s2_timeleft_loop:     "folder e_s2_show_progress,e_s2_timeleft_loop conditions:chk_s2_running period:2"
+  e_s2_show_progress:     "notify io:bossbar barColor:GREEN style:SEGMENTED_10 stay:40 progress:%math.calc:objective.o_s2_speedrun.rawSeconds/$s2.total_time$%"
+  # barFlags: CREATE_FOG, DARKEN_SKY, PLAY_BOSS_MUSIC
+  # barColor: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
+  # progress: 0.0 .. 1.0
+  # style: SEGMENTED_10, SEGMENTED_12, SEGMENTED_20, SEGMENTED_6, SOLID
+  # stay: 70 (ticks)
+  # countdown: ticks (updates = stay / countdown)
 
 
 conditions:
   chk_s2_obtained:        "tag s2"
+  chk_s2_running:         "objective o_s2_speedrun"
 
 
 objectives:
