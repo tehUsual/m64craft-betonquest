@@ -5,8 +5,8 @@ variables:
 
 
 events:
-  init_level:           "folder init_spawns,init_zones,init_bridges,init_falltp,init_cinv,init_stars,e_play_music,init_fakes" # init_intro
-  deit_level:           "folder deit_spawns,deit_zones,deit_bridges,deit_falltp,deit_cinv,deit_stars,e_stop_music"
+  init_level:           "folder init_spawns,init_zones,init_bridges,init_falltp,init_cinv,init_trapdoor,init_stars,e_play_music,init_fakes,init_intro"
+  deit_level:           "folder deit_spawns,deit_zones,deit_bridges,deit_falltp,deit_cinv,deit_trapdoor,deit_stars,e_stop_music"
   unlo_level:           "folder deit_fakes,exit_level period:20 ticks"
   exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
 
@@ -67,9 +67,6 @@ events:
   deit_s2_boos_c3:      "command hidefakeskulls %player% bbh_boo_s2_18 bbh_boo_s2_19 bbh_boo_s2_20 bbh_boo_s2_21 bbh_boo_s2_22 bbh_boo_s2_23 bbh_boo_s2_24 bbh_boo_s2_25"
   #deit_fake_blocks:     "command hideallfakeblocks %player%"
   #deit_fake_skulls:     "command hideallfakeskulls %player%"
-
-  
-
 
   e_notifdebug_bbh:     "notify sending"
 
