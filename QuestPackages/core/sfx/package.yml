@@ -18,6 +18,9 @@ events:
   e_fall:                 "notify io:sound sound:maro:fall soundcategory:$soundplayer$ soundvolume:$svol$"
   e_fire_hurt:            "notify io:sound sound:maro:fire_hurt_short soundcategory:$soundplayer$ soundvolume:$svol$"
 
+  # Mobs
+  e_boo_die:              "notify io:sound sound:maro:boo_die soundcategory:$soundplayer$ soundvolume:$svol$"
+
   # Course
   e_warp:                 "notify io:sound sound:maro:warp soundcategory:$soundcat$ soundvolume:$svol$"
   e_star_spawn:           "notify io:sound sound:maro:star_spawn soundcategory:$soundcat$ soundvolume:$svol$"
