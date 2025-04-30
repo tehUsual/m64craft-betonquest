@@ -5,10 +5,10 @@ variables:
 
 
 events:
-  init_intro:           "folder e_intro_thunder_1,e_intro_thunder_2,e_intro_thunder_3,e_give_darkness period:1 delay:2"
+  init_intro:           "folder e_intro_thunder_1,e_intro_thunder_2,e_intro_thunder_3,e_intro_darkness period:1 delay:2"
 
 
   e_intro_thunder_1:    "command execute in minecraft:overworld run summon lightning_bolt $intro.thunder_1$"
   e_intro_thunder_2:    "command execute in minecraft:overworld run summon lightning_bolt $intro.thunder_2$"
   e_intro_thunder_3:    "command execute in minecraft:overworld at %player% run summon lightning_bolt ~ ~ ~-3"
-  e_give_darkness:      "effect DARKNESS 5 1 hidden noicon"
+  e_intro_darkness:     "effect DARKNESS 5 1 hidden noicon"
