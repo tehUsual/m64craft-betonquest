@@ -39,11 +39,12 @@ events:
   e_gpoint_add_death:   "globalpoint bbh_deaths 1 action:add"
 
   # Fake blocks
-  init_fakes:           "folder init_redcoins delay:1"
-  deit_fakes:           "folder deit_redcoins"
+  init_fakes:           "folder init_redcoins,init_s1_boos delay:1"
+  deit_fakes:           "folder deit_redcoins,deit_s1_boos period:2 ticks"
   init_redcoins:        "command showfakeskulls %player% bbh_rc_1 bbh_rc_2 bbh_rc_3 bbh_rc_4 bbh_rc_5 bbh_rc_6 bbh_rc_7 bbh_rc_8 bbh_rc_9 bbh_rc_10 bbh_rc_11 bbh_rc_12"
   deit_redcoins:        "command hidefakeskulls %player% bbh_rc_1 bbh_rc_2 bbh_rc_3 bbh_rc_4 bbh_rc_5 bbh_rc_6 bbh_rc_7 bbh_rc_8 bbh_rc_9 bbh_rc_10 bbh_rc_11 bbh_rc_12"
-
+  init_s1_boos:         "command showfakeskulls %player% bbh_boo_s1_1 bbh_boo_s1_2 bbh_boo_s1_3 bbh_boo_s1_4 bbh_boo_s1_5"
+  deit_s1_boos:         "command hidefakeskulls %player% bbh_boo_s1_1 bbh_boo_s1_2 bbh_boo_s1_3 bbh_boo_s1_4 bbh_boo_s1_5"
 
 objectives:
   o_respawn:            "die cancel respawn:$respawn$ events:on_death"

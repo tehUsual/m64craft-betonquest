@@ -55,7 +55,7 @@ events:
   tag_add_s1_win:         "tag add s1"
 
   # Cleanup
-  deit_s1:                "folder e_s1_del_obj_boos,e_obj_del_s1_star,e_s1_del_point_bk"
+  deit_s1:                "folder e_s1_del_obj_boos,e_obj_del_s1_star,e_s1_del_point_bk,e_s1_despawn_star"
   e_s1_del_obj_boos:      "run ^objective remove o_s1_boo_1 ^objective remove o_s1_boo_2 ^objective remove o_s1_boo_3 ^objective remove o_s1_boo_4 ^objective remove o_s1_boo_5"
   e_obj_del_s1_star:      "objective remove o_s1_star"
   e_s1_del_point_bk:      "point bbh_s1_bk 0 action:set"
