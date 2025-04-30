@@ -22,37 +22,35 @@ events:
   e_obj_add_s5_eye5:      "objective add o_s5_eye5"
   e_obj_add_s5_eye6:      "objective add o_s5_eye6"
 
-  e_s5_sfx_bboo_laugh:    "notify io:sound sound:entity.allay.ambient_with_item soundvolume:10 soundpitch:0.5"
-  e_s5_sfx_bboo_die:      "notify io:sound sound:entity.allay.death soundvolume:10 soundpitch:0.7"
-
   # Eye 1
-  e_s5_eye1:              "folder e_s5_sfx_bboo_laugh,e_s5_add_tag_eye1,if_all_eyes_s5"
+  e_s5_eye1:              "folder core-sfx.e_boo_laugh,e_s5_add_tag_eye1,if_all_eyes_s5"
   e_s5_add_tag_eye1:      "tag add s5_eye1"
   # Eye 2
-  e_s5_eye2:              "folder e_s5_sfx_bboo_laugh,e_s5_add_tag_eye2,if_all_eyes_s5"
+  e_s5_eye2:              "folder core-sfx.e_boo_laugh,e_s5_add_tag_eye2,if_all_eyes_s5"
   e_s5_add_tag_eye2:      "tag add s5_eye2"
   # Eye 3
-  e_s5_eye3:              "folder e_s5_sfx_bboo_laugh,e_s5_add_tag_eye3,if_all_eyes_s5"
+  e_s5_eye3:              "folder core-sfx.e_boo_laugh,e_s5_add_tag_eye3,if_all_eyes_s5"
   e_s5_add_tag_eye3:      "tag add s5_eye3"
   # Eye 4
-  e_s5_eye4:              "folder e_s5_sfx_bboo_laugh,e_s5_add_tag_eye4,if_all_eyes_s5"
+  e_s5_eye4:              "folder core-sfx.e_boo_laugh,e_s5_add_tag_eye4,if_all_eyes_s5"
   e_s5_add_tag_eye4:      "tag add s5_eye4"
   # Eye 5
-  e_s5_eye5:              "folder e_s5_sfx_bboo_laugh,e_s5_add_tag_eye5,if_all_eyes_s5"
+  e_s5_eye5:              "folder core-sfx.e_boo_laugh,e_s5_add_tag_eye5,if_all_eyes_s5"
   e_s5_add_tag_eye5:      "tag add s5_eye5"
   # Eye 6
-  e_s5_eye6:              "folder e_s5_sfx_bboo_laugh,e_s5_add_tag_eye6,if_all_eyes_s5"
+  e_s5_eye6:              "folder core-sfx.e_boo_laugh,e_s5_add_tag_eye6,if_all_eyes_s5"
   e_s5_add_tag_eye6:      "tag add s5_eye6"
 
   # If all eyes
   if_all_eyes_s5:         "if chk_s5_eye_all e_s5_boss_dead else core-main.e_dummy"
-  e_s5_boss_dead:         "folder e_s5_sfx_bboo_die,e_s5_spawn_star,e_s5_summon_firework,core-sfx.e_star_spawn,e_s5_notif_spawn_star,e_obj_add_s5_star,e_s5_gp_add_star,e_s5_tag_add_spawned"
-  e_s5_spawn_star:        "setblock RAW_GOLD_BLOCK $s5.star_loc$"
+  e_s5_boss_dead:         "folder e_s5_spawn_star"
+
+  # Spawn star
+  e_s5_spawn_star:        "folder core-sfx.e_boo_die,e_s5_show_star,e_s5_summon_firework,core-sfx.e_star_spawn,e_s5_notif_spawn_star,e_obj_add_s5_star"
+  e_s5_show_star:         "command togglefakeblock %player% bbh_star_5 show"
   e_s5_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s5.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
   e_s5_notif_spawn_star:  "notify &3A star has spawned! io:title"
   e_obj_add_s5_star:      "objective add o_s5_star"
-  e_s5_gp_add_star:       "globalpoint bbh_s5 1 action:add"
-  e_s5_tag_add_spawned:   "tag add s5_spawned"
 
   # Win
   win_s5:                 "folder e_notif_s5_win,core-sfx.e_got_star,deit_s5,if_firstwin_s5"
@@ -65,7 +63,7 @@ events:
   tag_add_s5_win:         "tag add s5"
 
   # Cleanup
-  deit_s5:                "folder e_obj_del_s5_star,e_obj_del_s5_eyes,e_s5_del_tags,if_s5_spawned,e_s5_tag_del_spawned"
+  deit_s5:                "folder e_obj_del_s5_star,e_obj_del_s5_eyes,e_s5_del_tags,e_s5_despawn_star"
   e_obj_del_s5_star:      "objective remove o_s5_star"
   e_obj_del_s5_eyes:      "folder e_obj_del_s5_eye1,e_obj_del_s5_eye2,e_obj_del_s5_eye3,e_obj_del_s5_eye4,e_obj_del_s5_eye5,e_obj_del_s5_eye6"
   e_obj_del_s5_eye1:      "objective remove o_s5_eye1"
@@ -76,16 +74,8 @@ events:
   e_obj_del_s5_eye6:      "objective remove o_s5_eye6"
   e_s5_del_tags:          "run ^tag delete s5_eye1 ^tag delete s5_eye2 ^tag delete s5_eye3 ^tag delete s5_eye4 ^tag delete s5_eye5 ^tag delete s5_eye6"
 
-  if_s5_spawned:          "if chk_s5_spawned e_s5_del_spawned else core-main.e_dummy"
-  e_s5_del_spawned:       "folder e_s5_gp_sub_star,if_s5_despawn"
-  e_s5_gp_sub_star:       "globalpoint bbh_s5 1 action:subtract"
-
-  if_s5_despawn:          "if !chk_s5_spawn_count e_s5_delete_star else core-main.e_dummy"
-  e_s5_tag_del_spawned:   "tag delete s5_spawned"
-
-  e_s5_delete_star:       "folder e_s5_despawn_star,e_s5_reset_star_count"
-  e_s5_despawn_star:      "setblock AIR $s5.star_loc$"
-  e_s5_reset_star_count:  "globalpoint bbh_s5 0 action:set"
+  e_s5_despawn_star:      "folder e_s5_hide_star"
+  e_s5_hide_star:         "command togglefakeblock %player% bbh_star_5 hide"
 
 
 conditions:
