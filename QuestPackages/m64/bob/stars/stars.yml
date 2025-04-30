@@ -23,5 +23,6 @@ events:
   e_clear_star_counter:   "point bob_stars 0 action:set"
 
   # Win star
-  exit_star:              "folder on_exit,core-sfx.e_exit_course,e_add_star_counter delay:4"
+  exit_star:              "folder on_exit,exit_course_sfx,e_add_star_counter delay:3"
+  exit_course_sfx:        "folder core-sfx.e_exit_course delay:30 ticks"
   e_add_star_counter:     "point bob_stars 1 action:add"
