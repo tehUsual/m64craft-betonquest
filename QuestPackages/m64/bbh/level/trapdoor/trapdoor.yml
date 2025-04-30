@@ -1,0 +1,127 @@
+variables:
+  td_delay:           20  # ticks
+  td1:
+    region:           bbh_td_1
+    a:                420;56;-439;marocraft
+    b:                420;56;-440;marocraft
+    c:                420;56;-441;marocraft
+    d:                420;56;-442;marocraft
+  td2:
+    region:           bbh_td_2
+    a:                419;56;-439;marocraft
+    b:                419;56;-440;marocraft
+    c:                419;56;-441;marocraft
+    d:                419;56;-442;marocraft
+  td3:
+    region:           bbh_td_3
+    a:                418;56;-439;marocraft
+    b:                418;56;-440;marocraft
+    c:                418;56;-441;marocraft
+    d:                418;56;-442;marocraft
+  td4:
+    region:           bbh_td_4
+    a:                417;56;-439;marocraft
+    b:                417;56;-440;marocraft
+    c:                417;56;-441;marocraft
+    d:                417;56;-442;marocraft
+  td5:
+    region:           bbh_td_5
+    a:                416;56;-439;marocraft
+    b:                416;56;-440;marocraft
+    c:                416;56;-441;marocraft
+    d:                416;56;-442;marocraft
+
+events:
+  init_trapdoor:      "folder e_td_obj_add_open"
+  deit_trapdoor:      "folder e_cleanup_td"
+
+
+  e_td_obj_add_open:  "folder e_td_obj_add_op_1,e_td_obj_add_op_2,e_td_obj_add_op_3,e_td_obj_add_op_4,e_td_obj_add_op_5"
+  e_td_obj_add_op_1:  "objective add o_td_1"
+  e_td_obj_add_op_2:  "objective add o_td_2"
+  e_td_obj_add_op_3:  "objective add o_td_3"
+  e_td_obj_add_op_4:  "objective add o_td_4"
+  e_td_obj_add_op_5:  "objective add o_td_5"
+
+
+  # Cleanup
+  e_cleanup_td:       "folder e_td_obj_del_open,e_td_obj_del_wait"
+  e_td_obj_del_open:  "folder e_td_obj_del_op_1,e_td_obj_del_op_2,e_td_obj_del_op_3,e_td_obj_del_op_4,e_td_obj_del_op_5"
+  e_td_obj_del_op_1:  "objective remove o_td_1"
+  e_td_obj_del_op_2:  "objective remove o_td_2"
+  e_td_obj_del_op_3:  "objective remove o_td_3"
+  e_td_obj_del_op_4:  "objective remove o_td_4"
+  e_td_obj_del_op_5:  "objective remove o_td_5"
+  e_td_obj_del_wait:  "folder e_td_obj_del_w_1,e_td_obj_del_w_2,e_td_obj_del_w_3,e_td_obj_del_w_4,e_td_obj_del_w_5"
+  e_td_obj_del_w_1:   "objective remove o_td_wait_1"
+  e_td_obj_del_w_2:   "objective remove o_td_wait_2"
+  e_td_obj_del_w_3:   "objective remove o_td_wait_3"
+  e_td_obj_del_w_4:   "objective remove o_td_wait_4"
+  e_td_obj_del_w_5:   "objective remove o_td_wait_5"
+
+  # Sfx
+  e_td_sfx_open:      "opsudo playsound minecraft:block.wooden_trapdoor.open block @a[distance=..8] %location.xyz%"
+  e_td_sfx_close:     "opsudo playsound minecraft:block.wooden_trapdoor.close block @a[distance=..8] %location.xyz%"
+
+
+  # --- Trapdoors 1 ---
+  e_td_open_1:        "folder e_tds_open_1,e_td_sfx_open,e_td_obj_add_w_1"
+  e_tds_open_1:       "run ^door $td1.a$ on ^door $td1.b$ on ^door $td1.c$ on ^door $td1.d$ on"
+  e_td_obj_add_w_1:   "objective add o_td_wait_1"
+  e_tds_close_1:      "run ^door $td1.a$ off ^door $td1.b$ off ^door $td1.c$ off ^door $td1.d$ off"
+  # wait complete
+  e_td_wait_1:        "folder e_tds_close_1,e_td_sfx_close,e_td_obj_del_w_1,e_td_obj_add_op_1"
+
+  # --- Trapdoors 2 ---
+  e_td_open_2:        "folder e_tds_open_2,e_td_sfx_open,e_td_obj_add_w_2"
+  e_tds_open_2:       "run ^door $td2.a$ on ^door $td2.b$ on ^door $td2.c$ on ^door $td2.d$ on"
+  e_td_obj_add_w_2:   "objective add o_td_wait_2"
+  e_tds_close_2:      "run ^door $td2.a$ off ^door $td2.b$ off ^door $td2.c$ off ^door $td2.d$ off"
+  # wait complete
+  e_td_wait_2:        "folder e_tds_close_2,e_td_sfx_close,e_td_obj_del_w_2,e_td_obj_add_op_2"
+
+  # --- Trapdoors 3 ---
+  e_td_open_3:        "folder e_tds_open_3,e_td_sfx_open,e_td_obj_add_w_3"
+  e_tds_open_3:       "run ^door $td3.a$ on ^door $td3.b$ on ^door $td3.c$ on ^door $td3.d$ on"
+  e_td_obj_add_w_3:   "objective add o_td_wait_3"
+  e_tds_close_3:      "run ^door $td3.a$ off ^door $td3.b$ off ^door $td3.c$ off ^door $td3.d$ off"
+  # wait complete
+  e_td_wait_3:        "folder e_tds_close_3,e_td_sfx_close,e_td_obj_del_w_3,e_td_obj_add_op_3"
+
+  # --- Trapdoors 4 ---
+  e_td_open_4:        "folder e_tds_open_4,e_td_sfx_open,e_td_obj_add_w_4"
+  e_tds_open_4:       "run ^door $td4.a$ on ^door $td4.b$ on ^door $td4.c$ on ^door $td4.d$ on"
+  e_td_obj_add_w_4:   "objective add o_td_wait_4"
+  e_tds_close_4:      "run ^door $td4.a$ off ^door $td4.b$ off ^door $td4.c$ off ^door $td4.d$ off"
+  # wait complete
+  e_td_wait_4:        "folder e_tds_close_4,e_td_sfx_close,e_td_obj_del_w_4,e_td_obj_add_op_4"
+
+  # --- Trapdoors 5 ---
+  e_td_open_5:        "folder e_tds_open_5,e_td_sfx_open,e_td_obj_add_w_5"
+  e_tds_open_5:       "run ^door $td5.a$ on ^door $td5.b$ on ^door $td5.c$ on ^door $td5.d$ on"
+  e_td_obj_add_w_5:   "objective add o_td_wait_5"
+  e_tds_close_5:      "run ^door $td5.a$ off ^door $td5.b$ off ^door $td5.c$ off ^door $td5.d$ off"
+  # wait complete
+  e_td_wait_5:        "folder e_tds_close_5,e_td_sfx_close,e_td_obj_del_w_5,e_td_obj_add_op_5"
+
+
+conditions:
+  chk_rg_td_1:        "region $td1.region$"
+  chk_rg_td_2:        "region $td2.region$"
+  chk_rg_td_3:        "region $td3.region$"
+  chk_rg_td_4:        "region $td4.region$"
+  chk_rg_td_5:        "region $td5.region$"
+
+
+objectives:
+  o_td_1:             "region $td1.region$ enter events:e_td_open_1"
+  o_td_2:             "region $td2.region$ enter events:e_td_open_2"
+  o_td_3:             "region $td3.region$ enter events:e_td_open_3"
+  o_td_4:             "region $td4.region$ enter events:e_td_open_4"
+  o_td_5:             "region $td5.region$ enter events:e_td_open_5"
+
+  o_td_wait_1:        "delay 1 seconds interval:1 conditions:!chk_rg_td_1 events:e_td_wait_1 persistent"
+  o_td_wait_2:        "delay 1 seconds interval:1 conditions:!chk_rg_td_2 events:e_td_wait_2 persistent"
+  o_td_wait_3:        "delay 1 seconds interval:1 conditions:!chk_rg_td_3 events:e_td_wait_3 persistent"
+  o_td_wait_4:        "delay 1 seconds interval:1 conditions:!chk_rg_td_4 events:e_td_wait_4 persistent"
+  o_td_wait_5:        "delay 1 seconds interval:1 conditions:!chk_rg_td_5 events:e_td_wait_5 persistent"
