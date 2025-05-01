@@ -16,8 +16,8 @@ variables:
     rc12:                 -846;36;-497;marocraft
 
 
-events:
 ### STAR 4 - FIND THE 12 RED COINS
+events:
   # Init
   init_s4:                "folder e_s4_add_obj_rc"
   e_s4_add_obj_rc:        "folder e_s4_add_obj_rc_1,e_s4_add_obj_rc_2"
@@ -32,9 +32,9 @@ events:
   e_obj_add_s4_rc7:       "objective add o_s4_rc7"
   e_obj_add_s4_rc8:       "objective add o_s4_rc8"
   e_obj_add_s4_rc9:       "objective add o_s4_rc9"
-  e_obj_add_s4_rc10:       "objective add o_s4_rc10"
-  e_obj_add_s4_rc11:       "objective add o_s4_rc11"
-  e_obj_add_s4_rc12:       "objective add o_s4_rc12"
+  e_obj_add_s4_rc10:      "objective add o_s4_rc10"
+  e_obj_add_s4_rc11:      "objective add o_s4_rc11"
+  e_obj_add_s4_rc12:      "objective add o_s4_rc12"
 
   e_s4_rc_add_point:      "point rc_count 1 action:add"
 
@@ -99,7 +99,7 @@ events:
   e_s4_tag_add_spawned:   "tag add s4_spawned"
 
   # Win
-  win_s4:                 "folder e_notif_s4_win,core-sfx.e_got_star,cleanup_s4,if_firstwin_s4"
+  win_s4:                 "folder e_notif_s4_win,core-sfx.e_got_star,deit_s4,if_firstwin_s4"
   e_notif_s4_win:         "notify &312 red coins\n&2Cleared! io:title"
 
   # First win
@@ -109,7 +109,7 @@ events:
   tag_add_s4_win:         "tag add s4"
 
   # Cleanup
-  cleanup_s4:             "folder e_s4_del_obj_rc,e_s4_rc_del_point,e_obj_del_s4_star,e_s4_del_tags,if_s4_spawned,e_s4_tag_del_spawned"
+  deit_s4:                "folder e_s4_del_obj_rc,e_s4_rc_del_point,e_obj_del_s4_star,e_s4_del_tags,if_s4_spawned,e_s4_tag_del_spawned"
   e_s4_del_obj_rc:        "folder e_s4_del_obj_rc_1,e_s4_del_obj_rc_2"
   e_s4_del_obj_rc_1:      "folder e_obj_del_s4_rc1,e_obj_del_s4_rc2,e_obj_del_s4_rc3,e_obj_del_s4_rc4,e_obj_del_s4_rc5,e_obj_del_s4_rc6"
   e_s4_del_obj_rc_2:      "folder e_obj_del_s4_rc7,e_obj_del_s4_rc8,e_obj_del_s4_rc9,e_obj_del_s4_rc10,e_obj_del_s4_rc11,e_obj_del_s4_rc12"

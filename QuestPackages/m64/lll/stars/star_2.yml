@@ -6,8 +6,8 @@ variables:
     npc_sb_3:             10
 
 
+### STAR 2 - BULLY THE BULLIES
 events:
-  ### STAR 2 - BULLY THE BULLIES
   init_s2:                "folder e_obj_add_s2_ksb_1,e_obj_add_s2_ksb_2,e_obj_add_s2_ksb_3"
   e_obj_add_s2_ksb_1:     "objective add o_s2_kill_sb_1"
   e_obj_add_s2_ksb_2:     "objective add o_s2_kill_sb_2"
@@ -35,7 +35,7 @@ events:
   e_s2_pardon_player:     "command lp user %player% parent add sb_whitelist"
 
   # Win
-  win_s2:                 "folder e_notif_s2_win,core-sfx.e_got_star,if_firstwin_s2,cleanup_s2"
+  win_s2:                 "folder e_notif_s2_win,core-sfx.e_got_star,if_firstwin_s2,deit_s2"
   e_notif_s2_win:         "notify &3Bully the bullies\n&2Cleared! io:title"
 
   # First win
@@ -45,7 +45,7 @@ events:
   tag_add_s2_win:         "tag add s2"
 
   # Cleanup
-  cleanup_s2:             "folder e_s2_del_objs,e_s2_del_tags,if_s2_gotten,if_s2_spawned,e_s2_tag_del_spawned"
+  deit_s2:                "folder e_s2_del_objs,e_s2_del_tags,if_s2_gotten,if_s2_spawned,e_s2_tag_del_spawned"
   e_s2_del_objs:          "folder e_obj_del_s2_star,e_obj_del_s2_ksb_1,e_obj_del_s2_ksb_2,e_obj_del_s2_ksb_3"
   e_obj_del_s2_star:      "objective remove o_s2_star"
   e_obj_del_s2_ksb_1:     "objective remove o_s2_kill_sb_1"
