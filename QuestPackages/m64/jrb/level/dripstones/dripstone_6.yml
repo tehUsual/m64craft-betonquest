@@ -1,0 +1,14 @@
+variables:
+  dripst_6:
+    region:             jrb_spike_6
+
+events:
+  init_dripst_6:        "folder e_obj_add_dripst_6"
+  deit_dripst_6:        "folder e_obj_del_dripst_6"
+
+  e_obj_add_dripst_6:   "objective add o_dripst_6"
+  e_obj_del_dripst_6:   "objective remove o_dripst_6"
+
+
+objectives:
+  o_dripst_6:           "region $dripst_6.region$ enter events:e_dripst_trigger"
