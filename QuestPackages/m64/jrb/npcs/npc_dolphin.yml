@@ -1,0 +1,35 @@
+npcs:
+  '33': "dolphin"
+
+conversations:
+  dolphin:
+    quester: "Dolphin"
+    first: want_effect
+
+    NPC_options:
+      want_effect:
+        text: "Do you want me to give you &2Dolphins Grace&r"
+        pointer: yyes,nno
+      accept_effect:
+        text: "Here you go!"
+        event: e_efx_give_dolphin
+        #exit
+      decline_effect:
+        text: "Good luck!"
+        #exit
+    
+    player_options:
+      yyes:
+        text: "Yes, please"
+        pointer: accept_effect
+      nno:
+        text: "No, thanks"
+        pointer: decline_effect
+
+events:
+  deit_dolphin:         "folder e_efx_clear"
+
+  # Effects
+  e_efx_give_dolphin:   "effect DOLPHINS_GRACE 999999 1 hidden noicon"
+  e_efx_give_wbreath:   "effect WATER_BREATHING 999999 1 hidden noicon"
+  e_efx_clear:          "command effect clear %player%"

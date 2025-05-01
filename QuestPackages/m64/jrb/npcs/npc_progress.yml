@@ -1,8 +1,8 @@
 npcs:
-  '31': "toad_bob"
+  '31': "toad_progress"
 
 conversations:
-  toad_bob:
+  toad_progress:
     quester: "Toad: Jolly Roger Bay"
     first: welcome
   
@@ -81,8 +81,6 @@ conversations:
         condition: "!chk_s6_obtained"
         text: "[ ] -=Star=- 6"
         pointer: bye
-
-      ### STAR 7
 
       ### STAR 8
 
