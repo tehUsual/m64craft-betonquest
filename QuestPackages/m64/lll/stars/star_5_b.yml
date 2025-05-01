@@ -3,14 +3,14 @@ variables:
     star_loc:             -847;81;-654;marocraft
 
 
-events:
-  ### STAR 5 - HOT-FOOT-IT INTO THE VOLCANO
+### STAR 5 - HOT-FOOT-IT INTO THE VOLCANO
+events:  
   # Init
   init_s5:                "folder e_obj_add_s5_star"
   e_obj_add_s5_star:      "objective add o_s5_star"
 
   # Win
-  win_s5:                 "folder e_notif_s5_win,core-sfx.e_got_star,cleanup_s5,if_firstwin_s5"
+  win_s5:                 "folder e_notif_s5_win,core-sfx.e_got_star,deit_s5,if_firstwin_s5"
   e_notif_s5_win:         "notify &3Hot-foot-it into the volcano\n&2Cleared! io:title"
 
   # First win
@@ -20,7 +20,7 @@ events:
   tag_add_s5_win:         "tag add s5"
 
   # Cleanup
-  cleanup_s5:             "folder e_obj_del_s5_star"
+  deit_s5:                "folder e_obj_del_s5_star"
   e_obj_del_s5_star:      "objective remove o_s5_star"
 
 

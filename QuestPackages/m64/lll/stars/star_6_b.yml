@@ -3,14 +3,14 @@ variables:
     star_loc:             -852;77;-626;marocraft
 
 
+### STAR 6 - ELEVATOR TOUR IN THE VOLCANO
 events:
-  ### STAR 6 - ELEVATOR TOUR IN THE VOLCANO
   # Init
   init_s6:                "folder e_obj_add_s6_star"
   e_obj_add_s6_star:      "objective add o_s6_star"
 
   # Win
-  win_s6:                 "folder e_notif_s6_win,core-sfx.e_got_star,cleanup_s6,if_firstwin_s6"
+  win_s6:                 "folder e_notif_s6_win,core-sfx.e_got_star,deit_s6,if_firstwin_s6"
   e_notif_s6_win:         "notify &3Elevator tour in the volcano\n&2Cleared! io:title"
 
   # First win
@@ -20,7 +20,7 @@ events:
   tag_add_s6_win:         "tag add s6"
 
   # Cleanup
-  cleanup_s6:             "folder e_obj_del_s6_star"
+  deit_s6:                "folder e_obj_del_s6_star"
   e_obj_del_s6_star:      "objective remove o_s6_star"
 
 

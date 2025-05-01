@@ -3,14 +3,14 @@ variables:
     star_loc:             -843;41;-391;marocraft
 
 
-events:
-  ### STAR 3 - RED-HOT LOG ROLLING
+### STAR 3 - RED-HOT LOG ROLLING
+events:  
   # Init
   init_s3:                "folder e_obj_add_s3_star"
   e_obj_add_s3_star:      "objective add o_s3_star"
 
   # Win
-  win_s3:                 "folder e_notif_s3_win,core-sfx.e_got_star,cleanup_s3,if_firstwin_s3"
+  win_s3:                 "folder e_notif_s3_win,core-sfx.e_got_star,deit_s3,if_firstwin_s3"
   e_notif_s3_win:         "notify &3Red-hot log rolling\n&2Cleared! io:title"
 
   # First win
@@ -20,7 +20,7 @@ events:
   tag_add_s3_win:         "tag add s3"
 
   # Cleanup
-  cleanup_s3:             "folder e_obj_del_s3_star"
+  deit_s3:                "folder e_obj_del_s3_star"
   e_obj_del_s3_star:      "objective remove o_s3_star"
 
 
