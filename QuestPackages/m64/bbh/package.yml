@@ -1,3 +1,14 @@
+# Regions:
+# Level entry:  bbh_entry
+# Level:        bbh
+# Star 8:       bbh_speedrun
+# Bridges:      bbh_brg_1a - bbh_brg_1g
+# Falltp:       bbh_fall_1,bbh_fall_2
+# Zones:        bbh_merrygo
+# Trapdoor:     bbh_td_1 - bbh_td_5
+# Invisibility: bbh_inv_tp_1a,bbh_inv_tp_1b,bbh_inv_tp_2a,bbh_inv_tp_2b
+
+
 variables:
   spawn:                396.5;46;-400.5;marocraft;180;12
   respawn:              -6;40;-152;marocraft;-45;12
