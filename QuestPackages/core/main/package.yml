@@ -71,7 +71,7 @@ events:
   enter_marocraft_tutorial:     "folder init_castle,e_load_tests,tp_tutorial"
   enter_marocraft:              "folder init_castle,tp_castle"
 
-  reset_ALL:                    "folder reset_castle,m64-bob.wipe_level,m64-wf.wipe_level,m64-bbh.wipe_level,m64-lll.delete_stars,m64-ssl.delete_stars,m64-wdw.delete_stars,m64-sslide.reset_level,m64-sslide2.reset_level2,m64-jrb.delete_stars"
+  reset_ALL:                    "folder reset_castle,m64-bob.wipe_level,m64-wf.wipe_level,m64-bbh.wipe_level,m64-lll.wipe_level,m64-ssl.delete_stars,m64-wdw.delete_stars,m64-sslide.reset_level,m64-sslide2.reset_level2,m64-jrb.delete_stars"
   on_exit:                      "folder reset_castle,e_tp_overworld"
   #set_default_texture_pack:     "folder restoreTexturePack delay:2"
 
