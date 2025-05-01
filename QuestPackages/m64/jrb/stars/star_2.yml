@@ -1,0 +1,32 @@
+variables:
+  s2:
+    star_loc:             89;48;381;marocraft
+
+
+### STAR 2 - CAN THE EEL COME OUT TO PLAY?
+events:
+  # Init
+  init_s2:                "folder e_obj_add_s2_star"
+  e_obj_add_s2_star:      "objective add o_s2_star"
+
+  # Win
+  win_s2:                 "folder e_notif_s2_win,core-sfx.e_got_star,deit_s2,if_firstwin_s2"
+  e_notif_s2_win:         "notify &3Can the eel come out to play?\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s2:         "if !chk_s2_obtained firstwin_s2 else core-main.e_dummy"
+  firstwin_s2:            "folder e_broad_s2_first,tag_add_s2_win,e_stop_music,exit_star"
+  e_broad_s2_first:       "command broadcast &6%player% &2got a star: [JRB] Can the eel come out to play?"
+  tag_add_s2_win:         "tag add s2"
+
+  # Cleanup
+  deit_s2:                "folder e_obj_del_s2_star"
+  e_obj_del_s2_star:      "objective remove o_s2_star"
+
+
+conditions:
+  chk_s2_obtained:        "tag s2"
+
+
+objectives:
+  o_s2_star:              "action right any loc:$s2.star_loc$ events:win_s2"

@@ -1,0 +1,214 @@
+variables:
+  s1:
+    star_loc:             360;53;371;marocraft
+    star_loc_xyz:         360 53 371
+    slide_tp:
+      y:  34
+      z:  343
+    chest1:
+      lock:               361;34;320;marocraft
+      trapdoor:           361;35;319;marocraft
+    chest2:
+      lock:               352;34;333;marocraft
+      trapdoor:           351;35;333;marocraft
+    chest3:
+      lock:               358;34;328;marocraft
+      trapdoor:           358;35;327;marocraft
+    chest4:
+      lock:               366;34;333;marocraft
+      trapdoor:           367;35;333;marocraft
+    chest5:
+      lock:               360;35;333;marocraft
+      trapdoor:           360;36;332;marocraft
+
+
+### STAR 1 - PLUNDER IN THE SUNKEN SHIP
+events:
+  # Init
+  init_s1:                "folder e_s1_setup_chests,e_add_obj_slide"
+  e_s1_setup_chests:      "folder e_s1_setup_chest_3"
+
+  ## Slide
+  e_add_obj_slide:        "folder e_add_obj_slide_1,e_add_obj_slide_2"
+  e_add_obj_slide_1:      "folder e_obj_add_s1_slide_1,e_obj_add_s1_slide_2,e_obj_add_s1_slide_3,e_obj_add_s1_slide_4,e_obj_add_s1_slide_5,e_obj_add_s1_slide_6"
+  e_add_obj_slide_2:      "folder e_obj_add_s1_slide_7,e_obj_add_s1_slide_8,e_obj_add_s1_slide_9,e_obj_add_s1_slide_10,e_obj_add_s1_slide_11,e_obj_add_s1_slide_12,e_obj_add_s1_slide_13"
+  e_obj_add_s1_slide_1:   "objective add o_s1_slide_1"
+  e_obj_add_s1_slide_2:   "objective add o_s1_slide_2"
+  e_obj_add_s1_slide_3:   "objective add o_s1_slide_3"
+  e_obj_add_s1_slide_4:   "objective add o_s1_slide_4"
+  e_obj_add_s1_slide_5:   "objective add o_s1_slide_5"
+  e_obj_add_s1_slide_6:   "objective add o_s1_slide_6"
+  e_obj_add_s1_slide_7:   "objective add o_s1_slide_7"
+  e_obj_add_s1_slide_8:   "objective add o_s1_slide_8"
+  e_obj_add_s1_slide_9:   "objective add o_s1_slide_9"
+  e_obj_add_s1_slide_10:  "objective add o_s1_slide_10"
+  e_obj_add_s1_slide_11:  "objective add o_s1_slide_11"
+  e_obj_add_s1_slide_12:  "objective add o_s1_slide_12"
+  e_obj_add_s1_slide_13:  "objective add o_s1_slide_13"
+
+  e_s1_slide_down:        "folder e_s1_slide_tp,core-sfx.e_oof,e_add_obj_slide"
+  e_s1_slide_tp:          "teleport %location.x%.5;$s1.slide_tp.y$;$s1.slide_tp.z$.5;marocraft"
+
+  # 3,4,1,5,2
+  e_obj_add_s1_c1:        "objective add o_s1_c1"
+  e_obj_add_s1_c2:        "objective add o_s1_c2"
+  e_obj_add_s1_c3:        "objective add o_s1_c3"
+  e_obj_add_s1_c4:        "objective add o_s1_c4"
+  e_obj_add_s1_c5:        "objective add o_s1_c5"
+
+  e_obj_add_s1_w1:        "objective add o_s1_w1"
+  e_obj_add_s1_w2:        "objective add o_s1_w2"
+  e_obj_add_s1_w3:        "objective add o_s1_w3"
+  e_obj_add_s1_w4:        "objective add o_s1_w4"
+  e_obj_add_s1_w5:        "objective add o_s1_w5"
+
+
+  # Setup 3
+  e_s1_setup_chest_3:     "folder e_obj_add_s1_w1,e_obj_add_s1_w2,e_obj_add_s1_c3,e_obj_add_s1_w4,e_obj_add_s1_w5"
+  # Setup 4
+  e_s1_setup_chest_4:     "folder e_obj_add_s1_w1,e_obj_add_s1_w2,e_obj_add_s1_w3,e_obj_add_s1_c4,e_obj_add_s1_w5"
+  # Setup 1
+  e_s1_setup_chest_1:     "folder e_obj_add_s1_c1,e_obj_add_s1_w2,e_obj_add_s1_w3,e_obj_add_s1_w4,e_obj_add_s1_w5"
+  # Setup 5
+  e_s1_setup_chest_5:     "folder e_obj_add_s1_w1,e_obj_add_s1_w2,e_obj_add_s1_w3,e_obj_add_s1_w4,e_obj_add_s1_c5"
+  # Setup 2
+  e_s1_setup_chest_2:     "folder e_obj_add_s1_w1,e_obj_add_s1_c2,e_obj_add_s1_w3,e_obj_add_s1_w4,e_obj_add_s1_w5"
+
+
+  # Wrong chest
+  e_s1_reset_chests:      "folder e_obj_del_s1_bc,e_obj_del_s1_bw"
+  e_s1_chest_wrong:       "folder core-sfx.e_incorrect,e_chest_damange,e_s1_close_trapdoors,e_s1_reset_chests,e_s1_chest_wrong_post"
+  e_s1_chest_wrong_post:  "folder e_s1_setup_chests delay:10 ticks"
+
+
+  # Correct 3
+  e_s1_chest_correct_3:   "folder core-sfx.e_coin,e_s1_reset_chests,e_s1_open_trapdoor_3,e_s1_chest_cor_post_3"
+  e_s1_chest_cor_post_3:  "folder e_s1_setup_chest_4 delay:10 ticks"
+  # Correct 4
+  e_s1_chest_correct_4:   "folder core-sfx.e_coin,e_s1_reset_chests,e_s1_open_trapdoor_4,e_s1_chest_cor_post_4"
+  e_s1_chest_cor_post_4:  "folder e_s1_setup_chest_1 delay:10 ticks"
+  # Correct 1
+  e_s1_chest_correct_1:   "folder core-sfx.e_coin,e_s1_reset_chests,e_s1_open_trapdoor_1,e_s1_chest_cor_post_1"
+  e_s1_chest_cor_post_1:  "folder e_s1_setup_chest_5 delay:10 ticks"
+  # Correct 5
+  e_s1_chest_correct_5:   "folder core-sfx.e_coin,e_s1_reset_chests,e_s1_open_trapdoor_5,e_s1_chest_cor_post_5"
+  e_s1_chest_cor_post_5:  "folder e_s1_setup_chest_2 delay:10 ticks"
+  # Correct 2
+  e_s1_chest_correct_2:   "folder core-sfx.e_coin,e_s1_reset_chests,e_s1_open_trapdoor_2,e_s1_chest_cor_post_2"
+  e_s1_chest_cor_post_2:  "folder e_s1_chest_correct_all delay:10 ticks"
+
+
+  # Trapdoors
+  e_s1_open_trapdoor_1:   "door $s1.chest1.trapdoor$ on"
+  e_s1_open_trapdoor_2:   "door $s1.chest2.trapdoor$ on"
+  e_s1_open_trapdoor_3:   "door $s1.chest3.trapdoor$ on"
+  e_s1_open_trapdoor_4:   "door $s1.chest4.trapdoor$ on"
+  e_s1_open_trapdoor_5:   "door $s1.chest5.trapdoor$ on"
+
+  e_s1_close_trapd_delay: "folder e_s1_close_trapdoors delay:2 seconds"
+  e_s1_close_trapdoors:   "folder e_s1_close_trapdoor_1,e_s1_close_trapdoor_2,e_s1_close_trapdoor_3,e_s1_close_trapdoor_4,e_s1_close_trapdoor_5"
+  e_s1_close_trapdoor_1:  "door $s1.chest1.trapdoor$ off"
+  e_s1_close_trapdoor_2:  "door $s1.chest2.trapdoor$ off"
+  e_s1_close_trapdoor_3:  "door $s1.chest3.trapdoor$ off"
+  e_s1_close_trapdoor_4:  "door $s1.chest4.trapdoor$ off"
+  e_s1_close_trapdoor_5:  "door $s1.chest5.trapdoor$ off"
+
+
+  # Correct all
+  e_s1_chest_correct_all: "folder e_s1_spawn_star,e_s1_summon_firework,core-sfx.e_star_spawn,e_s1_notif_spawn_star,e_obj_add_s1_star,e_s1_gp_add_star,e_s1_tag_add_spawned,e_s1_close_trapd_delay"
+  e_s1_spawn_star:        "setblock RAW_GOLD_BLOCK $s1.star_loc$"
+  e_s1_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s1.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
+  e_s1_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s1_star:      "objective add o_s1_star"
+  e_s1_gp_add_star:       "globalpoint jrb_s1 1 action:add"
+  e_s1_tag_add_spawned:   "tag add s1_spawned"
+
+  # Win
+  win_s1:                 "folder e_notif_s1_win,core-sfx.e_got_star,deit_s1,if_firstwin_s1"
+  e_notif_s1_win:         "notify &3Plunder in the sunken ship\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s1:         "if !chk_s1_obtained firstwin_s1 else core-main.e_dummy"
+  firstwin_s1:            "folder e_broad_s1_first,tag_add_s1_win,e_stop_music,exit_star"
+  e_broad_s1_first:       "command broadcast &6%player% &2got a star: [JBR] Plunder in the sunken ship"
+  tag_add_s1_win:         "tag add s1"
+
+
+  # Cleanup
+  deit_s1:                "folder e_obj_del_s1_bc,e_obj_del_s1_bw,e_obj_del_s1_star,e_s1_close_trapdoors,e_del_obj_slide,if_s1_spawned,e_s1_tag_del_spawned"
+  e_obj_del_s1_bc:        "folder e_obj_del_s1_c1,e_obj_del_s1_c2,e_obj_del_s1_c3,e_obj_del_s1_c4,e_obj_del_s1_c5"
+  e_obj_del_s1_bw:        "folder e_obj_del_s1_w1,e_obj_del_s1_w2,e_obj_del_s1_w3,e_obj_del_s1_w4,e_obj_del_s1_w5"
+  e_obj_del_s1_c1:        "objective remove o_s1_c1"
+  e_obj_del_s1_c2:        "objective remove o_s1_c2"
+  e_obj_del_s1_c3:        "objective remove o_s1_c3"
+  e_obj_del_s1_c4:        "objective remove o_s1_c4"
+  e_obj_del_s1_c5:        "objective remove o_s1_c5"
+  e_obj_del_s1_w1:        "objective remove o_s1_w1"
+  e_obj_del_s1_w2:        "objective remove o_s1_w2"
+  e_obj_del_s1_w3:        "objective remove o_s1_w3"
+  e_obj_del_s1_w4:        "objective remove o_s1_w4"
+  e_obj_del_s1_w5:        "objective remove o_s1_w5"
+
+  e_del_obj_slide:        "folder e_del_obj_slide_1,e_del_obj_slide_2"
+  e_del_obj_slide_1:      "folder e_obj_del_s1_slide_1,e_obj_del_s1_slide_2,e_obj_del_s1_slide_3,e_obj_del_s1_slide_4,e_obj_del_s1_slide_5,e_obj_del_s1_slide_6"
+  e_del_obj_slide_2:      "folder e_obj_del_s1_slide_7,e_obj_del_s1_slide_8,e_obj_del_s1_slide_9,e_obj_del_s1_slide_10,e_obj_del_s1_slide_11,e_obj_del_s1_slide_12,e_obj_del_s1_slide_13"
+  e_obj_del_s1_slide_1:   "objective remove o_s1_slide_1"
+  e_obj_del_s1_slide_2:   "objective remove o_s1_slide_2"
+  e_obj_del_s1_slide_3:   "objective remove o_s1_slide_3"
+  e_obj_del_s1_slide_4:   "objective remove o_s1_slide_4"
+  e_obj_del_s1_slide_5:   "objective remove o_s1_slide_5"
+  e_obj_del_s1_slide_6:   "objective remove o_s1_slide_6"
+  e_obj_del_s1_slide_7:   "objective remove o_s1_slide_7"
+  e_obj_del_s1_slide_8:   "objective remove o_s1_slide_8"
+  e_obj_del_s1_slide_9:   "objective remove o_s1_slide_9"
+  e_obj_del_s1_slide_10:  "objective remove o_s1_slide_10"
+  e_obj_del_s1_slide_11:  "objective remove o_s1_slide_11"
+  e_obj_del_s1_slide_12:  "objective remove o_s1_slide_12"
+  e_obj_del_s1_slide_13:  "objective remove o_s1_slide_13"
+
+  e_obj_del_s1_star:      "objective remove o_s1_star"
+
+  if_s1_spawned:          "if chk_s1_spawned e_s1_del_spawned else core-main.e_dummy"
+  e_s1_del_spawned:       "folder e_s1_gp_sub_star,if_s1_despawn"
+  e_s1_gp_sub_star:       "globalpoint jrb_s1 1 action:subtract"
+
+  if_s1_despawn:          "if !chk_s1_spawn_count e_s1_delete_star else core-main.e_dummy"
+  e_s1_tag_del_spawned:   "tag delete s1_spawned"
+
+  e_s1_delete_star:       "folder e_s1_despawn_star,e_s1_reset_star_count"
+  e_s1_despawn_star:      "setblock AIR $s1.star_loc$"
+  e_s1_reset_star_count:  "globalpoint jrb_s1 0 action:set"
+
+
+conditions:
+  chk_s1_obtained:        "tag s1"
+  chk_s1_spawned:         "tag s1_spawned"
+  chk_s1_spawn_count:     "globalpoint jrb_s1 1"
+
+
+objectives:
+  o_s1_star:              "action right any loc:$s1.star_loc$ events:win_s1"
+  o_s1_c1:                "action right any loc:$s1.chest1.lock$ events:e_s1_chest_correct_1"
+  o_s1_c2:                "action right any loc:$s1.chest2.lock$ events:e_s1_chest_correct_2"
+  o_s1_c3:                "action right any loc:$s1.chest3.lock$ events:e_s1_chest_correct_3"
+  o_s1_c4:                "action right any loc:$s1.chest4.lock$ events:e_s1_chest_correct_4"
+  o_s1_c5:                "action right any loc:$s1.chest5.lock$ events:e_s1_chest_correct_5"
+  o_s1_w1:                "action right any loc:$s1.chest1.lock$ events:e_s1_chest_wrong"
+  o_s1_w2:                "action right any loc:$s1.chest2.lock$ events:e_s1_chest_wrong"
+  o_s1_w3:                "action right any loc:$s1.chest3.lock$ events:e_s1_chest_wrong"
+  o_s1_w4:                "action right any loc:$s1.chest4.lock$ events:e_s1_chest_wrong"
+  o_s1_w5:                "action right any loc:$s1.chest5.lock$ events:e_s1_chest_wrong"
+
+  o_s1_slide_1:           "region jrb_ship_slide_1 enter events:e_s1_slide_down"
+  o_s1_slide_2:           "region jrb_ship_slide_2 enter events:e_s1_slide_down"
+  o_s1_slide_3:           "region jrb_ship_slide_3 enter events:e_s1_slide_down"
+  o_s1_slide_4:           "region jrb_ship_slide_4 enter events:e_s1_slide_down"
+  o_s1_slide_5:           "region jrb_ship_slide_5 enter events:e_s1_slide_down"
+  o_s1_slide_6:           "region jrb_ship_slide_6 enter events:e_s1_slide_down"
+  o_s1_slide_7:           "region jrb_ship_slide_7 enter events:e_s1_slide_down"
+  o_s1_slide_8:           "region jrb_ship_slide_8 enter events:e_s1_slide_down"
+  o_s1_slide_9:           "region jrb_ship_slide_9 enter events:e_s1_slide_down"
+  o_s1_slide_10:          "region jrb_ship_slide_10 enter events:e_s1_slide_down"
+  o_s1_slide_11:          "region jrb_ship_slide_11 enter events:e_s1_slide_down"
+  o_s1_slide_12:          "region jrb_ship_slide_12 enter events:e_s1_slide_down"
+  o_s1_slide_13:          "region jrb_ship_slide_13 enter events:e_s1_slide_down"

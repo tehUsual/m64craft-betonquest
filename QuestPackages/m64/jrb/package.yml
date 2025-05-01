@@ -5,33 +5,7 @@ variables:
   tp_toship:          370.5;46;335.5;marocraft;160;30
   tp_frship:          74.5;35;386.5;marocraft;27;-16
 
-npcs:
-  '33': "dolphin"
 
-conversations:
-  dolphin:
-    quester: "Dolphin"
-    first: want_effect
-
-    NPC_options:
-      want_effect:
-        text: "Do you want me to give you &2Dolphins Grace?&r"
-        pointer: yyes,nno
-      accept_effect:
-        text: "Here you go!"
-        event: e_efx_give_dolphin
-        #exit
-      decline_effect:
-        text: "Good luck!"
-        #exit
-    
-    player_options:
-      yyes:
-        text: "Yes, please"
-        pointer: accept_effect
-      nno:
-        text: "No, thanks"
-        pointer: decline_effect
 
 
 #/summon minecraft:falling_block ~ ~5 ~ {BlockState:{Name:"minecraft:pointed_dripstone",Properties:{vertical_direction:"down"}},Time:1,HurtEntities:1,FallHurtAmount:2,FallHurtMax:20,DropItem:0}
@@ -83,10 +57,7 @@ events:
   e_init_ship:          "folder e_obj_add_tp_fr_ship,e_enter_ship"
   e_cleanup_ship:       "folder e_obj_add_tp_to_ship,e_leave_ship"
 
-  # Effects
-  e_efx_give_dolphin:   "effect DOLPHINS_GRACE 999999 1 hidden noicon"
-  e_efx_give_wbreath:   "effect WATER_BREATHING 999999 1 hidden noicon"
-  e_efx_clear:          "command effect clear %player%"
+
 
 
 
