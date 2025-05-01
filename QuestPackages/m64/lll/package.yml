@@ -6,9 +6,9 @@ variables:
   inside_volcano:     -887;37;-655;marocraft;-135;12
 
 events:
-  init_level:         "folder add_level_objs,init_stars,e_tp_spawn,e_play_music"
+  init_level:         "folder add_level_objs,init_stars,e_tp_spawn,e_play_music,init_burn_lava"
   reload_level:       "folder reset_level,core-main.init_castle"
-  reset_level:        "folder del_level_objs,reset_stars,e_stop_music"
+  reset_level:        "folder del_level_objs,reset_stars,e_stop_music,deit_burn_lava"
   hard_reset:         "folder reset_level,delete_stars"
   on_death:           "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
   on_exit:            "folder e_tp_respawn,reload_level"
