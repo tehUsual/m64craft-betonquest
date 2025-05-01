@@ -73,9 +73,6 @@ events:
 
 
 conditions:
-  ### STAR 9 - CAPTAIN TOAD 1
   chk_s9_obtained:        "tag s9"
-  ### STAR 10 - CAPTAIN TOAD 2
   chk_s10_obtained:       "tag s10"
-  ### STAR 11 - CAPTAIN TOAD 3
   chk_s11_obtained:       "tag s11"
