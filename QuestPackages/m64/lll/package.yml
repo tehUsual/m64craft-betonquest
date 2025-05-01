@@ -1,55 +1,62 @@
+# Regions:
+# Level entry:  lll_entry
+# Level:        lll
+# Star 8:       lll_speedrun
+# Sub entry:    lll_enter_volcano
+# Lavaburn:     lll_main_lava
+
 variables:
   spawn:              -912.5;37;-406.5;marocraft;180;12
   respawn:            11.5;28;-460.5;marocraft;180;12
-  exitbtn:            -913;37;-407;marocraft
-  exitbtn2:           -887;37;-655;marocraft
+  exitsign:           -913;37;-407;marocraft
+  # Sub area
+  exitsign2:          -887;37;-655;marocraft
   inside_volcano:     -887;37;-655;marocraft;-135;12
 
 events:
-  init_level:         "folder add_level_objs,init_stars,e_tp_spawn,e_play_music,init_burn_lava"
-  reload_level:       "folder reset_level,core-main.init_castle"
-  reset_level:        "folder del_level_objs,reset_stars,e_stop_music,deit_burn_lava"
-  hard_reset:         "folder reset_level,delete_stars"
-  on_death:           "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
-  on_exit:            "folder e_tp_respawn,reload_level"
+  init_level:         "init_spawns,init_lavaburn,init_stars,e_play_music"
+  deit_level:         "deit_spawns,deit_lavaburn,deit_stars,e_stop_music"
+  unlo_level:         "folder exit_level" # period:20 ticks
+  exit_level:         "deit_level,e_tp_respawn,core-main.init_castle"
 
-  e_point_add_death:  "point lll_deaths 1 action:add"
-  e_gpoint_add_death: "globalpoint lll_deaths 1 action:add"
+  on_death:           "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:            "folder unlo_level"
 
-  ### Play music
+  # Wipe save
+  wipe_level:         "folder wipe_stars"
+
+  # Play music
   e_play_music:       "folder core-music.e_play_ssl"
   e_stop_music:       "folder core-music.e_stop_music"
 
-
-  ### LEVEL - Add objectives
-  add_level_objs:     "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_obj_add_tp_vol"
+  ### --- Spawn / Respawn ---------------------------------------
+  init_spawns:        "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_obj_add_tp_vol,e_tp_spawn"
   e_obj_add_respawn:  "objective add o_respawn"
   e_obj_add_exit:     "objective add o_exitlevel"
   e_obj_add_exit2:    "objective add o_exitlevel2"
   e_obj_add_tp_vol:   "objective add o_tp_volcano"
 
-  ### LEVEL - Del objectives
-  del_level_objs:     "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_exit2,e_obj_del_tp_vol"
+  deit_spawns:        "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_exit2,e_obj_del_tp_vol"
   e_obj_del_respawn:  "objective remove o_respawn"
   e_obj_del_exit:     "objective remove o_exitlevel"
   e_obj_del_exit2:    "objective remove o_exitlevel2"
   e_obj_del_tp_vol:   "objective remove o_tp_volcano"
 
-
   # Teleports
   e_tp_spawn:         "teleport $spawn$"
   e_tp_respawn:       "teleport $respawn$"
+  # Sub area
   e_tp_volcano:       "teleport $inside_volcano$"
 
   # Actions
   e_notify_death:     "command broadcast &3%player%&f died in LLL."
-
-  # Load volcano
-  e_init_volcano:     "folder e_tp_volcano"
+  e_point_add_death:  "point lll_deaths 1 action:add"
+  e_gpoint_add_death: "globalpoint lll_deaths 1 action:add"
 
 
 objectives:
   o_respawn:          "die cancel respawn:$respawn$ events:on_death"
-  o_exitlevel:        "action right any loc:$exitbtn$ events:on_exit"
-  o_exitlevel2:       "action right any loc:$exitbtn2$ events:on_exit"
-  o_tp_volcano:       "region lll_enter_volcano enter events:e_init_volcano"
+  o_exitlevel:        "action right any loc:$exitsign$ events:on_exit"
+  # Sub area
+  o_exitlevel2:       "action right any loc:$exitsign2$ events:on_exit"
+  o_tp_volcano:       "region lll_enter_volcano enter events:e_tp_volcano"
