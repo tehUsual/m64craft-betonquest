@@ -1,0 +1,24 @@
+variables:
+  lavaburn:
+    bounce_delay:     3   # ticks
+    reload_delay:     10  # ticks
+    eext_delay:       30  # ticks
+    speed_delay:      20  # ticks
+    speed_dur:        2   # seconds
+    speed_str:        3
+
+events:
+  init_lavaburn:      "folder init_lavaburn_1"
+  deit_lavaburn:      "folder deit_lavaburn_1"
+
+  # Lava burn
+  e_burned_by_lava:   "folder core-sfx.e_fire_hurt,e_wait_burn_bounce,e_wait_burn_eext,e_wait_burn_speed"
+  # Bounce
+  e_wait_burn_bounce: "folder e_burn_jump delay:$lavaburn.bounce_delay$ ticks"
+  e_burn_jump:        "velocity vector:(0;2.5;0) direction:relative_y modification:set"
+  # Extinguish
+  e_wait_burn_eext:   "folder e_wait_eext delay:$lavaburn.eext_delay$ ticks"
+  e_wait_eext:        "command eext %player%"
+  # Speed
+  e_wait_burn_speed:  "folder e_burn_speed delay:$lavaburn.speed_delay$ ticks"
+  e_burn_speed:       "effect SPEED $lavaburn.speed_dur$ $lavaburn.speed_str$ ambient noicon"
