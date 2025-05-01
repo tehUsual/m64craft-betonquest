@@ -10,17 +10,19 @@
 ### STAR 10 - CAPTAIN TOAD 2
 ### STAR 11 - CAPTAIN TOAD 3
 
-
 events:
+  # Entry
   init_stars:             "folder init_s1,init_s2,init_s3,init_s4,init_s5,init_s6,init_s8"
-  reset_stars:            "folder cleanup_s1,cleanup_s2,cleanup_s3,cleanup_s4,cleanup_s5,cleanup_s6,cleanup_s8"
-  delete_stars:           "folder e_del_star_tags,e_s4_del_tags,e_clear_star_counter"
-  
+  reset_stars:            "folder deit_s1,deit_s2,deit_s3,deit_s4,deit_s5,deit_s6,deit_s8"
+
+  # Clear save
+  wipe_stars:             "folder e_del_star_tags,e_s4_del_tags,e_clear_star_counter"  
   e_del_star_tags:        "folder e_del_star_tags_1,e_del_star_tags_2"
   e_del_star_tags_1:      "run ^tag delete s1 ^tag delete s2 ^tag delete s3 ^tag delete s4 ^tag delete s5 ^tag delete s6"
   e_del_star_tags_2:      "run ^tag delete s8 ^tag delete s9 ^tag delete s10 ^tag delete s11"
   e_clear_star_counter:   "point lll_stars 0 action:set"
 
-  exit_star:              "folder on_exit,core-sfx.e_exit_course,e_add_star_counter delay:4"
+  # Win star
+  exit_star:              "folder on_exit,exit_course_sfx,e_add_star_counter delay:3"
+  exit_course_sfx:        "folder core-sfx.e_exit_course delay:30 ticks"
   e_add_star_counter:     "point lll_stars 1 action:add"
-
