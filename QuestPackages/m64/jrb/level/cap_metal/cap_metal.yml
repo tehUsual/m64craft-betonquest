@@ -1,0 +1,68 @@
+variables:
+  # Settings
+  metal_duration:         30 # seconds
+  # Blocks
+  metal_block_1:          45;91;427;marocraft
+
+  # SPECIFIC
+  metal_block_swap:       58;28;397;marocraft
+
+
+
+events:
+  init_cmet:              "folder e_init_cmet_blocks"
+  deit_cmet:              "folder e_deit_cmet_blocks,e_deit_metal"
+
+  # --- Init ---
+  # Blocks
+  e_init_cmet_blocks:     "folder e_obj_add_met_blk_g1"
+  e_obj_add_met_blk_g1:   "folder e_obj_add_met_blk_1"
+  e_obj_add_met_blk_1:    "objective add o_metal_activate_1"
+
+  # Music
+  e_play_music_metal:     "folder core-music.e_play_powerup"
+
+
+  # --- Main ---
+  # Metal: Activate
+  e_start_metal:          "folder e_play_music_metal,e_start_metal_int,e_start_metal_efx,e_metal_bubble_disable"
+  e_start_metal_int:      "folder e_obj_add_met_timeout,e_tag_add_metal,e_notif_metalized"
+  e_obj_add_met_timeout:  "objective add o_metal_timeout"
+  e_tag_add_metal:        "tag add cap_metalized"
+  e_notif_metalized:      "notify &3Metal Cap (Resistance) for $metal_duration$ sec\n&2You are heavier io:title"
+  e_start_metal_efx:      "folder e_efx_give_met_res,e_efx_give_met_glow"
+  e_efx_give_met_res:     "effect DAMAGE_RESISTANCE 30 1 hidden noicon"
+  e_efx_give_met_glow:    "effect GLOWING 30 1 hidden noicon"
+
+  # Metal: Deactivate
+  e_stop_metal:           "folder e_play_music,e_deit_metal"
+
+  # Metal: Cleanup
+  e_deit_metal:           "folder e_obj_del_met_timeout,e_tag_del_metal,e_efx_clear_met_res,e_efx_clear_met_glow,e_metal_bubble_enable"
+  e_obj_del_met_timeout:  "objective remove o_metal_timeout"
+  e_tag_del_metal:        "tag delete cap_metalized"
+  e_efx_clear_met_res:    "deleffect DAMAGE_RESISTANCE $metal_duration$ 1 hidden noicon"
+  e_efx_clear_met_glow:   "deleffect GLOWING $metal_duration$ 1 hidden noicon"
+
+
+  # SPECIFIC: Block swaps
+  e_metal_bubble_disable: "setblock PRISMARINE $metal_block_swap$"
+  e_metal_bubble_enable:  "setblock SOUL_SAND $metal_block_swap$"
+
+
+  # --- Cleanup ---
+  # Blocks
+  e_deit_cmet_blocks:     "folder e_obj_del_met_blk_g1"
+  e_obj_del_met_blk_g1:   "folder e_obj_del_met_blk_1"
+  e_obj_del_met_blk_1:    "objective remove o_metal_activate_1"
+
+
+conditions:
+  chk_tag_metalized:      "tag metalized"
+
+
+objectives:
+  o_metal_timeout:        "delay $metal_duration$ seconds interval:5 event:e_stop_metal"
+
+  # Blocks
+  o_metal_activate_1:     "action right any loc:$metal_block_1$ conditions:!chk_tag_metalized events:e_start_metal persistent"
