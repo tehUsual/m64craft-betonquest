@@ -45,7 +45,7 @@ events:
   # Teleports
   e_tp_spawn:         "teleport $spawn$"
   e_tp_respawn:       "teleport $respawn$"
-  # Sub area
+  # Sub area: Volcano
   e_tp_volcano:       "teleport $inside_volcano$"
 
   # Actions
