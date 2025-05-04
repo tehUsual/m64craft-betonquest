@@ -1,85 +1,73 @@
-variables:
-  spawn:              -28.5;85;383.5;marocraft;-70;12
-  respawn:            58.5;46;-428.5;marocraft;-90;12
-  exitbtn:            -29;85;383;marocraft
-  tp_toship:          370.5;46;335.5;marocraft;160;30
-  tp_frship:          74.5;35;386.5;marocraft;27;-16
-
-
-
+# Regions:
+# 
+# 
+# 
+# 
+# 
 
 #/summon minecraft:falling_block ~ ~5 ~ {BlockState:{Name:"minecraft:pointed_dripstone",Properties:{vertical_direction:"down"}},Time:1,HurtEntities:1,FallHurtAmount:2,FallHurtMax:20,DropItem:0}
+
+variables:
+  spawn:                -28.5;85;383.5;marocraft;-70;12
+  respawn:              58.5;46;-428.5;marocraft;-90;12
+  exitsign:             -29;85;383;marocraft
+  # Sub area
+  tp_toship:            370.5;46;335.5;marocraft;160;30
+  tp_frship:            74.5;35;386.5;marocraft;27;-16
+
+
 events:
-  init_level:           "folder add_level_objs,init_cannons,init_stars,init_env_dripstone,init_env_switchblocks,e_init_metal,e_tp_spawn,e_efx_give_wbreath,e_play_music"
-  reload_level:         "folder reset_level,core-main.init_castle"
-  reset_level:          "folder del_level_objs,reset_cannons,reset_stars,reset_env_dripstone,reset_env_switchblocks,e_efx_clear,e_cleanup_metal,e_stop_music"
-  on_death:             "folder e_notify_death,e_point_add_death,e_gpoint_add_death,reload_level"
-  on_exit:              "folder e_tp_respawn,reload_level"
+  init_level:           "folder init_spawns,init_cannons,init_cmet,init_switches,init_dripst,init_stars,e_play_music"
+  deit_level:           "folder deit_spawns,deit_cannons,deit_cmet,deit_switches,deit_dripst,deit_stars,e_stop_music,e_efx_clear"
+  unlo_level:           "folder exit_level" # period:20 ticks
+  exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
 
-  # Points
-  e_point_add_death:    "point jrb_deaths 1 action:add"
-  e_gpoint_add_death:   "globalpoint jrb_deaths 1 action:add"
+  on_death:             "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:              "folder unlo_level"
 
+  # Wipse save
+  wipe_level:           "folder wipe_stars"
 
-  ### Play music
+  # Play music:
   e_play_music:         "folder core-music.e_play_jrb"
   e_stop_music:         "folder core-music.e_stop_music"
 
-
-  ### LEVEL - Add objectives
-  add_level_objs:       "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_tp_to_ship"
+  ### --- Spawn / Respawn ---------------------------------------
+  init_spawns:          "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_tp_to_ship,e_tp_spawn"
   e_obj_add_respawn:    "objective add o_respawn"
   e_obj_add_exit:       "objective add o_exitlevel"
   e_obj_add_tp_to_ship: "objective add o_tp_to_ship"
-  e_obj_add_tp_fr_ship: "objective add o_tp_fr_ship"
-  ### LEVEL - Del objectives
-  del_level_objs:       "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_tp_to_ship,e_obj_del_tp_fr_ship"
-  e_obj_del_respawn:    "objective remove o_respawn"
-  e_obj_del_exit:       "objective remove o_exitlevel"
-  e_obj_del_tp_to_ship: "objective remove o_tp_to_ship"
-  e_obj_del_tp_fr_ship: "objective remove o_tp_fr_ship"
+  e_obj_add_tp_fr_ship: "objective del o_tp_fr_ship"
 
+  deit_spawns:          "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_tp_to_ship,e_obj_del_tp_fr_ship"
+  e_obj_del_respawn:    "objective del o_respawn"
+  e_obj_del_exit:       "objective del o_exitlevel"
+  e_obj_del_tp_to_ship: "objective del o_tp_to_ship"
+  e_obj_del_tp_fr_ship: "objective del o_tp_fr_ship"
 
   # Teleports
   e_tp_spawn:           "teleport $spawn$"
   e_tp_respawn:         "teleport $respawn$"
 
-  e_enter_ship:         "folder e_tp_to_ship,init_s1"
+  e_enter_ship:         "folder e_tp_to_ship,init_s1"       # init star 1
   e_tp_to_ship:         "teleport $tp_toship$"
 
-  e_leave_ship:         "folder cleanup_s1,e_tp_fr_ship"
+  e_leave_ship:         "folder cleanup_s1,e_tp_fr_ship"    # deit star 1
   e_tp_fr_ship:         "teleport $tp_frship$"
 
   # Actions
   e_notify_death:       "command broadcast &3%player%&f died in JRB."
+  e_point_add_death:    "point jrb_deaths 1 action:add"
+  e_gpoint_add_death:   "globalpoint jrb_deaths 1 action:add"
 
-  ### Ship
+  # Sub area: Ship
   e_init_ship:          "folder e_obj_add_tp_fr_ship,e_enter_ship"
   e_cleanup_ship:       "folder e_obj_add_tp_to_ship,e_leave_ship"
 
 
-
-
-
 objectives:
   o_respawn:            "die cancel respawn:$respawn$ events:on_death"
-  o_exitlevel:          "action right any loc:$exitbtn$ events:on_exit"
+  o_exitlevel:          "action right any loc:$exitsign$ events:on_exit"
 
   o_tp_to_ship:         "region jrb_ship_enter enter events:e_init_ship"
   o_tp_fr_ship:         "region jrb_ship_exit enter events:e_cleanup_ship"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
