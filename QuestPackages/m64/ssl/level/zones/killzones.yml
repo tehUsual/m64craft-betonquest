@@ -1,0 +1,44 @@
+variables:
+  kz:
+    kz1:
+      region:         ssl_killzone1
+    kz2:
+      region:         ssl_killzone2
+    kz3:
+      region:         ssl_killzone3
+    kz4:
+      region:         ssl_killzone4
+    kz5:
+      region:         ssl_killzone5
+    kz6:
+      region:         ssl_killzone6
+    kz7:
+      region:         ssl_killzone7
+
+
+events:
+  init_killzones:     "folder e_obj_add_kzs_g1,e_obj_add_kzs_g2"
+  deit_killzones:     "folder e_obj_del_kzs_g1,e_obj_del_kzs_g2"
+
+  # Init
+  e_obj_add_kzs_g1:   "run ^objective add o_killzone_1 ^objective add o_killzone_2 ^objective add o_killzone_3 ^objective add o_killzone_4"
+  e_obj_add_kzs_g2:   "run ^objective add o_killzone_5 ^objective add o_killzone_6 ^objective add o_killzone_7"
+
+  # Cleanup
+  e_obj_del_kzs_g1:   "run ^objective remove o_killzone_1 ^objective remove o_killzone_2 ^objective remove o_killzone_3 ^objective remove o_killzone_4"
+  e_obj_del_kzs_g2:   "run ^objective remove o_killzone_5 ^objective remove o_killzone_6 ^objective remove o_killzone_7"
+
+  # On killzone
+  e_kz_kill:          "folder e_kz_dmg"
+  e_kz_dmg:           "damage 200"
+
+
+
+objectives:
+  o_killzone_1:       "region $kz.kz1.region$ enter events:e_kz_kill"
+  o_killzone_2:       "region $kz.kz2.region$ enter events:e_kz_kill"
+  o_killzone_3:       "region $kz.kz3.region$ enter events:e_kz_kill"
+  o_killzone_4:       "region $kz.kz4.region$ enter events:e_kz_kill"
+  o_killzone_5:       "region $kz.kz5.region$ enter events:e_kz_kill"
+  o_killzone_6:       "region $kz.kz6.region$ enter events:e_kz_kill"
+  o_killzone_7:       "region $kz.kz7.region$ enter events:e_kz_kill"
