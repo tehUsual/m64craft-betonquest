@@ -1,0 +1,13 @@
+variables:
+  dripst:
+    iframes:            15 # ticks
+
+events:
+  init_dripst:          "folder init_dripst_1,init_dripst_2,init_dripst_3,init_dripst_4,init_dripst_5,init_dripst_6"
+  deit_dripst:          "folder deit_dripst_1,deit_dripst_2,deit_dripst_3,deit_dripst_4,deit_dripst_5,deit_dripst_6"
+
+
+  # Trigger dripstone damage
+  e_dripst_trigger:     "folder e_dripst_dmg,e_dripst_readd_obj"
+  e_dripst_dmg:         "damage 8"
+  e_dripst_readd_obj:   "folder init_dripst delay:$dripst.iframes$ ticks"

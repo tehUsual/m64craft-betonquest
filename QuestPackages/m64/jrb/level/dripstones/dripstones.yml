@@ -1,13 +1,40 @@
 variables:
-  dripst:
-    iframes:            15 # ticks
+  dripst_1:
+    region:             jrb_spike_1
+  dripst_2:
+    region:             jrb_spike_2
+  dripst_3:
+    region:             jrb_spike_3
+  dripst_4:
+    region:             jrb_spike_4
+  dripst_5:
+    region:             jrb_spike_5
+  dripst_6:
+    region:             jrb_spike_6
 
 events:
-  init_dripst:          "folder init_dripst_1,init_dripst_2,init_dripst_3,init_dripst_4,init_dripst_5,init_dripst_6"
-  deit_dripst:          "folder deit_dripst_1,deit_dripst_2,deit_dripst_3,deit_dripst_4,deit_dripst_5,deit_dripst_6"
+  init_dripst_1:        "folder e_obj_add_dripst_1,e_obj_add_dripst_2,e_obj_add_dripst_3,e_obj_add_dripst_4,e_obj_add_dripst_5,e_obj_add_dripst_6"
+  deit_dripst_1:        "folder e_obj_del_dripst_1,e_obj_del_dripst_2,e_obj_del_dripst_3,e_obj_del_dripst_4,e_obj_del_dripst_5,e_obj_del_dripst_6"
+  
+  e_obj_add_dripst_1:   "objective add o_dripst_1"
+  e_obj_add_dripst_2:   "objective add o_dripst_2"
+  e_obj_add_dripst_3:   "objective add o_dripst_3"
+  e_obj_add_dripst_4:   "objective add o_dripst_4"
+  e_obj_add_dripst_5:   "objective add o_dripst_5"
+  e_obj_add_dripst_6:   "objective add o_dripst_6"
+
+  e_obj_del_dripst_1:   "objective remove o_dripst_1"
+  e_obj_del_dripst_2:   "objective remove o_dripst_2"
+  e_obj_del_dripst_3:   "objective remove o_dripst_3"
+  e_obj_del_dripst_4:   "objective remove o_dripst_4"
+  e_obj_del_dripst_5:   "objective remove o_dripst_5"
+  e_obj_del_dripst_6:   "objective remove o_dripst_6"
 
 
-  # Trigger dripstone damage
-  e_dripst_trigger:     "folder e_dripst_dmg,e_dripst_readd_obj"
-  e_dripst_dmg:         "damage 8"
-  e_dripst_readd_obj:   "folder init_dripst delay:$dripst.iframes$ ticks"
+objectives:
+  o_dripst_1:           "region $dripst_1.region$ enter events:e_dripst_trigger"
+  o_dripst_2:           "region $dripst_2.region$ enter events:e_dripst_trigger"
+  o_dripst_3:           "region $dripst_3.region$ enter events:e_dripst_trigger"
+  o_dripst_4:           "region $dripst_4.region$ enter events:e_dripst_trigger"
+  o_dripst_5:           "region $dripst_5.region$ enter events:e_dripst_trigger"
+  o_dripst_6:           "region $dripst_6.region$ enter events:e_dripst_trigger"
