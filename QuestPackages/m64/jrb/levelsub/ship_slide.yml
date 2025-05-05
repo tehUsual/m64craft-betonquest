@@ -6,8 +6,8 @@ variables:
 
 
 events:
-  init_ship_slide:    "folder e_add_obj_slide"
-  deit_ship_slide:    "folder e_del_obj_slide"
+  init_ship_slide:        "folder e_add_obj_slide"
+  deit_ship_slide:        "folder e_del_obj_slide"
 
 
   ## Init
@@ -21,22 +21,22 @@ events:
 
   ## Cleanup
   e_del_obj_slide:        "folder e_del_obj_slide_g1,e_del_obj_slide_g2,e_del_obj_slide_g3"
-  e_del_obj_slide_g1:     "run ^objective remova o_sub_slide_1 ^objective remova o_sub_slide_2 ^objective remova o_sub_slide_3 ^objective remova o_sub_slide_4 ^objective remova o_sub_slide_5"
-  e_del_obj_slide_g2:     "run ^objective remova o_sub_slide_6 ^objective remova o_sub_slide_7 ^objective remova o_sub_slide_8 ^objective remova o_sub_slide_9 ^objective remova o_sub_slide_10"
-  e_del_obj_slide_g3:     "run ^objective remova o_sub_slide_11 ^objective remova o_sub_slide_12 ^objective remova o_sub_slide_13"
+  e_del_obj_slide_g1:     "run ^objective remove o_sub_slide_1 ^objective remove o_sub_slide_2 ^objective remove o_sub_slide_3 ^objective remove o_sub_slide_4 ^objective remove o_sub_slide_5"
+  e_del_obj_slide_g2:     "run ^objective remove o_sub_slide_6 ^objective remove o_sub_slide_7 ^objective remove o_sub_slide_8 ^objective remove o_sub_slide_9 ^objective remove o_sub_slide_10"
+  e_del_obj_slide_g3:     "run ^objective remove o_sub_slide_11 ^objective remove o_sub_slide_12 ^objective remove o_sub_slide_13"
 
 
 objectives:
-  o_s1_slide_1:           "region jrb_ship_slide_1 enter events:e_s1_slide_down"
-  o_s1_slide_2:           "region jrb_ship_slide_2 enter events:e_s1_slide_down"
-  o_s1_slide_3:           "region jrb_ship_slide_3 enter events:e_s1_slide_down"
-  o_s1_slide_4:           "region jrb_ship_slide_4 enter events:e_s1_slide_down"
-  o_s1_slide_5:           "region jrb_ship_slide_5 enter events:e_s1_slide_down"
-  o_s1_slide_6:           "region jrb_ship_slide_6 enter events:e_s1_slide_down"
-  o_s1_slide_7:           "region jrb_ship_slide_7 enter events:e_s1_slide_down"
-  o_s1_slide_8:           "region jrb_ship_slide_8 enter events:e_s1_slide_down"
-  o_s1_slide_9:           "region jrb_ship_slide_9 enter events:e_s1_slide_down"
-  o_s1_slide_10:          "region jrb_ship_slide_10 enter events:e_s1_slide_down"
-  o_s1_slide_11:          "region jrb_ship_slide_11 enter events:e_s1_slide_down"
-  o_s1_slide_12:          "region jrb_ship_slide_12 enter events:e_s1_slide_down"
-  o_s1_slide_13:          "region jrb_ship_slide_13 enter events:e_s1_slide_down"
+  o_sub_slide_1:          "region jrb_ship_slide_1 enter events:e_sub_slide_down"
+  o_sub_slide_2:          "region jrb_ship_slide_2 enter events:e_sub_slide_down"
+  o_sub_slide_3:          "region jrb_ship_slide_3 enter events:e_sub_slide_down"
+  o_sub_slide_4:          "region jrb_ship_slide_4 enter events:e_sub_slide_down"
+  o_sub_slide_5:          "region jrb_ship_slide_5 enter events:e_sub_slide_down"
+  o_sub_slide_6:          "region jrb_ship_slide_6 enter events:e_sub_slide_down"
+  o_sub_slide_7:          "region jrb_ship_slide_7 enter events:e_sub_slide_down"
+  o_sub_slide_8:          "region jrb_ship_slide_8 enter events:e_sub_slide_down"
+  o_sub_slide_9:          "region jrb_ship_slide_9 enter events:e_sub_slide_down"
+  o_sub_slide_10:         "region jrb_ship_slide_10 enter events:e_sub_slide_down"
+  o_sub_slide_11:         "region jrb_ship_slide_11 enter events:e_sub_slide_down"
+  o_sub_slide_12:         "region jrb_ship_slide_12 enter events:e_sub_slide_down"
+  o_sub_slide_13:         "region jrb_ship_slide_13 enter events:e_sub_slide_down"

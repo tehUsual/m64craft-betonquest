@@ -39,8 +39,8 @@ variables:
       z2: 409
 
 events:
-  show_switch_blocks_1:     "folder folder e_swc_1_pf1_show,e_swc_1_pf2_show,e_swc_1_pf3_show,e_swc_1_pf4_show,e_swc_1_pf5_show,e_swc_1_pf6_show"
-  hide_switch_blocks_1:     "folder folder e_swc_1_pf1_hide,e_swc_1_pf2_hide,e_swc_1_pf3_hide,e_swc_1_pf4_hide,e_swc_1_pf5_hide,e_swc_1_pf6_hide"
+  show_switch_blocks_1:     "folder e_swc_1_pf1_show,e_swc_1_pf2_show,e_swc_1_pf3_show,e_swc_1_pf4_show,e_swc_1_pf5_show,e_swc_1_pf6_show"
+  hide_switch_blocks_1:     "folder e_swc_1_pf1_hide,e_swc_1_pf2_hide,e_swc_1_pf3_hide,e_swc_1_pf4_hide,e_swc_1_pf5_hide,e_swc_1_pf6_hide"
 
 
   # Platforms show

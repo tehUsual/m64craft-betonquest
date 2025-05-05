@@ -37,13 +37,13 @@ events:
   e_obj_add_respawn:    "objective add o_respawn"
   e_obj_add_exit:       "objective add o_exitlevel"
   e_obj_add_tp_to_ship: "objective add o_tp_to_ship"
-  e_obj_add_tp_fr_ship: "objective del o_tp_fr_ship"
+  e_obj_add_tp_fr_ship: "objective add o_tp_fr_ship"
 
   deit_spawns:          "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_tp_to_ship,e_obj_del_tp_fr_ship"
-  e_obj_del_respawn:    "objective del o_respawn"
-  e_obj_del_exit:       "objective del o_exitlevel"
-  e_obj_del_tp_to_ship: "objective del o_tp_to_ship"
-  e_obj_del_tp_fr_ship: "objective del o_tp_fr_ship"
+  e_obj_del_respawn:    "objective remove o_respawn"
+  e_obj_del_exit:       "objective remove o_exitlevel"
+  e_obj_del_tp_to_ship: "objective remove o_tp_to_ship"
+  e_obj_del_tp_fr_ship: "objective remove o_tp_fr_ship"
 
   # Teleports
   e_tp_spawn:           "teleport $spawn$"
@@ -52,7 +52,7 @@ events:
   e_enter_ship:         "folder e_tp_to_ship,init_s1,init_sub_ship"    # init star 1
   e_tp_to_ship:         "teleport $tp_toship$"
 
-  e_leave_ship:         "folder deit_s1,init_sub_ship,e_tp_fr_ship"    # deit star 1
+  e_leave_ship:         "folder deit_s1,deit_sub_ship,e_tp_fr_ship"    # deit star 1
   e_tp_fr_ship:         "teleport $tp_frship$"
 
   # Actions

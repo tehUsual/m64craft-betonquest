@@ -3,8 +3,8 @@ variables:
     iframes:            15 # ticks
 
 events:
-  init_dripst:          "folder init_dripst_1,init_dripst_2,init_dripst_3,init_dripst_4,init_dripst_5,init_dripst_6"
-  deit_dripst:          "folder deit_dripst_1,deit_dripst_2,deit_dripst_3,deit_dripst_4,deit_dripst_5,deit_dripst_6"
+  init_dripst:          "folder init_dripst_1"
+  deit_dripst:          "folder deit_dripst_1"
 
 
   # Trigger dripstone damage
