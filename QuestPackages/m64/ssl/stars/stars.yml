@@ -1,0 +1,28 @@
+### STAR 1 - IN THE TALONS OF THE BIG BIRD
+### STAR 2 - SHINING ATOP THE PYRAMID
+### STAR 3 - INSIDE THE ANCIENT PYRAMID
+### STAR 4 - FIND THE 12 RED COINS
+### STAR 5 - STAND TALL ON THE FOUR PILLARS
+### STAR 6 - PYRAMID PUZZLE
+### STAR 7
+### STAR 8
+### STAR 9 - CAPTAIN TOAD 1
+### STAR 10 - CAPTAIN TOAD 2
+### STAR 11 - CAPTAIN TOAD 3
+
+events:
+  # Entry
+  init_stars:             "folder init_s1,init_s2,init_s3,init_s4,init_s5,init_s6,init_s8"
+  deit_stars:             "folder deit_s1,deit_s2,deit_s3,deit_s4,deit_s5,deit_s6,deit_s8"
+
+  # Clear save
+  wipe_stars:             "folder e_del_star_tags,e_s4_del_tags,e_clear_star_counter"
+  e_del_star_tags:        "folder e_del_star_tags_1,e_del_star_tags_2"
+  e_del_star_tags_1:      "run ^tag delete s1 ^tag delete s2 ^tag delete s3 ^tag delete s4 ^tag delete s5 ^tag delete s6"
+  e_del_star_tags_2:      "run ^tag delete s8 ^tag delete s9 ^tag delete s10 ^tag delete s11"
+  e_clear_star_counter:   "point ssl_stars 0 action:set"
+
+  # Win star
+  exit_star:              "folder on_exit,exit_course_sfx,e_add_star_counter delay:3"
+  exit_course_sfx:        "folder core-sfx.e_exit_course delay:30 ticks"
+  e_add_star_counter:     "point ssl_stars 1 action:add"
