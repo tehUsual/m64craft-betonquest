@@ -4,7 +4,7 @@ variables:
   swc_interval:   2   # seconds
   swc1: 
     swc:
-      region:     jbr_swc_1
+      region:     jrb_swc_1
       y:  88
       x1: 43
       z1: 423

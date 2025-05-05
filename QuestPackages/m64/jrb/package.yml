@@ -1,9 +1,13 @@
 # Regions:
-# 
-# 
-# 
-# 
-# 
+# Level entry:      jrb_entry
+# Level:            jrb
+# Sub-level entry:  jrb_ship_enter,jrb_ship_exit
+# Sub-level:        jrb_ship
+# Sub-level slide:  jrb_ship_slide_1..jrb_ship_slide_13
+#
+# Falling pillars:  jrb_spike_1..jrb_spike_6
+# Cannons:          jrb_cannon_1
+# Switches:         jrb_swc_1
 
 #/summon minecraft:falling_block ~ ~5 ~ {BlockState:{Name:"minecraft:pointed_dripstone",Properties:{vertical_direction:"down"}},Time:1,HurtEntities:1,FallHurtAmount:2,FallHurtMax:20,DropItem:0}
 

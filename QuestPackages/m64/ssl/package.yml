@@ -1,69 +1,62 @@
+# Regions:
+# Level entry:      ssl_entry
+# Level:            ssl
+# Sub-level entry:  ssl_enter_pyrfront
+# Sub-level:        ssl_inside
+#
+# Cannons:          ssl_cannon_1
+# Pillars:          ssl_s6_p1..ssl_p6_s4
+# Star 8:           ssl_speedrun
+
 variables:
   spawn:              -862.5;69;2.5;marocraft;180;12
   respawn:            -3.5;28;-438.5;marocraft;0;12
-  exitbtn:            -863;69;2;marocraft
-  exitbtn2:           -927;74;416;marocraft
+  exitsign:           -863;69;2;marocraft
+  exitsign2:          -927;74;416;marocraft
   inside_pyramid:     -926.5;74;415.5;marocraft;180;12
   inside_pyramid_top: -923.5;113;367.5;marocraft;45;12
 
 events:
-  init_level:         "folder add_level_objs,init_cannons,init_stars,e_tp_spawn,e_play_music"
-  reload_level:       "folder reset_level,core-main.init_castle"
-  reset_level:        "folder del_level_objs,reset_cannons,reset_stars,e_stop_music"
-  hard_reset:         "folder reset_level,delete_stars"
-  on_death:           "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
-  on_exit:            "folder e_tp_respawn,reload_level"
+  init_level:         "folder init_spawns,init_cannons,init_zones,init_stars,e_play_music"
+  deit_level:         "folder deit_spawns,deit_cannons,deit_zones,deit_stars,e_stop_music"
+  unlo_level:         "folder exit_level" # period:20 ticks
+  exit_level:         "folder deit_level,e_tp_respawn,core-main.init_castle"
 
-  kill_player:        "folder e_kill"
+  on_death:           "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:            "folder unlo_level"
 
-  e_point_add_death:  "point ssl_deaths 1 action:add"
-  e_gpoint_add_death: "globalpoint ssl_deaths 1 action:add"
+  # Wipe save
+  wipe_level:         "folder wipe_stars"
 
-  ### Play music
+  # Play music
   e_play_music:       "folder core-music.e_play_ssl"
   e_play_music_pyr:   "folder core-music.e_play_hmc"
   e_play_music_boss:  "folder core-music.e_play_boss"
   e_stop_music:       "folder core-music.e_stop_music"
 
-  ### LEVEL - Add objectives
-  add_level_objs:     "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_obj_add_tp_pyr,e_add_obj_kz_out"
+  ### --- Spawn / Respawn ---------------------------------------
+  init_spawns:        "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_obj_add_tp_pyr"
   e_obj_add_respawn:  "objective add o_respawn"
   e_obj_add_exit:     "objective add o_exitlevel"
   e_obj_add_exit2:    "objective add o_exitlevel2"
   e_obj_add_tp_pyr:   "objective add o_tp_pyramid"
-  e_add_obj_kz_out:   "folder e_obj_add_kz1,e_obj_add_kz2,e_obj_add_kz3,e_obj_add_kz4,e_obj_add_kz5,e_obj_add_kz6,e_obj_add_kz7"
-  e_obj_add_kz1:      "objective add o_killzone_1"
-  e_obj_add_kz2:      "objective add o_killzone_2"
-  e_obj_add_kz3:      "objective add o_killzone_3"
-  e_obj_add_kz4:      "objective add o_killzone_4"
-  e_obj_add_kz5:      "objective add o_killzone_5"
-  e_obj_add_kz6:      "objective add o_killzone_6"
-  e_obj_add_kz7:      "objective add o_killzone_7"
-  
-  ### LEVEL - Del objectives
-  del_level_objs:     "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_exit2,e_obj_del_tp_pyr,e_add_del_kz_out"
+
+  deit_spawns:        "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_exit2,e_obj_del_tp_pyr"
   e_obj_del_respawn:  "objective remove o_respawn"
   e_obj_del_exit:     "objective remove o_exitlevel"
   e_obj_del_exit2:    "objective remove o_exitlevel2"
   e_obj_del_tp_pyr:   "objective remove o_tp_pyramid"
-  e_add_del_kz_out:   "folder e_obj_del_kz1,e_obj_del_kz2,e_obj_del_kz3,e_obj_del_kz4,e_obj_del_kz5,e_obj_del_kz6,e_obj_del_kz7"
-  e_obj_del_kz1:      "objective remove o_killzone_1"
-  e_obj_del_kz2:      "objective remove o_killzone_2"
-  e_obj_del_kz3:      "objective remove o_killzone_3"
-  e_obj_del_kz4:      "objective remove o_killzone_4"
-  e_obj_del_kz5:      "objective remove o_killzone_5"
-  e_obj_del_kz6:      "objective remove o_killzone_6"
-  e_obj_del_kz7:      "objective remove o_killzone_7"
-  
 
   # Teleports
   e_tp_spawn:         "teleport $spawn$"
   e_tp_respawn:       "teleport $respawn$"
+  # Sub area: Pyramid
   e_tp_pyramid:       "teleport $inside_pyramid$"
 
   # Actions
-  e_kill:             "damage 200"
   e_notify_death:     "command broadcast &3%player%&f died in SSL."
+  e_point_add_death:  "point ssl_deaths 1 action:add"
+  e_gpoint_add_death: "globalpoint ssl_deaths 1 action:add"
 
   # Pyramid
   e_init_pyramid:     "folder e_tp_pyramid,e_play_music_pyr"
@@ -71,13 +64,6 @@ events:
 
 objectives:
   o_respawn:          "die cancel respawn:$respawn$ events:on_death"
-  o_exitlevel:        "action right any loc:$exitbtn$ events:on_exit"
-  o_exitlevel2:       "action right any loc:$exitbtn2$ events:on_exit"
+  o_exitlevel:        "action right any loc:$exitsign$ events:on_exit"
+  o_exitlevel2:       "action right any loc:$exitsign2$ events:on_exit"
   o_tp_pyramid:       "region ssl_enter_pyrfront enter events:e_init_pyramid"
-  o_killzone_1:       "region ssl_killzone1 enter events:kill_player"
-  o_killzone_2:       "region ssl_killzone2 enter events:kill_player"
-  o_killzone_3:       "region ssl_killzone3 enter events:kill_player"
-  o_killzone_4:       "region ssl_killzone4 enter events:kill_player"
-  o_killzone_5:       "region ssl_killzone5 enter events:kill_player"
-  o_killzone_6:       "region ssl_killzone6 enter events:kill_player"
-  o_killzone_7:       "region ssl_killzone7 enter events:kill_player"
