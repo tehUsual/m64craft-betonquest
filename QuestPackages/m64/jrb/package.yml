@@ -49,10 +49,10 @@ events:
   e_tp_spawn:           "teleport $spawn$"
   e_tp_respawn:         "teleport $respawn$"
 
-  e_enter_ship:         "folder e_tp_to_ship,init_s1"       # init star 1
+  e_enter_ship:         "folder e_tp_to_ship,init_s1,init_sub_ship"    # init star 1
   e_tp_to_ship:         "teleport $tp_toship$"
 
-  e_leave_ship:         "folder cleanup_s1,e_tp_fr_ship"    # deit star 1
+  e_leave_ship:         "folder deit_s1,init_sub_ship,e_tp_fr_ship"    # deit star 1
   e_tp_fr_ship:         "teleport $tp_frship$"
 
   # Actions

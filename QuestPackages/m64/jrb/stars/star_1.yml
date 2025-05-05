@@ -2,9 +2,6 @@ variables:
   s1:
     star_loc:             360;53;371;marocraft
     star_loc_xyz:         360 53 371
-    slide_tp:
-      y:  34
-      z:  343
     chest1:
       lock:               361;34;320;marocraft
       trapdoor:           361;35;319;marocraft
@@ -25,29 +22,8 @@ variables:
 ### STAR 1 - PLUNDER IN THE SUNKEN SHIP
 events:
   # Init
-  init_s1:                "folder e_s1_setup_chests,e_add_obj_slide"
+  init_s1:                "folder e_s1_setup_chests"
   e_s1_setup_chests:      "folder e_s1_setup_chest_3"
-
-  ## Slide
-  e_add_obj_slide:        "folder e_add_obj_slide_1,e_add_obj_slide_2"
-  e_add_obj_slide_1:      "folder e_obj_add_s1_slide_1,e_obj_add_s1_slide_2,e_obj_add_s1_slide_3,e_obj_add_s1_slide_4,e_obj_add_s1_slide_5,e_obj_add_s1_slide_6"
-  e_add_obj_slide_2:      "folder e_obj_add_s1_slide_7,e_obj_add_s1_slide_8,e_obj_add_s1_slide_9,e_obj_add_s1_slide_10,e_obj_add_s1_slide_11,e_obj_add_s1_slide_12,e_obj_add_s1_slide_13"
-  e_obj_add_s1_slide_1:   "objective add o_s1_slide_1"
-  e_obj_add_s1_slide_2:   "objective add o_s1_slide_2"
-  e_obj_add_s1_slide_3:   "objective add o_s1_slide_3"
-  e_obj_add_s1_slide_4:   "objective add o_s1_slide_4"
-  e_obj_add_s1_slide_5:   "objective add o_s1_slide_5"
-  e_obj_add_s1_slide_6:   "objective add o_s1_slide_6"
-  e_obj_add_s1_slide_7:   "objective add o_s1_slide_7"
-  e_obj_add_s1_slide_8:   "objective add o_s1_slide_8"
-  e_obj_add_s1_slide_9:   "objective add o_s1_slide_9"
-  e_obj_add_s1_slide_10:  "objective add o_s1_slide_10"
-  e_obj_add_s1_slide_11:  "objective add o_s1_slide_11"
-  e_obj_add_s1_slide_12:  "objective add o_s1_slide_12"
-  e_obj_add_s1_slide_13:  "objective add o_s1_slide_13"
-
-  e_s1_slide_down:        "folder e_s1_slide_tp,core-sfx.e_oof,e_add_obj_slide"
-  e_s1_slide_tp:          "teleport %location.x%.5;$s1.slide_tp.y$;$s1.slide_tp.z$.5;marocraft"
 
   # 3,4,1,5,2
   e_obj_add_s1_c1:        "objective add o_s1_c1"
@@ -149,23 +125,6 @@ events:
   e_obj_del_s1_w4:        "objective remove o_s1_w4"
   e_obj_del_s1_w5:        "objective remove o_s1_w5"
 
-  e_del_obj_slide:        "folder e_del_obj_slide_1,e_del_obj_slide_2"
-  e_del_obj_slide_1:      "folder e_obj_del_s1_slide_1,e_obj_del_s1_slide_2,e_obj_del_s1_slide_3,e_obj_del_s1_slide_4,e_obj_del_s1_slide_5,e_obj_del_s1_slide_6"
-  e_del_obj_slide_2:      "folder e_obj_del_s1_slide_7,e_obj_del_s1_slide_8,e_obj_del_s1_slide_9,e_obj_del_s1_slide_10,e_obj_del_s1_slide_11,e_obj_del_s1_slide_12,e_obj_del_s1_slide_13"
-  e_obj_del_s1_slide_1:   "objective remove o_s1_slide_1"
-  e_obj_del_s1_slide_2:   "objective remove o_s1_slide_2"
-  e_obj_del_s1_slide_3:   "objective remove o_s1_slide_3"
-  e_obj_del_s1_slide_4:   "objective remove o_s1_slide_4"
-  e_obj_del_s1_slide_5:   "objective remove o_s1_slide_5"
-  e_obj_del_s1_slide_6:   "objective remove o_s1_slide_6"
-  e_obj_del_s1_slide_7:   "objective remove o_s1_slide_7"
-  e_obj_del_s1_slide_8:   "objective remove o_s1_slide_8"
-  e_obj_del_s1_slide_9:   "objective remove o_s1_slide_9"
-  e_obj_del_s1_slide_10:  "objective remove o_s1_slide_10"
-  e_obj_del_s1_slide_11:  "objective remove o_s1_slide_11"
-  e_obj_del_s1_slide_12:  "objective remove o_s1_slide_12"
-  e_obj_del_s1_slide_13:  "objective remove o_s1_slide_13"
-
   e_obj_del_s1_star:      "objective remove o_s1_star"
 
   if_s1_spawned:          "if chk_s1_spawned e_s1_del_spawned else core-main.e_dummy"
@@ -198,17 +157,3 @@ objectives:
   o_s1_w3:                "action right any loc:$s1.chest3.lock$ events:e_s1_chest_wrong"
   o_s1_w4:                "action right any loc:$s1.chest4.lock$ events:e_s1_chest_wrong"
   o_s1_w5:                "action right any loc:$s1.chest5.lock$ events:e_s1_chest_wrong"
-
-  o_s1_slide_1:           "region jrb_ship_slide_1 enter events:e_s1_slide_down"
-  o_s1_slide_2:           "region jrb_ship_slide_2 enter events:e_s1_slide_down"
-  o_s1_slide_3:           "region jrb_ship_slide_3 enter events:e_s1_slide_down"
-  o_s1_slide_4:           "region jrb_ship_slide_4 enter events:e_s1_slide_down"
-  o_s1_slide_5:           "region jrb_ship_slide_5 enter events:e_s1_slide_down"
-  o_s1_slide_6:           "region jrb_ship_slide_6 enter events:e_s1_slide_down"
-  o_s1_slide_7:           "region jrb_ship_slide_7 enter events:e_s1_slide_down"
-  o_s1_slide_8:           "region jrb_ship_slide_8 enter events:e_s1_slide_down"
-  o_s1_slide_9:           "region jrb_ship_slide_9 enter events:e_s1_slide_down"
-  o_s1_slide_10:          "region jrb_ship_slide_10 enter events:e_s1_slide_down"
-  o_s1_slide_11:          "region jrb_ship_slide_11 enter events:e_s1_slide_down"
-  o_s1_slide_12:          "region jrb_ship_slide_12 enter events:e_s1_slide_down"
-  o_s1_slide_13:          "region jrb_ship_slide_13 enter events:e_s1_slide_down"

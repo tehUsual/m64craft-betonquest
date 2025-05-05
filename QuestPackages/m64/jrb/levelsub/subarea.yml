@@ -1,0 +1,3 @@
+events:
+  init_sub_ship:    "folder init_ship_slide"
+  deit_sub_ship:    "folder deit_ship_slide"
