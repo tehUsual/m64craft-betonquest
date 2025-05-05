@@ -1,8 +1,8 @@
 npcs:
-  '23': "toad_ssl"
+  '23': "toad_progress"
 
 conversations:
-  toad_ssl:
+  toad_progress:
     quester: "Toad: Shifting Sand Land"
     first: welcome
   
@@ -12,7 +12,7 @@ conversations:
         pointer: progress
       view_progress:
         text: "This is what you've got so far! - &2%point.ssl_stars.amount%&r/10"
-        pointer: s1y,s1n,s2y,s2n,s3y,s3n,s4y,s4n,s5y,s5n,s6y,s6n,s7w,s8y,s8n,s9y,s9n,s10y,s10n,s11y,s11n
+        pointer: s1y,s1n,s2y,s2n,s3y,s3n,s4y,s4n,s5y,s5n,s6y,s6n,s8y,s8n,s9y,s9n,s10y,s10n,s11y,s11n
       bye:
         text: "Byee!"
         #exit
@@ -80,11 +80,6 @@ conversations:
       s6n:
         condition: "!chk_s6_obtained"
         text: "[ ] -=Star=- 6"
-        pointer: bye
-
-      ### STAR 7
-      s7w:
-        text: "N/A"
         pointer: bye
 
       ### STAR 8 - KOOPA THE QUICK  
