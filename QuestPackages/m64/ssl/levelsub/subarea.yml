@@ -1,34 +1,39 @@
 variables:
-  inside_pyramid:     -926.5;74;415.5;marocraft;180;12
-  inside_pyramid_top: -923.5;113;367.5;marocraft;45;12
-  exitsign2:          -927;74;416;marocraft
+  inside_pyramid:       -926.5;74;415.5;marocraft;180;12
+  inside_pyramid_top:   -923.5;113;367.5;marocraft;45;12
+  exitsign2:            -927;74;416;marocraft
 
 
 events:
   # Entry
-  on_pyramid_front:   "folder e_tp_pyramid_front,init_pyramid"
-  on_pyramid_top:     "folder                    init_pyramid"
+  on_pyramid_front:     "folder e_tp_pyramid_front,init_pyramid"
+  on_pyramid_top:       "folder e_tp_pyramid_top,init_pyramid"
 
   # -- Initialize --
-  init_pyramid:       "folder init_sub_killzones,init_sub_spawns,init_sub_stars,deit_main_sub,e_play_music_pyr"
-  init_sub_spawns:    "folder e_obj_add_exit2"
+  init_pyramid:         "folder init_sub_killzones,init_sub_objs,init_sub_stars,deit_main_sub,e_play_music_pyr"
+  init_sub_objs:        "folder e_obj_add_exit2,e_obj_add_boss_arena"
 
   # Cleanup main area objectives
-  deit_main_sub:      "folder deit_killzones,deit_main_stars"
+  deit_main_sub:        "folder deit_killzones,deit_main_stars,deit_cannons"
 
-
+  # Boss area
+  e_obj_add_boss_arena: "objective add o_boss_enter"
+  e_obj_del_boss_arena: "objective remove o_boss_enter"
 
   # -- Cleanup --  (package.deit_level does the rest)
-  deit_pyramid:       "folder deit_sub_spawns" 
-  deit_sub_spawns:    "folder e_obj_del_exit2"
-  
+  deit_pyramid:         "folder deit_sub_objs,deit_boss"  # levelsub/boss.yml
+  deit_sub_objs:        "folder e_obj_del_exit2,e_obj_del_boss_arena"
+
   # Exit
-  e_obj_add_exit2:    "objective add o_exitlevel2"
-  e_obj_del_exit2:    "objective remove o_exitlevel2"
+  e_obj_add_exit2:      "objective add o_exitlevel2"
+  e_obj_del_exit2:      "objective remove o_exitlevel2"
 
   # Teleports
-  e_tp_pyramid_front: "teleport $inside_pyramid$"
+  e_tp_pyramid_front:   "teleport $inside_pyramid$"
+  e_tp_pyramid_top:     "teleport $inside_pyramid_top$"
 
 
 objectives:
-  o_exitlevel2:       "action right any loc:$exitsign2$ events:on_exit"
+  o_exitlevel2:         "action right any loc:$exitsign2$ events:on_exit"
+
+  o_boss_enter:         "region ssl_boss enter event:init_boss" # levelsub/boss.yml

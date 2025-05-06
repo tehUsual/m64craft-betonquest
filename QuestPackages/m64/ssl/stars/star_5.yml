@@ -2,8 +2,6 @@ variables:
   s5:
     star_loc:             -927;63;341;marocraft
     star_loc_xyz:         -927 63 341
-    eye1_loc:             -931;61;343;marocraft
-    eye2_loc:             -923;61;342;marocraft
     boss1_loc:            -931 61 343
     boss2_loc:            -923 61 342
 
@@ -13,40 +11,6 @@ events:
   # Init
   init_s5:                "folder core-main.e_dummy"
 
-  
-  # Init boss (Boss 1_1)
-  e_s5_sfx_explotion:     "notify io:sound sound:entity.generic.explode soundvolume:$core-sfx.svol$"
-  e_s5_die_boss_1:        "folder e_s5_ptc_explotion_b1,e_s5_sfx_explotion"
-  e_s5_ptc_explotion_b1:  "command execute in minecraft:overworld at %player% run particle minecraft:explosion $s5.boss1_loc$ 0.5 0 0.5 1 3"
-  e_s5_die_boss_2:        "folder e_s5_ptc_explotion_b2,e_s5_sfx_explotion"
-  e_s5_ptc_explotion_b2:  "command execute in minecraft:overworld at %player% run particle minecraft:explosion $s5.boss2_loc$ 0.5 0 0.5 1 3"
-  
-  e_s5_init_boss:         "folder e_obj_add_s5_boss_1_1,e_play_music_boss"
-  e_obj_add_s5_boss_1_1:  "objective add o_s5_boss_1_1"
-
-  # Boss 2_1
-  e_s5_hit_boss_1_1:      "folder e_obj_add_s5_boss_2_1,core-sfx.e_whomp"
-  e_obj_add_s5_boss_2_1:  "objective add o_s5_boss_2_1"
-
-  # Boss 1_2
-  e_s5_hit_boss_2_1:      "folder e_obj_add_s5_boss_1_2,core-sfx.e_whomp"
-  e_obj_add_s5_boss_1_2:  "objective add o_s5_boss_1_2"
-
-  # Boss 2_2
-  e_s5_hit_boss_1_2:      "folder e_obj_add_s5_boss_2_2,core-sfx.e_whomp"
-  e_obj_add_s5_boss_2_2:  "objective add o_s5_boss_2_2"
-
-  # Boss 3_1
-  e_s5_hit_boss_2_2:      "folder e_obj_add_s5_boss_1_3,core-sfx.e_whomp"
-  e_obj_add_s5_boss_1_3:  "objective add o_s5_boss_1_3"
-
-  # Boss 3_2 - (b1 dead)
-  e_s5_hit_boss_1_3:      "folder e_obj_add_s5_boss_2_3,core-sfx.e_whomp,e_s5_die_boss_1"
-  e_obj_add_s5_boss_2_3:  "objective add o_s5_boss_2_3"
-
-  # Boss 2 dead
-  e_s5_hit_boss_2_3:      "folder core-sfx.e_whomp,e_s5_die_boss_2,e_s5_notif,e_s5_boss_defeated"
-  e_s5_notif:             "notify yay"
 
   # Spawn star
   e_s5_boss_defeated:     "folder e_s5_spawn_star,e_s5_summon_firework,core-sfx.e_star_spawn,e_s5_notif_spawn_star,e_obj_add_s5_star,e_s5_gp_add_star,e_s5_tag_add_spawned"
@@ -68,14 +32,7 @@ events:
   tag_add_s5_win:         "tag add s5"
 
   # Cleanup
-  deit_s5:                "folder e_obj_del_s5_boss,if_s5_spawned,e_s5_tag_del_spawned"
-  e_obj_del_s5_boss:      "folder e_obj_del_s5_boss_1_1,e_obj_del_s5_boss_2_1,e_obj_del_s5_boss_1_2,e_obj_del_s5_boss_2_2,e_obj_del_s5_boss_1_3,e_obj_del_s5_boss_2_3"
-  e_obj_del_s5_boss_1_1:  "objective remove o_s5_boss_1_1"
-  e_obj_del_s5_boss_2_1:  "objective remove o_s5_boss_2_1"
-  e_obj_del_s5_boss_1_2:  "objective remove o_s5_boss_1_2"
-  e_obj_del_s5_boss_2_2:  "objective remove o_s5_boss_2_2"
-  e_obj_del_s5_boss_1_3:  "objective remove o_s5_boss_1_3"
-  e_obj_del_s5_boss_2_3:  "objective remove o_s5_boss_2_3"
+  deit_s5:                "folder if_s5_spawned,e_s5_tag_del_spawned"
 
   if_s5_spawned:          "if chk_s5_spawned e_s5_del_spawned else core-main.e_dummy"
   e_s5_del_spawned:       "folder e_s5_gp_sub_star,if_s5_despawn"
@@ -98,11 +55,3 @@ conditions:
 
 objectives:
   o_s5_star:              "action right any loc:$s5.star_loc$ events:win_s5"
-  o_s5_enter_boss:        "region ssl_boss enter event:e_s5_init_boss"
-
-  o_s5_boss_1_1:          "action right any loc:$s5.eye1_loc$ event:e_s5_hit_boss_1_1"
-  o_s5_boss_2_1:          "action right any loc:$s5.eye2_loc$ event:e_s5_hit_boss_2_1"
-  o_s5_boss_1_2:          "action right any loc:$s5.eye1_loc$ event:e_s5_hit_boss_1_2"
-  o_s5_boss_2_2:          "action right any loc:$s5.eye2_loc$ event:e_s5_hit_boss_2_2"
-  o_s5_boss_1_3:          "action right any loc:$s5.eye1_loc$ event:e_s5_hit_boss_1_3"
-  o_s5_boss_2_3:          "action right any loc:$s5.eye2_loc$ event:e_s5_hit_boss_2_3"

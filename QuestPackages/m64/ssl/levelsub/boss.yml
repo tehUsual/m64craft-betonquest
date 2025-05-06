@@ -1,0 +1,64 @@
+variables:
+  boss:
+    eye1_loc:             -931;61;343;marocraft
+    eye2_loc:             -923;61;342;marocraft
+    boss1_loc:            -931 61 343
+    boss2_loc:            -923 61 342
+
+
+events:
+  init_boss:              "folder e_obj_add_boss_1_1,e_play_music_boss"
+  deit_boss:              "folder e_obj_del_boss"
+
+  # --- Common ---
+  e_sfx_boss_hit:         "notify io:sound sound:entity.generic.explode soundvolume:$core-sfx.svol$"
+
+  e_boss_die_1:           "folder e_ptc_explosion_b1,e_sfx_boss_hit"
+  e_ptc_explosion_b1:     "command execute in minecraft:overworld at %player% run particle minecraft:explosion $boss.boss1_loc$ 0.5 0 0.5 1 3"
+
+  e_boss_die_2:           "folder e_ptc_explosion_b2,e_sfx_boss_hit"
+  e_ptc_explosion_b2:     "command execute in minecraft:overworld at %player% run particle minecraft:explosion $boss.boss2_loc$ 0.5 0 0.5 1 3"
+
+  e_boss_defeated:        "folder e_s5_boss_defeated" # stars/star_5.yml
+
+
+  # --- Bossfight ---
+  e_obj_add_boss_1_1:     "objective add o_boss_hit_1_1"
+
+  # Boss 2_1
+  on_boss_hit_1_1:        "folder e_obj_add_boss_2_1,core-sfx.e_whomp"
+  e_obj_add_boss_2_1:     "objective add o_boss_hit_2_1"
+
+  # Boss 1_2
+  on_boss_hit_2_1:        "folder e_obj_add_boss_1_2,core-sfx.e_whomp"
+  e_obj_add_boss_1_2:     "objective add o_boss_hit_1_2"
+
+  # Boss 2_2
+  on_boss_hit_1_2:        "folder e_obj_add_boss_2_2,core-sfx.e_whomp"
+  e_obj_add_boss_2_2:     "objective add o_boss_hit_2_2"
+
+  # Boss 3_1
+  on_boss_hit_2_2:        "folder e_obj_add_boss_1_3,core-sfx.e_whomp"
+  e_obj_add_boss_1_3:     "objective add o_boss_hit_1_3"
+
+  # Boss 3_2 - (boss 1 dead)
+  on_boss_hit_1_3:        "folder e_obj_add_boss_2_3,core-sfx.e_whomp,e_boss_die_1"
+  e_obj_add_boss_2_3:     "objective add o_boss_hit_2_3"
+
+  # Boss 2_3 - (boss 2 dead)
+  on_boss_hit_2_3:        "folder core-sfx.e_whomp,e_boss_die_2,e_boss_defeated"
+
+
+  # --- Cleanup ---
+  e_obj_del_boss:         "folder e_obj_del_boss_g1,e_obj_del_boss_g2"
+  e_obj_del_boss_g1:      "objective remove o_boss_hit_1_1,o_boss_hit_2_1,o_boss_hit_1_2"
+  e_obj_del_boss_g2:      "objective remove o_boss_hit_2_2,o_boss_hit_1_3,o_boss_hit_2_3"
+
+
+objectives:
+  o_boss_hit_1_1:         "action right any loc:$boss.eye1_loc$ event:on_boss_hit_1_1"
+  o_boss_hit_2_1:         "action right any loc:$boss.eye2_loc$ event:on_boss_hit_2_1"
+  o_boss_hit_1_2:         "action right any loc:$boss.eye1_loc$ event:on_boss_hit_1_2"
+  o_boss_hit_2_2:         "action right any loc:$boss.eye2_loc$ event:on_boss_hit_2_2"
+  o_boss_hit_1_3:         "action right any loc:$boss.eye1_loc$ event:on_boss_hit_1_3"
+  o_boss_hit_2_3:         "action right any loc:$boss.eye2_loc$ event:on_boss_hit_2_3"

@@ -10,6 +10,8 @@ variables:
       region:         ssl_killzone4   # front right of pyramid
     kz5:
       region:         ssl_killzone5   # next to spawn
+    kz8:
+      region:         ssl_killzone8   # before dark path pit
 
 
 events:
@@ -18,11 +20,11 @@ events:
 
   # Init
   e_obj_add_kzs_g1:   "run ^objective add o_killzone_1 ^objective add o_killzone_2 ^objective add o_killzone_3"
-  e_obj_add_kzs_g2:   "run ^objective add o_killzone_4 ^objective add o_killzone_5 "
+  e_obj_add_kzs_g2:   "run ^objective add o_killzone_4 ^objective add o_killzone_5 ^objective add o_killzone_8"
 
   # Cleanup
   e_obj_del_kzs_g1:   "run ^objective remove o_killzone_1 ^objective remove o_killzone_2 ^objective remove o_killzone_3"
-  e_obj_del_kzs_g2:   "run ^objective remove o_killzone_4 ^objective remove o_killzone_5"
+  e_obj_del_kzs_g2:   "run ^objective remove o_killzone_4 ^objective remove o_killzone_5 ^objective remove o_killzone_8"
 
   # On killzone
   e_kz_kill:          "folder e_kz_dmg"
@@ -36,3 +38,4 @@ objectives:
   o_killzone_3:       "region $kz.kz3.region$ enter events:e_kz_kill"
   o_killzone_4:       "region $kz.kz4.region$ enter events:e_kz_kill"
   o_killzone_5:       "region $kz.kz5.region$ enter events:e_kz_kill"
+  o_killzone_8:       "region $kz.kz8.region$ enter events:e_kz_kill"

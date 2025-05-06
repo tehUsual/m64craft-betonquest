@@ -15,8 +15,8 @@ variables:
   exitsign:           -863;69;2;marocraft
 
 events:
-  init_level:         "folder init_spawns,init_cannons,init_zones,init_stars,e_play_music"
-  deit_level:         "folder deit_spawns,deit_cannons,deit_zones,deit_stars,deit_pyramid,e_stop_music"
+  init_level:         "folder init_spawns,init_cannons,init_zones,init_pillars,init_stars,e_play_music"
+  deit_level:         "folder deit_spawns,deit_cannons,deit_zones,deit_pillars,deit_stars,deit_pyramid,e_stop_music"
   unlo_level:         "folder exit_level" # period:20 ticks
   exit_level:         "folder deit_level,e_tp_respawn,core-main.init_castle"
 

@@ -1,13 +1,13 @@
 variables:
   pillars:
     p1:
-      region:             ssl_pillar_1  # ssl_s6_p1
+      region:             ssl_pillar_1  # south-east
     p2:
-      region:             ssl_pillar_2  #
+      region:             ssl_pillar_2  # north-east
     p3:
-      region:             ssl_pillar_3  #
+      region:             ssl_pillar_3  # north-west
     p4:
-      region:             ssl_pillar_4  #
+      region:             ssl_pillar_4  # south-west
   pyr_top_block:
     loc:                  -892;83;-77;marocraft
     mat:                  BLACK_CONCRETE
@@ -43,7 +43,7 @@ events:
   e_obj_add_pyr_top_tp:   "objective add o_tp_pyr_top"
 
   # On pyramid top enter
-  e_enter_pyramid_top:    "folder on_pyramid_top,e_pyr_hide_beacon"
+  e_enter_pyramid_top:    "folder e_pyr_hide_beacon,on_pyramid_top" # levelsub/subarea.yml
 
   # Cleanup
   e_cleanup_pillars:      "folder e_obj_del_pyr_top_tp,e_pyr_hide_beacon,e_tag_del_pillars"
