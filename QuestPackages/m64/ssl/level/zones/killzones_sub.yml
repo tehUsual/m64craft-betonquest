@@ -1,0 +1,21 @@
+variables:
+  kz:
+    kz6:
+      region:             ssl_killzone6   # inside pyramid
+    kz7:
+      region:             ssl_killzone7   # bossroom
+
+
+### --- Sub area: Pyramid ---
+events:
+  # Init
+  init_sub_killzones:     "folder e_obj_add_kzs_sub_g1"
+  deit_sub_killzones:     "folder e_obj_del_kzs_sub_g1"
+
+  e_obj_add_kzs_sub_g1:   "run ^objective add o_killzone_6 ^objective add o_killzone_7"
+  e_obj_del_kzs_sub_g1:   "run ^objective remove o_killzone_6 ^objective remove o_killzone_7"
+
+
+objectives:
+  o_killzone_6:           "region $kz.kz6.region$ enter events:e_kz_kill"
+  o_killzone_7:           "region $kz.kz7.region$ enter events:e_kz_kill"

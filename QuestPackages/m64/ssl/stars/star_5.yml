@@ -6,42 +6,13 @@ variables:
     eye2_loc:             -923;61;342;marocraft
     boss1_loc:            -931 61 343
     boss2_loc:            -923 61 342
-    bea_block_loc:        -892;83;-77;marocraft
 
 
 ### STAR 5 - STAND TALL ON THE FOUR PILLARS
 events:
   # Init
-  init_s5:                "folder e_s5_add_obj_pillars"
-  e_s5_add_obj_pillars:   "folder e_obj_add_s5_p1,e_obj_add_s5_p2,e_obj_add_s5_p3,e_obj_add_s5_p4"
-  e_obj_add_s5_p1:        "objective add o_s5_p1"
-  e_obj_add_s5_p2:        "objective add o_s5_p2"
-  e_obj_add_s5_p3:        "objective add o_s5_p3"
-  e_obj_add_s5_p4:        "objective add o_s5_p4"
+  init_s5:                "folder core-main.e_dummy"
 
-  # Pillar 1
-  e_s5_pillar_1:          "folder core-sfx.e_coin,e_s5_tag_add_p1,if_all_pillars_s5"
-  e_s5_tag_add_p1:        "tag add s5_p1"
-  # Pillar 2
-  e_s5_pillar_2:          "folder core-sfx.e_coin,e_s5_tag_add_p2,if_all_pillars_s5"
-  e_s5_tag_add_p2:        "tag add s5_p2"
-  # Pillar 3
-  e_s5_pillar_3:          "folder core-sfx.e_coin,e_s5_tag_add_p3,if_all_pillars_s5"
-  e_s5_tag_add_p3:        "tag add s5_p3"
-  # Pillar 4
-  e_s5_pillar_4:          "folder core-sfx.e_coin,e_s5_tag_add_p4,if_all_pillars_s5"
-  e_s5_tag_add_p4:        "tag add s5_p4"
-
-  # Check all pillars
-  if_all_pillars_s5:      "if chk_s5_p_all e_s5_all_pillars else core-main.e_dummy"
-  e_s5_all_pillars:       "folder core-sfx.e_correct,e_s5_show_beacon,e_s5_tag_add_unlock,e_obj_add_s5_tp_top"
-  e_s5_show_beacon:       "setblock AIR $s5.bea_block_loc$"
-  e_s5_tag_add_unlock:    "tag add s5_open"
-  e_obj_add_s5_tp_top:    "objective add o_s5_tp_pyr_top"
-
-  e_s5_tp_pyr_top:        "folder e_s5_tp_in_top,e_s5_hide_beacon,e_obj_add_s5_ent_boss,e_play_music_pyr"
-  e_s5_tp_in_top:         "teleport $inside_pyramid_top$"
-  e_obj_add_s5_ent_boss:  "objective add o_s5_enter_boss"
   
   # Init boss (Boss 1_1)
   e_s5_sfx_explotion:     "notify io:sound sound:entity.generic.explode soundvolume:$core-sfx.svol$"
@@ -97,14 +68,7 @@ events:
   tag_add_s5_win:         "tag add s5"
 
   # Cleanup
-  deit_s5:                "folder e_s5_del_obj_pillars,e_s5_hide_beacon,e_s5_del_tags,e_obj_del_s5_boss,if_s5_spawned,e_s5_tag_del_spawned"
-  e_s5_del_obj_pillars:   "folder e_obj_del_s5_p1,e_obj_del_s5_p2,e_obj_del_s5_p3,e_obj_del_s5_p4"
-  e_obj_del_s5_p1:        "objective remove o_s5_p1"
-  e_obj_del_s5_p2:        "objective remove o_s5_p2"
-  e_obj_del_s5_p3:        "objective remove o_s5_p3"
-  e_obj_del_s5_p4:        "objective remove o_s5_p4"
-  e_s5_hide_beacon:       "setblock BLACK_CONCRETE $s5.bea_block_loc$"
-  e_s5_del_tags:          "run ^tag delete s5_p1 ^tag delete s5_p2 ^tag delete s5_p3 ^tag delete s5_p4 ^tag delete s5_open"
+  deit_s5:                "folder e_obj_del_s5_boss,if_s5_spawned,e_s5_tag_del_spawned"
   e_obj_del_s5_boss:      "folder e_obj_del_s5_boss_1_1,e_obj_del_s5_boss_2_1,e_obj_del_s5_boss_1_2,e_obj_del_s5_boss_2_2,e_obj_del_s5_boss_1_3,e_obj_del_s5_boss_2_3"
   e_obj_del_s5_boss_1_1:  "objective remove o_s5_boss_1_1"
   e_obj_del_s5_boss_2_1:  "objective remove o_s5_boss_2_1"
@@ -127,18 +91,6 @@ events:
 
 conditions:
   chk_s5_obtained:        "tag s5"
-  chk_s5_ontop_p_1:       "region ssl_s6_p1"
-  chk_s5_ontop_p_2:       "region ssl_s6_p2"
-  chk_s5_ontop_p_3:       "region ssl_s6_p3"
-  chk_s5_ontop_p_4:       "region ssl_s6_p4"
-
-  chk_s5_p_1:             "tag s5_p1"
-  chk_s5_p_2:             "tag s5_p2"
-  chk_s5_p_3:             "tag s5_p3"
-  chk_s5_p_4:             "tag s5_p4"
-  chk_s5_p_all:           "and chk_s5_p_1,chk_s5_p_2,chk_s5_p_3,chk_s5_p_4"
-
-  chk_s5_open:            "tag s5_open"
 
   chk_s5_spawned:         "tag s5_spawned"
   chk_s5_spawn_count:     "globalpoint ssl_s5 1"
@@ -146,11 +98,6 @@ conditions:
 
 objectives:
   o_s5_star:              "action right any loc:$s5.star_loc$ events:win_s5"
-  o_s5_p1:                "jump 1 conditions:chk_s5_ontop_p_1 events:e_s5_pillar_1"
-  o_s5_p2:                "jump 1 conditions:chk_s5_ontop_p_2 events:e_s5_pillar_2"
-  o_s5_p3:                "jump 1 conditions:chk_s5_ontop_p_3 events:e_s5_pillar_3"
-  o_s5_p4:                "jump 1 conditions:chk_s5_ontop_p_4 events:e_s5_pillar_4"
-  o_s5_tp_pyr_top:        "region enter_pyr_top enter conditions:chk_s5_open event:e_s5_tp_pyr_top"
   o_s5_enter_boss:        "region ssl_boss enter event:e_s5_init_boss"
 
   o_s5_boss_1_1:          "action right any loc:$s5.eye1_loc$ event:e_s5_hit_boss_1_1"

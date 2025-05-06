@@ -12,8 +12,15 @@
 
 events:
   # Entry
-  init_stars:             "folder init_s1,init_s2,init_s3,init_s4,init_s5,init_s6,init_s8"
-  deit_stars:             "folder deit_s1,deit_s2,deit_s3,deit_s4,deit_s5,deit_s6,deit_s8"
+  init_stars:             "folder init_main_stars"
+  deit_stars:             "folder deit_main_stars,deit_sub_stars"
+  # Main
+  init_main_stars:        "folder init_s1,init_s2,init_s4,init_s8"
+  deit_main_stars:        "folder deit_s1,deit_s2,deit_s4,deit_s8"
+  # Sub
+  init_sub_stars:         "folder init_s3,init_s5,init_s6"
+  deit_sub_stars:         "folder deit_s3,deit_s5,deit_s6"
+
 
   # Clear save
   wipe_stars:             "folder e_del_star_tags,e_s4_del_tags,e_clear_star_counter"

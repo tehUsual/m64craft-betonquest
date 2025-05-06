@@ -1,0 +1,75 @@
+variables:
+  pillars:
+    p1:
+      region:             ssl_pillar_1  # ssl_s6_p1
+    p2:
+      region:             ssl_pillar_2  #
+    p3:
+      region:             ssl_pillar_3  #
+    p4:
+      region:             ssl_pillar_4  #
+  pyr_top_block:
+    loc:                  -892;83;-77;marocraft
+    mat:                  BLACK_CONCRETE
+
+
+
+events:
+  init_pillars:           "folder e_obj_add_pillars"
+  deit_pillars:           "folder e_obj_del_pillars,e_cleanup_pillars"
+
+  e_obj_add_pillars:      "objective add o_pillar_1,o_pillar_2,o_pillar_3,o_pillar_4"
+  e_obj_del_pillars:      "objective remove o_pillar_1,o_pillar_2,o_pillar_3,o_pillar_4"
+
+
+  # Pillar 1
+  e_on_pillar_1:          "folder core-sfx.e_coin,e_tag_add_pil1,if_all_pillars"
+  e_tag_add_pil1:         "tag add pillar_1"
+  # Pillar 2
+  e_on_pillar_2:          "folder core-sfx.e_coin,e_tag_add_pil2,if_all_pillars"
+  e_tag_add_pil2:         "tag add pillar_2"
+  # Pillar 3
+  e_on_pillar_3:          "folder core-sfx.e_coin,e_tag_add_pil3,if_all_pillars"
+  e_tag_add_pil3:         "tag add pillar_3"
+  # Pillar 4
+  e_on_pillar_4:          "folder core-sfx.e_coin,e_tag_add_pil4,if_all_pillars"
+  e_tag_add_pil4:         "tag add pillar_4"
+
+  # If all pillars
+  if_all_pillars:         "if chk_pillars e_all_pillars else core-main.e_dummy"
+  e_all_pillars:          "folder core-sfx.e_correct,e_pyr_show_beacon,e_tag_add_pyr_top_open,e_obj_add_pyr_top_tp"
+  e_pyr_show_beacon:      "setblock AIR $pyr_top_block.loc$"
+  e_tag_add_pyr_top_open: "tag add pyr_top_open"
+  e_obj_add_pyr_top_tp:   "objective add o_tp_pyr_top"
+
+  # On pyramid top enter
+  e_enter_pyramid_top:    "folder on_pyramid_top,e_pyr_hide_beacon"
+
+  # Cleanup
+  e_cleanup_pillars:      "folder e_obj_del_pyr_top_tp,e_pyr_hide_beacon,e_tag_del_pillars"
+  e_obj_del_pyr_top_tp:   "objective remove o_tp_pyr_top"
+  e_pyr_hide_beacon:      "setblock $pyr_top_block.mat$ $pyr_top_block.loc$"  # not multiplayer compatible
+  e_tag_del_pillars:      "tag delete pillar_1,pillar_2,pillar_3,pillar_4,pyr_top_open"
+
+
+conditions:
+  chk_ontop_p1:           "region $pillars.p1.region$"
+  chk_ontop_p2:           "region $pillars.p2.region$"
+  chk_ontop_p3:           "region $pillars.p3.region$"
+  chk_ontop_p4:           "region $pillars.p4.region$"
+
+  chk_pyr_top_open:       "tag pyr_top_open"
+
+  chk_pillar_1:           "tag pillar_1"
+  chk_pillar_2:           "tag pillar_2"
+  chk_pillar_3:           "tag pillar_3"
+  chk_pillar_4:           "tag pillar_4"
+  chk_pillars:            "and chk_pillar_1,chk_pillar_2,chk_pillar_3,chk_pillar_4"
+
+
+objectives:
+  o_pillar_1:             "jump 1 conditions:chk_ontop_p1 events:e_on_pillar_1"
+  o_pillar_2:             "jump 1 conditions:chk_ontop_p2 events:e_on_pillar_2"
+  o_pillar_3:             "jump 1 conditions:chk_ontop_p3 events:e_on_pillar_3"
+  o_pillar_4:             "jump 1 conditions:chk_ontop_p4 events:e_on_pillar_4"
+  o_tp_pyr_top:           "region enter_pyr_top enter conditions:chk_pyr_top_open event:e_enter_pyramid_top"

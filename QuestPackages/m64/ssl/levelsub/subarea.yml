@@ -1,0 +1,34 @@
+variables:
+  inside_pyramid:     -926.5;74;415.5;marocraft;180;12
+  inside_pyramid_top: -923.5;113;367.5;marocraft;45;12
+  exitsign2:          -927;74;416;marocraft
+
+
+events:
+  # Entry
+  on_pyramid_front:   "folder e_tp_pyramid_front,init_pyramid"
+  on_pyramid_top:     "folder                    init_pyramid"
+
+  # -- Initialize --
+  init_pyramid:       "folder init_sub_killzones,init_sub_spawns,init_sub_stars,deit_main_sub,e_play_music_pyr"
+  init_sub_spawns:    "folder e_obj_add_exit2"
+
+  # Cleanup main area objectives
+  deit_main_sub:      "folder deit_killzones,deit_main_stars"
+
+
+
+  # -- Cleanup --  (package.deit_level does the rest)
+  deit_pyramid:       "folder deit_sub_spawns" 
+  deit_sub_spawns:    "folder e_obj_del_exit2"
+  
+  # Exit
+  e_obj_add_exit2:    "objective add o_exitlevel2"
+  e_obj_del_exit2:    "objective remove o_exitlevel2"
+
+  # Teleports
+  e_tp_pyramid_front: "teleport $inside_pyramid$"
+
+
+objectives:
+  o_exitlevel2:       "action right any loc:$exitsign2$ events:on_exit"
