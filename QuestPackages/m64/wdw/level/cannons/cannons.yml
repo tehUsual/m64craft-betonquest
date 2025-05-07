@@ -1,0 +1,23 @@
+# Cannon 1 - wdw_cannon_1 - TOP PILLAR
+# Cannon 2 - wdw_cannon_1 - FLOATING PLATFORM
+
+
+events:
+  init_cannons:           "folder init_c1,init_c2"
+  deit_cannons:           "folder deit_c1,deit_c2"
+
+  e_give_cannonpearl:     "give i_cannonpearl:1 notify"
+  e_take_cannonpearl:     "take i_cannonpearl:64"
+  e_ptc_explosion:        "command execute in minecraft:overworld at %player% run particle minecraft:explosion ~ ~1 ~ 0.5 0 0.5 1 3"
+
+  # sound effects
+  e_sfx_c_ready:          "folder core-sfx.e_cannon_ready"
+  e_sfx_c_shoot:          "folder core-sfx.e_cannon_shoot"
+
+
+conditions:
+  chk_holding_pearl:      "hand i_cannonpearl"
+
+
+items:
+  i_cannonpearl:          "minecraft:ender_pearl name:&6Cannon"

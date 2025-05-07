@@ -1,0 +1,148 @@
+variables:
+  s3:
+    star_loc:             -427;122;403;marocraft
+    star_loc_xyz:         -427 122 403
+    #sr1:                  wdw_s3_sr1
+    #sr2:                  wdw_s3_sr2
+    sb3:                  -495;114;418;marocraft
+    sb4:                  -479;137;373;marocraft
+    sb5:                  -451;144;361;marocraft
+    sb6:                  -427;122;386;marocraft
+    sb7:                  -480;136;344;marocraft
+    #sr8:                  wdw_s3_sr8
+
+
+### STAR 3 - SECRETS IN THE SHALLOWS & SKY
+events:
+  # Init
+  init_s3:                "folder e_s3_add_obj_secret"
+  e_s3_add_obj_secret:    "folder e_s3_add_obj_secret_1,e_s3_add_obj_secret_2"
+  e_s3_add_obj_secret_1:  "folder e_s3_add_obj_sec_1,e_s3_add_obj_sec_2,e_s3_add_obj_sec_3,e_s3_add_obj_sec_4"
+  e_s3_add_obj_secret_2:  "folder e_s3_add_obj_sec_5,e_s3_add_obj_sec_6,e_s3_add_obj_sec_7,e_s3_add_obj_sec_8"
+  e_s3_add_obj_sec_1:     "objective add o_s3_sec_1"
+  e_s3_add_obj_sec_2:     "objective add o_s3_sec_2"
+  e_s3_add_obj_sec_3:     "objective add o_s3_sec_3"
+  e_s3_add_obj_sec_4:     "objective add o_s3_sec_4"
+  e_s3_add_obj_sec_5:     "objective add o_s3_sec_5"
+  e_s3_add_obj_sec_6:     "objective add o_s3_sec_6"
+  e_s3_add_obj_sec_7:     "objective add o_s3_sec_7"
+  e_s3_add_obj_sec_8:     "objective add o_s3_sec_8"
+
+  e_s3_sec_add_point:     "point secret_count 1 action:add"
+
+  # Secret 1
+  e_s3_got_sec_1:         "folder e_s3_add_tag_sec_1,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_1,if_all_sec_s3"
+  e_s3_add_tag_sec_1:     "tag add secret_1"
+  e_s3_notify_sec_1:      "notify &3Secret #1 found! %point.secret_count.amount%/8"
+  # Secret 2
+  e_s3_got_sec_2:         "folder e_s3_add_tag_sec_2,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_2,if_all_sec_s3"
+  e_s3_add_tag_sec_2:     "tag add secret_2"
+  e_s3_notify_sec_2:      "notify &3Secret #2 found! %point.secret_count.amount%/8"
+  # Secret 3
+  e_s3_got_sec_3:         "folder e_s3_add_tag_sec_3,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_3,if_all_sec_s3"
+  e_s3_add_tag_sec_3:     "tag add secret_3"
+  e_s3_notify_sec_3:      "notify &3Secret #3 found! %point.secret_count.amount%/8"
+  # Secret 4
+  e_s3_got_sec_4:         "folder e_s3_add_tag_sec_4,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_4,if_all_sec_s3"
+  e_s3_add_tag_sec_4:     "tag add secret_4"
+  e_s3_notify_sec_4:      "notify &3Secret #4 found! %point.secret_count.amount%/8"
+  # Secret 5
+  e_s3_got_sec_5:         "folder e_s3_add_tag_sec_5,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_5,if_all_sec_s3"
+  e_s3_add_tag_sec_5:     "tag add secret_5"
+  e_s3_notify_sec_5:      "notify &3Secret #5 found! %point.secret_count.amount%/8"
+  # Secret 6
+  e_s3_got_sec_6:         "folder e_s3_add_tag_sec_6,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_6,if_all_sec_s3"
+  e_s3_add_tag_sec_6:     "tag add secret_6"
+  e_s3_notify_sec_6:      "notify &3Secret #6 found! %point.secret_count.amount%/8"
+  # Secret 7
+  e_s3_got_sec_7:         "folder e_s3_add_tag_sec_7,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_7,if_all_sec_s3"
+  e_s3_add_tag_sec_7:     "tag add secret_7"
+  e_s3_notify_sec_7:      "notify &3Secret #7 found! %point.secret_count.amount%/8"
+  # Secret 8
+  e_s3_got_sec_8:         "folder e_s3_add_tag_sec_8,e_s3_sec_add_point,core-sfx.e_found_secret,e_s3_notify_sec_8,if_all_sec_s3"
+  e_s3_add_tag_sec_8:     "tag add secret_8"
+  e_s3_notify_sec_8:      "notify &3Secret #8 found! %point.secret_count.amount%/8"
+
+  # Check win
+  if_all_sec_s3:          "if chk_s3_all_sec e_s3_all_sec_gotten else core-main.e_dummy"
+
+  e_s3_all_sec_gotten:    "folder e_s3_spawn_star,e_s3_summon_firework,core-sfx.e_star_spawn,e_s3_notif_spawn_star,e_obj_add_s3_star,e_s3_gp_add_star,e_s3_tag_add_spawned"
+  e_s3_spawn_star:        "setblock RAW_GOLD_BLOCK $s3.star_loc$"
+  e_s3_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s3.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
+  e_s3_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s3_star:      "objective add o_s3_star"
+  e_s3_gp_add_star:       "globalpoint wdw_s3 1 action:add"
+  e_s3_tag_add_spawned:   "tag add s3_spawned"
+
+  # Win
+  win_s3:                 "folder e_notif_s3_win,core-sfx.e_got_star,deit_s3,if_firstwin_s3"
+  e_notif_s3_win:         "notify &3Secrets in the shallows & sky\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s3:         "if !chk_s3_obtained firstwin_s3 else core-main.e_dummy"
+  firstwin_s3:            "folder e_broad_s3_first,tag_add_s3_win,e_stop_music,exit_star"
+  e_broad_s3_first:       "command broadcast &6%player% &2got a star: [WDW] Secrets in the shallows & sky"
+  tag_add_s3_win:         "tag add s3"
+
+  # Cleanup
+  deit_s3:                "folder e_s3_del_obj_secret,e_s3_sec_del_point,e_obj_del_s3_star,e_s3_del_tags,if_s3_spawned,e_s3_tag_del_spawned"
+  e_s3_del_obj_secret:    "folder e_s3_del_obj_secret_1,e_s3_del_obj_secret_2"
+  e_s3_del_obj_secret_1:  "folder e_s3_del_obj_sec_1,e_s3_del_obj_sec_2,e_s3_del_obj_sec_3,e_s3_del_obj_sec_4"
+  e_s3_del_obj_secret_2:  "folder e_s3_del_obj_sec_5,e_s3_del_obj_sec_6,e_s3_del_obj_sec_7,e_s3_del_obj_sec_8"
+  e_s3_del_obj_sec_1:     "objective remove o_s3_sec_1"
+  e_s3_del_obj_sec_2:     "objective remove o_s3_sec_2"
+  e_s3_del_obj_sec_3:     "objective remove o_s3_sec_3"
+  e_s3_del_obj_sec_4:     "objective remove o_s3_sec_4"
+  e_s3_del_obj_sec_5:     "objective remove o_s3_sec_5"
+  e_s3_del_obj_sec_6:     "objective remove o_s3_sec_6"
+  e_s3_del_obj_sec_7:     "objective remove o_s3_sec_7"
+  e_s3_del_obj_sec_8:     "objective remove o_s3_sec_8"
+
+  e_s3_sec_del_point:     "point secret_count 0 action:set"
+
+  e_obj_del_s3_star:      "objective remove o_s3_star"
+  e_s3_del_tags:          "folder e_s3_del_tags_1,e_s3_del_tags_2"
+  e_s3_del_tags_1:        "run ^tag delete secret_1 ^tag delete secret_2 ^tag delete secret_3 ^tag delete secret_4"
+  e_s3_del_tags_2:        "run ^tag delete secret_5 ^tag delete secret_6 ^tag delete secret_7 ^tag delete secret_8"
+
+  if_s3_spawned:          "if chk_s3_spawned e_s3_del_spawned else core-main.e_dummy"
+  e_s3_del_spawned:       "folder e_s3_gp_sub_star,if_s3_despawn"
+  e_s3_gp_sub_star:       "globalpoint wdw_s3 1 action:subtract"
+
+  if_s3_despawn:          "if !chk_s3_spawn_count e_s3_delete_star else core-main.e_dummy"
+  e_s3_tag_del_spawned:   "tag delete s3_spawned"
+
+  e_s3_delete_star:       "folder e_s3_despawn_star,e_s3_reset_star_count"
+  e_s3_despawn_star:      "setblock AIR $s3.star_loc$"
+  e_s3_reset_star_count:  "globalpoint wdw_s3 0 action:set"
+
+
+conditions:
+  chk_s3_obtained:        "tag s3"
+  chk_s3_tag_sec_1:       "tag secret_1"
+  chk_s3_tag_sec_2:       "tag secret_2"
+  chk_s3_tag_sec_3:       "tag secret_3"
+  chk_s3_tag_sec_4:       "tag secret_4"
+  chk_s3_tag_sec_5:       "tag secret_5"
+  chk_s3_tag_sec_6:       "tag secret_6"
+  chk_s3_tag_sec_7:       "tag secret_7"
+  chk_s3_tag_sec_8:       "tag secret_8"
+
+  chk_s3_all_sec:         "and chk_s3_all_sec_1,chk_s3_all_sec_2"
+  chk_s3_all_sec_1:       "and chk_s3_tag_sec_1,chk_s3_tag_sec_2,chk_s3_tag_sec_3,chk_s3_tag_sec_4"
+  chk_s3_all_sec_2:       "and chk_s3_tag_sec_5,chk_s3_tag_sec_6,chk_s3_tag_sec_7,chk_s3_tag_sec_8"
+
+  chk_s3_spawned:         "tag s3_spawned"
+  chk_s3_spawn_count:     "globalpoint wdw_s3 1"
+
+
+objectives:
+  o_s3_star:              "action right any loc:$s3.star_loc$ events:win_s3"
+  o_s3_sec_1:             "region wdw_s3_sr1 enter events:e_s3_got_sec_1"
+  o_s3_sec_2:             "region wdw_s3_sr2 enter events:e_s3_got_sec_2"
+  o_s3_sec_3:             "action right any loc:$s3.sb3$ events:e_s3_got_sec_3"
+  o_s3_sec_4:             "action right any loc:$s3.sb4$ events:e_s3_got_sec_4"
+  o_s3_sec_5:             "action right any loc:$s3.sb5$ events:e_s3_got_sec_5"
+  o_s3_sec_6:             "action right any loc:$s3.sb6$ events:e_s3_got_sec_6"
+  o_s3_sec_7:             "action right any loc:$s3.sb7$ events:e_s3_got_sec_7"
+  o_s3_sec_8:             "region wdw_s3_sr8 enter events:e_s3_got_sec_8"
