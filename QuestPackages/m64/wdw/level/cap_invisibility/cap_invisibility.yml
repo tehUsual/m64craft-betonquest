@@ -1,0 +1,72 @@
+variables:
+  # Settings
+  invis_duration:         30 # seconds
+
+  # Blocks
+  invis_block_1:          368;51;-460;marocraft
+
+  # Teleport
+  inv_tp_1:
+    region:               wdw_inv_tp_1
+    loc:                  -445;78;408;marocraft;-90;12
+
+
+events:
+  init_cinv:              "folder e_init_cinv_blocks"
+  deit_cinv:              "folder e_deit_cinv_blocks,e_deit_cinv_tps,e_deit_invisibility"
+
+  # --- Init ---
+  # Blocks
+  e_init_cinv_blocks:     "folder e_obj_add_inv_blk_1"
+  e_obj_add_inv_blk_1:    "objective add o_invis_activate_1"
+
+  # Teleports
+  e_init_cinv_tps:        "folder e_obj_add_inv_tp_1"
+  e_obj_add_inv_tp_1:     "objective add o_invis_tp_1"
+
+  # Music
+  e_play_music_invis:     "folder core-music.e_play_powerup"
+
+  # --- Main ---
+  # Invisibility: Activate
+  e_start_invisibility:   "folder e_play_music_invis,e_obj_add_inv_timeout,e_tag_add_invis,e_notif_invisible,e_efx_give_invis,e_init_cinv_tps"
+  e_obj_add_inv_timeout:  "objective add o_invis_timeout"
+  e_tag_add_invis:        "tag add cap_invisible"
+  e_notif_invisible:      "notify &3Invisibility for $invis_duration$ sec\n&2You can go through the cage io:title"
+  e_efx_give_invis:       "effect INVISIBILITY $invis_duration$ 1 hidden noicon"
+
+  # Invisibility: Deactivate
+  e_stop_invisibility:    "folder e_play_music,e_deit_invisibility"
+
+  # Invisibility: Cleanup
+  e_deit_invisibility:    "folder e_obj_del_inv_timeout,e_tag_del_invis,e_efx_clear_invis,e_deit_cinv_tps"
+  e_obj_del_inv_timeout:  "objective remove o_invis_timeout"
+  e_tag_del_invis:        "tag delete cap_invisible"
+  e_efx_clear_invis:      "deleffect INVISIBILITY"
+
+  # Invisibility: Teleport
+  e_invis_tp_to_1:        "teleport $inv_tp_1b.loc$"
+
+
+  # --- Cleanup ---
+  # Blocks
+  e_deit_cinv_blocks:     "folder e_obj_del_inv_blk_1"
+  e_obj_del_inv_blk_1:    "objective remove o_invis_activate_1"
+
+  # Teleports 
+  e_deit_cinv_tps:        "folder e_obj_del_inv_tp_1"
+  e_obj_del_inv_tp_1:     "objective remove o_invis_tp_1"
+
+conditions:
+  chk_tag_invisible:      "tag cap_invisible"
+
+
+objectives:
+  # Deactivate
+  o_invis_timeout:        "delay $invis_duration$ seconds interval:5 event:e_stop_invisibility"
+
+  # Blocks
+  o_invis_activate_1:     "action right any loc:$invis_block_1$ conditions:!chk_tag_invisible events:e_start_invisibility persistent"
+
+  # Teleports
+  o_invis_tp_1:           "region $inv_tp_1.region$ enter conditions:chk_tag_invisible events:e_invis_tp_to_1 persistent"
