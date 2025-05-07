@@ -2,61 +2,53 @@ variables:
   swc1:
     blocks: "minecraft:stripped_oak_wood"
     pf1:
-      y:  87
-      x1: 46
-      z1: 420
-      x2: 47
-      z2: 421
+      y:  118
+      x1: -432
+      z1: 411
+      x2: -431
+      z2: 410
     pf2:
-      y:  87
-      x1: 54
-      z1: 421
-      x2: 55
-      z2: 422
+      y:  118
+      x1: -437
+      z1: 411
+      x2: -436
+      z2: 410
     pf3:
-      y:  87
-      x1: 50
-      z1: 412
-      x2: 51
-      z2: 413
+      y:  118
+      x1: -443
+      z1: 411
+      x2: -442
+      z2: 410
     pf4:
-      y:  87
-      x1: 52
+      y:  119
+      x1: -448
       z1: 410
-      x2: 53
-      z2: 411
-    pf5:
-      y:  87
-      x1: 57
-      z1: 410
-      x2: 58
-      z2: 411
-    pf6:
-      y:  87
-      x1: 59
-      z1: 408
-      x2: 60
+      x2: -447
       z2: 409
+    pf5:
+      y:  120
+      x1: -450
+      z1: 404
+      x2: -449
+      z2: 403
+
 
 events:
   show_switch_blocks_1:     "folder e_swc_1_pf_show_g1"
   hide_switch_blocks_1:     "folder e_swc_1_pf_hide_g1"
 
-
   # Platforms show
-  e_swc_1_pf_show_g1:       "folder e_swc_1_pf1_show,e_swc_1_pf2_show,e_swc_1_pf3_show,e_swc_1_pf4_show,e_swc_1_pf5_show,e_swc_1_pf6_show"
+  e_swc_1_pf_show_g1:       "folder e_swc_1_pf1_show,e_swc_1_pf2_show,e_swc_1_pf3_show,e_swc_1_pf4_show,e_swc_1_pf5_show"
   e_swc_1_pf1_show:         "command execute in minecraft:overworld run fill $swc1.pf1.x1$ $swc1.pf1.y$ $swc1.pf1.z1$ $swc1.pf1.x2$ $swc1.pf1.y$ $swc1.pf1.z2$ $swc1.blocks$"
   e_swc_1_pf2_show:         "command execute in minecraft:overworld run fill $swc1.pf2.x1$ $swc1.pf2.y$ $swc1.pf2.z1$ $swc1.pf2.x2$ $swc1.pf2.y$ $swc1.pf2.z2$ $swc1.blocks$"
   e_swc_1_pf3_show:         "command execute in minecraft:overworld run fill $swc1.pf3.x1$ $swc1.pf3.y$ $swc1.pf3.z1$ $swc1.pf3.x2$ $swc1.pf3.y$ $swc1.pf3.z2$ $swc1.blocks$"
   e_swc_1_pf4_show:         "command execute in minecraft:overworld run fill $swc1.pf4.x1$ $swc1.pf4.y$ $swc1.pf4.z1$ $swc1.pf4.x2$ $swc1.pf4.y$ $swc1.pf4.z2$ $swc1.blocks$"
   e_swc_1_pf5_show:         "command execute in minecraft:overworld run fill $swc1.pf5.x1$ $swc1.pf5.y$ $swc1.pf5.z1$ $swc1.pf5.x2$ $swc1.pf5.y$ $swc1.pf5.z2$ $swc1.blocks$"
-  e_swc_1_pf6_show:         "command execute in minecraft:overworld run fill $swc1.pf6.x1$ $swc1.pf6.y$ $swc1.pf6.z1$ $swc1.pf6.x2$ $swc1.pf6.y$ $swc1.pf6.z2$ $swc1.blocks$"
-  
+
   # Platforms hide
-  e_swc_1_pf_hide_g1:       "folder e_swc_1_pf1_hide,e_swc_1_pf2_hide,e_swc_1_pf3_hide,e_swc_1_pf4_hide,e_swc_1_pf5_hide,e_swc_1_pf6_hide"
+  e_swc_1_pf_hide_g1:       "folder e_swc_1_pf1_hide,e_swc_1_pf2_hide,e_swc_1_pf3_hide,e_swc_1_pf4_hide,e_swc_1_pf5_hide"
   e_swc_1_pf1_hide:         "command execute in minecraft:overworld run fill $swc1.pf1.x1$ $swc1.pf1.y$ $swc1.pf1.z1$ $swc1.pf1.x2$ $swc1.pf1.y$ $swc1.pf1.z2$ minecraft:air"
   e_swc_1_pf2_hide:         "command execute in minecraft:overworld run fill $swc1.pf2.x1$ $swc1.pf2.y$ $swc1.pf2.z1$ $swc1.pf2.x2$ $swc1.pf2.y$ $swc1.pf2.z2$ minecraft:air"
   e_swc_1_pf3_hide:         "command execute in minecraft:overworld run fill $swc1.pf3.x1$ $swc1.pf3.y$ $swc1.pf3.z1$ $swc1.pf3.x2$ $swc1.pf3.y$ $swc1.pf3.z2$ minecraft:air"
   e_swc_1_pf4_hide:         "command execute in minecraft:overworld run fill $swc1.pf4.x1$ $swc1.pf4.y$ $swc1.pf4.z1$ $swc1.pf4.x2$ $swc1.pf4.y$ $swc1.pf4.z2$ minecraft:air"
   e_swc_1_pf5_hide:         "command execute in minecraft:overworld run fill $swc1.pf5.x1$ $swc1.pf5.y$ $swc1.pf5.z1$ $swc1.pf5.x2$ $swc1.pf5.y$ $swc1.pf5.z2$ minecraft:air"
-  e_swc_1_pf6_hide:         "command execute in minecraft:overworld run fill $swc1.pf6.x1$ $swc1.pf6.y$ $swc1.pf6.z1$ $swc1.pf6.x2$ $swc1.pf6.y$ $swc1.pf6.z2$ minecraft:air"

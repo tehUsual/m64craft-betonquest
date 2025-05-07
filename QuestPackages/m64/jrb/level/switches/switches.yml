@@ -1,3 +1,5 @@
 events:
   init_switches:      "folder init_switch_1"
   deit_switches:      "folder deit_switch_1"
+
+  e_sfx_swc_play:     "folder core-sfx.e_switchtimer"

@@ -2,15 +2,15 @@ variables:
   swc_block:      "minecraft:crimson_slab"
   swc_delay:      14  # seconds
   swc_interval:   2   # seconds
-  swc1: 
-    tag:          jbr_swc_1_pressed
+  swc1:
+    tag:          wdw_swc_1_pressed
     swc:
-      region:     jrb_swc_1
-      y:  88
-      x1: 43
-      z1: 423
-      x2: 44
-      z2: 424
+      region:     wdw_swc_1
+      y:  119
+      x1: -428
+      z1: 411
+      x2: -427
+      z2: 410
 
 
 events:
@@ -47,9 +47,9 @@ events:
 conditions:
   chk_swc_1_pressed:        "globaltag $swc1.tag$"
   chk_swc_1_local_pressed:  "tag $swc1.tag$"
+  chk_swc_1_can_press:      "and !chk_swc_1_pressed,!chk_water_level_4"
 
 
 objectives:
-  o_swc_1_enter:            "region $swc1.swc.region$ enter conditions:!chk_swc_1_pressed events:e_swc_1_pressed"
+  o_swc_1_enter:            "region $swc1.swc.region$ enter conditions:chk_swc_1_can_press events:e_swc_1_pressed"
   o_swc_1_delay:            "delay $swc_delay$ seconds interval:$swc_interval$ events:e_swc_1_timeout"
-

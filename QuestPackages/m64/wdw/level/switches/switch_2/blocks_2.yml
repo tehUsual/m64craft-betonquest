@@ -1,0 +1,54 @@
+variables:
+  swc2:
+    blocks: "minecraft:stripped_oak_wood"
+    pfx:  -455
+    pf1:
+      y1: 130
+      z1: 365
+      y2: 129
+      z2: 366
+    pf2:
+      y1: 134
+      z1: 361
+      y2: 133
+      z2: 362
+    pf3:
+      y1: 138
+      z1: 357
+      y2: 137
+      z2: 358
+    b1:   -455 131 364
+    b2:   -455 132 363
+    b3:   -455 135 360
+    b4:   -455 136 359
+
+
+events:
+  show_switch_blocks_2:     "folder e_swc_2_pf_show_g1.e_swc_2_pf_show_g2"
+  hide_switch_blocks_2:     "folder e_swc_2_pf_hide_g1,e_swc_2_pf_hide_g2"
+
+
+  # Platforms show
+  e_swc_2_pf_show_g1:       "folder e_swc_2_pf1_show,e_swc_2_pf2_show,e_swc_2_pf3_show"
+  e_swc_2_pf_show_g2:       "folder e_swc_2_b1_show,e_swc_2_b2_show,e_swc_2_b3_show,e_swc_2_b4_show"
+
+  e_swc_2_pf1_show:         "command execute in minecraft:overworld run fill $swc2.pfx$ $swc2.pf1.y1$ $swc2.pf1.z1$ $swc2.pfx$ $swc2.pf1.y2$ $swc2.pf1.z2$ $swc2.blocks$"
+  e_swc_2_pf2_show:         "command execute in minecraft:overworld run fill $swc2.pfx$ $swc2.pf2.y1$ $swc2.pf2.z1$ $swc2.pfx$ $swc2.pf2.y2$ $swc2.pf2.z2$ $swc2.blocks$"
+  e_swc_2_pf3_show:         "command execute in minecraft:overworld run fill $swc2.pfx$ $swc2.pf3.y1$ $swc2.pf3.z1$ $swc2.pfx$ $swc2.pf3.y2$ $swc2.pf3.z2$ $swc2.blocks$"
+  e_swc_2_b1_show:          "command execute in minecraft:overworld run setblock $swc2.b1$ $swc2.blocks$"
+  e_swc_2_b2_show:          "command execute in minecraft:overworld run setblock $swc2.b2$ $swc2.blocks$"
+  e_swc_2_b3_show:          "command execute in minecraft:overworld run setblock $swc2.b3$ $swc2.blocks$"
+  e_swc_2_b4_show:          "command execute in minecraft:overworld run setblock $swc2.b4$ $swc2.blocks$"
+
+
+  # Platforms hide
+  e_swc_2_pf_hide_g1:       "folder e_swc_2_pf1_hide,e_swc_2_pf2_hide,e_swc_2_pf3_hide"
+  e_swc_2_pf_hide_g2:       "folder e_swc_2_b1_hide,e_swc_2_b2_hide,e_swc_2_b3_hide,e_swc_2_b4_hide"
+
+  e_swc_2_pf1_hide:         "command execute in minecraft:overworld run fill $swc2.pfx$ $swc2.pf1.y1$ $swc2.pf1.z1$ $swc2.pfx$ $swc2.pf1.y2$ $swc2.pf1.z2$ minecraft:air"
+  e_swc_2_pf2_hide:         "command execute in minecraft:overworld run fill $swc2.pfx$ $swc2.pf2.y1$ $swc2.pf2.z1$ $swc2.pfx$ $swc2.pf2.y2$ $swc2.pf2.z2$ minecraft:air"
+  e_swc_2_pf3_hide:         "command execute in minecraft:overworld run fill $swc2.pfx$ $swc2.pf3.y1$ $swc2.pf3.z1$ $swc2.pfx$ $swc2.pf3.y2$ $swc2.pf3.z2$ minecraft:air"
+  e_swc_2_b1_hide:          "command execute in minecraft:overworld run setblock $swc2.b1$ minecraft:air"
+  e_swc_2_b2_hide:          "command execute in minecraft:overworld run setblock $swc2.b2$ minecraft:air"
+  e_swc_2_b3_hide:          "command execute in minecraft:overworld run setblock $swc2.b3$ minecraft:air"
+  e_swc_2_b4_hide:          "command execute in minecraft:overworld run setblock $swc2.b4$ minecraft:air"

@@ -1,0 +1,60 @@
+variables:
+  swc_block:      "minecraft:crimson_slab"
+  swc_delay:      14  # seconds
+  swc_interval:   2   # seconds
+  swc3:
+    tag:          wdw_swc_3_pressed
+    swc:
+      region:     wdw_swc_3
+      y:  129
+      x1: -479
+      z1: 355
+      x2: -478
+      z2: 354
+    elebase: -453 108 362
+
+
+events:
+  init_switch_3:            "folder e_init_switch_3"
+  deit_switch_3:            "folder e_deit_switch_3"  # hide_switch_blocks_3
+
+  # Init
+  e_init_switch_3:          "folder e_obj_add_swc_3"
+  e_obj_add_swc_3:          "objective add o_swc_3_enter"
+
+  # Cleanup
+  e_deit_switch_3:          "folder e_if_swc_3_cancel,e_obj_del_swc_3,e_obj_del_swc_3_delay"
+  e_obj_del_swc_3:          "objective remove o_swc_3_enter"
+
+  # Cleanup, if this player leaves
+  e_if_swc_3_cancel:        "if chk_swc_3_local_pressed e_swc_3_timeout else core-main.e_dummy"
+
+
+  # Switch press
+  e_swc_3_pressed:          "folder e_swc_3_tag_add,e_swc_3_gtag_add,e_swc_3_hide,e_sfx_swc_play,e_obj_add_swc_3_delay,e_swc_3_elevator_up"
+  e_swc_3_tag_add:          "tag add $swc3.tag$"
+  e_swc_3_gtag_add:         "globaltag add $swc3.tag$"
+  e_swc_3_hide:             "command execute in minecraft:overworld run fill $swc3.swc.x1$ $swc3.swc.y$ $swc3.swc.z1$ $swc3.swc.x2$ $swc3.swc.y$ $swc3.swc.z2$ minecraft:air"
+  e_obj_add_swc_3_delay:    "objective add o_swc_3_delay"
+
+  # Switch timeout
+  e_swc_3_timeout:          "folder e_swc_3_tag_del,e_swc_3_gtag_del,e_swc_3_show,e_obj_del_swc_3_delay,e_obj_add_swc_3,e_swc_3_elevator_dn"
+  e_swc_3_tag_del:          "tag delete $swc3.tag$"
+  e_swc_3_gtag_del:         "globaltag delete $swc3.tag$"
+  e_swc_3_show:             "command execute in minecraft:overworld run fill $swc3.swc.x1$ $swc3.swc.y$ $swc3.swc.z1$ $swc3.swc.x2$ $swc3.swc.y$ $swc3.swc.z2$ $swc_block$"
+  e_obj_del_swc_3_delay:    "objective remove o_swc_3_delay"
+
+  # Elevator
+  e_swc_3_elevator_up:      "command execute in minecraft:overworld run setblock $swc3.elebase$ minecraft:soul_sand"
+  e_swc_3_elevator_dn:      "command execute in minecraft:overworld run setblock $swc3.elebase$ minecraft:magma_block"
+
+
+conditions:
+  chk_swc_3_pressed:        "globaltag $swc3.tag$"
+  chk_swc_3_local_pressed:  "tag $swc3.tag$"
+  chk_swc_3_can_press:      "and !chk_swc_3_pressed,!chk_water_level_5"
+
+
+objectives:
+  o_swc_3_enter:            "region $swc3.swc.region$ enter conditions:chk_swc_3_can_press events:e_swc_3_pressed"
+  o_swc_3_delay:            "delay $swc_delay$ seconds interval:$swc_interval$ events:e_swc_3_timeout"

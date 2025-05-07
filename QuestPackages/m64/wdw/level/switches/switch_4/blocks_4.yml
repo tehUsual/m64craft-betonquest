@@ -1,0 +1,30 @@
+variables:
+  swc1:
+    blocks: "minecraft:stripped_oak_wood"
+    pf1:
+      a:  -439 79 407
+      b:  -442 78 408
+    pf2:
+      a:  -439 81 407
+      b:  -440 80 408
+    pf3:
+      a:  -441 80 408
+      b:  -441 80 407
+
+
+events:
+  show_switch_blocks_1:     "folder e_swc_1_pf_show_g1"
+  hide_switch_blocks_1:     "folder e_swc_1_pf_hide_g1"
+
+
+  # Platforms show
+  e_swc_1_pf_show_g1:       "folder e_swc_1_pf1_show,e_swc_1_pf2_show,e_swc_1_pf3_show"
+  e_swc_1_pf1_show:         "command execute in minecraft:overworld run fill $swc4.pf1.a$ $swc4.pf1.b$ $swc1.blocks$"
+  e_swc_1_pf2_show:         "command execute in minecraft:overworld run fill $swc4.pf2.a$ $swc4.pf2.b$ $swc1.blocks$"
+  e_swc_1_pf3_show:         "command execute in minecraft:overworld run fill $swc4.pf3.a$ $swc4.pf3.b$ $swc1.blocks$"
+
+  # Platforms hide
+  e_swc_1_pf_hide_g1:       "folder e_swc_1_pf1_hide,e_swc_1_pf2_hide,e_swc_1_pf3_hide"
+  e_swc_1_pf1_hide:         "command execute in minecraft:overworld run fill $swc4.pf1.a$ $swc4.pf1.b$ minecraft:air"
+  e_swc_1_pf2_hide:         "command execute in minecraft:overworld run fill $swc4.pf2.a$ $swc4.pf2.b$ minecraft:air"
+  e_swc_1_pf3_hide:         "command execute in minecraft:overworld run fill $swc4.pf3.a$ $swc4.pf3.b$ minecraft:air"
