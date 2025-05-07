@@ -1,8 +1,8 @@
 npcs:
-  '32': "toad_bob"
+  '32': "toad_progress"
 
 conversations:
-  toad_bob:
+  toad_progress:
     quester: "Toad: Wet-Dry World"
     first: welcome
   
@@ -12,7 +12,7 @@ conversations:
         pointer: progress
       view_progress:
         text: "This is what you've got so far! - &2%point.wdw_stars.amount%&r/10"
-        pointer: s1y,s1n,s2y,s2n,s3y,s3n,s4y,s4n,s5y,s5n,s6y,s6n,s7w,s8w,s9y,s9n,s10y,s10n,s11y,s11n
+        pointer: s1y,s1n,s2y,s2n,s3y,s3n,s4y,s4n,s5y,s5n,s6y,s6n,s8w,s9y,s9n,s10y,s10n,s11y,s11n
       bye:
         text: "Byee!"
         #exit
@@ -82,12 +82,7 @@ conversations:
         text: "[ ] -=Star=- 6"
         pointer: bye
 
-      ### STAR 7
-      s7w:
-        text: "N/A"
-        pointer: bye
-
-      ### STAR 8 - 4 SUSPICIOUS LOGS
+      ### STAR 8 - 
       s8w:
         text: "N/A"
         pointer: bye
