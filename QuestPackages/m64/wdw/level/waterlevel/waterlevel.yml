@@ -105,8 +105,8 @@ variables:
 
 
 events:
-  init_env_topwater:    "folder e_init_gp_water,e_init_top_switches"
-  reset_env_topwater:   "folder e_cleanup_top_switches"
+  init_topwater:        "folder e_init_gp_water,e_init_top_switches"
+  deit_topwater:        "folder e_cleanup_top_switches"
 
   
   e_init_gp_water:      "if !chk_water_level_1 e_init_top_water else core-main.e_dummy"
