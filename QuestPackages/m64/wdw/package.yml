@@ -1,6 +1,6 @@
 # Regions:
-# Level entry:      ssl_entry
-# Level:            ssl
+# Level entry:      
+# Level:            
 # 
 # Cannons:          
 # 
@@ -13,7 +13,6 @@ variables:
   #fencetp:              -417;108;352;marocraft
   #fencetp_dest:         -417;107;351;marocraft;180;12
 
-  # init_env_topwater,init_env_switchblocks,e_init_invis
 events:
   init_level:           "folder init_spawns,init_cannons,init_switches,init_topwater,init_cinv,init_stars,e_efx_give,e_play_music"
   deit_level:           "folder deit_spawns,deit_cannons,deit_switches,deit_topwater,deit_cinv,deit_stars,e_efx_clear,e_stop_music"
