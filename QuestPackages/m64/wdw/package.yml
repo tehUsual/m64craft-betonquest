@@ -1,64 +1,67 @@
+# Regions:
+# Level entry:      ssl_entry
+# Level:            ssl
+# 
+# Cannons:          
+# 
+
 variables:
   spawn:                -427.5;119;388.5;marocraft;135;12
   respawn:              19.5;65;-466.5;marocraft;180;12
-  exitbtn:              -428;119;388;marocraft
-  exitbtn2:             -494;78;366;marocraft
-  fencetp:              -417;108;352;marocraft
-  fencetp_dest:         -417;107;351;marocraft;180;12
+  exitsign:             -428;119;388;marocraft
+  exitsign2:            -494;78;366;marocraft
+  #fencetp:              -417;108;352;marocraft
+  #fencetp_dest:         -417;107;351;marocraft;180;12
 
-
-
+  # init_env_topwater,init_env_switchblocks,e_init_invis
 events:
-  init_level:           "folder add_level_objs,init_cannons,init_stars,init_env_topwater,init_env_switchblocks,e_init_invis,e_tp_spawn,e_efx_give_nightvis,e_efx_give_swim,e_play_music"
-  reload_level:         "folder reset_level,core-main.init_castle"
-  reset_level:          "folder del_level_objs,reset_cannons,reset_stars,reset_env_topwater,reset_env_switchblocks,e_cleanup_invis,e_efx_clear_nightvis,e_stop_music"
-  hard_reset:           "folder reset_level,delete_stars"
+  init_level:           "folder init_spawns,init_cannons,init_switches,init_topwater,init_cinv,init_stars,e_efx_give,e_play_music"
+  deit_level:           "folder deit_spawns,deit_cannons,deit_switches,deit_topwater,deit_cinv,deit_stars,e_efx_clear,e_stop_music"
+  unlo_level:           "folder exit_level" # period:20 ticks
+  exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
 
-  on_death:             "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
-  on_exit:              "folder e_tp_respawn,reload_level"
+  on_death:             "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:              "folder unlo_level"
 
+  # Wipe save
+  wipe_level:           "folder wipe_stars"
 
-  # Points
-  e_point_add_death:    "point wdw_deaths 1 action:add"
-  e_gpoint_add_death:   "globalpoint wdw_deaths 1 action:add"
-
-
-  ### Play music
+  # Play music
   e_play_music:         "folder core-music.e_play_hmc"
   e_stop_music:         "folder core-music.e_stop_music"
 
-
-  ### LEVEL - Add objectives
-  add_level_objs:       "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_obj_add_fencetp"
+  ### --- Spawn / Respawn ---------------------------------------
+  init_spawns:          "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2" #,e_obj_add_fencetp
   e_obj_add_respawn:    "objective add o_respawn"
   e_obj_add_exit:       "objective add o_exitlevel"
   e_obj_add_exit2:      "objective add o_exitlevel2"
-  e_obj_add_fencetp:    "objective add o_fencetp"
-  ### LEVEL - Del objectives
-  del_level_objs:       "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_exit2,e_obj_del_fencetp"
+  #e_obj_add_fencetp:    "objective add o_fencetp"
+
+  deit_spawns:          "folder e_obj_del_respawn,e_obj_del_exit,e_obj_del_exit2" #,e_obj_del_fencetp
   e_obj_del_respawn:    "objective remove o_respawn"
   e_obj_del_exit:       "objective remove o_exitlevel"
   e_obj_del_exit2:      "objective remove o_exitlevel2"
-  e_obj_del_fencetp:    "objective remove o_fencetp"
-
+  #e_obj_del_fencetp:    "objective remove o_fencetp"
 
   # Teleports
   e_tp_spawn:           "teleport $spawn$"
   e_tp_respawn:         "teleport $respawn$"
-  e_tp_fence:           "teleport $fencetp_dest$"
+  #e_tp_fence:           "teleport $fencetp_dest$"
 
   # Actions
   e_notify_death:       "command broadcast &3%player%&f died in WDW."
+  e_point_add_death:    "point wdw_deaths 1 action:add"
+  e_gpoint_add_death:   "globalpoint wdw_deaths 1 action:add"
 
   # Effects
+  e_efx_give:           "folder e_efx_give_nightvis,e_efx_give_swim"
   e_efx_give_nightvis:  "effect NIGHT_VISION 999999 1 hidden noicon"
   e_efx_give_swim:      "effect DOLPHINS_GRACE 999999 1 hidden noicon"
-  e_efx_clear_nightvis: "command effect clear %player%"
-
+  e_efx_clear:          "deleffect any"
 
 
 objectives:
   o_respawn:            "die cancel respawn:$respawn$ events:on_death"
-  o_exitlevel:          "action right any loc:$exitbtn$ events:on_exit"
-  o_exitlevel2:         "action right any loc:$exitbtn2$ events:on_exit"
-  o_fencetp:            "action right any loc:$fencetp$ events:e_tp_fence"
+  o_exitlevel:          "action right any loc:$exitsign$ events:on_exit"
+  o_exitlevel2:         "action right any loc:$exitsign2$ events:on_exit"
+  #o_fencetp:            "action right any loc:$fencetp$ events:e_tp_fence"
