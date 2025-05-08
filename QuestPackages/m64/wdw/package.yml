@@ -1,9 +1,11 @@
 # Regions:
-# Level entry:      
-# Level:            
-# 
-# Cannons:          
-# 
+# Level entry:      wdw_entry
+# Level:            wdw
+# Sub-sections:     wdw_top,wdw_bot
+# Cannons:          wdw_cannon_1,wdw_cannon_2
+# Switches:         wdw_swc_1,wdw_swc_2,wdw_swc_3,wdw_swc_4
+# Cap invisibility: wdw_inv_tp_1
+# Star 3:           wdw_s3_sr1,wdw_s3_sr2,_wdw_s3_sr3
 
 variables:
   spawn:                -427.5;119;388.5;marocraft;135;12
