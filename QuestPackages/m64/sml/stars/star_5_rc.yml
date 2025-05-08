@@ -1,0 +1,185 @@
+variables:
+  s5:
+    star_loc:             -431;34;700;marocraft
+    star_loc_xyz:         -431 34 700
+    rc1:                  -428;31;655;marocraft
+    rc2:                  -466;30;660;marocraft
+    rc3:                  -459;30;668;marocraft
+    rc4:                  -505;31;650;marocraft
+    rc5:                  -517;35;739;marocraft
+    rc6:                  -517;38;701;marocraft
+    rc7:                  -517;39;686;marocraft
+    rc8:                  -517;39;654;marocraft
+    rc9:                  -459;31;753;marocraft
+    rc10:                 -433;30;681;marocraft
+    rc11:                 -457;31;684;marocraft
+    rc12:                 -448;45;694;marocraft
+
+
+events:
+  ### STAR 5 - SHELL SHREDDIN' FOR 8 RED COINS
+  init_s5:                "folder e_s5_add_obj_rc"
+  e_s5_add_obj_rc:        "folder e_s5_add_obj_rc_1,e_s5_add_obj_rc_2"
+  e_s5_add_obj_rc_1:      "folder e_obj_add_s5_rc1,e_obj_add_s5_rc2,e_obj_add_s5_rc3,e_obj_add_s5_rc4,e_obj_add_s5_rc5,e_obj_add_s5_rc6"
+  e_s5_add_obj_rc_2:      "folder e_obj_add_s5_rc7,e_obj_add_s5_rc8,e_obj_add_s5_rc9,e_obj_add_s5_rc10,e_obj_add_s5_rc11,e_obj_add_s5_rc12"
+  e_obj_add_s5_rc1:       "objective add o_s5_rc1"
+  e_obj_add_s5_rc2:       "objective add o_s5_rc2"
+  e_obj_add_s5_rc3:       "objective add o_s5_rc3"
+  e_obj_add_s5_rc4:       "objective add o_s5_rc4"
+  e_obj_add_s5_rc5:       "objective add o_s5_rc5"
+  e_obj_add_s5_rc6:       "objective add o_s5_rc6"
+  e_obj_add_s5_rc7:       "objective add o_s5_rc7"
+  e_obj_add_s5_rc8:       "objective add o_s5_rc8"
+  e_obj_add_s5_rc9:       "objective add o_s5_rc9"
+  e_obj_add_s5_rc10:      "objective add o_s5_rc10"
+  e_obj_add_s5_rc11:      "objective add o_s5_rc11"
+  e_obj_add_s5_rc12:      "objective add o_s5_rc12"
+
+  e_s5_rc_add_point:      "point rc_count 1 action:add"
+
+  # Rc1
+  e_s5_got_rc1:           "folder e_s5_add_tag_rc1,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc1,if_all_rc_s5"
+  e_s5_add_tag_rc1:       "tag add rc1"
+  e_s5_notify_rc1:        "notify &3Red coin nr. 1 found! %point.rc_count.amount%/12"
+  # Rc2
+  e_s5_got_rc2:           "folder e_s5_add_tag_rc2,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc2,if_all_rc_s5"
+  e_s5_add_tag_rc2:       "tag add rc2"
+  e_s5_notify_rc2:        "notify &3Red coin nr. 2 found! %point.rc_count.amount%/12"
+  # Rc3
+  e_s5_got_rc3:           "folder e_s5_add_tag_rc3,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc3,if_all_rc_s5"
+  e_s5_add_tag_rc3:       "tag add rc3"
+  e_s5_notify_rc3:        "notify &3Red coin nr. 3 found! %point.rc_count.amount%/12"
+  # Rc4
+  e_s5_got_rc4:           "folder e_s5_add_tag_rc4,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc4,if_all_rc_s5"
+  e_s5_add_tag_rc4:       "tag add rc4"
+  e_s5_notify_rc4:        "notify &3Red coin nr. 4 found! %point.rc_count.amount%/12"
+  # Rc5
+  e_s5_got_rc5:           "folder e_s5_add_tag_rc5,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc5,if_all_rc_s5"
+  e_s5_add_tag_rc5:       "tag add rc5"
+  e_s5_notify_rc5:        "notify &3Red coin nr. 5 found! %point.rc_count.amount%/12"
+  # Rc6
+  e_s5_got_rc6:           "folder e_s5_add_tag_rc6,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc6,if_all_rc_s5"
+  e_s5_add_tag_rc6:       "tag add rc6"
+  e_s5_notify_rc6:        "notify &3Red coin nr. 6 found! %point.rc_count.amount%/12"
+  # Rc7
+  e_s5_got_rc7:           "folder e_s5_add_tag_rc7,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc7,if_all_rc_s5"
+  e_s5_add_tag_rc7:       "tag add rc7"
+  e_s5_notify_rc7:        "notify &3Red coin nr. 7 found! %point.rc_count.amount%/12"
+  # Rc8
+  e_s5_got_rc8:           "folder e_s5_add_tag_rc8,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc8,if_all_rc_s5"
+  e_s5_add_tag_rc8:       "tag add rc8"
+  e_s5_notify_rc8:        "notify &3Red coin nr. 8 found! %point.rc_count.amount%/12"
+  # Rc9
+  e_s5_got_rc9:           "folder e_s5_add_tag_rc9,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc9,if_all_rc_s5"
+  e_s5_add_tag_rc9:       "tag add rc9"
+  e_s5_notify_rc9:        "notify &3Red coin nr. 9 found! %point.rc_count.amount%/12"
+  # Rc10
+  e_s5_got_rc10:          "folder e_s5_add_tag_rc10,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc10,if_all_rc_s5"
+  e_s5_add_tag_rc10:      "tag add rc10"
+  e_s5_notify_rc10:       "notify &3Red coin nr. 10 found! %point.rc_count.amount%/12"
+  # Rc11
+  e_s5_got_rc11:          "folder e_s5_add_tag_rc11,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc11,if_all_rc_s5"
+  e_s5_add_tag_rc11:      "tag add rc11"
+  e_s5_notify_rc11:       "notify &3Red coin nr. 11 found! %point.rc_count.amount%/12"
+  # Rc12
+  e_s5_got_rc12:          "folder e_s5_add_tag_rc12,e_s5_rc_add_point,core-sfx.e_coin,e_s5_notify_rc12,if_all_rc_s5"
+  e_s5_add_tag_rc12:      "tag add rc12"
+  e_s5_notify_rc12:       "notify &3Red coin nr. 12 found! %point.rc_count.amount%/12"
+
+  # Check win
+  if_all_rc_s5:           "if chk_s5_all_rc e_s5_all_rc_gotten else core-main.e_dummy"
+
+  e_s5_all_rc_gotten:     "folder e_s5_spawn_star,e_s5_summon_firework,core-sfx.e_star_spawn,e_s5_notif_spawn_star,e_obj_add_s5_star,e_s5_gp_add_star,e_s5_tag_add_spawned"
+  e_s5_spawn_star:        "setblock RAW_GOLD_BLOCK $s5.star_loc$"
+  e_s5_summon_firework:   "command execute in minecraft:overworld run summon firework_rocket $s5.star_loc_xyz$ {LifeTime:10,Motion:[0d,1d,0d],shotAtAngle:1b,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:20,Explosions:[{Type:1,Flicker:1b,Colors:[I;14602026]},{Colors:[I;11743532]},{Colors:[I;4312372]}]}}}}"
+  e_s5_notif_spawn_star:  "notify &3A star has spawned! io:title"
+  e_obj_add_s5_star:      "objective add o_s5_star"
+  e_s5_gp_add_star:       "globalpoint sml_s5 1 action:add"
+  e_s5_tag_add_spawned:   "tag add s5_spawned"
+
+  # Win
+  win_s5:                 "folder e_notif_s5_win,core-sfx.e_got_star,deit_s5,if_firstwin_s5"
+  e_notif_s5_win:         "notify &3Searchin' for 12 red coins\n&2Cleared! io:title"
+
+  # First win
+  if_firstwin_s5:         "if !chk_s5_obtained firstwin_s5 else core-main.e_dummy"
+  firstwin_s5:            "folder e_broad_s5_first,tag_add_s5_win,e_stop_music,exit_star"
+  e_broad_s5_first:       "command broadcast &6%player% &2got a star: [SML] Searchin' for 12 red coins"
+  tag_add_s5_win:         "tag add s5"
+
+  # Cleanup
+  deit_s5:                "folder e_s5_del_obj_rc,e_s5_rc_del_point,e_obj_del_s5_star,e_s5_del_tags,if_s5_spawned,e_s5_tag_del_spawned"
+  e_s5_del_obj_rc:        "folder e_s5_del_obj_rc_1,e_s5_del_obj_rc_2"
+  e_s5_del_obj_rc_1:      "folder e_obj_del_s5_rc1,e_obj_del_s5_rc2,e_obj_del_s5_rc3,e_obj_del_s5_rc4,e_obj_del_s5_rc5,e_obj_del_s5_rc6"
+  e_s5_del_obj_rc_2:      "folder e_obj_del_s5_rc7,e_obj_del_s5_rc8,e_obj_del_s5_rc9,e_obj_del_s5_rc10,e_obj_del_s5_rc11,e_obj_del_s5_rc12"
+  e_obj_del_s5_rc1:       "objective remove o_s5_rc1"
+  e_obj_del_s5_rc2:       "objective remove o_s5_rc2"
+  e_obj_del_s5_rc3:       "objective remove o_s5_rc3"
+  e_obj_del_s5_rc4:       "objective remove o_s5_rc4"
+  e_obj_del_s5_rc5:       "objective remove o_s5_rc5"
+  e_obj_del_s5_rc6:       "objective remove o_s5_rc6"
+  e_obj_del_s5_rc7:       "objective remove o_s5_rc7"
+  e_obj_del_s5_rc8:       "objective remove o_s5_rc8"
+  e_obj_del_s5_rc9:       "objective remove o_s5_rc9"
+  e_obj_del_s5_rc10:      "objective remove o_s5_rc10"
+  e_obj_del_s5_rc11:      "objective remove o_s5_rc11"
+  e_obj_del_s5_rc12:      "objective remove o_s5_rc12"
+  e_s5_rc_del_point:      "point rc_count 0 action:set"
+
+  e_obj_del_s5_star:      "objective remove o_s5_star"
+  e_s5_del_tags:          "folder e_s5_del_tags_1,e_s5_del_tags_2"
+  e_s5_del_tags_1:        "run ^tag delete rc1 ^tag delete rc2 ^tag delete rc3 ^tag delete rc4 ^tag delete rc5 ^tag delete rc6"
+  e_s5_del_tags_2:        "run ^tag delete rc7 ^tag delete rc8  ^tag delete rc9 ^tag delete rc10 ^tag delete rc11 ^tag delete rc12"
+
+  if_s5_spawned:          "if chk_s5_spawned e_s5_del_spawned else core-main.e_dummy"
+  e_s5_del_spawned:       "folder e_s5_gp_sub_star,if_s5_despawn"
+  e_s5_gp_sub_star:       "globalpoint sml_s5 1 action:subtract"
+
+  if_s5_despawn:          "if !chk_s5_spawn_count e_s5_delete_star else core-main.e_dummy"
+  e_s5_tag_del_spawned:   "tag delete s5_spawned"
+
+  e_s5_delete_star:       "folder e_s5_despawn_star,e_s5_reset_star_count"
+  e_s5_despawn_star:      "setblock AIR $s5.star_loc$"
+  e_s5_reset_star_count:  "globalpoint sml_s5 0 action:set"
+
+
+conditions:
+  ### STAR 5 - SHELL SHREDDIN' FOR 8 RED COINS
+  chk_s5_obtained:        "tag s5"
+  chk_s5_tag_rc1:         "tag rc1"
+  chk_s5_tag_rc2:         "tag rc2"
+  chk_s5_tag_rc3:         "tag rc3"
+  chk_s5_tag_rc4:         "tag rc4"
+  chk_s5_tag_rc5:         "tag rc5"
+  chk_s5_tag_rc6:         "tag rc6"
+  chk_s5_tag_rc7:         "tag rc7"
+  chk_s5_tag_rc8:         "tag rc8"
+  chk_s5_tag_rc9:         "tag rc9"
+  chk_s5_tag_rc10:        "tag rc10"
+  chk_s5_tag_rc11:        "tag rc11"
+  chk_s5_tag_rc12:        "tag rc12"
+
+  chk_s5_all_rc:          "and chk_s5_all_rc_1,chk_s5_all_rc_2"
+  chk_s5_all_rc_1:        "and chk_s5_tag_rc1,chk_s5_tag_rc2,chk_s5_tag_rc3,chk_s5_tag_rc4,chk_s5_tag_rc5,chk_s5_tag_rc6"
+  chk_s5_all_rc_2:        "and chk_s5_tag_rc7,chk_s5_tag_rc8,chk_s5_tag_rc9,chk_s5_tag_rc10,chk_s5_tag_rc11,chk_s5_tag_rc12"
+
+  chk_s5_spawned:         "tag s5_spawned"
+  chk_s5_spawn_count:     "globalpoint sml_s5 1"
+
+
+objectives:
+  ### STAR 5 - SHELL SHREDDIN' FOR 8 RED COINS
+  o_s5_star:              "action right any loc:$s5.star_loc$ events:win_s5"
+  o_s5_rc1:               "action right any loc:$s5.rc1$ events:e_s5_got_rc1"
+  o_s5_rc2:               "action right any loc:$s5.rc2$ events:e_s5_got_rc2"
+  o_s5_rc3:               "action right any loc:$s5.rc3$ events:e_s5_got_rc3"
+  o_s5_rc4:               "action right any loc:$s5.rc4$ events:e_s5_got_rc4"
+  o_s5_rc5:               "action right any loc:$s5.rc5$ events:e_s5_got_rc5"
+  o_s5_rc6:               "action right any loc:$s5.rc6$ events:e_s5_got_rc6"
+  o_s5_rc7:               "action right any loc:$s5.rc7$ events:e_s5_got_rc7"
+  o_s5_rc8:               "action right any loc:$s5.rc8$ events:e_s5_got_rc8"
+  o_s5_rc9:               "action right any loc:$s5.rc9$ events:e_s5_got_rc9"
+  o_s5_rc10:              "action right any loc:$s5.rc10$ events:e_s5_got_rc10"
+  o_s5_rc11:              "action right any loc:$s5.rc11$ events:e_s5_got_rc11"
+  o_s5_rc12:              "action right any loc:$s5.rc12$ events:e_s5_got_rc12"
+
