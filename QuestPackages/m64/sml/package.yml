@@ -1,37 +1,41 @@
+# Regions:
+# Level entry:      sml_entry
+# Level:            sml
+# Sub-level         
+# Sub-level entry:  
+# Cold water:       sml_col_water_1
+# Freezing water:   sml_freezing_water_1
+# Flower bounce:    sml_bounce_1,sml_bounce_2
+# Ice wind:         sml_windice_1,sml_windice_2,sml_windice_3,sml_windice_4,sml_windice_5
+
 variables:
   spawn:              -422.5;31;705.5;marocraft;90;12
   respawn:            60.5;67;-467.5;marocraft;180;12
-  exitbtn:            -423;31;705;marocraft
-
-# MAPNAME = name of map
-# STARNAME = name of star
+  exitsign:           -423;31;705;marocraft
 
 events:
-  init_level:           "folder add_level_objs,init_env,init_stars,e_tp_spawn,e_play_music"
-  reload_level:         "folder reset_level,core-main.init_castle"
-  reset_level:          "folder del_level_objs,reset_env,reset_stars,e_stop_music"
-  on_death:             "folder e_notify_death,reload_level,e_point_add_death,e_gpoint_add_death"
-  on_exit:              "folder e_tp_respawn,reload_level"
+  init_level:         "folder init_spawns,init_icewind,init_fz_water,init_cd_water,init_bounce,init_stars,e_play_music"
+  deit_level:         "folder deit_spawns,deit_icewind,deit_fz_water,deit_cd_water,deit_bounce,deit_stars,e_stop_music"
+  unlo_level:         "folder exit_level" # period:20 ticks
+  exit_level:         "folder deit_level,e_tp_respawn,core-main.init_castle"
 
-  # Points
-  e_point_add_death:    "point sml_deaths 1 action:add"
-  e_gpoint_add_death:   "globalpoint sml_deaths 1 action:add"
+  on_death:           "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
+  on_exit:            "folder unlo_level"
 
+  # Wipe save
+  wipe_level:         "folder wipe_stars"
 
-  ### Play music
+  # Play music
   e_play_music:         "folder core-music.e_play_ccm"
   e_stop_music:         "folder core-music.e_stop_music"
 
-
-  ### LEVEL - Add objectives
+  ### --- Spawn / Respawn ---------------------------------------
   add_level_objs:       "folder e_obj_add_respawn,e_obj_add_exit"
   e_obj_add_respawn:    "objective add o_respawn"
   e_obj_add_exit:       "objective add o_exitlevel"
-  ### LEVEL - Del objectives
   del_level_objs:       "folder e_obj_del_respawn,e_obj_del_exit"
   e_obj_del_respawn:    "objective remove o_respawn"
   e_obj_del_exit:       "objective remove o_exitlevel"
-
 
   # Teleports
   e_tp_spawn:           "teleport $spawn$"
@@ -39,25 +43,10 @@ events:
 
   # Actions
   e_notify_death:       "command broadcast &3%player%&f died in SML."
-
+  e_point_add_death:    "point sml_deaths 1 action:add"
+  e_gpoint_add_death:   "globalpoint sml_deaths 1 action:add"
 
 
 objectives:
   o_respawn:            "die cancel respawn:$respawn$ events:on_death"
   o_exitlevel:          "action right any loc:$exitbtn$ events:on_exit"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
