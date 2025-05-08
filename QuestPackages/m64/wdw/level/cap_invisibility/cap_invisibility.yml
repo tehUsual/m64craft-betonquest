@@ -45,7 +45,7 @@ events:
   e_efx_clear_invis:      "deleffect INVISIBILITY"
 
   # Invisibility: Teleport
-  e_invis_tp_to_1:        "teleport $inv_tp_1b.loc$"
+  e_invis_tp_to_1:        "teleport $inv_tp_1.loc$"
 
 
   # --- Cleanup ---

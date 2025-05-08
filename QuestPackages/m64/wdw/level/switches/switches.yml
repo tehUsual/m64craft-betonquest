@@ -1,3 +1,6 @@
+variables:
+  swc_block:      "minecraft:crimson_slab"
+
 events:
   init_switches:      "folder init_switch_1,init_switch_2,init_switch_3,init_switch_4"
   deit_switches:      "folder deit_switch_1,deit_switch_2,deit_switch_3,deit_switch_4"

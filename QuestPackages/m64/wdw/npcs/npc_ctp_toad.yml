@@ -47,6 +47,7 @@ conversations:
         event: win_s11
 
 
+events:
   ### STAR 9 - CAPTAIN TOAD 1
   # Win
   win_s9:                 "folder e_notif_s9_win,core-sfx.e_toad_yahoo,core-sfx.e_got_star,e_broad_s9_first,tag_add_s9_win,e_stop_music,exit_star"

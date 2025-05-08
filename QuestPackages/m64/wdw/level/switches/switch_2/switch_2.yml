@@ -1,8 +1,7 @@
 variables:
-  swc_block:      "minecraft:crimson_slab"
-  swc_delay:      14  # seconds
-  swc_interval:   2   # seconds
   swc2:
+    swc_delay:      14  # seconds
+    swc_interval:   2   # seconds
     tag:          wdw_swc_2_pressed
     swc:
       region:     wdw_swc_2
@@ -52,4 +51,4 @@ conditions:
 
 objectives:
   o_swc_2_enter:            "region $swc2.swc.region$ enter conditions:chk_swc_2_can_press events:e_swc_2_pressed"
-  o_swc_2_delay:            "delay $swc_delay$ seconds interval:$swc_interval$ events:e_swc_2_timeout"
+  o_swc_2_delay:            "delay $swc2.swc_delay$ seconds interval:$swc2.swc_interval$ events:e_swc_2_timeout"
