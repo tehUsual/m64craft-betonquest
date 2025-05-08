@@ -30,10 +30,10 @@ events:
   e_stop_music:         "folder core-music.e_stop_music"
 
   ### --- Spawn / Respawn ---------------------------------------
-  add_level_objs:       "folder e_obj_add_respawn,e_obj_add_exit"
+  init_spawns:          "folder e_obj_add_respawn,e_obj_add_exit,e_tp_spawn"
   e_obj_add_respawn:    "objective add o_respawn"
   e_obj_add_exit:       "objective add o_exitlevel"
-  del_level_objs:       "folder e_obj_del_respawn,e_obj_del_exit"
+  deit_spawns:          "folder e_obj_del_respawn,e_obj_del_exit"
   e_obj_del_respawn:    "objective remove o_respawn"
   e_obj_del_exit:       "objective remove o_exitlevel"
 
@@ -49,4 +49,4 @@ events:
 
 objectives:
   o_respawn:            "die cancel respawn:$respawn$ events:on_death"
-  o_exitlevel:          "action right any loc:$exitbtn$ events:on_exit"
+  o_exitlevel:          "action right any loc:$exitsign$ events:on_exit"
