@@ -1,0 +1,21 @@
+variables:
+  freeze_water:
+    region1:            sml_freezing_water_1
+
+events:
+  init_fz_water:        "folder e_obj_add_freeze_w"
+  deit_fz_water:        "folder e_obj_del_freeze_w"
+
+  ### Objectives
+  e_obj_add_freeze_w:   "objective add o_freeze_water_1"
+  e_obj_del_freeze_w:   "objective remove o_freeze_water_1"
+
+  # Freeze
+  on_freeze_water:      "folder e_freeze_dmg,core-sfx.e_fire_hurt,e_freeze_jump,e_reload_freezew"
+  e_reload_freezew:     "folder init_fz_water delay:10 ticks"
+  e_freeze_dmg:         "damage 4"
+  e_freeze_jump:        "velocity vector:(0;0.7;0) direction:relative_y modification:set"
+
+
+objectives:
+  o_freeze_water_1:     "region $freeze_water.region1$ enter events:on_freeze_water"

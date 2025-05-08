@@ -1,0 +1,34 @@
+variables:
+  cold_water:
+    region1:            sml_cold_water_1
+
+events:
+  init_cd_water:        "folder e_init_cold_water"
+  deit_cd_water:        "folder e_deit_cold_water"
+
+  ### Objectives
+  e_init_cold_water:    "folder e_obj_add_cw_enter_1"
+  e_obj_add_cw_enter_1: "objective add o_cw_enter_1"
+  e_obj_add_cw_exit_1:  "objective add o_cw_exit_1"
+
+  e_deit_cold_water:    "folder e_obj_del_cw_enter_1,e_obj_del_cw_exit_1,e_obj_del_cw_delay_1"
+  e_obj_del_cw_enter_1: "objective remove o_cw_enter_1"
+  e_obj_del_cw_exit_1:  "objective remove o_cw_exit_1"
+  e_obj_del_cw_delay_1: "objective remove o_cw_delay_1"
+
+  # Cold water enter
+  on_cw_enter:          "folder e_obj_add_cw_exit_1,e_obj_add_cw_delay_1"
+  e_obj_add_cw_delay_1: "objective add o_cw_delay_1"
+
+  # Cold water exit
+  on_cw_exit:           "folder e_obj_del_cw_delay_1,e_obj_add_cw_enter_1"
+
+  # Cold water damage
+  e_fol_cold_water:     "folder e_cold_water_dmg,e_obj_add_cw_delay_1"
+  e_cold_water_dmg:     "damage 2"
+
+
+objectives:
+  o_cw_enter_1:         "region $cold_water.region1$ enter events:on_cw_enter"
+  o_cw_exit_1:          "region $cold_water.region1$ exit events:on_cw_exit"
+  o_cw_delay_1:         "delay 1 seconds interval:1 events:e_fol_cold_water"

@@ -1,0 +1,31 @@
+variables:
+  icewind:
+    region1:            sml_windice_1
+    region2:            sml_windice_2
+    region3:            sml_windice_3
+    region4:            sml_windice_4
+    region5:            sml_windice_5
+
+
+events:
+  init_icewind:         "folder e_obj_add_icewind"
+  deit_icewind:         "folder e_obj_del_icewind"
+
+  ### Objectives
+  e_obj_add_icewind:    "objective add o_icewind_1,o_icewind_2,o_icewind_3,o_icewind_4,o_icewind_5"
+  e_obj_del_icewind:    "objective remove o_icewind_1,o_icewind_2,o_icewind_3,o_icewind_4,o_icewind_5"
+
+  # Wind blow
+  on_icewind:           "folder e_obj_del_icewind,e_windblow,e_blow_sfx,e_reload_icewind"
+  e_reload_icewind:     "folder e_obj_add_icewind delay:15 ticks"
+  e_blow_sfx:           "folder core-sfx.e_wind,core-sfx.e_fall period:5 ticks"
+
+  e_windblow:           "velocity vector:(2;0.4;2) direction:absolute modification:set"
+
+
+objectives:
+  o_icewind_1:          "region $icewind.region1$ enter events:on_icewind"
+  o_icewind_2:          "region $icewind.region2$ enter events:on_icewind"
+  o_icewind_3:          "region $icewind.region3$ enter events:on_icewind"
+  o_icewind_4:          "region $icewind.region4$ enter events:on_icewind"
+  o_icewind_5:          "region $icewind.region5$ enter events:on_icewind"
