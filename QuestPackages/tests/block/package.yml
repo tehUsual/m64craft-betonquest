@@ -1,0 +1,31 @@
+variables:
+  loc:                -17;58;3;marocraft
+  loc2:               $loc$->(0;-1;0)
+
+events:
+  run:                "folder e_test_1,e_test_2"
+
+  # Block at player
+  e_test_1:           "if chk_block_1 e_notify_1_true else e_notify_1_false"
+  #e_test_1:           "folder e_notify_1_format"
+  #e_notify_1_format:  "notify block at $loc$ [[]] $vectors.chest1$ "
+  e_notify_1_true:    "notify block at $loc$\\: &atrue"
+  e_notify_1_false:   "notify block at $loc$\\: &cfalse"
+
+  e_test_2:           "if chk_block_2 e_notify_2_true else e_notify_2_false"
+  e_notify_2_true:    "notify block at $loc2$\\: &atrue"
+  e_notify_2_false:   "notify block at $loc2$\\: &cfalse"
+
+  e_notify_y_pos:     "notify %location.y.5%"
+
+conditions:
+  chk_block_1:        "testforblock $loc$ STONE"
+  chk_block_2:        "testforblock $loc2$ STONE"
+
+  chk_block_3:        "testforblock %location.ulfShort% STONE"
+  chk_block_4:        "testforblock %location.ulfShort%->(0;-1;0) STONE"
+
+  #chk_y_0:            "numbercompare %math.calc:location.y-location.y.2% = 0"
+
+
+#objectives:
