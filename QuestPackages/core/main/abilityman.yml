@@ -1,0 +1,32 @@
+variables:
+  get_ability_normal:   1;40;12;marocraft
+  get_ability_chance:   0;40;12;marocraft
+
+
+events:
+  init_abilities:         "folder e_obj_add_ab"
+  deit_abilities:         "folder e_obj_del_ab,e_deit_ab_all,e_take_ab_all"
+
+  ### --- Cleanup ----------------------------------
+  e_cleanup_ab_all:       "folder e_deit_ab_all,e_take_ab_all"
+  e_deit_ab_all:          "folder deit_ability_normal"
+  e_take_ab_all:          "folder e_take_ab_normal"
+
+  ### --- Init -------------------------------------
+  e_obj_add_ab:           "objective add o_get_ab_norm"
+  e_obj_del_ab:           "objective remove o_get_ab_norm"
+
+
+  ### --- Normal -----------------------------------
+  e_setup_ab_normal:      "folder e_cleanup_ab_all,init_ability_normal,e_give_ab_normal"
+
+  e_give_ab_normal:       "folder core-abilities-normal-wahoo.e_give_wahoo,core-abilities-normal-waha.e_give_waha"
+  e_take_ab_normal:       "folder core-abilities-normal-wahoo.e_take_wahoo,core-abilities-normal-waha.e_take_waha"
+
+  init_ability_normal:    "folder core-abilities-normal-wahoo.init_wahoo,core-abilities-normal-waha.init_waha"
+  deit_ability_normal:    "folder core-abilities-normal-wahoo.deit_wahoo,core-abilities-normal-waha.deit_waha"
+
+
+
+objectives:
+  o_get_ab_norm:          "action right any loc:$get_ability_normal$ events:e_setup_ab_normal persistent"

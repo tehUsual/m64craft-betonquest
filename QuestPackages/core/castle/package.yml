@@ -1,0 +1,6 @@
+events:
+  init_castle:          "folder init_tpzones,init_levelman"
+  deit_castle:          "folder deit_tpzones,deit_levelman"
+
+
+

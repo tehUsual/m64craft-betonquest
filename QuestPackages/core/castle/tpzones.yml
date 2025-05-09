@@ -1,0 +1,44 @@
+variables:
+  worldspawn:       0;40;0;marocraft;180;12         # game spawn
+
+  lobby_enter:      14;42;-406;marocraft;180;12     # [lobby] inside
+  lobby_exit:       13;46;-72;marocraft;0;12        # [lobby] outside, bridge
+  basement_enter:   101;24;-431;marocraft;90;12     # [basement] inside
+  basement_exit:    48;33;-72;marocraft;-45;12      # [basement] outside, pit
+  courtyard_enter:  14;42;-124;marocraft;180;12     # [courtyard] outside
+  courtyard_exit:   15;40;-476;marocraft;0;12       # [courtyard] inside, hallway
+
+
+events:
+  init_tpzones:             "folder e_obj_add_tpzones"
+  deit_tpzones:             "folder e_obj_del_tpzones"
+
+
+  # Objectives
+  e_obj_add_tpzones:        "folder e_obj_add_tp_lobby,e_obj_add_tp_bas,e_obj_add_tp_cotyd"
+  e_obj_add_tp_lobby:       "objective add o_enter_lobby,o_exit_lobby"
+  e_obj_add_tp_bas:         "objective add o_enter_water,o_exit_water"
+  e_obj_add_tp_cotyd:       "objective add o_enter_courtyard,o_exit_courtyard"
+
+  e_obj_del_tpzones:        "folder e_obj_del_tp_lobby,e_obj_del_tp_bas,e_obj_del_tp_cotyd"
+  e_obj_del_tp_lobby:       "objective remove o_enter_lobby,o_exit_lobby"
+  e_obj_del_tp_bas:         "objective remove o_enter_water,o_exit_water"
+  e_obj_del_tp_cotyd:       "objective remove o_enter_courtyard,o_exit_courtyard"
+
+  # Teleports
+  e_tp_lobby_inside:        "teleport $lobby_enter$"
+  e_tp_lobby_outside:       "teleport $lobby_exit$"
+  e_tp_basement_inside:     "teleport $basement_enter$"
+  e_tp_basement_outside:    "teleport $basement_exit$"
+  e_tp_courtyard_outside:   "teleport $courtyard_enter$"
+  e_tp_courtyard_inside:    "teleport $courtyard_exit$"
+
+
+objectives:
+  # Castle
+  o_enter_lobby:            "region lobby_enter enter events:e_tp_lobby_inside persistent"
+  o_exit_lobby:             "region lobby_exit enter events:e_tp_lobby_outside persistent"
+  o_enter_water:            "region castle_water_enter events:e_tp_basement_inside persistent"
+  o_exit_water:             "region castle_water_exit events:e_tp_basement_outside persistent"
+  o_enter_courtyard:        "region courtyard_enter events:e_tp_courtyard_outside persistent"
+  o_exit_courtyard:         "region courtyard_exit events:e_tp_courtyard_inside persistent"

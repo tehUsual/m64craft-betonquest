@@ -10,11 +10,19 @@ conversations:
       init:
         text: "Hello!"
         pointer: p_init,p_cleanup
+      is_init:
+        text: "Marocraft has been &ainitialized!"
+        #exit
+      is_deit:
+        text: "Marocraft has been &cdeinitialized!"
+        #exit
     
     player_options:
       p_init:
         text: "Initialize"
-        event: core-main.init_castle
+        event: core-main.init_main
+        pointer: is_init
       p_cleanup:
         text: "Deinitialize"
-        event: core-main.reset_castle
+        event: core-main.deit_main
+        pointer: is_deit

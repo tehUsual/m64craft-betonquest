@@ -19,7 +19,7 @@ events:
   init_level:           "folder init_spawns,init_cannons,init_switches,init_topwater,init_cinv,init_stars,e_efx_give,e_play_music"
   deit_level:           "folder deit_spawns,deit_cannons,deit_switches,deit_topwater,deit_cinv,deit_stars,e_efx_clear,e_stop_music"
   unlo_level:           "folder exit_level" # period:20 ticks
-  exit_level:           "folder deit_level,e_tp_respawn,core-main.init_castle"
+  exit_level:           "folder deit_level,e_tp_respawn,core-main.init_main"
 
   on_death:             "folder e_notify_death,unlo_level,e_point_add_death,e_gpoint_add_death"
   on_exit:              "folder unlo_level"

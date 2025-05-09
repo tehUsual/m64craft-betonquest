@@ -6,10 +6,10 @@ variables:
 
 events:
   init_level2:        "folder add_level_objs,init_slide,e_tp_spawn,e_play_music"
-  reload_level2:      "folder reset_level2,core-main.init_castle"
+  deit_level2:        "folder reset_level2,core-main.init_main"
   reset_level2:       "folder del_level_objs,reset_slide,e_stop_music"
-  on_death:           "folder e_notify_death,reload_level2,e_point_add_death,e_gpoint_add_death"
-  on_exit:            "folder e_tp_respawn,reload_level2"
+  on_death:           "folder e_notify_death,deit_level2,e_point_add_death,e_gpoint_add_death"
+  on_exit:            "folder e_tp_respawn,deit_level2"
 
   e_point_add_death:  "point ss2_deaths 1 action:add"
   e_gpoint_add_death: "globalpoint ss2_deaths 1 action:add"

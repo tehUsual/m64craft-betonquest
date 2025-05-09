@@ -1,0 +1,58 @@
+events:
+  init_levelman:      "folder e_obj_add_lvltp"
+  deit_levelman:      "folder e_obj_del_lvltp"
+
+
+  ### Objectives: Init
+  e_obj_add_lvltp:              "folder e_obj_add_lvltp_main,e_obj_add_lvltp_extra"
+  e_obj_add_lvltp_main:         "folder e_obj_add_lvltp_1f_main,e_obj_add_lvltp_0f_main,e_obj_add_lvltp_2f_main"
+  e_obj_add_lvltp_extra:        "folder e_obj_add_lvltp_1f_extra" #,e_obj_add_lvltp_0f_extra,e_obj_add_lvltp_2f_extra
+  # Floor: 1F
+  e_obj_add_lvltp_1f_main:      "objective add o_entry_bob,o_entry_wf,o_entry_jrb,o_entry_bbh"  # o_entry_ccm
+  e_obj_add_lvltp_1f_extra:     "objective add o_entry_sslide,o_entry_sslide2" # o_entry_bw1,o_entry_sslide3,o_entry_jrbaqua
+  # Floor: 0F
+  e_obj_add_lvltp_0f_main:      "objective add o_entry_lll,o_entry_ssl" # o_entry_ddd,o_entry_hmc
+  #e_obj_add_lvltp_0f_extra:     "objective add o_entry_bw2"
+  # Floor: 2F
+  e_obj_add_lvltp_2f_main:      "objective add o_entry_wdw,o_entry_ssl" # o_entry_ttm,o_entry_thi,o_entry_ttc,o_entry_rr
+  #e_obj_add_lvltp_2f_extra:     "objective add o_entry_cr,o_entry_bw3"
+
+  ### Objectives: Cleanup
+  e_obj_del_lvltp:              "folder e_obj_del_lvltp_main,e_obj_del_lvltp_extra"
+  e_obj_del_lvltp_main:         "folder e_obj_del_lvltp_1f_main,e_obj_del_lvltp_0f_main,e_obj_del_lvltp_2f_main"
+  e_obj_del_lvltp_extra:        "folder e_obj_del_lvltp_1f_extra" #,e_obj_del_lvltp_0f_extra,e_obj_del_lvltp_2f_extra
+  # Floor: 1F
+  e_obj_del_lvltp_1f_main:      "objective remove o_entry_bob,o_entry_wf,o_entry_jrb,o_entry_bbh"  # o_entry_ccm
+  e_obj_del_lvltp_1f_extra:     "objective remove o_entry_sslide,o_entry_sslide2" # o_entry_bw1,o_entry_sslide3,o_entry_jrbaqua
+  # Floor: 0F
+  e_obj_del_lvltp_0f_main:      "objective remove o_entry_lll,o_entry_ssl" # o_entry_ddd,o_entry_hmc
+  #e_obj_del_lvltp_0f_extra:     "objective remove o_entry_bw2"
+  # Floor: 2F
+  e_obj_del_lvltp_2f_main:      "objective remove o_entry_wdw,o_entry_ssl" # o_entry_ttm,o_entry_thi,o_entry_ttc,o_entry_rr
+  #e_obj_del_lvltp_2f_extra:     "objective remove o_entry_cr,o_entry_bw3"
+
+
+  ### Wipe save data
+  wipe_ALL:                     "folder wipe_1f_data,wipe_0f_data,wipe_2f_data"
+  wipe_1f_data:                 "folder m64-bob.wipe_level,m64-wf.wipe_level,m64-jrb.wipe_level,m64-bbh.wipe_level" # m64-sslide.wipe_level,m64-sslide2.wipe_level
+  wipe_0f_data:                 "folder m64-lll.wipe_level,m64-ssl.wipe_level"
+  wipe_2f_data:                 "folder m64-wdw.wipe_level,m64-sml.wipe_level"
+
+
+objectives:
+  # F1, Main
+  o_entry_bob:                  "region bob_entry enter events:m64-bob.init_level"  #deit_castle
+  o_entry_wf:                   "region wf_entry enter events:m64-wf.init_level"
+  o_entry_jrb:                  "region jrb_entry enter events:m64-jrb.init_level"
+  o_entry_bbh:                  "region bbh_entry enter events:m64-bbh.init_level"
+  # F1, Extra
+  o_entry_sslide:               "region sslide_entry enter events:m64-sslide.init_level"
+  o_entry_sslide2:              "region sslide2_entry enter conditions:core-main.chk_ss2_unlocked events:m64-sslide2.init_level2"
+
+  # F0, Main
+  o_entry_lll:                  "region lll_entry enter events:m64-lll.init_level"
+  o_entry_ssl:                  "region ssl_entry enter events:m64-ssl.init_level"
+  
+  # F2, Main
+  o_entry_wdw:                  "region wdw_entry enter events:m64-wdw.init_level"
+  o_entry_sml:                  "region sml_entry enter events:m64-sml.init_level"
