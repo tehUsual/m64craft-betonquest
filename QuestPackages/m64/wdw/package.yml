@@ -32,7 +32,7 @@ events:
   e_stop_music:         "folder core-music.e_stop_music"
 
   ### --- Spawn / Respawn ---------------------------------------
-  init_spawns:          "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2" #,e_obj_add_fencetp
+  init_spawns:          "folder e_obj_add_respawn,e_obj_add_exit,e_obj_add_exit2,e_tp_spawn" #,e_obj_add_fencetp
   e_obj_add_respawn:    "objective add o_respawn"
   e_obj_add_exit:       "objective add o_exitlevel"
   e_obj_add_exit2:      "objective add o_exitlevel2"
