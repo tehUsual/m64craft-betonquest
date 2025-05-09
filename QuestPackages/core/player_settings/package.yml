@@ -1,0 +1,11 @@
+events:
+
+  # [cmd] toggle music
+  e_music_enable:               "tag delete disable_music"
+  e_music_disable:              "tag add disable_music"
+
+
+
+conditions:
+  chk_disable_music:            "tag disable_music"
+
