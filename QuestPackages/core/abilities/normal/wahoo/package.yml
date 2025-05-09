@@ -1,0 +1,40 @@
+events:
+  init_wahoo:             "folder e_obj_add_wahoo"
+  deit_wahoo:             "folder e_cleanup_wahoo"
+
+  # Inventory
+  e_give_wahoo:           "give i_wahoo:1 condition:!chk_has_wahoo notify"
+  e_take_wahoo:           "take i_wahoo:100"
+
+
+  # Entry
+  e_obj_add_wahoo:        "objective add o_wahoo"
+
+  # Ability cooldown
+  on_wahoo_cooldown:      "folder core-sfx.e_wahoo_ready,e_obj_add_wahoo"
+  e_obj_add_wahoo_delay:  "objective add o_wahoo_cooldown"
+  e_obj_del_wahoo_delay:  "objective remove o_wahoo_cooldown"
+
+  # Use ability
+  on_wahoo:               "folder e_wahoo_vel,e_obj_add_wahoo_delay,core-sfx.e_wahoo"
+  e_wahoo_vel:            "velocity vector:(0;0.5;1.1) direction:relative_y modification:set"
+
+  #Cleanup
+  e_cleanup_wahoo:        "folder e_obj_del_wahoo"
+  e_obj_del_wahoo:        "objective remove o_wahoo,o_wahoo_cooldown"
+
+
+conditions:
+  chk_has_wahoo:          "item i_wahoo:1"
+
+  chk_holding_wahoo:      "hand i_wahoo"
+  chk_is_sneaking_wahoo:  "sneak"
+  chk_can_wahoo:          "and chk_holding_wahoo,chk_is_sneaking_wahoo"
+
+
+objectives:
+  o_wahoo:                "action right any condition:chk_can_wahoo event:on_wahoo"
+  o_wahoo_cooldown:       "delay 2 seconds interval:1 events:on_wahoo_cooldown"
+
+items:
+  i_wahoo:                "minecraft:feather name:&6Wahoo lore:Must_be_sneaking_(2_sec_cool)"

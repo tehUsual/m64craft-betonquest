@@ -1,0 +1,40 @@
+events:
+  init_waha:              "folder e_obj_add_waha"
+  deit_waha:              "folder e_cleanup_waha"
+
+  # Inventory
+  e_give_waha:            "give i_waha:1 condition:!chk_has_waha notify"
+  e_take_waha:            "take i_waha:100"
+
+
+  # Entry
+  e_obj_add_waha:         "objective add o_waha"
+
+  # Ability cooldown
+  on_waha_cooldown:       "folder core-sfx.e_waha_ready,e_obj_add_waha"
+  e_obj_add_waha_delay:   "objective add o_waha_cooldown"
+  e_obj_del_waha_delay:   "objective remove o_waha_cooldown"
+
+  # Use ability
+  on_waha:                "folder e_waha_vel,e_obj_add_waha_delay,core-sfx.e_waha"
+  e_waha_vel:             "velocity vector:(0;0.7;-0.3) direction:relative_y modification:set"
+
+  #Cleanup
+  e_cleanup_waha:         "folder e_obj_del_waha"
+  e_obj_del_waha:         "objective remove o_waha,o_waha_cooldown"
+
+
+conditions:
+  chk_has_waha:           "item i_waha:1"
+
+  chk_holding_waha:       "hand i_waha"
+  chk_is_sneaking_waha:   "sneak"
+  chk_can_waha:           "and chk_holding_waha,chk_is_sneaking_waha"
+
+
+objectives:
+  o_waha:                 "action right any condition:chk_can_waha event:on_waha"
+  o_waha_cooldown:        "delay 2 seconds interval:1 events:on_waha_cooldown"
+
+items:
+  i_waha:                 "minecraft:rabbit_foot name:&6Waha lore:Must_be_sneaking_(2_sec_cool)"
