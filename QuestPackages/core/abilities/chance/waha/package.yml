@@ -16,8 +16,12 @@ events:
   e_obj_del_waha_delay:   "objective remove o_waha_cooldown"
 
   # Use ability
-  on_waha:                "folder e_waha_vel,e_obj_add_waha_delay,core-sfx.e_waha"
+  on_waha:                "if chk_waha_break e_do_waha_broken else e_do_waha_normal"
+  e_do_waha_normal:       "folder e_waha_vel,e_obj_add_waha_delay,core-sfx.e_waha"
   e_waha_vel:             "velocity vector:(0;0.7;-0.3) direction:relative_y modification:set"
+
+  e_do_waha_broken:       "folder e_waha_vel_broken,e_obj_add_waha_delay,core-sfx.e_waha_broken"
+  e_waha_vel_broken:      "velocity vector:(0;1.7;-1.3) direction:relative_y modification:set"
 
   #Cleanup
   e_cleanup_waha:         "folder e_obj_del_waha"
@@ -31,10 +35,12 @@ conditions:
   chk_is_sneaking_waha:   "sneak"
   chk_can_waha:           "and chk_holding_waha,chk_is_sneaking_waha"
 
+  chk_waha_break:         "random 10-20"
+
 
 objectives:
   o_waha:                 "action right any condition:chk_can_waha event:on_waha"
   o_waha_cooldown:        "delay 2 seconds interval:1 events:on_waha_cooldown"
 
 items:
-  i_waha:                 "minecraft:rabbit_foot name:&6Waha lore:Must_be_sneaking_(2_sec_cool)"
+  i_waha:                 "minecraft:rabbit_foot name:&6Waha lore:Must_be_sneaking_(2_sec_cool);&25%_broken_waha enchants:DURABILITY:1 flags:HIDE_ENCHANTS"
