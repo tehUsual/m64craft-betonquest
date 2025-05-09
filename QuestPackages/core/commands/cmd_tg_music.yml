@@ -1,0 +1,22 @@
+events:
+  init_cmd_tgmusic:       "folder e_obj_add_cmd_tgmusic"
+  deit_cmd_tgmusic:       "folder e_obj_del_cmd_tgmusic"
+
+  # Objectives
+  e_obj_add_cmd_tgmusic:  "objective add o_cmd_tgmusic"
+  e_obj_del_cmd_tgmusic:  "objective remove o_cmd_tgmusic"
+
+  # Execute
+  on_exec_toggle_music:   "folder if_enable_music"
+  if_enable_music:        "if !core-player_settings.chk_disable_music e_music_disable else e_music_enable"
+  
+  # Enable
+  e_music_enable:         "folder core-player_settings.e_music_enable,e_notif_music_enable"
+  e_notif_music_enable:   "notify [&7Settings&r]: &7Music &2enabled"
+  # Disable
+  e_music_disable:        "folder core-player_settings.e_music_disable,e_notif_music_disable"
+  e_notif_music_disable:  "notify [&7Settings&r]: &7Music &cdisabled"
+
+
+objectives:
+  o_cmd_tgmusic:          "command /m64\\_toggle\\_music cancel events:on_exec_toggle_music persistent"

@@ -1,0 +1,3 @@
+events:
+  init_commands:          "folder init_cmd_tgmusic"
+  deit_commands:          "folder deit_cmd_tgmusic"
