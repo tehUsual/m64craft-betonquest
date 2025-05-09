@@ -75,26 +75,30 @@ events:
   on_exit:                      "folder reset_castle,e_tp_overworld"
   #set_default_texture_pack:     "folder restoreTexturePack delay:2"
 
-  init_castle:                  "folder add_level_entries,add_teleports,e_obj_add_exit_dim,init_abilities,init_commands"
-  reset_castle:                 "folder del_level_entries,del_teleports,e_obj_del_exit_dim,e_reset_tests,reset_abilities,reset_commands,core-music.e_stop_music,e_tag_del_unlock_ss2"
+  init_castle:                  "folder add_level_entries,add_teleports,e_obj_add_exit_dim,init_abilities,core-commands.init_commands"
+  reset_castle:                 "folder del_level_entries,del_teleports,e_obj_del_exit_dim,e_reset_tests,reset_abilities,core-commands.deit_commands,core-music.e_stop_music,e_tag_del_unlock_ss2"
   tp_castle:                    "command warp marocastle %player%"
   tp_tutorial:                  "command warp maroentry %player%"
 
   e_dummy:                      "tag add dummy"
 
   ### Init abilities
-  init_abilities:               "folder init_wahoo,init_waha,e_obj_add_new_wahoo,e_obj_add_new_waha,e_obj_add_get_texturepack"
+  init_normal_abilities:        "folder core-abilities-normal-wahoo.init_wahoo,core-abilities-normal-waha.init_waha"
+  giveWahoo:                    "folder core-abilities-normal-wahoo.e_give_wahoo"
+  giveWaha:                     "folder core-abilities-normal-waha.e_give_waha"
+
+  init_abilities:               "folder init_normal_abilities,e_obj_add_new_wahoo,e_obj_add_new_waha,e_obj_add_get_texturepack"
   e_obj_add_new_wahoo:          "objective add o_get_new_wahoo"
   e_obj_add_new_waha:           "objective add o_get_new_waha"
-  #e_obj_add_new_wahoo2:         "objective add o_get_new_wahoo2"
-  #e_obj_add_new_waha2:          "objective add o_get_new_waha2"
   e_obj_add_get_texturepack:    "objective add o_get_texture_pack"
 
-  reset_abilities:              "folder reset_wahoo,reset_waha,e_obj_del_new_wahoo,e_obj_del_new_waha,e_obj_del_get_texturepack"
+  deit_normal_abilities:        "folder core-abilities-normal-wahoo.deit_wahoo,core-abilities-normal-waha.deit_waha"
+  takeWahoo:                    "folder core-abilities-normal-wahoo.e_take_wahoo"
+  takeWaha:                     "folder core-abilities-normal-waha.e_take_waha"
+
+  reset_abilities:              "folder deit_normal_abilities,e_obj_del_new_wahoo,e_obj_del_new_waha,e_obj_del_get_texturepack"
   e_obj_del_new_wahoo:          "objective remove o_get_new_wahoo"
   e_obj_del_new_waha:           "objective remove o_get_new_waha"
-  #e_obj_del_new_wahoo2:         "objective remove o_get_new_wahoo2"
-  #e_obj_del_new_waha2:          "objective remove o_get_new_waha2"
   e_obj_del_get_texturepack:    "objective remove o_get_texture_pack"
 
 
@@ -227,9 +231,6 @@ objectives:
   o_get_new_wahoo:              "action right any loc:$get_wahoo_loc$ events:giveWahoo persistent"
   o_get_new_waha:               "action right any loc:$get_waha_loc$ events:giveWaha persistent"
   o_get_texture_pack:           "action right any loc:$get_texture_pack$ events:getTexturePack persistent"
-
-  o_get_new_wahoo2:             "action right any loc:$get_wahoo2_loc$ events:giveWahoo2 persistent"
-  #o_get_new_waha2:              "action right any loc:$get_waha2_loc$ events:giveWaha2 persistent"
 
   # Castle
   o_enter_lobby:                "region lobby_enter enter events:e_tp_lobby persistent"
